@@ -1,0 +1,27 @@
+.banner {
+    height: 750px;
+    background: url('../../../public/banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    .content{
+        color: var(--white);
+        padding: 64px 90px;
+        max-width: 900px;
+    }
+    .title{
+        font-size: 52px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    .line{
+        margin: 32px 0;
+    }
+    .text{
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 44px;
+    }
+}

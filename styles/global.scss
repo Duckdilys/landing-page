@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+}
+:root{
+    --orange-primary: #FF4E16;
+    --background-primary: linear-gradient(96.61deg, #FF4E16 2.13%, #FB6535 96.62%);
+    --black-primary: #1D1D1D;
+    --white: #fff;
+    --fs-normal: 16px;
+    --fs-large: 20px;
+    --shadow-primary: 0px 8px 40px rgba(255, 78, 22, 0.2);
+    --shadow-dark: 0px 2px 8px rgba(0,0,0, .16);
+    --border-color: #888888;
+    --light-orange: #FFEDE8;
+    --less-dark-orange: #FD7D55;
+    --darker-orange: #FF6432;
+}
+
+.d-flex {
+    display: flex;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.justify-content-end{
+    justify-content: flex-end;
+}
+.justify-content-between{
+    justify-content: space-between;
+}
+.align-items-center{
+    align-items: center;
+}
