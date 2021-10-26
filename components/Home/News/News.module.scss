@@ -1,0 +1,41 @@
+.container{
+    background: var(--light-gray);
+    padding: 64px 0;
+    margin: 120px 0;
+}
+.contain{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.button-left{
+    left: 36px;
+}
+.button-right{
+    right: 36px;
+}
+.button-left, .button-right{
+    svg{
+        width: 16px;
+        height: 32px;
+    }
+    &:hover{
+        svg{
+            color: var(--orange-primary);
+        }
+    }
+}
+.grid{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 23px;
+    h5{
+        font-size: 20px;
+        text-transform: uppercase;
+        color: var(--orange-primary);
+    }
+}
+.button{
+    margin-top: 23px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

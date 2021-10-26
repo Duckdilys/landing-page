@@ -5,6 +5,8 @@ import LayoutContainer from '../container/layout/LayoutContainer/LayoutContainer
 import Grid from './Grid/Grid';
 import Button from './Button/Button';
 import SkeletonLoading from '../container/SkeletonLoading/SkeletonLoading';
+import SwiperContainer from '../container/Swiper/Swiper';
+import Image from './Image/Image'
 export {
     Logo,
     Line,
@@ -12,5 +14,7 @@ export {
     Container,
     Grid,
     Button,
-    SkeletonLoading
+    SkeletonLoading,
+    SwiperContainer,
+    Image
 }

@@ -1,0 +1,33 @@
+.slide {
+  position: relative;
+  .content {
+    color: var(--white);
+    position: absolute;
+    bottom: 0;
+    padding: 32px;
+    span {
+      padding: var(--xs-size) var(--sm-size);
+      background: rgba(var(--overlay));
+      font-size: var(--fs-small);
+      margin-bottom: var(--sm-size);
+      display: inline-block;
+    }
+    a {
+      text-decoration: none;
+      color: var(--white) !important;
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      line-height: 44px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
+    p {
+      margin: 0;
+    }
+    text-transform: uppercase;
+  }
+}

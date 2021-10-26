@@ -12,7 +12,7 @@
         font-size: 16px;
         transition: all .35s ease-in-out;
         &:hover{
-            color: var(--orange-primary);
+            color: var(--orange-primary) !important;
         }
     }
     margin: 0;

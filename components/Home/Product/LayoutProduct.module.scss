@@ -27,6 +27,7 @@
     border-radius: 50%;
     background: var(--light-orange);
   }
+  transition: all .35s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow: hidden;
   &:hover{
       .show--container{
@@ -36,6 +37,7 @@
       .show--container[data-transition-delay="500"]{
         display: none;
       }
+      box-shadow: var(--shadow-primary);
   }
 }
 
@@ -60,6 +62,8 @@
     background: var(--less-dark-orange);
     border: none;
     margin-top: 40px;
+    text-transform: uppercase;
+    color: var(--white);
   }
   .line {
     margin: 32px 0;
