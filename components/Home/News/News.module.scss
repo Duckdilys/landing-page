@@ -18,9 +18,13 @@
         width: 16px;
         height: 32px;
     }
+    svg,
+    path{
+        transition: all .35 ease;
+    }
     &:hover{
-        svg{
-            color: var(--orange-primary);
+        path{
+            stroke: var(--orange-primary);
         }
     }
 }

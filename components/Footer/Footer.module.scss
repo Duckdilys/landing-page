@@ -1,0 +1,62 @@
+@import '../../theme/fixing';
+.footer{
+    background: var(--light-gray);
+    padding: 64px 0;
+    @extend .container;
+    margin-bottom: 0;
+}
+.logo{
+    min-width: 100px !important;
+    margin: 0 !important;
+    min-height: 68px !important;
+}
+.grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+.container-footer{
+    margin: 0 auto;
+}
+.list{
+    list-style: none;
+    padding-top: 24px;
+    padding-left: 0;
+    li{
+        padding-bottom: 16px;
+        &:last-child{
+            padding: 0;
+        }
+    }
+    a{
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+.text{
+    span{
+        font-weight: 400;
+        letter-spacing: .5px;
+        margin-left: 10px;
+        color: var(--black-primary);
+    }
+}
+.list-contact{
+    @extend .list;
+    li{
+        display: flex;
+        align-items: center;
+        font-size: var(--fs-small);
+        &:first-child{
+            font-size: var(--fs-normal);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+    a{
+        text-transform: none;
+    }
+    span, a{
+        font-weight: 400;
+        padding-left: 18px;
+    }
+}

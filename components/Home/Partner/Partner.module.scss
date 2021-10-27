@@ -1,0 +1,41 @@
+@import '../../../theme/fixing';
+.container-middle{
+    @include title();
+}
+.container-bg{
+    margin-top: 0;
+    padding: 72px 0;
+    margin-bottom: 0;
+}
+.swiper{
+    padding: 0;
+}
+.background{
+    background-color: var(--light-gray);
+}
+.left, .right{
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: 0px 8px 40px rgba(91, 91, 91, 0.2);
+    transition: all .35s ease-in-out;
+    path{
+        stroke: var(--orange-primary);
+        stroke-width: 4;
+    }
+    svg{
+        width: var(--sm-size);
+        height: 24px;
+    }
+    &:hover{
+        box-shadow: var(--shadow-primary);
+        background: var(--orange-primary);
+        path{
+            stroke: var(--white);
+        }
+    }
+}

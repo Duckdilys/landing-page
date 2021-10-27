@@ -8,9 +8,9 @@
     transform: translateY(-50%);
     z-index: 25;
     cursor: pointer;
-    transition: all .35s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all .35s ease-in-out;
     svg{
-        transition: all .35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all .35s ease-in-out;
     }
 }
 .left{

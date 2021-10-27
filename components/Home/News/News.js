@@ -1,20 +1,16 @@
-import { LayoutContainer, SwiperContainer, Grid, Button } from "../../container";
-import React, { useEffect } from "react";
+import {
+  LayoutContainer,
+  SwiperContainer,
+  Grid,
+  Button,
+} from "../../container";
+import React from "react";
 import { SwiperSlide } from "swiper/react";
 import { Row, Col } from "react-bootstrap";
 import styles from "./News.module.scss";
 import Slide from "./Slide/Slide";
 import New from "./New/New";
-import useFetch from '../../../hook/use-fetch';
 const News = () => {
-  
-    const {isLoading, fetchDataFromServer, error, data} = useFetch();
-    useEffect(() => {
-        fetchDataFromServer({
-          url: '/api/fake-post'
-        })
-    }, [fetchDataFromServer]);
-    console.log(data);
   return (
     <div className={styles.container}>
       <LayoutContainer className={styles.contain}>

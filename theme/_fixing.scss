@@ -5,3 +5,26 @@
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+
+.container {
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+@mixin title {
+  h4 {
+    padding-bottom: 48px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+@mixin container-item {
+  .container{
+    @extend .container;
+    @include title();
+  }
+}
