@@ -6,7 +6,8 @@ import Grid from './Grid/Grid';
 import Button from './Button/Button';
 import SkeletonLoading from '../container/SkeletonLoading/SkeletonLoading';
 import SwiperContainer from '../container/Swiper/Swiper';
-import Image from './Image/Image'
+import Image from './Image/Image';
+import Card from './Card/Card'
 export {
     Logo,
     Line,
@@ -16,5 +17,6 @@ export {
     Button,
     SkeletonLoading,
     SwiperContainer,
-    Image
+    Image,
+    Card
 }

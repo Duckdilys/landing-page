@@ -1,6 +1,5 @@
 import { Swiper } from "swiper/react";
 import React, { useRef } from "react";
-import Image from "next/image";
 import styles from "./Swiper-Container.module.scss";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { ArrowLeft } from "../../../public/Icon";

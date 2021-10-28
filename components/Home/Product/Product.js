@@ -1,5 +1,5 @@
 import React from "react";
-import { LayoutContainer, Grid } from "../../container";
+import { LayoutContainer, Grid, Card } from "../../container";
 import LayoutProduct from "./LayoutProduct";
 
 const Product = ({ product }) => {
