@@ -3,8 +3,8 @@ import styles from "./Container.module.scss";
 const Container = (props) => {
   return (
     <ContainerItem
+      {...props}
       className={`${styles.container} ${props.className}`}
-      {...props.options}
     >
       {props.children}
     </ContainerItem>

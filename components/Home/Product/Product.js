@@ -1,37 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { LayoutContainer, Grid, SkeletonLoading } from "../../container";
+import React from "react";
+import { LayoutContainer, Grid } from "../../container";
 import LayoutProduct from "./LayoutProduct";
-import dataFake from "./FakeData/FakeData";
-const Product = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    // fetch data from server axios.get
-    setIsLoading(true);
-    const timeout = setTimeout(() => {
-      setData(dataFake);
-    }, 500);
-    setIsLoading(false);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+
+const Product = ({ product }) => {
   return (
     <LayoutContainer>
-      <h4>Sản phẩm</h4>
+      <h4 data-aos='zoom-in'>Sản phẩm</h4>
       <Grid>
-        {!isLoading &&
-          data &&
-          data.map((item) => {
+        {product.map((item, index) => {
+          if(index % 2 == 0){
             return (
               <LayoutProduct
+                aos="fade-up"
                 key={item.title}
                 src={item.src}
                 title={item.title}
                 content={item.content}
               />
             );
-          })}
+          }
+          return (
+            <LayoutProduct
+              aos="fade-down"
+              key={item.title}
+              src={item.src}
+              title={item.title}
+              content={item.content}
+            />
+          );
+        })}
       </Grid>
     </LayoutContainer>
   );

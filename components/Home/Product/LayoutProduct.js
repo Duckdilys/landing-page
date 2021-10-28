@@ -4,9 +4,9 @@ import Link from "next/link";
 import styles from "./LayoutProduct.module.scss";
 import Icon from "./Icon/Icon";
 import { Line, Button } from "../../container";
-const LayoutProduct = ({ children, title, content, className, src, path }) => {
+const LayoutProduct = ({ children, title, content, className, src, path, aos }) => {
   return (
-    <div className={`${styles.layout} ${className} position-relative `}>
+    <div data-aos={aos} className={`${styles.layout} ${className} position-relative`}>
       <Icon />
       <h4>{title}</h4>
       <div className={styles.image}>

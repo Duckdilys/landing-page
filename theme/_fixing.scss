@@ -1,8 +1,8 @@
-@mixin show-n-line {
+@mixin show-n-line($value) {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-line-clamp: $value;
   -webkit-box-orient: vertical;
 }
 
@@ -12,7 +12,7 @@
 }
 @mixin title {
   h4 {
-    padding-bottom: 48px;
+    padding-bottom: 48px !important;
     margin: 0;
     font-weight: 700;
     font-size: 40px;

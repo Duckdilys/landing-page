@@ -35,7 +35,10 @@ const Footer = () => {
     <footer className={styles.footer}>
       <LayoutContainer className={styles["container-footer"]}>
         <Grid className={styles.grid}>
-          <div className={`d-flex flex-column justify-content-between`}>
+          <div
+            data-aos="fade-right"
+            className={`d-flex flex-column justify-content-between`}
+          >
             <Logo className={styles.logo} />
             <div className={`d-flex align-items-center ${styles.text}`}>
               <Image
@@ -48,29 +51,33 @@ const Footer = () => {
             </div>
           </div>
           <ul className={styles.list}>
-            {paths.map((item) => {
+            {paths.map((item, index) => {
               return (
-                <li key={item.name}>
+                <li
+                  data-aos="fade-up"
+                  data-aos-delay={index * 250}
+                  key={item.name}
+                >
                   <Link href={item.path}>{item.name}</Link>
                 </li>
               );
             })}
           </ul>
-          <ul className={styles['list-contact']}>
-            <li>Thông tin liên hệ</li>
-            <li>
+          <ul className={styles["list-contact"]}>
+            <li data-aos="fade-up">Thông tin liên hệ</li>
+            <li data-aos="fade-up" data-aos-delay={250}>
               <Image src="/Icon/house-icon.svg" alt="" width="20" height="20" />
               <span>Văn phòng Số 24, ngõ 224 Trung Kính, Hà Nội</span>
             </li>
-            <li>
+            <li data-aos="fade-up" data-aos-delay={500}>
               <Image src="/Icon/mail-icon.svg" alt="" width="20" height="20" />
               <span>Email: contact@mhsolution.vn</span>
             </li>
-            <li>
+            <li data-aos="fade-up" data-aos-delay={750}>
               <Image src="/Icon/phone-icon.svg" alt="" width="20" height="20" />
               <span>Điện thoại: 0975718168</span>
             </li>
-            <li>
+            <li data-aos="fade-up" data-aos-delay={1000}>
               <Image src="/Icon/web-icon.svg" alt="" width="20" height="20" />
               <a
                 rel="noreferrer"

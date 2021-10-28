@@ -10,13 +10,13 @@ import { Row, Col } from "react-bootstrap";
 import styles from "./News.module.scss";
 import Slide from "./Slide/Slide";
 import New from "./New/New";
-const News = () => {
+const News = ({ news }) => {
   return (
     <div className={styles.container}>
       <LayoutContainer className={styles.contain}>
-        <h4>Tin Tức</h4>
+        <h4 data-aos="zoom-in">Tin Tức</h4>
         <Row>
-          <Col xs={12} sm={12} md={6} lg={6}>
+          <Col data-aos="fade-right" xs={12} sm={12} md={6} lg={6}>
             <SwiperContainer
               config={{
                 speed: 1000,
@@ -27,37 +27,37 @@ const News = () => {
               loop
               pagination
             >
-              <SwiperSlide>
-                <Slide
-                  src={"/Rectangle 134.png"}
-                  type="Tin Dashboard"
-                  title="Dashboard điều hành HSSK"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Slide
-                  src={"/Rectangle 134.png"}
-                  type="Tin Dashboard"
-                  title="Dashboard điều hành HSSK"
-                />
-              </SwiperSlide>
+              {news.map((item, index) => {
+                if (index <= 1) {
+                  return (
+                    <SwiperSlide key={index}>
+                      <Slide
+                        src={item.image}
+                        type={item.type}
+                        title={item.title}
+                      />
+                    </SwiperSlide>
+                  );
+                }
+              })}
             </SwiperContainer>
           </Col>
-          <Col xs={12} sm={12} md={6} lg={6}>
+          <Col data-aos="fade-left" xs={12} sm={12} md={6} lg={6}>
             <Grid className={styles.grid}>
               <h5>Tin gần đây</h5>
-              <New
-                src={"/Rectangle 186.png"}
-                title="Bao cao"
-                content="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, quas?"
-                date="1/1/2020"
-              />
-              <New
-                src={"/Rectangle 186.png"}
-                title="Bao cao"
-                content="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, quas?"
-                date="1/1/2020"
-              />
+              {news.map((item, index) => {
+                if (index > 1) {
+                  return (
+                    <New
+                      key={index}
+                      src={item.image}
+                      title={item.title}
+                      content={item.content}
+                      date={item.date}
+                    />
+                  );
+                }
+              })}
             </Grid>
             <Button className={styles.button}>Xem tất cả</Button>
           </Col>
@@ -66,5 +66,4 @@ const News = () => {
     </div>
   );
 };
-
 export default News;

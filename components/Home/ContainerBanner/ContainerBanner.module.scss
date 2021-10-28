@@ -7,11 +7,10 @@
     position: relative;
     .content{
         color: var(--white);
-        padding: 64px 90px;
-        max-width: 900px;
+        padding-bottom: 120px;
     }
     .title{
-        font-size: 52px;
+        font-size: 48px;
         text-transform: uppercase;
         font-weight: bold;
         letter-spacing: 1px;
@@ -20,8 +19,13 @@
         margin: 32px 0;
     }
     .text{
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 400;
-        line-height: 44px;
+        line-height: 36px;
     }
+}
+
+.container{
+    margin-bottom: 0;
+    margin-top: 0;
 }

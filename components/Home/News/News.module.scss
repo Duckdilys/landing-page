@@ -1,3 +1,4 @@
+@import '../../../theme/fixing';
 .container{
     background: var(--light-gray);
     padding: 64px 0;
@@ -6,6 +7,7 @@
 .contain{
     margin-top: 0;
     margin-bottom: 0;
+    @include title();
 }
 .button-left{
     left: 36px;

@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import styles from "./Swiper-Container.module.scss";
 import SwiperCore, { Navigation, Pagination } from "swiper";
-import { ArrowLeft, ArrowRight } from "../../../public/Icon";
+import { ArrowLeft } from "../../../public/Icon";
 SwiperCore.use([Navigation, Pagination]);
 const SwiperContainer = ({
   children,
@@ -14,11 +14,13 @@ const SwiperContainer = ({
   navigation,
   pagination,
   config,
+  aos
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
     <Swiper
+      aos={aos}
       slidesPerView={slidesPerView || "auto"}
       onInit={
         navigation

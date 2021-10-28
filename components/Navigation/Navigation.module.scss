@@ -1,25 +1,35 @@
-.container{
-    height: 100px;
+.container {
+  height: 100px;
 }
-.nav{
-    height: 100%;
+.nav {
+  height: 100%;
 }
-.paths{
-    a{
-        text-decoration: none;
-        color: var(--black);
-        text-transform: uppercase;
-        font-size: 16px;
-        transition: all .35s ease-in-out;
-        &:hover{
-            color: var(--orange-primary) !important;
-        }
-        font-weight: 600;
+.paths {
+  a {
+    text-decoration: none;
+    color: var(--black);
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: all 0.35s ease-in-out;
+    &:hover {
+      color: var(--orange-primary) !important;
     }
-    margin: 0;
-    list-style: none;
-    li{
-        height: 100%;
-        margin: 0 18px;
+    font-weight: 600;
+  }
+  margin: 0;
+  list-style: none;
+  li {
+    height: 100%;
+    padding: 0 18px;
+  }
+}
+.dropdown{
+    img{
+        position: absolute;
+        width: 10px;
+        height: 13px;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }

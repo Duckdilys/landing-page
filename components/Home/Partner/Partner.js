@@ -8,7 +8,7 @@ const Partner = () => {
     // fake slider
     for (let i = 0; i < number; i++) {
       array.push(
-        <SwiperSlide className="position-relative" key={i}>
+        <SwiperSlide data-aos="fade-up" className="position-relative" key={i}>
           <Image layout="fill" src={"/partner.png"} alt="" />
         </SwiperSlide>
       );
@@ -17,8 +17,8 @@ const Partner = () => {
   };
   return (
     <div className={styles["container-middle"]}>
-      <h4>Đối tác</h4>
-      <div className={styles.background}>
+      <h4 data-aos="zoom-in">Đối tác</h4>
+      <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" className={styles.background}>
         <LayoutContainer className={styles["container-bg"]}>
           <SwiperContainer
             className={styles.swiper}
