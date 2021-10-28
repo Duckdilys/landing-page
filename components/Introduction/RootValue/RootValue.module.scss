@@ -1,0 +1,70 @@
+@import '../../../theme/fixing';
+.container{
+    @extend .container;
+    @include title();
+    h4{
+        font-size: 24px;
+        padding: 0 !important;
+    }
+    line-height: 26px;
+    h5{
+        text-transform: uppercase;
+        font-size: var(--fs-normal);
+        color: var(--orange-primary);
+    }
+    .intro{
+        padding: var(--size-space) var(--fs-normal);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    margin: 0 auto;
+}
+.container-bg{
+    background: var(--dark-gray);
+    padding: 64px 15px 78px 15px;
+    margin-top: 210px;
+    margin-bottom: var(--space);
+}
+.big-circle{
+    max-width: 480px;
+    min-height: 480px;
+    margin: 65px auto 0 auto;
+    border: 1px solid var(--orange-primary);
+}
+.small-circle{
+    min-width: 175px;
+    min-height: 175px;
+    border: 9px solid var(--white);
+    background: var(--orange-primary-light);
+    &::before{
+        content: '';
+        position: absolute;
+        top: -18px;
+        bottom: -18px;
+        left: -18px;
+        right: -18px;
+        border-radius: 50%;
+        border: 1px solid var(--orange-primary);
+    }
+}
+@mixin translate-circle($number) {
+    
+}
+.container-circle{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    .circle-element{
+        position: absolute;
+        top: -30px;
+        &:nth-of-type(1){
+            right: 35%;
+            transform: translateX(-50%);
+        }
+    }
+}

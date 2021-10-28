@@ -22,6 +22,7 @@
   --fs-small: 14px;
   --fs-normal: 16px;
   --fs-large: 20px;
+  --size-space: 32px;
   --shadow-primary: 0px 8px 40px rgba(255, 78, 22, 0.2);
   --shadow-dark: 0px 2px 8px rgba(0, 0, 0, 0.16);
   --border-color: #888888;
@@ -32,31 +33,39 @@
   --sm-size: 12px;
   --xs-size: 8px;
   --space: 120px;
-  --light-black: #45403E;
-  --button-primary: #45403E;
+  --light-black: #45403e;
+  --button-primary: #45403e;
   --overlay: 0, 0, 0, 0.45;
+  --box-shadow: 0px 20px 100px rgba(91, 91, 91, 0.2);
+  --light-shadow: 0px 20px 40px rgba(48, 151, 245, 0.2);
+  --radius: 10px;
+  --md-radius: 15px;
+  --dark-gray: #fafafa;
+  --orange-primary-light: #faf7f7;
 }
 a {
   text-decoration: none;
   color: var(--black) !important;
 }
-p, ul, h5, ol{
+p,
+ul,
+h5,
+ol {
   margin-bottom: 0;
 }
-.swiper-pagination{
+.swiper-pagination {
   bottom: 0 !important;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.swiper-pagination-bullet{
-  transition: all .15s ease-in-out;
+.swiper-pagination-bullet {
+  transition: all 0.15s ease-in-out;
   // lack of ideas!
 }
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   width: 16px !important;
   height: 16px !important;
   background: transparent !important;
   border: 2px solid var(--orange-primary);
 }
-

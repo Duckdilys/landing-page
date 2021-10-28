@@ -1,9 +1,13 @@
-import { Line, LayoutContainer } from "../../container";
+import {
+  Line,
+  LayoutContainer,
+  ContainerBanner as Container,
+} from "../../container";
 import styles from "./ContainerBanner.module.scss";
 
 const ContainerBanner = () => {
   return (
-    <div
+    <Container
       className={`${styles.banner} d-flex justify-content-start align-items-end`}
     >
       <LayoutContainer className={styles.container}>
@@ -16,7 +20,7 @@ const ContainerBanner = () => {
           </p>
         </div>
       </LayoutContainer>
-    </div>
+    </Container>
   );
 };
 

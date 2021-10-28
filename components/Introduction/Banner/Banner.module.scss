@@ -1,0 +1,20 @@
+.container {
+  background: url("/Image.png");
+  z-index: 1;
+  position: static;
+}
+.box-container {
+  padding: 64px 64px 81px 64px;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  margin-top: -200px;
+  z-index: 5;
+  line-height: 28px;
+  h4 {
+    letter-spacing: 0.5px;
+    font-size: 40px;
+    padding-bottom: 32px;
+    color: var(--orange-primary);
+  }
+  border-radius: 20px;
+}
