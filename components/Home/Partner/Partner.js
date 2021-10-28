@@ -2,7 +2,7 @@ import React from "react";
 import { LayoutContainer, SwiperContainer, Image } from "../../container";
 import styles from "./Partner.module.scss";
 import { SwiperSlide } from "swiper/react";
-const Partner = () => {
+const Partner = (props) => {
   const _renderSlider = (number) => {
     const array = [];
     // fake slider
@@ -16,7 +16,7 @@ const Partner = () => {
     return array;
   };
   return (
-    <div className={styles["container-middle"]}>
+    <div className={`${styles["container-middle"]} ${props.className}`}>
       <h4 data-aos="zoom-in">Đối tác</h4>
       <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" className={styles.background}>
         <LayoutContainer className={styles["container-bg"]}>

@@ -1,0 +1,12 @@
+@import '../theme/fixing';
+.right{
+    right: 0;
+    left: auto;
+}
+.line{
+    margin-top: 0 !important;
+    margin-bottom: 0;
+}
+.top{
+    @extend .container;
+}

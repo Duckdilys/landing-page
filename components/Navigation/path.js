@@ -5,7 +5,7 @@ const paths = [
     },
     {
         name: 'Giới thiệu',
-        path: '/gioi-thieu'
+        path: '/introduction'
     },
     {
         name: 'Sản phẩm',
