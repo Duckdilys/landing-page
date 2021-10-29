@@ -1,38 +1,39 @@
 import React from "react";
 import Banner from "../components/Introduction/Banner/Banner";
 import Line from "../components/Introduction/Line/Line";
-import styles from '../styles/styles.module.scss';
+import styles from "../styles/styles.module.scss";
 import RootValue from "../components/Introduction/RootValue/RootValue";
-import Partner from '../components/Home/Partner/Partner';
+import Partner from "../components/Home/Partner/Partner";
+import Competitive from "../components/Introduction/Competitive/Competitive";
 
 const fakeDataCircle = [
-    {
-        title: 'Sáng tạo',
-        backgroundColor: '#FF8C4B',
-        shadow: '0px 20px 40px rgba(255, 78, 22, 0.2)'
-    },
-    {
-        title: 'Chủ động',
-        backgroundColor: '#27AE60',
-        shadow: '0px 20px 40px rgba(39, 174, 96, 0.2)'
-    },
-    {
-        title: 'Đồng đội',
-        backgroundColor: '#3097F5',
-        shadow: '0px 20px 40px rgba(48, 151, 245, 0.2)'
-    },
-    {
-        title: "Trách Nhiệm",
-        backgroundColor: '#27AE60',
-        shadow: '0px 20px 40px rgba(39, 174, 96, 0.2)'
-    },
-    {
-        title: 'Khách hàng',
-        backgroundColor: '#3097F5',
-        shadow: '0px 20px 40px rgba(48, 151, 245, 0.2)'
-    }
-]
-const Introduction = () => {
+  {
+    title: "Sáng tạo",
+    backgroundColor: "#FF8C4B",
+    shadow: "0px 20px 40px rgba(255, 78, 22, 0.2)",
+  },
+  {
+    title: "Chủ động",
+    backgroundColor: "#27AE60",
+    shadow: "0px 20px 40px rgba(39, 174, 96, 0.2)",
+  },
+  {
+    title: "Đồng đội",
+    backgroundColor: "#3097F5",
+    shadow: "0px 20px 40px rgba(48, 151, 245, 0.2)",
+  },
+  {
+    title: "Trách Nhiệm",
+    backgroundColor: "#27AE60",
+    shadow: "0px 20px 40px rgba(39, 174, 96, 0.2)",
+  },
+  {
+    title: "Khách hàng",
+    backgroundColor: "#3097F5",
+    shadow: "0px 20px 40px rgba(48, 151, 245, 0.2)",
+  },
+];
+const Introduction = ({ data }) => {
   return (
     <>
       <section style={{ background: "#E5E5E5" }}>
@@ -46,15 +47,23 @@ const Introduction = () => {
         <Line
           title="Dẫn đầu các xu hướng công nghệ mới. Mang tới giải pháp, dịch vụ và kinh doanh toàn diện đến cho khách hàng."
           mainTitle="Sứ mệnh"
-          src={'/unsplash_eiMzJl3xj4o.png'}
+          src={"/unsplash_eiMzJl3xj4o.png"}
           className={`flex-row ${styles.line}`}
           classText={styles.right}
         />
       </section>
-      <RootValue data={fakeDataCircle}/>
-      <Partner className={styles.top}/>
+      <RootValue data={data} />
+      <Competitive/>
+      <Partner className={styles.top} />
     </>
   );
 };
 
+export const getStaticProps = async () => {
+  return {
+    props: {
+      data: fakeDataCircle,
+    },
+  };
+};
 export default Introduction;

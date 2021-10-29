@@ -1,0 +1,7 @@
+.line{
+    background: var(--black);
+    height: 1px;
+}
+.grid{
+    grid-template-columns: repeat(3, 1fr);
+}

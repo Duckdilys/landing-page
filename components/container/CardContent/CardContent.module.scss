@@ -1,0 +1,25 @@
+.card{
+    padding: var(--size-space) var(--size-space) 60px var(--size-space);
+    .title{
+        font-weight: var(--weight-700);
+        font-size: var(--fs-large);
+        text-transform: uppercase;
+    }
+    border: 1px solid var(--border-black);
+    border-radius: var(--radius);
+    .line{
+        margin: var(--size-space) 0;
+    }
+    .content{
+        font-weight: var(--weight-400);
+        letter-spacing: 1px;
+        line-height: 28px;
+    }
+    .image{
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: var(--light-orange);
+        margin-bottom: 24px;
+    }
+}

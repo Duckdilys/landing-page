@@ -4,7 +4,7 @@ const Circle = (props) => {
   return (
     <div
       {...props}
-      className={`d-flex justify-content-center align-items-center rounded-circle ${styles.circle}`}
+      className={`d-flex justify-content-center align-items-center rounded-circle position-relative ${styles.circle}`}
     >
       {props.children}
     </div>
