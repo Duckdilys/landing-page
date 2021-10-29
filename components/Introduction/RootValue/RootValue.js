@@ -28,9 +28,28 @@ const RootValue = ({ data }) => {
           <div className={styles["container-circle"]}>
             {data.map((item, index) => {
               return (
-                <div className={styles["circle-element"]} key={item.title}>
-                  <Circle style={{background: item.backgroundColor}}>{index + 1}</Circle>
-                  <span>{item.title}</span>
+                <div
+                  style={{
+                    transform: `rotate(${
+                      Math.round(360 / data.length) * index
+                    }deg)`
+                  }}
+                  className={styles["circle-element"]}
+                  key={item.title}
+                >
+                  <div
+                    style={{
+                      transform: `rotate(-${
+                        Math.round(360 / data.length) * index
+                      }deg)`,
+                    }}
+                    className={`d-flex justify-content-center align-items-center flex-column ${styles.element}`}
+                  >
+                    <Circle style={{ background: item.backgroundColor, boxShadow: `${item.shadow}` }}>
+                      {index + 1}
+                    </Circle>
+                    <span className={styles.text}>{item.title}</span>
+                  </div>
                 </div>
               );
             })}
