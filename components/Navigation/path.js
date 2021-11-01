@@ -13,7 +13,7 @@ const paths = [
     },
     {
         name: 'Tin tức',
-        path: '/tin-tuc'
+        path: '/news'
     },
     {
         name: 'Tuyển dụng',

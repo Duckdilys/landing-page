@@ -26,6 +26,15 @@ const data = {
   other_products: dataFake.filter((item, index) => {
     return index !== dataFake.length - 1;
   }),
+  title_banner: "Giải pháp về hạ tầng và phân tích dữ liệu",
+  line_content: [
+    {
+      main_title: "Thông tin chi tiết",
+      title:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor egestas tempus elementum nulla. Non suspendisse vulputate leo tempor, nisi sit massa, ut tincidunt. Rhoncus maecenas mauris turpis facilisi lacus pharetra. Pretium scelerisque eget egestas volutpat volutpat malesuada. Aliquam nibh neque leo consectetur vitae leo.",
+      url: "/Products.png",
+    },
+  ],
 };
 const Products = ({ data }) => {
   return (
@@ -35,18 +44,21 @@ const Products = ({ data }) => {
         classNameBanner={styles.banner}
         classNameBox={styles.box}
       />
-      <TextImage
-        mainTitle="Thông tin chi tiết"
-        title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor egestas tempus elementum nulla. Non suspendisse vulputate leo tempor, nisi sit massa, ut tincidunt. Rhoncus maecenas mauris turpis facilisi lacus pharetra. 
-Pretium scelerisque eget egestas volutpat volutpat malesuada. Aliquam nibh neque leo consectetur vitae leo."
-        src={"/Products.png"}
-        className={`flex-row-reverse`}
-        aosImage="fade-left"
-        iconImage={null}
-        classText={styles.text}
-        aos="fade-right"
-        classNameContainer={styles.container}
-      />
+      {data.line_content.map((content, index) => {
+        return (
+          <TextImage
+            key={index}
+            mainTitle={content.main_title}
+            title={content.title}
+            src={content.url}
+            aosImage="fade-left"
+            iconImage={null}
+            classNameContainer={styles.container}
+            className="flex-row-reverse"
+            aos="fade-right"
+          />
+        );
+      })}
       <Introduction
         aos="fade-left"
         title="chúng tôi đã làm gì?"

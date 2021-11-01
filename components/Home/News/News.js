@@ -19,10 +19,11 @@ const News = ({ news }) => {
           <Col data-aos="fade-right" xs={12} sm={12} md={6} lg={6}>
             <SwiperContainer
               config={{
-                speed: 1000,
+                speed: 700,
                 left: styles["button-left"],
                 right: styles["button-right"],
               }}
+              className={styles.swiper}
               navigation
               loop
               pagination

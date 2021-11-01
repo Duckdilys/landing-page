@@ -1,0 +1,14 @@
+.swiper{
+    position: relative;
+}
+.pagination{
+    bottom: 110px !important;
+}
+.normal-pagination{
+    background: var(--gray-lighter) !important;
+    opacity: 1 !important;
+}
+.active-pagination{
+    background: transparent !important;
+    border-color: var(--white) !important;
+}

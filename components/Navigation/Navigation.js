@@ -8,7 +8,7 @@ const Navigation = () => {
   const [navIsScrolled, setNavIsScrolled] = useState(false);
   const scrollWindowHandler = useCallback(() => {
     const valueOffset = window.scrollY;
-    if (valueOffset > 50) {
+    if (valueOffset > 100) {
       setNavIsScrolled(true);
     } else {
       setNavIsScrolled(false);

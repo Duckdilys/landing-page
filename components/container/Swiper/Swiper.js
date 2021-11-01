@@ -13,7 +13,13 @@ const SwiperContainer = ({
   navigation,
   pagination,
   config,
-  aos
+  aos,
+  classNameNormalBullet,
+  classNameActiveBullet,
+  classActiveCurrent,
+  classActiveNext,
+  classActivePrev,
+  containerPagination
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -29,9 +35,22 @@ const SwiperContainer = ({
               swiper.navigation.init();
               swiper.navigation.update();
             }
-          : null
+          : () => {}
       }
-      pagination={pagination ? { clickable: true } : false}
+      pagination={
+        pagination
+          ? {
+              clickable: true,
+              bulletClass: `swiper-pagination-bullet ${classNameNormalBullet}`,
+              bulletActiveClass: `swiper-pagination-bullet-active ${classNameActiveBullet}`,
+              clickableClass: `.swiper-pagination-clickable ${containerPagination}`
+            }
+          : false
+      }
+      slideNextClass={`swiper-slide-next ${classActiveNext}`}
+      slideActiveClass={`swiper-slide-active ${classActiveCurrent}`}
+      slidePrevClass={`swiper-slide-prev ${classActivePrev}`}
+      
       className={`${styles.swiper} ${className}`}
       loop={loop ? true : false}
       autoplay={{
@@ -43,17 +62,17 @@ const SwiperContainer = ({
       {navigation && (
         <>
           <div
-            className={`${
-              config && config.left ? config.left : ""
-            } ${styles.left}`}
+            className={`${config && config.left ? config.left : ""} ${
+              styles.left
+            }`}
             ref={prevRef}
           >
             <ArrowLeft />
           </div>
           <div
-            className={`${
-              config && config.right ? config.right : ""
-            } ${styles.right}`}
+            className={`${config && config.right ? config.right : ""} ${
+              styles.right
+            }`}
             ref={nextRef}
           >
             <ArrowLeft />
