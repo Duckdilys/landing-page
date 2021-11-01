@@ -42,6 +42,12 @@ const Navigation = () => {
                         <Image src={"/Icon/arrow-bottom-icon.svg"} alt="" />
                       </a>
                     </Link>
+                    <ul className={styles['list-dropdown']}>
+                      <li><Link href="/">Giải pháp mạng xã hội nội bộ cho doanh nghiệp và tổ chức</Link></li>
+                      <li><Link href="/">Giải pháp mạng xã hội nội bộ cho doanh nghiệp và tổ chức</Link></li>
+                      <li><Link href="/">Giải pháp mạng xã hội nội bộ cho doanh nghiệp và tổ chức</Link></li>
+                      <li><Link href="/">Giải pháp mạng xã hội nội bộ cho doanh nghiệp và tổ chức</Link></li>
+                    </ul>
                   </li>
                 );
               }
