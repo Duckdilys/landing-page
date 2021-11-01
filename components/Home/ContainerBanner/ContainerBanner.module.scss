@@ -1,5 +1,4 @@
 .banner {
-    height: 750px;
     background: url('../../../public/banner.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -8,6 +7,7 @@
     .content{
         color: var(--white);
         padding-bottom: 120px;
+        max-width: 620px;
     }
     .title{
         font-size: 48px;

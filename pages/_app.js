@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     AOS.init({
       once: true,
-      offset: 150,
+      offset: 200,
       duration: 1000,
       delay: 200,
       anchorPlacement: 'top-center'

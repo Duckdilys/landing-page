@@ -19,7 +19,7 @@ const SwiperContainer = ({
   const nextRef = useRef(null);
   return (
     <Swiper
-      aos={aos}
+      data-aos={aos}
       slidesPerView={slidesPerView || "auto"}
       onInit={
         navigation
@@ -44,7 +44,7 @@ const SwiperContainer = ({
         <>
           <div
             className={`${
-              config.left ? config.left : ""
+              config && config.left ? config.left : ""
             } ${styles.left}`}
             ref={prevRef}
           >
@@ -52,7 +52,7 @@ const SwiperContainer = ({
           </div>
           <div
             className={`${
-              config.right ? config.right : ""
+              config && config.right ? config.right : ""
             } ${styles.right}`}
             ref={nextRef}
           >

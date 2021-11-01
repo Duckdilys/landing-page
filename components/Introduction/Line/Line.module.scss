@@ -10,6 +10,7 @@
 }
 .text{
     max-width: 600px;
+    box-shadow: var(--shadow-button-primary);
     img{
         width: 40px;
         height: var(--size-space);
@@ -18,7 +19,6 @@
         top: 50%;
         transform: translateY(-50%);
     }
-    border-radius: 15px;
     padding: 64px;
     position: absolute;
     background: rgba($color: #fff, $alpha: .8);
@@ -40,4 +40,5 @@
 .container-line{
     margin-top: 0;
     margin-bottom: 0;
+    padding-bottom: 64px;
 }

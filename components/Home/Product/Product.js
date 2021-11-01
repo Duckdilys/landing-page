@@ -5,7 +5,7 @@ import LayoutProduct from "./LayoutProduct";
 const Product = ({ product }) => {
   return (
     <LayoutContainer>
-      <h4 data-aos='zoom-in'>Sản phẩm</h4>
+      <h4>Sản phẩm</h4>
       <Grid>
         {product.map((item, index) => {
           if(index % 2 == 0){

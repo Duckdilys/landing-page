@@ -9,6 +9,7 @@
     border-radius: var(--radius);
     .line{
         margin: var(--size-space) 0;
+        transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
     }
     .content{
         font-weight: var(--weight-400);
@@ -21,5 +22,17 @@
         border-radius: 50%;
         background: var(--light-orange);
         margin-bottom: 24px;
+        transition: all .35s ease;
     }
+    transition: all .35s ease;
+    .bg{
+        background: var(--light-orange-primary);
+    }
+}
+.hover{
+    background: var(--orange-primary);
+    color: var(--white);
+}
+.hover-line{
+    background: var(--white) !important;
 }

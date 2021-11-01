@@ -10,6 +10,8 @@ import Image from './Image/Image';
 import Card from './Card/Card';
 import ContainerBanner from './ContainerBanner/ContainerBanner';
 import CardContent from './CardContent/CardContent';
+import ContainerSmall from './ContainerSmall/ContainerSmall';
+import Transition from './Transition/Transition';
 export {
     Logo,
     Line,
@@ -22,5 +24,7 @@ export {
     Image,
     Card,
     ContainerBanner,
-    CardContent
+    CardContent,
+    ContainerSmall,
+    Transition
 }

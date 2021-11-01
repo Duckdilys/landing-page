@@ -1,8 +1,9 @@
 .container {
-  height: 750px;
+  height: 100vh !important;
   background: url("../../../public/banner.png");
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  background-position: center center !important;
+  background-position: center !important;
   position: relative;
+  background-attachment: fixed !important;
 }

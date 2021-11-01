@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Line.module.scss";
 import { LayoutContainer, Image } from "../../container";
-const Line = ({ title, className, src, mainTitle, classText }) => {
+const Line = ({ title, className, src, mainTitle, classText, aosImage }) => {
   return (
     <LayoutContainer className={styles["container-line"]}>
       <div
@@ -16,7 +16,7 @@ const Line = ({ title, className, src, mainTitle, classText }) => {
           <Image src={"/icon.png"} alt="" />
           {title}
         </div>
-        <div data-aos="zoom-in" data-aos-delay={750} className={`position-relative ${styles.image}`}>
+        <div data-aos={aosImage || 'fade-right'} data-aos-delay={750} className={`position-relative ${styles.image}`}>
           <Image src={src} alt="" />
         </div>
       </div>

@@ -8,16 +8,19 @@ const RootValue = ({ data }) => {
     <div className={styles["container-bg"]}>
       <Container className={`text-center ${styles.container}`}>
         <h4>Giá trị cốt lõi</h4>
-        <p className={styles.intro}>
+        <p data-aos="fade-up" data-aos-offset={300} data-aos-delay={500} className={styles.intro}>
           Chúng tôi tập trung vào phát triển con người và văn hóa doanh nghiệp.
           Với 5 giá trị cốt lõi, nhân sự của chúng tôi luôn luôn phát triển và
           hoàn thiện với tinh thần{" "}
         </p>
-        <h5>
+        <h5 data-aos="fade-up" data-aos-offset={300} data-aos-delay={1000}>
           “Sáng tạo, chủ động, phát huy tính đồng đội, trách nhiệm với bản thân,
           công ty và khách hàng.”
         </h5>
         <div
+          data-aos="fade-up"
+          data-aos-delay={1500}
+          data-aos-offset={300}
           className={`rounded-circle d-flex justify-content-center align-items-center position-relative ${styles["big-circle"]}`}
         >
           <div
@@ -25,7 +28,7 @@ const RootValue = ({ data }) => {
           >
             <Logo width="120" height="80" />
           </div>
-          <div className={styles["container-circle"]}>
+          <div data-aos="fade-up" className={styles["container-circle"]}>
             {data.map((item, index) => {
               return (
                 <div

@@ -2,6 +2,7 @@
   font-family: "Nunito Sans";
   src: url("/Nunito_Sans/NunitoSans-Regular.ttf");
 }
+@import './transition.scss';
 * {
   padding: 0;
   margin: 0;
@@ -10,7 +11,8 @@
   font-size: 16px;
 }
 :root {
-  --orange-primary: #ff4e16;
+  --orange-primary: #ff4b14;
+  --orange-primary-rgb: 255, 75, 20;
   --background-primary: linear-gradient(
     96.61deg,
     #ff4e16 2.13%,
@@ -22,9 +24,11 @@
   --fs-small: 14px;
   --fs-normal: 16px;
   --fs-large: 20px;
+  --middle-space: 24px;
   --size-space: 32px;
   --shadow-primary: 0px 8px 40px rgba(255, 78, 22, 0.2);
   --shadow-dark: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  --shadow-button-primary: 0px 8px 40px rgba(91, 91, 91, 0.2);
   --border-color: #888888;
   --light-orange: #ffede8;
   --less-dark-orange: #fd7d55;
@@ -50,6 +54,7 @@
   --weight-1000: 1000;
   --weight-bold: bold;
   --border-black: #888888;
+  --light-orange-primary: #FF602D;
 }
 a {
   text-decoration: none;

@@ -11,7 +11,7 @@ const ContainerBanner = () => {
       className={`${styles.banner} d-flex justify-content-start align-items-end`}
     >
       <LayoutContainer className={styles.container}>
-        <div data-aos="fade-right" className={styles.content}>
+        <div data-aos="fade-up" className={styles.content}>
           <h3 className={styles.title}>Giải pháp 4.0</h3>
           <Line className={styles.line} />
           <p className={styles.text}>

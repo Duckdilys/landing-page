@@ -14,7 +14,7 @@ const News = ({ news }) => {
   return (
     <div className={styles.container}>
       <LayoutContainer className={styles.contain}>
-        <h4 data-aos="zoom-in">Tin Tức</h4>
+        <h4>Tin Tức</h4>
         <Row>
           <Col data-aos="fade-right" xs={12} sm={12} md={6} lg={6}>
             <SwiperContainer
