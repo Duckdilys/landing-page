@@ -5,7 +5,6 @@ import styles from "./SwiperBackground.module.scss";
 import Slide from "../Slide/Slide";
 
 const SwiperBackground = ({ posts }) => {
-  console.log(posts);
   return (
     <SwiperContainer
       className={styles.swiper}
@@ -14,8 +13,6 @@ const SwiperBackground = ({ posts }) => {
       delay={5000}
       slidesPerView={1}
       classActiveCurrent={styles.current}
-      classActiveNext={styles.remove}
-      classActivePrev={styles.remove}
       containerPagination={styles.pagination}
       classNameNormalBullet={styles["normal-pagination"]}
       classNameActiveBullet={styles["active-pagination"]}

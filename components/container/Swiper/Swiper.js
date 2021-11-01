@@ -17,8 +17,6 @@ const SwiperContainer = ({
   classNameNormalBullet,
   classNameActiveBullet,
   classActiveCurrent,
-  classActiveNext,
-  classActivePrev,
   containerPagination
 }) => {
   const prevRef = useRef(null);
@@ -47,10 +45,17 @@ const SwiperContainer = ({
             }
           : false
       }
-      slideNextClass={`swiper-slide-next ${classActiveNext}`}
-      slideActiveClass={`swiper-slide-active ${classActiveCurrent}`}
-      slidePrevClass={`swiper-slide-prev ${classActivePrev}`}
-      
+      onSlideChange = {function(){
+        this.slides.forEach((slide, index) => {
+          console.log(slide);
+          if(index === this.realIndex){
+            slide.classList.add(classActiveCurrent);
+          } else {
+            slide.classList.remove(classActiveCurrent);
+          }
+
+        })
+      }}
       className={`${styles.swiper} ${className}`}
       loop={loop ? true : false}
       autoplay={{
