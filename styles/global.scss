@@ -3,6 +3,7 @@
   src: url("/Nunito_Sans/NunitoSans-Regular.ttf");
 }
 @import './transition.scss';
+@import './grid.scss';
 * {
   padding: 0;
   margin: 0;
@@ -56,6 +57,7 @@
   --weight-bold: bold;
   --border-black: #888888;
   --light-orange-primary: #FF602D;
+  --letter-spacing: 1px;
 }
 a {
   text-decoration: none;

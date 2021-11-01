@@ -12,6 +12,9 @@ import ContainerBanner from './ContainerBanner/ContainerBanner';
 import CardContent from './CardContent/CardContent';
 import ContainerSmall from './ContainerSmall/ContainerSmall';
 import Transition from './Transition/Transition';
+import BoxLayout from './BoxLayout/BoxLayout';
+import BannerPage from './BannerPage/BannerPage';
+import TextImage from './TextImage/TextImage';
 export {
     Logo,
     Line,
@@ -26,5 +29,8 @@ export {
     ContainerBanner,
     CardContent,
     ContainerSmall,
-    Transition
+    Transition,
+    BoxLayout,
+    BannerPage,
+    TextImage 
 }

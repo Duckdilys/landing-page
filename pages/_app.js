@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
       offset: 200,
       duration: 1000,
       delay: 200,
-      anchorPlacement: 'top-center'
+      anchorPlacement: 'top-center',
     })
   }, []);
   return (

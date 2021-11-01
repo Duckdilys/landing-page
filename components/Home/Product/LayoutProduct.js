@@ -9,8 +9,8 @@ const LayoutProduct = ({ children, title, content, className, src, path, aos }) 
     <div data-aos={aos} className={`${styles.layout} ${className} position-relative`}>
       <Icon />
       <h4>{title}</h4>
-      <div className={styles.image}>
-        {src && <Image src={src} alt="" width="230" height="240" />}
+      <div className={`position-relative ${styles.image}`}>
+        {src && <Image src={src} alt="" width="100%" height="100%" layout="responsive" objectFit='cover'/>}
       </div>
       <div className={`${styles["show--container"]}`}>
         <Icon className={styles.color} src={'/project_icon_white.svg'}/>
