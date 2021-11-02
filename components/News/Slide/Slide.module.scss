@@ -24,8 +24,8 @@
   }
   color: var(--white);
   .container {
-    position: relative;
-    z-index: 100;
+    position: relative !important;
+    z-index: 100 !important;
     max-width: 800px;
     text-transform: uppercase;
     span {
@@ -47,3 +47,11 @@
     font-weight: bold;
   }
 }
+.text{
+  transition: all 1s ease-in-out;
+  transform: translateX(20%);
+  opacity: 0;
+  position: relative;
+  z-index: 100;
+}
+

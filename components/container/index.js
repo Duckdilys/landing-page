@@ -15,6 +15,7 @@ import Transition from './Transition/Transition';
 import BoxLayout from './BoxLayout/BoxLayout';
 import BannerPage from './BannerPage/BannerPage';
 import TextImage from './TextImage/TextImage';
+import Pagination from './Pagination/Pagination';
 export {
     Logo,
     Line,
@@ -32,5 +33,6 @@ export {
     Transition,
     BoxLayout,
     BannerPage,
-    TextImage 
+    TextImage,
+    Pagination
 }

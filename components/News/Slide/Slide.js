@@ -6,8 +6,8 @@ import { removeUnicode } from "../../../util";
 const Slide = ({ style, title, type }) => {
   return (
     <div style={{ ...style }} className={styles.slide}>
-      <Container className={styles.text}>
-        <div className={`${styles.container} container-text`}>
+      <Container className={`${styles.text} container-text`}>
+        <div className={`${styles.container}`}>
           <span>{type}</span>
           <h2>{title}</h2>
           <Link href={`/news/${removeUnicode(title)}`}>

@@ -45,17 +45,6 @@ const SwiperContainer = ({
             }
           : false
       }
-      onSlideChange = {function(){
-        this.slides.forEach((slide, index) => {
-          console.log(slide);
-          if(index === this.realIndex){
-            slide.classList.add(classActiveCurrent);
-          } else {
-            slide.classList.remove(classActiveCurrent);
-          }
-
-        })
-      }}
       className={`${styles.swiper} ${className}`}
       loop={loop ? true : false}
       autoplay={{
