@@ -27,6 +27,9 @@
     border-radius: 50%;
     background: var(--light-orange);
   }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: all .35s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow: hidden;
   &:hover{

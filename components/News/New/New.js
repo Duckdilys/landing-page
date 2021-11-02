@@ -15,7 +15,7 @@ const New = ({ news }) => {
     currentPage,
     totalDocuments,
     goToPage,
-  } = usePagination(posts, 2);
+  } = usePagination(posts, 3);
   const filterPostByCategory = useCallback(() => {
     if (category === "all") {
       return setPosts(news);

@@ -8,6 +8,8 @@
         color: var(--white);
         padding-bottom: 120px;
         max-width: 620px;
+        position: relative;
+        z-index: 100;
     }
     .title{
         font-size: 48px;

@@ -49,6 +49,7 @@ const Footer = () => {
                     data-aos="fade-up"
                     data-aos-delay={index * 250}
                     key={item.name}
+                    data-aos-offset={120}
                   >
                     <Link href={item.path}>{item.name}</Link>
                   </li>

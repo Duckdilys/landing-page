@@ -6,4 +6,16 @@
   background-position: center !important;
   position: relative;
   background-attachment: fixed !important;
+  margin-top: 100px;
+  z-index: 10;
+  &::before{
+    content: '';
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--overlay-banner);
+    position: absolute;
+  }
 }
