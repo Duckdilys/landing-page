@@ -22,6 +22,7 @@
   --black: #000000;
   --black-primary: #1d1d1d;
   --white: #fff;
+  --fs-xs: 12px;
   --fs-small: 14px;
   --fs-normal: 16px;
   --fs-large: 20px;
@@ -34,10 +35,13 @@
   --border-color: #888888;
   --light-orange: #ffede8;
   --less-dark-orange: #fd7d55;
+  --lighest-orange: #FFF4F0;
   --darker-orange: #ff6432;
   --light-gray: #f7f7f7;
+  --blue-primary: #1673FF;
   --sm-size: 12px;
   --xs-size: 8px;
+  --md-size: 21px;
   --xxl-size: 64px;
   --space: 120px;
   --light-black: #45403e;
@@ -64,6 +68,9 @@
   --pagination-space: 48px;
   --w-36: 36px;
   --mg-16: 16px;
+  --input-space: 26px 24px 26px 50px;
+  --mg-26: 26px;
+  --small-box-recruit: 4px 8px;
   --overlay-banner: linear-gradient(180deg, rgba(29, 29, 29, 0) 48.98%, rgba(29, 29, 29, 0.72) 100%);
 }
 .container{
@@ -95,4 +102,28 @@ ol {
   height: 16px !important;
   background: transparent !important;
   border: 2px solid var(--orange-primary);
+}
+
+@mixin scale-start {
+  transform: scale(0);
+  opacity: 0;
+}
+@mixin scale-finish {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.scale-enter{
+  @include scale-start();
+}
+.scale-enter-active{
+  @include scale-finish();
+  transition: all .75s ease;
+}
+.scale-exit{
+  @include scale-finish();
+}
+.scale-exit-active{
+  @include scale-start();
+  transition: all .75s ease;
 }

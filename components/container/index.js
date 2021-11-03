@@ -16,6 +16,8 @@ import BoxLayout from './BoxLayout/BoxLayout';
 import BannerPage from './BannerPage/BannerPage';
 import TextImage from './TextImage/TextImage';
 import Pagination from './Pagination/Pagination';
+import Input from './Input/Input';
+import Select from './Select/Select';
 export {
     Logo,
     Line,
@@ -34,5 +36,7 @@ export {
     BoxLayout,
     BannerPage,
     TextImage,
-    Pagination
+    Pagination,
+    Input,
+    Select
 }

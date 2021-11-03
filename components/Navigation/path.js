@@ -17,7 +17,7 @@ const paths = [
     },
     {
         name: 'Tuyển dụng',
-        path: '/tuyen-dung'
+        path: '/recruit'
     },
     {
         name: 'Liên hệ',

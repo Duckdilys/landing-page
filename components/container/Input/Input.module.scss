@@ -1,0 +1,25 @@
+.input{
+    input{
+        padding: var(--input-space);
+        border: 1px solid var(--gray-lighter);
+        outline: none !important;
+        &::placeholder{
+            font-weight: var(--weight-400);
+            letter-spacing: var(--letter-spacing);
+            color: var(--border-color);
+            font-size: var(--fs-normal);
+        }
+    }
+    position: relative;
+    > div{
+        position: absolute !important;
+        left: 26px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    display: inline-block;
+}
+.error{
+    color: red;
+    
+}

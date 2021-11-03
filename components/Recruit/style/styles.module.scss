@@ -1,0 +1,15 @@
+.box{
+    margin-top: -100px;
+    & > p{
+        font-weight: var(--weight-700);
+        letter-spacing: var(--letter-spacing);
+        padding-top: var(--mg-16);
+        text-transform: uppercase;
+        padding-bottom: var(--xxl-size);
+    }
+    h4{
+        padding-bottom: 0;
+        margin-bottom: 0;
+        line-height: 60px;
+    }
+}
