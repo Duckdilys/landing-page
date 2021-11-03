@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 
 const useInput = (conditionFunction) => {
   const [value, setValue] = useState("");

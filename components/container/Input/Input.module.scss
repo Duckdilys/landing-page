@@ -9,6 +9,7 @@
             color: var(--border-color);
             font-size: var(--fs-normal);
         }
+        transition: all .35s ease;
     }
     position: relative;
     > div{
@@ -21,5 +22,8 @@
 }
 .error{
     color: red;
-    
+    padding-top: 15px;
+}
+.input-error{
+    border-color: red !important;
 }

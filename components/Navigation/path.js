@@ -21,7 +21,7 @@ const paths = [
     },
     {
         name: 'Liên hệ',
-        path: '/lien-he'
+        path: '/contact'
     }
 ];
 
