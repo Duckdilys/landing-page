@@ -11,7 +11,7 @@ const dataFake = {
   },
   jobs: [
     {
-      url_cover: "/static_recruit.png",
+      url_cover: "/position.png",
       title: "UX/UI Designer",
       date: new Date().toLocaleDateString("vi-vn"),
       place: "Hà Nội",
@@ -19,7 +19,7 @@ const dataFake = {
       refer_fields: ["Phần mềm", "Junior", "Full-time"],
     },
     {
-      url_cover: "/static_recruit.png",
+      url_cover: "/position.png",
       title: "UX/UI Designer",
       date: new Date().toLocaleDateString("vi-vn"),
       place: "Hà Nội",
@@ -27,7 +27,7 @@ const dataFake = {
       refer_fields: ["Phần mềm", "Junior", "Full-time"],
     },
     {
-      url_cover: "/static_recruit.png",
+      url_cover: "/position.png",
       title: "UX/UI Designer",
       date: new Date().toLocaleDateString("vi-vn"),
       place: "Hà Nội",
@@ -35,7 +35,7 @@ const dataFake = {
       refer_fields: ["Phần mềm", "Junior", "Full-time"],
     },
     {
-      url_cover: "/static_recruit.png",
+      url_cover: "/position.png",
       title: "UX/UI Designer",
       date: new Date().toLocaleDateString("vi-vn"),
       place: "Hà Nội",
@@ -43,7 +43,7 @@ const dataFake = {
       refer_fields: ["Phần mềm", "Junior", "Full-time"],
     },
     {
-      url_cover: "/static_recruit.png",
+      url_cover: "/position.png",
       title: "UX/UI Designer",
       date: new Date().toLocaleDateString("vi-vn"),
       place: "Hà Nội",
@@ -51,7 +51,7 @@ const dataFake = {
       refer_fields: ["Phần mềm", "Junior", "Full-time"],
     },
     {
-      url_cover: "/static_recruit.png",
+      url_cover: "/position.png",
       title: "UX/UI Designer",
       date: new Date().toLocaleDateString("vi-vn"),
       place: "Hà Nội",

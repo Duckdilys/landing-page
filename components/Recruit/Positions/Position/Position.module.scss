@@ -4,7 +4,22 @@
         width: 92px;
         height: 92px;
     }
+    position: relative;
+    z-index: 10;
     transition: all .35s ease;
+    &::before{
+        content: '';
+        position: absolute;
+        z-index: 8;
+        bottom: 0;
+        left: 0;
+        top: 0;
+        right: 0;
+        box-shadow: var(--shadow-primary);
+        visibility: hidden;
+        opacity: 0;
+        transition: all .35s ease;
+    }
     &:hover{
         background: var(--orange-primary);
         .content{
@@ -13,9 +28,18 @@
             }
         }
         box-shadow: var(--shadow-primary);
+        path{
+            fill: var(--white);
+        }
+        border-color: var(--orange-primary);
+        &::before{
+            visibility: visible;
+            opacity: 1;
+        }
     }
     letter-spacing: var(--letter-spacing);
     .content{
+        z-index: 100;
         transition: all .35s ease;
         display: flex;
         flex-direction: column;

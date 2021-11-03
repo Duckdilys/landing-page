@@ -1,12 +1,22 @@
 import React from "react";
 import Position from "./Position/Position";
 import styles from "./Positions.module.scss";
-import { Grid } from "../../container";
+import { Grid, Pagination } from "../../container";
+import usePagination from "../../../hook/use-pagination";
 const Positions = ({ positions }) => {
+  const {
+    goToNextPage,
+    goToPrevPage,
+    goToPage,
+    getPaginationRender,
+    getDataRender,
+    currentPage,
+    totalDocuments
+  } = usePagination(positions, 3);
   return (
     <div className={styles.container}>
       <Grid className={styles.grid}>
-        {positions.map((item, index) => {
+        {getDataRender().map((item, index) => {
           return (
             <Position
               key={index}
@@ -20,6 +30,14 @@ const Positions = ({ positions }) => {
           );
         })}
       </Grid>
+      <Pagination
+        goToNextPage={goToNextPage}
+        goToPrevPage={goToPrevPage}
+        goToPage={goToPage}
+        currentPage={currentPage}
+        allPagination={getPaginationRender()}
+        totalDocuments={totalDocuments}
+      />
     </div>
   );
 };
