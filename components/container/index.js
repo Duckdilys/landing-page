@@ -18,6 +18,8 @@ import TextImage from './TextImage/TextImage';
 import Pagination from './Pagination/Pagination';
 import Input from './Input/Input';
 import Select from './Select/Select';
+import BreadCrumb from './BreadCrumb/BreadCrumb';
+import StringToHTML from './StringToHTML/StringToHTML';
 export {
     Logo,
     Line,
@@ -38,5 +40,7 @@ export {
     TextImage,
     Pagination,
     Input,
-    Select
+    Select,
+    BreadCrumb,
+    StringToHTML
 }

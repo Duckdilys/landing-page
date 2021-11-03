@@ -3,7 +3,7 @@ import styles from "./RenderNew.module.scss";
 import Image from "next/dist/client/image";
 import Link from "next/link";
 import { removeUnicode } from "../../../../util";
-const RenderNew = ({ name, date, type, url_cover }) => {
+const RenderNew = ({ name, date, type, url_cover, image }) => {
   return (
     <div className={styles.new}>
       <div className={`position-relative ${styles.image}`}>
@@ -14,6 +14,7 @@ const RenderNew = ({ name, date, type, url_cover }) => {
           width="100%"
           height="auto"
           objectFit="cover"
+          {...image}
         />
       </div>
       <div

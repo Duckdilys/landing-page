@@ -1,0 +1,20 @@
+.container{
+    a{
+        padding-right: var(--size-space);
+        &:last-child{
+            padding-right: 0;
+        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    p{
+        font-size: var(--fs-normal);
+        font-weight: var(--weight-400);
+        letter-spacing: var(--letter-spacing);
+        padding-right: 16px;
+    }
+    padding: var(--share-pd);
+    border-bottom: 1px solid var(--border-color);
+    
+}

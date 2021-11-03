@@ -1,7 +1,7 @@
 import React from "react";
 import SwiperBackground from "../../components/News/SwiperBackground/SwiperBackground";
 import ListNews from '../../components/News/ListNews/ListNews';
-const data = {
+export const data = {
     posts: [
         {
             type: 'Truyền thông',

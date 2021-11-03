@@ -1,0 +1,11 @@
+@import '../../../theme/fixing';
+@import '../../../styles/grid';
+.news{
+    padding-top: var(--xxl-size);
+    h4{
+        text-align: start;
+        padding-bottom: var(--size-space) !important;
+        font-size: 40px;
+    }  
+    
+}
