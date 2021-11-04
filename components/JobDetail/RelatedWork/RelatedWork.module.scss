@@ -1,0 +1,13 @@
+.container{
+    letter-spacing: var(--letter-spacing);
+    h4{
+        text-align: start;
+        font-size: 40px;
+        line-height: 60px;
+        padding-bottom: var(--size-space) !important;
+    }
+    padding-top: var(--pd-64);
+}
+.grid{
+    grid-template-columns: repeat(3, minmax(457px, 1fr));
+}

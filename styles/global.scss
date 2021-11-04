@@ -20,6 +20,7 @@
     #fb6535 96.62%
   );
   --black: #000000;
+  --orange-secondary: #ff4e16;
   --black-primary: #1d1d1d;
   --white: #fff;
   --fs-xs: 12px;
@@ -30,6 +31,7 @@
   --middle-space: 24px;
   --title-heading: 24px;
   --size-space: 32px;
+  --pd-64: 64px;
   --line-height-primary: 28px;
   --shadow-primary: 0px 8px 40px rgba(255, 78, 22, 0.2);
   --shadow-dark: 0px 2px 8px rgba(0, 0, 0, 0.16);
@@ -78,6 +80,10 @@
   --small-box-recruit: 4px 8px;
   --overlay-banner: linear-gradient(180deg, rgba(29, 29, 29, 0) 48.98%, rgba(29, 29, 29, 0.72) 100%);
   --gray-secondary: #888888;
+  --overlay-model: rgba(72, 72, 72, 0.5);
+}
+body[data-model='flow']{
+  overflow: hidden;
 }
 .container{
   padding-left: 0;
@@ -92,6 +98,11 @@ ul,
 h5,
 ol {
   margin-bottom: 0;
+}
+input[type='number']{
+  &::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+  } 
 }
 .swiper-pagination {
   bottom: 0 !important;
@@ -132,4 +143,27 @@ ol {
 .scale-exit-active{
   @include scale-start();
   transition: all .75s ease;
+}
+@mixin form-open {
+  transform: translate(-50%, -100%);
+  opacity: 0
+}
+@mixin form-active {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.form-open-enter{
+  @include form-open();
+}
+
+.form-open-enter-active{
+  @include form-active();
+  transition: all .75s ease-in-out;
+}
+.form-open-exit{
+  @include form-active();
+}
+.form-open-exit-active{
+  @include form-open();
+  transition: all .75s ease-in-out;
 }

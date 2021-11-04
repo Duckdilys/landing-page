@@ -113,7 +113,7 @@ const useFetch = () => {
         }
         dispatch({
           type: typeDispatch.SUCCESS,
-          data: response.data,
+          payload: response.data,
         });
       } catch (err) {
         dispatch({

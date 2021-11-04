@@ -20,6 +20,8 @@ import Input from './Input/Input';
 import Select from './Select/Select';
 import BreadCrumb from './BreadCrumb/BreadCrumb';
 import StringToHTML from './StringToHTML/StringToHTML';
+import Overlay from './Overlay/Overlay';
+import DropzoneUpload from './DropzoneUpload/DropzoneUpload';
 export {
     Logo,
     Line,
@@ -42,5 +44,7 @@ export {
     Input,
     Select,
     BreadCrumb,
-    StringToHTML
+    StringToHTML,
+    Overlay,
+    DropzoneUpload
 }

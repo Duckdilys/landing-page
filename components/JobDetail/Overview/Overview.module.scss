@@ -1,0 +1,20 @@
+.container{
+    border: 1px solid var(--gray-lighter);
+    width: 100%;
+    h5{
+        font-size: var(--fs-large);
+        font-weight: var(--weight-700);
+        border-bottom: 1px solid var(--gray-lighter);
+        padding: var(--size-space);
+        text-transform: uppercase;
+    }
+    letter-spacing: var(--letter-spacing);
+    .box{
+        padding: 0 var(--size-space);
+        & > div{
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+}

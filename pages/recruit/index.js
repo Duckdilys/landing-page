@@ -4,7 +4,7 @@ import FindPosition from "../../components/Recruit/FindPosition/FindPosition";
 import FormEmail from "../../components/Recruit/FormEmail/FormEmail";
 import Positions from "../../components/Recruit/Positions/Positions";
 import styles from "../../components/Recruit/style/styles.module.scss";
-const dataFake = {
+export const dataFake = {
   landing_content: {
     url_landing: "/static_recruit.png",
     introduction: "Tham gia cùng chúng tôi",

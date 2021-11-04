@@ -1,5 +1,6 @@
 import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
+import { Overlay } from "../components/container";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import { Provider } from "react-redux";
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Provider store={store}>
         <Navigation />
+        <Overlay/>
         <Component {...pageProps} />
         <Footer />
       </Provider>

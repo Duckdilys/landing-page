@@ -68,7 +68,7 @@ const Position = ({ url, title, date, place, salary, types }) => {
           </div>
         </div>
         <div className={`d-flex align-items-center ${styles.flex}`}>
-          {typeof types === "array" &&
+          {types  &&
             types.map((type, index) => {
               return <Type key={index}>{type}</Type>;
             })}

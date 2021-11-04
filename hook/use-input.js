@@ -4,7 +4,10 @@ const useInput = (conditionFunction) => {
   const [value, setValue] = useState("");
   const [isTouched, setIsTouched] = useState(false);
   const isValid = useMemo(() => {
-    return conditionFunction(value);
+    if(typeof conditionFunction === 'function'){
+      return conditionFunction(value);
+    }
+    return true;
   }, [value, conditionFunction]);
   const inputChangeHandler = (event) => {
     setValue(event.target.value);
