@@ -1,8 +1,8 @@
 FROM node:12.22.1 AS deps
 
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json ./
+RUN yarn install
 
 # Rebuild the source code only when needed
 FROM node:12.22.1 AS builder
