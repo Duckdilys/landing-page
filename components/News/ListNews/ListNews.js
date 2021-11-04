@@ -13,9 +13,9 @@ const ListNews = ({ news }) => {
       return post.type;
     });
   }, [news]);
-  useEffect(() => {
-    router.push('?page=1');
-  }, [type]);
+  // useEffect(() => {
+  //   router.push('?page=1');
+  // }, [type]);
   return (
     <ContainerSmall className={styles.container}>
       <Grid className={styles.grid}>
