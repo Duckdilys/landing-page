@@ -9,7 +9,6 @@ const SwiperBackground = ({ posts }) => {
     <SwiperContainer
       className={styles.swiper}
       pagination
-
       delay={5000}
       slidesPerView={1}
       classActiveCurrent={styles.current}
@@ -30,14 +29,16 @@ const SwiperBackground = ({ posts }) => {
           textItem.classList.add(styles['swiper-back-active']);
         },
         onInit: function(){
+          console.log(this);
           const index = this.realIndex;
           const textItem = this.slides[index].querySelector('.container-text');
           if(!textItem){
             return;
           }
           textItem.classList.add(styles['swiper-back-active']);
-        }
+        },
       }}
+      
     >
       {posts.map((post, index) => {
         return (

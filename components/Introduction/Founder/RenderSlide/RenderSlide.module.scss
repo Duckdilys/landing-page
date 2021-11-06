@@ -3,7 +3,7 @@
     overflow: hidden;
     &:hover{
         .content{
-            transform: translateX(0);
+            height: 100%;
             opacity: 1;
         }
     }
@@ -24,6 +24,7 @@
         font-size: var(--fs-large);
         padding-bottom: var(--size-space);
         text-transform: uppercase;
+        color: var(--white);
     }
     p{
         &:first-child{
@@ -51,7 +52,7 @@
     .social{
         padding-top: var(--size-space);
     }
-    transform: translateX(-100%);
+    height: 0;
     opacity: 0;
     transition: all .5s ease-in-out;
 }

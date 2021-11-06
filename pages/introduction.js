@@ -17,6 +17,7 @@ const Introduction = ({ data, founder }) => {
       <section>
         <Banner />
         <TextImage
+          aos='fade-right'
           title="Trở thành một Tập đoàn công nghệ trong top 30 Việt Nam vào năm 2030"
           mainTitle="Tầm nhìn"
           src={"/Image (2).png"}
@@ -25,6 +26,7 @@ const Introduction = ({ data, founder }) => {
           iconImage="/icon.png"
         />
         <TextImage
+          aos='fade-left'
           title="Dẫn đầu các xu hướng công nghệ mới. Mang tới giải pháp, dịch vụ và kinh doanh toàn diện đến cho khách hàng."
           mainTitle="Sứ mệnh"
           src={"/unsplash_eiMzJl3xj4o.png"}

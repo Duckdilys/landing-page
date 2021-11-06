@@ -9,14 +9,14 @@ const TextImage = ({ title, className, src, mainTitle, classText, aosImage, icon
       >
         <div
           data-aos={aos ? aos : "fade-up"}
-          data-aos-delay={500}
+          data-aos-delay={750}
           className={`${styles.text} ${classText}`}
         >
           <h5>{mainTitle}</h5>
           {iconImage && <Image src={iconImage} alt="" />}
           {title}
         </div>
-        <div data-aos={aosImage || 'fade-right'} data-aos-delay={750} className={`position-relative ${styles.image} ${classImage}`}>
+        <div data-aos={aosImage || 'fade-right'} data-aos-delay={0} className={`position-relative ${styles.image} ${classImage}`}>
           <Image src={src} alt="" />
         </div>
       </div>

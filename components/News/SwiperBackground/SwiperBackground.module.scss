@@ -16,3 +16,6 @@
     transform: translateX(0) !important;
     opacity: 1 !important;
 }
+.left, .right{
+    z-index: 10000;
+}

@@ -17,7 +17,8 @@ const SwiperContainer = ({
   classNameNormalBullet,
   classNameActiveBullet,
   classActiveCurrent,
-  containerPagination
+  containerPagination,
+  cbInit
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -26,6 +27,7 @@ const SwiperContainer = ({
       data-aos={aos}
       slidesPerView={slidesPerView || "auto"}
       onInit={
+        typeof cbInit === 'function' ? cbInit() : '',
         navigation
           ? (swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
@@ -41,7 +43,7 @@ const SwiperContainer = ({
               clickable: true,
               bulletClass: `swiper-pagination-bullet ${classNameNormalBullet}`,
               bulletActiveClass: `swiper-pagination-bullet-active ${classNameActiveBullet}`,
-              clickableClass: `.swiper-pagination-clickable ${containerPagination}`
+              clickableClass: `.swiper-pagination-clickable ${containerPagination}`,
             }
           : false
       }

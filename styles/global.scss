@@ -81,6 +81,7 @@
   --overlay-banner: linear-gradient(180deg, rgba(29, 29, 29, 0) 48.98%, rgba(29, 29, 29, 0.72) 100%);
   --gray-secondary: #888888;
   --overlay-model: rgba(72, 72, 72, 0.5);
+  --orange-danger: #ff7145;
 }
 body[data-model='flow']{
   overflow: hidden;
@@ -98,6 +99,9 @@ ul,
 h5,
 ol {
   margin-bottom: 0;
+}
+h1, h2, h3, h4, h5, h6{
+  color: var(--black-primary);
 }
 input[type='number']{
   &::-webkit-inner-spin-button, &::-webkit-outer-spin-button{

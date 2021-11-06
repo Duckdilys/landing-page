@@ -13,7 +13,7 @@ function DropzoneUpload({title, fileAllowTitle, configDropzone, getFilesHandler 
     getFilesHandler(acceptedFiles);
   }, [acceptedFiles, getFilesHandler]);
   return (
-    <section className="container">
+    <section>
       <div {...getRootProps({ className: `dropzone ${styles.dropzone}`})}>
         <input {...getInputProps()} />
         <h5>{title}</h5>

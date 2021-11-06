@@ -47,7 +47,7 @@ const Footer = () => {
                 return (
                   <li
                     data-aos="fade-up"
-                    data-aos-delay={index * 250}
+                    data-aos-delay={index * 200}
                     key={item.name}
                     data-aos-offset={120}
                   >
@@ -58,7 +58,7 @@ const Footer = () => {
             </ul>
             <ul className={styles["list-contact"]}>
               <li data-aos="fade-up">Thông tin liên hệ</li>
-              <li data-aos="fade-up" data-aos-delay={250}>
+              <li data-aos="fade-up" data-aos-delay={200}>
                 <Image
                   src="/Icon/house-icon.svg"
                   alt=""
@@ -67,7 +67,7 @@ const Footer = () => {
                 />
                 <span>Văn phòng Số 24, ngõ 224 Trung Kính, Hà Nội</span>
               </li>
-              <li data-aos="fade-up" data-aos-delay={500}>
+              <li data-aos="fade-up" data-aos-delay={400}>
                 <Image
                   src="/Icon/mail-icon.svg"
                   alt=""
@@ -76,7 +76,7 @@ const Footer = () => {
                 />
                 <span>Email: contact@mhsolution.vn</span>
               </li>
-              <li data-aos="fade-up" data-aos-delay={750}>
+              <li data-aos="fade-up" data-aos-delay={600}>
                 <Image
                   src="/Icon/phone-icon.svg"
                   alt=""
@@ -85,7 +85,7 @@ const Footer = () => {
                 />
                 <span>Điện thoại: 0975718168</span>
               </li>
-              <li data-aos="fade-up" data-aos-delay={1000}>
+              {/* <li data-aos="fade-up" data-aos-delay={1000}>
                 <Image src="/Icon/web-icon.svg" alt="" width="20" height="20" />
                 <a
                   rel="noreferrer"
@@ -94,7 +94,7 @@ const Footer = () => {
                 >
                   Facebook: https://www.facebook.com/mhsolution.vn
                 </a>
-              </li>
+              </li> */}
             </ul>
           </Grid>
         </LayoutContainer>

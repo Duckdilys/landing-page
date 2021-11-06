@@ -70,7 +70,7 @@ const Position = ({ url, title, date, place, salary, types }) => {
         <div className={`d-flex align-items-center ${styles.flex}`}>
           {types  &&
             types.map((type, index) => {
-              return <Type key={index}>{type}</Type>;
+              return <Type className={styles['work-type']} key={index}>{type}</Type>;
             })}
         </div>
       </div>

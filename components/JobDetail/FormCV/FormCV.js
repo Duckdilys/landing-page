@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./FormCV.module.scss";
 import { Grid, DropzoneUpload, Button } from "../../container";
 import Input from "./Input";
@@ -7,9 +7,9 @@ import { ValidateLengthInput } from "../../../util";
 import useFetch from "../../../hook/use-fetch";
 import { modelActions } from "../../../store/slices/model-slice";
 const FormCV = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const [file, setFile] = useState(null);
   const isOpened = useSelector((state) => state.model.openOverlay);
-  const [files, setFiles] = useState(null);
   const {
     fetchDataFromServer,
     error,
@@ -26,7 +26,8 @@ const dispatch = useDispatch();
       if (!files || files.length === 0) {
         return;
       }
-
+      const file = files[0];
+      setFile(file.name);
       const formData = new FormData();
       formData.append("file_upload", files[0]);
       fetchDataFromServer({
@@ -37,8 +38,13 @@ const dispatch = useDispatch();
     },
     [fetchDataFromServer]
   );
+  console.log(file);
+  console.log(error, upload_progress, isLoading, download_progress, data);
   return (
-    <form onSubmit={submitFormHandler} className={`${styles.container} ${isOpened && styles['container-back']}`}>
+    <form
+      onSubmit={submitFormHandler}
+      className={`${styles.container} ${isOpened && styles["container-back"]}`}
+    >
       <h4>Nộp đơn ứng tuyển cho vị trí này</h4>
       <Grid className={styles.grid}>
         <Input
@@ -66,10 +72,13 @@ const dispatch = useDispatch();
         />
       </Grid>
       <div className={styles.inputs}>
-          <div onClick={() => dispatch(modelActions.closeModelHandler())} className={styles.close}>
-            <div></div>
-            <div></div>
-          </div>
+        <div
+          onClick={() => dispatch(modelActions.closeModelHandler())}
+          className={styles.close}
+        >
+          <div></div>
+          <div></div>
+        </div>
         <Input
           inputDefine={{
             type: "email",

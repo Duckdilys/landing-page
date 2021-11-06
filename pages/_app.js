@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Provider store={store}>
         <Navigation />
-        <Overlay/>
+        <Overlay />
         <Component {...pageProps} />
         <Footer />
       </Provider>
