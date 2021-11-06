@@ -17,9 +17,6 @@
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 60px;
 }
-.container-footer{
-    margin: 0 auto;
-}
 .list{
     list-style: none;
     padding-top: 24px;
@@ -62,6 +59,10 @@
         font-weight: 400;
         padding-left: 18px;
     }
+}
+.container-footer{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 .footer-container{
     margin-top: 0 !important;
