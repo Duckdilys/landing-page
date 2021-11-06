@@ -19,3 +19,25 @@
 .left, .right{
     z-index: 10000;
 }
+
+.button{
+    bottom: 70px;
+    top: auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+        width: 12px;
+        height: 18px;
+    }
+    background: var(--light-black-bg);
+}
+.left{
+    left: 42%;
+}
+.right{
+    right: 42%;
+}

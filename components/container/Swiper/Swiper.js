@@ -4,6 +4,7 @@ import styles from "./Swiper-Container.module.scss";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { ArrowLeft } from "../../../public/Icon";
 SwiperCore.use([Navigation, Pagination]);
+
 const SwiperContainer = ({
   children,
   className,
@@ -18,7 +19,6 @@ const SwiperContainer = ({
   classNameActiveBullet,
   classActiveCurrent,
   containerPagination,
-  cbInit
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -27,7 +27,6 @@ const SwiperContainer = ({
       data-aos={aos}
       slidesPerView={slidesPerView || "auto"}
       onInit={
-        typeof cbInit === 'function' ? cbInit() : '',
         navigation
           ? (swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;

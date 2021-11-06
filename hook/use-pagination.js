@@ -9,10 +9,14 @@ const usePagination = (data, pageLimit) => {
     setCurrentPage(+page);
   }, [router.query.page]);
   const goToNextPage = () => {
-      router.push(`?page=${currentPage + 1}`);
+      router.push(`?page=${currentPage + 1}`, null, {
+        scroll: false
+      });
   }
   const goToPrevPage = () => {
-      router.push(`?page=${currentPage - 1}`);
+      router.push(`?page=${currentPage - 1}`, null, {
+        scroll: false
+      });
   }
   const getDataRender = () => {
       const startIndex = currentPage * pageLimit - pageLimit;
@@ -37,7 +41,9 @@ const usePagination = (data, pageLimit) => {
       return pageNumbers.slice(setFirstCurrentPage, setLastPagePagination);
   }
   const goToPage = (page) => {
-      router.push(`?page=${page}`);
+      router.push(`?page=${page}`, null, {
+        scroll: false
+      });
   }
   return {
       goToNextPage,

@@ -17,6 +17,11 @@ export const data = {
             type: 'Truyền thông',
             title: 'báo cáo hiệu quả truyền thông online “Rap Việt”',
             url: '/new-banner.png'
+        },
+        {
+            type: 'Truyền thông',
+            title: 'báo cáo hiệu quả truyền thông online “Rap Việt”',
+            url: '/new-banner.png'
         }
     ],
     news: [
