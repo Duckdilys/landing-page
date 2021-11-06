@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { ValidateLengthInput } from "../../../util";
 import useFetch from "../../../hook/use-fetch";
 import { modelActions } from "../../../store/slices/model-slice";
-import Link from "next/link";
 import { CSSTransition } from "react-transition-group";
 const FormCV = () => {
   const dispatch = useDispatch();
@@ -120,7 +119,7 @@ const FormCV = () => {
           getFilesHandler={getFileHandler}
         />
 
-        <CSSTransition in={!!file} timeout={750} classNames="scale" unmountOnExit mountOnEnter>
+        <CSSTransition in={!!file && !error} timeout={750} classNames="scale" unmountOnExit mountOnEnter>
           <div
             className={`position-relative d-inline-flex align-items-center ${
               styles.upload
@@ -145,7 +144,7 @@ const FormCV = () => {
                 className=""
               ></path>
             </svg>
-            {file && <p className={styles.text}>{file}</p>}
+            <a rel='noreferrer' href={data ? data.result.file_url : ''} target="_blank"><p className={styles.text}>{file}</p></a>
             {isLoadingSession && (
               <span
                 className={`${styles.loading}`}

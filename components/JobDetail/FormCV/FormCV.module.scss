@@ -120,6 +120,7 @@
 }
 .text{
     @include show-n-line(1);
+    color: var(--white);
 }
 
 .error{
