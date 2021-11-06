@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { ValidateLengthInput } from "../../../util";
 import useFetch from "../../../hook/use-fetch";
 import { modelActions } from "../../../store/slices/model-slice";
-import Link from 'next/link';
+import Link from "next/link";
+import { CSSTransition } from "react-transition-group";
 const FormCV = () => {
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
@@ -39,18 +40,18 @@ const FormCV = () => {
     if (isLoading) {
       setIsLoadingSession(true);
     }
-    if(!isLoading && !error){
+    if (!isLoading && !error) {
       setTimeout(() => {
         setIsLoadingSession(false);
       }, 1000);
     }
-    if(!isLoading && error){
+    if (!isLoading && error) {
       setFile(null);
     }
   }, [isLoading, error]);
   const removeFileHandler = () => {
     setFile(null);
-  }
+  };
   return (
     <form
       onSubmit={submitFormHandler}
@@ -119,13 +120,15 @@ const FormCV = () => {
           getFilesHandler={getFileHandler}
         />
 
-        {file && (
+        <CSSTransition in={!!file} timeout={750} classNames="scale" unmountOnExit mountOnEnter>
           <div
             className={`position-relative d-inline-flex align-items-center ${
               styles.upload
             } ${isLoadingSession && styles["upload-disabled"]}`}
           >
-            <span onClick={removeFileHandler} className={styles['remove-file']}><Image src="/close-icon.svg" alt="" width="15px" height="15px"/></span>
+            <span onClick={removeFileHandler} className={styles["remove-file"]}>
+              <Image src="/close-icon.svg" alt="" width="15px" height="15px" />
+            </span>
             <svg
               aria-hidden="true"
               focusable="false"
@@ -152,8 +155,10 @@ const FormCV = () => {
               </span>
             )}
           </div>
+        </CSSTransition>
+        {!isLoadingSession && error && (
+          <p className={styles.error}>CV không thể upload, xin thử lại sau</p>
         )}
-        {!isLoadingSession && error && <p className={styles.error}>CV không thể upload, xin thử lại sau</p>}
         <div className={styles.button}>
           <Button
             options={{
