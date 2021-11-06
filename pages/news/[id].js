@@ -31,6 +31,7 @@ const BlogDetail = ({ data, related_news }) => {
     <>
       <BannerPage
         classNameBox={styles.container}
+        classNameBanner={styles.banner}
         style={{ background: `url('/Banner_detail.png')` }}
         title={"Báo Cáo Hiệu quả truyền thông online rap việt"}
       />

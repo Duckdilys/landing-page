@@ -29,11 +29,9 @@
         }
     }
     .date{
-        font-size: var(--fs-large);
+        font-size: 20px;
         color: var(--gray-secondary);
-        span{
-            padding-left: 14px;
-        }
+        padding-bottom: var(--mg-16);
     }
     .color{
         color: var(--orange-primary) !important;
