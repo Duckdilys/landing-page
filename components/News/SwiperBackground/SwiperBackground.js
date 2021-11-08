@@ -31,7 +31,7 @@ const SwiperBackground = ({ posts }) => {
           textItem.classList.add(styles["swiper-back-active"]);
         },
         right: `${styles.right} ${styles.button}`,
-        left: `${styles.left} ${styles.button}`
+        left: `${styles.left} ${styles.button}`,
         // onInit: function () {
         //   const index = this.realIndex;
         //   const textItem = this.slides[index].querySelector(".container-text");
@@ -40,6 +40,7 @@ const SwiperBackground = ({ posts }) => {
         //   }
         //   textItem.classList.add(styles["swiper-back-active"]);
         // },
+        speed: 1000
       }}
     >
       {posts.map((post, index) => {

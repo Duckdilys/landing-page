@@ -1,9 +1,9 @@
 import { Swiper } from "swiper/react";
 import React, { useRef } from "react";
 import styles from "./Swiper-Container.module.scss";
-import SwiperCore, { Navigation, Pagination } from "swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { ArrowLeft } from "../../../public/Icon";
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const SwiperContainer = ({
   children,
@@ -48,9 +48,9 @@ const SwiperContainer = ({
       }
       className={`${styles.swiper} ${className}`}
       loop={loop ? true : false}
-      autoplay={{
+      autoplay={ delay ? {
         delay: delay,
-      }}
+      } : false}
       {...config}
     >
       {children}

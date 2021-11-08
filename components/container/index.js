@@ -22,6 +22,7 @@ import BreadCrumb from './BreadCrumb/BreadCrumb';
 import StringToHTML from './StringToHTML/StringToHTML';
 import Overlay from './Overlay/Overlay';
 import DropzoneUpload from './DropzoneUpload/DropzoneUpload';
+import ButtonUpTop from './ButtonUpTop/ButtonUpTop';
 export {
     Logo,
     Line,
@@ -46,5 +47,6 @@ export {
     BreadCrumb,
     StringToHTML,
     Overlay,
-    DropzoneUpload
+    DropzoneUpload,
+    ButtonUpTop
 }
