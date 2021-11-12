@@ -26,7 +26,7 @@ const RootValue = ({ data }) => {
           <div
             className={`rounded-circle d-flex justify-content-center align-items-center position-relative ${styles["small-circle"]}`}
           >
-            <Logo width="120" height="80" />
+            <Logo/>
           </div>
           <div data-aos="fade-up" className={styles["container-circle"]}>
             {data.map((item, index) => {

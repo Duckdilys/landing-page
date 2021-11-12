@@ -22,7 +22,7 @@ const Product = ({ product, title, className, classNameContainer, classNameGrid 
             }
             return (
               <LayoutProduct
-                aos="fade-down"
+                aos="fade-up"
                 key={item.title}
                 src={item.src}
                 title={item.title}

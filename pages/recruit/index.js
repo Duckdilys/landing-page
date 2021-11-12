@@ -71,7 +71,7 @@ const Recruit = ({ data }) => {
       >
         <FindPosition />
       </BannerPage>
-      <ContainerSmall>
+      <ContainerSmall className={styles.container}>
         <Grid>
           <FormEmail />
           <Positions positions={data.jobs}/>

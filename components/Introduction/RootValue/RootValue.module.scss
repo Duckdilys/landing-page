@@ -22,27 +22,27 @@
 .container-bg {
   background: var(--dark-gray);
   padding: 64px 15px 78px 15px;
-  margin-top: 210px;
+  margin-top: 56px;
   margin-bottom: var(--space);
 }
 .big-circle {
-  max-width: 480px;
-  min-height: 480px;
+  max-width: 420px;
+  min-height: 420px;
   margin: 65px auto 0 auto;
   border: 1px solid var(--orange-primary);
 }
 .small-circle {
-  min-width: 175px;
-  min-height: 175px;
+  min-width: 150px;
+  min-height: 150px;
   border: 9px solid var(--white);
   background: var(--orange-primary-light);
   &::before {
     content: "";
     position: absolute;
-    top: -18px;
-    bottom: -18px;
-    left: -18px;
-    right: -18px;
+    top: -20px;
+    bottom: -20px;
+    left: -20px;
+    right: -20px;
     border-radius: 50%;
     border: 1px solid var(--orange-primary);
   }

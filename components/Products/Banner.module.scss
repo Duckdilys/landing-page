@@ -3,10 +3,13 @@
     background: url('../../public/Banner_Products.png');
 }
 .box{
-    margin-top: -100px;
+    margin-top: -200px;
     h4{
         padding-bottom: 0 !important;
-        margin: 0;
+        margin: auto;
+        max-width: 617px;
+        line-height: 60px;
+        letter-spacing: var(--letter-spacing);
     }
 }
 .text{

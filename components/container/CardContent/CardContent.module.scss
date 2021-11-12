@@ -5,8 +5,8 @@
         font-size: var(--fs-large);
         text-transform: uppercase;
     }
-    border: 1px solid var(--border-black);
-    border-radius: var(--radius);
+    outline: 1px solid var(--border-black);
+    border-radius: var(--radius);   
     .line{
         margin: var(--size-space) 0;
         transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
@@ -32,6 +32,7 @@
 .hover{
     background: var(--orange-primary);
     color: var(--white);
+    outline: none;
 }
 .hover-line{
     background: var(--white) !important;

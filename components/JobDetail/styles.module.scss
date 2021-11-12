@@ -5,6 +5,9 @@
 .box {
   margin-top: -120px;
 }
+.container{
+  margin-top: var(--xxl-size) !important;
+}
 .types {
   div {
     margin-right: var(--mg-16);
@@ -69,7 +72,7 @@
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      margin-left: 44px;
+      margin-left: var(--middle-space);
     }
   }
 }

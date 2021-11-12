@@ -17,6 +17,7 @@ const Navigation = () => {
       setNavIsScrolled(false);
     }
   }, []);
+  console.log(router.pathname);
   const listRef = useRef();
   useEffect(() => {
     window.addEventListener("scroll", scrollWindowHandler);

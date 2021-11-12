@@ -6,6 +6,7 @@ const Banner = () => {
     <>
       <BannerPage
         classNameBanner={styles.container}
+        classNameBox={styles['box-container']}
         title="Giới thiệu về chúng tôi"
         introduction="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus eros eu
         lacus, tincidunt nunc dui magna tempor. A nisl justo, eget mauris

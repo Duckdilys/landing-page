@@ -12,7 +12,7 @@ const Slide = ({ style, title, type }) => {
           <h2>{title}</h2>
           <Link href={`/news/${removeUnicode(title)}`}>
             <a>
-              <Button>Tìm hiểu thêm</Button>
+              <Button className={styles.button}>Tìm hiểu thêm</Button>
             </a>
           </Link>
         </div>

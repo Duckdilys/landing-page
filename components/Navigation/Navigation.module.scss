@@ -98,7 +98,7 @@
     }
 }
 .active{
-  a{
+  & > a{
     color: var(--orange-primary) !important;
   }
   color: var(--orange-primary) !important;

@@ -65,7 +65,7 @@ const JobDetail = ({ data }) => {
           })}
         </div>
       </BannerPage>
-      <LayoutContainer>
+      <LayoutContainer className={styles.container}>
         <div className={`d-flex justify-content-between ${styles.grid}`}>
           <div className={styles["left-side"]}>
             <Description description={data.description} />
