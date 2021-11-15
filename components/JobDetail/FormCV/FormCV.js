@@ -119,7 +119,13 @@ const FormCV = () => {
           getFilesHandler={getFileHandler}
         />
 
-        <CSSTransition in={!!file && !error} timeout={750} classNames="scale" unmountOnExit mountOnEnter>
+        <CSSTransition
+          in={!!file && !error}
+          timeout={750}
+          classNames="scale"
+          unmountOnExit
+          mountOnEnter
+        >
           <div
             className={`position-relative d-inline-flex align-items-center ${
               styles.upload
@@ -144,7 +150,13 @@ const FormCV = () => {
                 className=""
               ></path>
             </svg>
-            <a rel='noreferrer' href={data ? data.result.file_url : ''} target="_blank"><p className={styles.text}>{file}</p></a>
+            <a
+              rel="noreferrer"
+              href={data ? data.result.file_url : ""}
+              target="_blank"
+            >
+              <p className={styles.text}>{file}</p>
+            </a>
             {isLoadingSession && (
               <span
                 className={`${styles.loading}`}
@@ -172,5 +184,4 @@ const FormCV = () => {
     </form>
   );
 };
-
 export default FormCV;

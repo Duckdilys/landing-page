@@ -48,7 +48,7 @@ const dataFake = {
   }),
 };
 const JobDetail = ({ data }) => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   return (
     <>
       <BannerPage
@@ -74,9 +74,14 @@ const JobDetail = ({ data }) => {
               title="Yêu cầu công việc"
             />
             <Requiredment requirement={data.offered} title="Quyền lợi" />
-            <Button options={{
-                onClick: () => dispatch(modelActions.openModelHandler())
-            }} className={styles["submit-btn"]}>Nộp đơn ứng tuyển</Button>
+            <Button
+              options={{
+                onClick: () => dispatch(modelActions.openModelHandler()),
+              }}
+              className={styles["submit-btn"]}
+            >
+              Nộp đơn ứng tuyển
+            </Button>
           </div>
           <div className={styles["container-right"]}>
             <Overview overview={data.job_overview} />
@@ -103,9 +108,9 @@ const JobDetail = ({ data }) => {
             </div>
           </div>
         </div>
-        <RelatedWork relatedWork={data.related_jobs}/>
+        <RelatedWork relatedWork={data.related_jobs} />
       </LayoutContainer>
-      <FormCV/>
+      <FormCV />
     </>
   );
 };

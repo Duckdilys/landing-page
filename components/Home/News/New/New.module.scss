@@ -3,7 +3,12 @@
   img {
     width: 100%;
     height: auto;
+    transition: all .5s ease-in-out;
+    &:hover{
+      transform: scale(1.1);
+    }
   }
+  overflow: hidden;
 }
 .content {
   a {
