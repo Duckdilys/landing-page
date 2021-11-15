@@ -17,7 +17,6 @@ const Navigation = () => {
       setNavIsScrolled(false);
     }
   }, []);
-  console.log(router.pathname);
   const listRef = useRef();
   useEffect(() => {
     window.addEventListener("scroll", scrollWindowHandler);
@@ -43,7 +42,7 @@ const Navigation = () => {
                 return (
                   <li
                     className={`position-relative ${styles.dropdown} ${
-                      router.pathname === path.path && styles.active
+                      router.asPath === path.path && styles.active
                     }`}
                     key={path.name}
                   >
@@ -95,7 +94,7 @@ const Navigation = () => {
               }
               return (
                 <li
-                  className={router.pathname === path.path ? styles.active : ""}
+                  className={router.asPath === path.path ? styles.active : ""}
                   key={path.name}
                 >
                   <Link href={path.path}>{path.name}</Link>
