@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
-import { Container, Image } from "../container";
+import { Container } from "../container";
 import { useRouter } from "next/router";
 import { Logo } from "../container";
 import Link from "next/link";
