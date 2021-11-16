@@ -23,7 +23,7 @@ const Contact = ({contact}) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   return {
     props: {
       contact: {

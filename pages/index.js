@@ -7,7 +7,14 @@ import axiosConfig from "../service/base";
 import { getProductsByCondition } from "../service/getProducts";
 import getNewsByCondition from "../service/getNews";
 import getPartnerCondition from "../service/getPartners";
+import { useEffect } from "react";
+import Aos from "aos";
 export default function Home({ news, products, banner, partners }) {
+  useEffect(() => {
+    Aos.init({
+      disable: true
+    })
+  }, []);
   return (
     <>
       <ContainerBanner banner={banner} />
@@ -18,7 +25,12 @@ export default function Home({ news, products, banner, partners }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({req}) => {
+  
+  const userAgent = req.headers;
+  console.log(userAgent);
+
+
   const bannerData = await axiosConfig({
     url: getHomePageById(1),
   });

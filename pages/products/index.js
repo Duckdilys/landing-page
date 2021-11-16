@@ -114,7 +114,7 @@ const Products = ({ data }) => {
   );
 };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   return {
     props: {
       data: data,

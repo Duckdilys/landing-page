@@ -44,7 +44,7 @@ const Introduction = ({ data, founder }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   return {
     props: {
       data: fakeDataCircle,
