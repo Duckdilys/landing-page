@@ -13,7 +13,14 @@ import "swiper/components/pagination/pagination.min.css";
 import "aos/dist/aos.css";
 
 function MyApp({ Component, pageProps }) {
+  const { isDisabledAnimation } = pageProps;
   useEffect(() => {
+    if(isDisabledAnimation){
+      AOS.init({
+        disable: true
+      })
+      return;
+    }
     AOS.init({
       once: true,
       offset: 200,
@@ -21,15 +28,15 @@ function MyApp({ Component, pageProps }) {
       delay: 200,
       anchorPlacement: "top-center",
     });
-  }, []);
+  }, [isDisabledAnimation]);
   return (
     <>
       <Provider store={store}>
-          <Navigation />
-          <ButtonUpTop />
-          <Overlay />
-          <Component {...pageProps} />
-          <Footer />
+        <Navigation />
+        <ButtonUpTop />
+        <Overlay />
+        <Component {...pageProps} />
+        <Footer />
       </Provider>
     </>
   );

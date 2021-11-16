@@ -7,14 +7,8 @@ import axiosConfig from "../service/base";
 import { getProductsByCondition } from "../service/getProducts";
 import getNewsByCondition from "../service/getNews";
 import getPartnerCondition from "../service/getPartners";
-import { useEffect } from "react";
-import Aos from "aos";
+import { checkUserIsBot } from "../util";
 export default function Home({ news, products, banner, partners }) {
-  useEffect(() => {
-    Aos.init({
-      disable: true
-    })
-  }, []);
   return (
     <>
       <ContainerBanner banner={banner} />
@@ -27,9 +21,7 @@ export default function Home({ news, products, banner, partners }) {
 
 export const getServerSideProps = async ({req}) => {
   
-  const userAgent = req.headers;
-  
-
+  const userIsBot = checkUserIsBot(req);
 
   const bannerData = await axiosConfig({
     url: getHomePageById(1),
@@ -54,7 +46,8 @@ export const getServerSideProps = async ({req}) => {
       }),
       products: product.result.items,
       banner: bannerData,
-      partners: partners.result.items
+      partners: partners.result.items,
+      isDisabledAnimation: userIsBot
     },
   };
 };
