@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: false,
   images: {
-    domains: ['cdn.noron.vn/', 'https://cdn.noron.vn/'],
+    domains: ['cdn.noron.vn', 'versatica.ai'],
   },
   webpack(config) {
     config.module.rules.push({

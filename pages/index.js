@@ -18,19 +18,19 @@ export default function Home({ news, products, banner, partners }) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const bannerData = await axiosConfig({
     url: getHomePageById(1),
   });
   const product = await getProductsByCondition(1, 4);
   const news = await getNewsByCondition(1, 4, "");
   const partners = await getPartnerCondition(1, 10);
-  console.log(partners);
+  
   if (bannerData.code >= 400 || product.code >= 400 || news.code >= 400 || partners.code >= 400) {
     return {
       notFound: true,
     };
-  }
+  } 
 
   return {
     props: {
@@ -44,6 +44,5 @@ export const getStaticProps = async () => {
       banner: bannerData,
       partners: partners.result.items
     },
-    revalidate: 60, // revalidate data from server after 60 seconds
   };
 };

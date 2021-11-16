@@ -35,7 +35,9 @@ const LayoutProduct = ({
         <Icon className={styles.color} src={"/project_icon_white.svg"} />
         <h4 data-transition-delay="500">{title}</h4>
         <Line className={styles.line} />
-        <p className={styles.content} data-transition-delay="1000">{content}</p>
+        <p className={styles.content} data-transition-delay="1000">
+          {content}
+        </p>
         <Link data-transition-delay="1500" href={path || "/"} passHref={true}>
           {/* just temporary for not being error, dynamic route */}
           <a>
