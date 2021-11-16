@@ -28,7 +28,7 @@ export default function Home({ news, products, banner, partners }) {
 export const getServerSideProps = async ({req}) => {
   
   const userAgent = req.headers;
-  console.log(userAgent);
+  
 
 
   const bannerData = await axiosConfig({

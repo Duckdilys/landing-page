@@ -126,7 +126,7 @@ export const getStaticPaths = async () => {
     fallback: "blocking",
   };
 };
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   return {
     props: {
       data: dataFake,

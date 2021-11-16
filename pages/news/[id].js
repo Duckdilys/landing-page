@@ -75,7 +75,7 @@ export const getStaticPaths = async () => {
     fallback: "blocking",
   };
 };
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   return {
     props: {
       data: dataFake,
