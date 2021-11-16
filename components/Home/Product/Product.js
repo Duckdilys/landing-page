@@ -9,11 +9,15 @@ const Product = ({ product, title, className, classNameContainer, classNameGrid 
         <h4>{title ? title : "Sản Phẩm"}</h4>
         <Grid className={classNameGrid}>
           {product.map((item, index) => {
+            let src = "/demo-image.png";
+            if(item.infos && item.infos.length > 0){
+              src = item.infos[0].src
+            }
             return (
               <LayoutProduct
                 aos="fade-up"
-                key={item.id}
-                src={item?.infos[0]?.src || "/demo-image.png"}
+                key={index}
+                src={src}
                 title={item.title}
                 content={item.content}
                 path={item.website}
