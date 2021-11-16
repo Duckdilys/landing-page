@@ -1,9 +1,8 @@
 .banner {
-    background: url('../../../public/banner.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    position: relative;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    position: relative !important;
     h3{
         color: var(--white);
     }

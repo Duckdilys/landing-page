@@ -1,9 +1,12 @@
 .slide {
   position: relative;
   overflow: hidden;
+  max-width: 617px;
+  max-height: 414px;
   img{
     transition: all .5s ease-in-out;
     z-index: 10 !important;
+    object-fit: cover;
     &:hover{
       transform: scale(1.1);
     }

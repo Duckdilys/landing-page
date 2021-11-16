@@ -48,5 +48,5 @@ export {
     StringToHTML,
     Overlay,
     DropzoneUpload,
-    ButtonUpTop
+    ButtonUpTop,
 }

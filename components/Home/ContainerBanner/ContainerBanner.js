@@ -5,18 +5,16 @@ import {
 } from "../../container";
 import styles from "./ContainerBanner.module.scss";
 
-const ContainerBanner = () => {
+const ContainerBanner = ({ banner }) => {
+  const { result: data } = banner;
   return (
-    <Container
-      className={`${styles.banner} d-flex justify-content-start align-items-end`}
-    >
+    <Container className={`${styles.banner} d-flex justify-content-start align-items-end`} style={{background: `url('${data.src_image}')`}}>
       <LayoutContainer className={styles.container}>
         <div data-aos="fade-up" className={styles.content}>
-          <h3 className={styles.title}>Giải pháp 4.0</h3>
+          <h3 className={styles.title}>{data.title}</h3>
           <Line className={styles.line} />
           <p className={styles.text}>
-            Hệ sinh thái giải pháp toàn diện về dữ liệu, quảng cáo, truyền thông
-            và mạng xã hội nội bộ cho doanh nghiệp, tổ chức, cơ quan nhà nước.
+            {data.content}
           </p>
         </div>
       </LayoutContainer>

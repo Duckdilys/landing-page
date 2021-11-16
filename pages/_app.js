@@ -2,9 +2,9 @@ import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
 import { Overlay, ButtonUpTop } from "../components/container";
 import React, { useEffect } from "react";
-import AOS from "aos";
 import { Provider } from "react-redux";
 import store from "../store/store";
+import AOS from "aos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.scss";
 import "swiper/swiper-bundle.min.css";
@@ -25,14 +25,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
-        <Navigation />
-        <ButtonUpTop/>
-        <Overlay />
-        <Component {...pageProps} />
-        <Footer />
+          <Navigation />
+          <ButtonUpTop />
+          <Overlay />
+          <Component {...pageProps} />
+          <Footer />
       </Provider>
     </>
   );
 }
-
 export default MyApp;

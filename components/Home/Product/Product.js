@@ -9,24 +9,14 @@ const Product = ({ product, title, className, classNameContainer, classNameGrid 
         <h4>{title ? title : "Sản Phẩm"}</h4>
         <Grid className={classNameGrid}>
           {product.map((item, index) => {
-            if (index % 2 == 0) {
-              return (
-                <LayoutProduct
-                  aos="fade-up"
-                  key={item.title}
-                  src={item.src}
-                  title={item.title}
-                  content={item.content}
-                />
-              );
-            }
             return (
               <LayoutProduct
                 aos="fade-up"
-                key={item.title}
-                src={item.src}
+                key={item.id}
+                src={item?.infos[0]?.src || "/demo-image.png"}
                 title={item.title}
                 content={item.content}
+                path={item.website}
               />
             );
           })}

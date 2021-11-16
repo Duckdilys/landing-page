@@ -10,6 +10,7 @@ import { Row, Col } from "react-bootstrap";
 import styles from "./News.module.scss";
 import Slide from "./Slide/Slide";
 import New from "./New/New";
+import Link from 'next/link';
 const News = ({ news }) => {
   return (
     <div className={styles.container}>
@@ -29,12 +30,12 @@ const News = ({ news }) => {
               pagination
             >
               {news.map((item, index) => {
-                if (index <= 1) {
+                if (index == 0) {
                   return (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide key={item.id}>
                       <Slide
-                        src={item.image}
-                        type={item.type}
+                        src={item.cover_url}
+                        type={item.type || "Dashboard"}
                         title={item.title}
                       />
                     </SwiperSlide>
@@ -47,20 +48,20 @@ const News = ({ news }) => {
             <Grid className={styles.grid}>
               <h5>Tin gần đây</h5>
               {news.map((item, index) => {
-                if (index > 1) {
+                if (index >= 1) {
                   return (
                     <New
                       key={index}
-                      src={item.image}
+                      src={item.cover_url}
                       title={item.title}
                       content={item.content}
-                      date={item.date}
+                      date={item.created_at}
                     />
                   );
                 }
               })}
             </Grid>
-            <Button className={styles.button}>Xem tất cả</Button>
+            <Link passHref={true} href={"/news"}><a><Button className={styles.button}>Xem tất cả</Button></a></Link>
           </Col>
         </Row>
       </LayoutContainer>

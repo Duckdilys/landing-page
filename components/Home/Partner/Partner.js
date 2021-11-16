@@ -46,7 +46,11 @@ const Partner = (props) => {
             }}
             loop
           >
-            {_renderSlider(5)}
+            {props.partners && props.partners?.map(item => {
+              
+              return <SwiperSlide key={item.id}><Image className={styles.image} src={item.avatar} alt=""/></SwiperSlide>
+            })}
+            {!props.partners && _renderSlider(5)}
           </SwiperContainer>
         </LayoutContainer>
       </div>

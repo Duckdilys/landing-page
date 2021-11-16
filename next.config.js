@@ -1,5 +1,8 @@
 module.exports = {
   reactStrictMode: false,
+  images: {
+    domains: ['cdn.noron.vn/', 'https://cdn.noron.vn/'],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

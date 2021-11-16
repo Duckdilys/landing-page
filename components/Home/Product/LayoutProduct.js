@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import { Image } from "../../container";
 import Link from "next/link";
 import styles from "./LayoutProduct.module.scss";
 import Icon from "./Icon/Icon";
@@ -25,12 +25,9 @@ const LayoutProduct = ({
       <div className={`position-relative ${styles.image}`}>
         {src && (
           <Image
-            src={src}
+            src={src || "/demo-image.png"}
             alt=""
-            width="100%"
-            height="100%"
-            layout="responsive"
-            objectFit="cover"
+            className={styles.image}
           />
         )}
       </div>
@@ -38,7 +35,7 @@ const LayoutProduct = ({
         <Icon className={styles.color} src={"/project_icon_white.svg"} />
         <h4 data-transition-delay="500">{title}</h4>
         <Line className={styles.line} />
-        <p data-transition-delay="1000">{content}</p>
+        <p className={styles.content} data-transition-delay="1000">{content}</p>
         <Link data-transition-delay="1500" href={path || "/"} passHref={true}>
           {/* just temporary for not being error, dynamic route */}
           <a>
