@@ -11,6 +11,7 @@ import {
   fakeDataCircle,
   founderFakeData,
 } from "../components/Introduction/dataFake/dataFake";
+import { checkUserIsBot } from "../util";
 const Introduction = ({ data, founder }) => {
   return (
     <>
@@ -44,11 +45,13 @@ const Introduction = ({ data, founder }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({req}) => {
+  const userIsBot = checkUserIsBot(req);
   return {
     props: {
       data: fakeDataCircle,
       founder: founderFakeData,
+      isDisabledAnimation: userIsBot
     },
   };
 };

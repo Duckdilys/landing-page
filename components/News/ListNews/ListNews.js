@@ -1,21 +1,17 @@
-import React, { useEffect, useMemo } from "react";
-import { useRouter } from "next/router";
+import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { ContainerSmall, Grid } from "../../container";
 import Category from "../Category/Category";
 import New from "../New/New";
 import styles from "./ListNews.module.scss";
 const ListNews = ({ news }) => {
-  const router = useRouter();
   const type = useSelector((state) => state.category.category);
   const renderTypes = useMemo(() => {
     return news.map((post) => {
       return post.type;
     });
   }, [news]);
-  // useEffect(() => {
-  //   router.push('?page=1');
-  // }, [type]);
+  
   return (
     <ContainerSmall className={styles.container}>
       <Grid className={styles.grid}>
