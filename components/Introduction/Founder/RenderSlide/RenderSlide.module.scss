@@ -4,6 +4,9 @@
     img{
         transition: all .5s ease-in-out;
     }
+    h5{
+        font-weight: var(--weight-700);
+    }
     &:hover{
         .content{
             opacity: 1;

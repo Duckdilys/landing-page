@@ -2,9 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import styles from "./Category.module.scss";
 import { categoryActions } from "../../../store/slices/category-slice";
-const Category = ({ category, type }) => {
+const Category = ({ categories, type }) => {
   const dispatch = useDispatch();
-  const categories = [...new Set(category)];
   return (
     <div className={styles.category}>
       <h6>Danh mục tin tức</h6>
@@ -15,7 +14,7 @@ const Category = ({ category, type }) => {
         >
           TẤT CẢ
         </li>
-        {categories.map((category, index) => {
+        {categories?.map((category, index) => {
           return (
             <li
               onClick={() =>
@@ -24,7 +23,7 @@ const Category = ({ category, type }) => {
               className={type === category ? styles.active : ''}
               key={index}
             >
-              {category.toUpperCase()}
+              {category}
             </li>
           );
         })}

@@ -4,19 +4,18 @@ import { ContainerSmall, Grid } from "../../container";
 import Category from "../Category/Category";
 import New from "../New/New";
 import styles from "./ListNews.module.scss";
-const ListNews = ({ news }) => {
+const ListNews = ({ news, categories }) => {
   const type = useSelector((state) => state.category.category);
   const renderTypes = useMemo(() => {
-    return news.map((post) => {
-      return post.type;
+    return categories.map((category) => {
+      return category.title.toUpperCase();
     });
-  }, [news]);
-  
+  }, [categories]);
   return (
     <ContainerSmall className={styles.container}>
       <Grid className={styles.grid}>
-        <Category type={type} category={renderTypes} />
-        <New postTypes={[...new Set(renderTypes)]} news={news} />
+        <Category type={type} categories={renderTypes} />
+        <New postTypes={renderTypes} news={news} />
       </Grid>
     </ContainerSmall>
   );

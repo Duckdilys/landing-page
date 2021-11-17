@@ -12,7 +12,9 @@ const SkeletonLoading = ({ src, classContainer, times, imageClassName }) => {
   return (
     <div className={`${styles.loading} ${classContainer}`}>
       {src && <div classNames={`${styles.image} ${styles.skeleton} ${imageClassName}`}></div>}
-      {times && <div className={styles.lines}>{_renderSkeleton(+times)}</div>}
+      <div className={styles['container-text']}>
+        {times && <div className={styles.lines}>{_renderSkeleton(+times)}</div>}
+      </div>
     </div>
   );
 };

@@ -8,31 +8,32 @@ const Founder = ({ data }) => {
     <ContainerSmall>
       <h4>Sáng Lập - Cố Vấn</h4>
       <SwiperContainer
+      config={{
+        breakpoints: {
+          200: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          },
+        },
+        left: styles.left,
+        right: styles.right,
+        'data-aos-delay': 1000,
+        'data-aos-offset': 300
+      }}
         aos='fade-up'
-        pagination
         className={styles.swiper}
         loop
         navigation
-        config={{
-          breakpoints: {
-            200: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-            576: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 24,
-            },
-          },
-          left: styles.left,
-          right: styles.right,
-          'data-aos-delay': 1000,
-          'data-aos-offset': 300
-        }}
+        pagination
+        clickable={true}
       >
         {data.map((founder, index) => {
           return (
