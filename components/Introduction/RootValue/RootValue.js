@@ -2,13 +2,20 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import styles from "./RootValue.module.scss";
 import { Logo } from "../../container";
-import Circle from "./Circle/Circle";
+import CircleContainer from "./CircleContainer/CircleContainer";
 const RootValue = ({ data }) => {
   return (
     <div className={styles["container-bg"]}>
       <Container className={`text-center ${styles.container}`}>
-        <h4 data-aos='fade-up' data-aos-offset={300}>Giá trị cốt lõi</h4>
-        <p data-aos="fade-up" data-aos-offset={300} data-aos-delay={0} className={styles.intro}>
+        <h4 data-aos="fade-up" data-aos-offset={300}>
+          Giá trị cốt lõi
+        </h4>
+        <p
+          data-aos="fade-up"
+          data-aos-offset={300}
+          data-aos-delay={0}
+          className={styles.intro}
+        >
           Chúng tôi tập trung vào phát triển con người và văn hóa doanh nghiệp.
           Với 5 giá trị cốt lõi, nhân sự của chúng tôi luôn luôn phát triển và
           hoàn thiện với tinh thần{" "}
@@ -17,6 +24,7 @@ const RootValue = ({ data }) => {
           “Sáng tạo, chủ động, phát huy tính đồng đội, trách nhiệm với bản thân,
           công ty và khách hàng.”
         </h5>
+        {data.length > 0 ? 
         <div
           data-aos="fade-up"
           data-aos-delay={800}
@@ -26,38 +34,24 @@ const RootValue = ({ data }) => {
           <div
             className={`rounded-circle d-flex justify-content-center align-items-center position-relative ${styles["small-circle"]}`}
           >
-            <Logo/>
+            <Logo />
           </div>
           <div data-aos="fade-up" className={styles["container-circle"]}>
             {data.map((item, index) => {
               return (
-                <div
-                  style={{
-                    transform: `rotate(${
-                      Math.round(360 / data.length) * index
-                    }deg)`
-                  }}
-                  className={styles["circle-element"]}
-                  key={item.title}
-                >
-                  <div
-                    style={{
-                      transform: `rotate(-${
-                        Math.round(360 / data.length) * index
-                      }deg)`,
-                    }}
-                    className={`d-flex justify-content-center align-items-center flex-column ${styles.element}`}
-                  >
-                    <Circle style={{ background: item.backgroundColor, boxShadow: `${item.shadow}` }}>
-                      {index + 1}
-                    </Circle>
-                    <span className={styles.text}>{item.title}</span>
-                  </div>
-                </div>
+                <CircleContainer
+                  key={index}
+                  index={index}
+                  length={data.length}
+                  shadow={item.shadow}
+                  backgroundColor={item.backgroundColor}
+                  title={item.title}
+                />
               );
             })}
           </div>
         </div>
+        : <p className="text-center pt-5">Không có thông tin</p>}
       </Container>
     </div>
   );

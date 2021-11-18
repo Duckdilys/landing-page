@@ -20,7 +20,7 @@ const Product = ({ product, title, className, classNameContainer, classNameGrid 
                 src={src}
                 title={item.title}
                 content={item.content}
-                path={item.website}
+                path={"/"}
               />
             );
           })}
