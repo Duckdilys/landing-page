@@ -6,8 +6,8 @@ const getProductsByCondition = async (page, page_size) => {
         url: apiGetProducts,
         method: "POST",
         data: {
-            page: page || 1,
-            page_size: page_size || 4
+            page: page,
+            page_size: page_size
         }
     })
     return response;

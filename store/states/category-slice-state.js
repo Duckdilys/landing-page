@@ -1,5 +1,5 @@
 const initialState = {
-    category: 'all',
+    category: 0,
 }
 
 export default initialState;

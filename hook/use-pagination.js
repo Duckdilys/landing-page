@@ -1,59 +1,42 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-const usePagination = (data, pageLimit) => {
+import { useEffect, useMemo, useState } from "react";
+
+const usePagination = (perPage, currentPage, totalDocuments) => {
+  const [page, setPage] = useState(currentPage);
   const router = useRouter();
-  const [currentPage, setCurrentPage] = useState(router.query.page || 1);
 
   useEffect(() => {
-    const page = router.query.page || 1;
-    setCurrentPage(+page);
-  }, [router.query.page]);
-  const goToNextPage = () => {
-      router.push(`?page=${currentPage + 1}`, null, {
-        scroll: false
-      });
-  }
+    router.push(`?page=${page}`);
+  }, [page]);
+
   const goToPrevPage = () => {
-      router.push(`?page=${currentPage - 1}`, null, {
-        scroll: false
-      });
-  }
-  const getDataRender = () => {
-      const startIndex = currentPage * pageLimit - pageLimit;
-      const endIndex = startIndex + pageLimit;
-      return data.slice(startIndex, endIndex);
-  }
-  const getPaginationRender = () => {
-      const pageNumbers = [];
-      for(let i = 1; i <= Math.ceil((data.length / pageLimit)); i++){
-          pageNumbers.push(i);
+      if(page === 1){
+          return;
       }
-    //   let start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
-    //   return new Array(pageLimit).fill().map((_, index) => start + index + 1);
-      let setFirstCurrentPage = currentPage - pageLimit;
-      if(setFirstCurrentPage <= 0){
-        setFirstCurrentPage = 0;
-      }
-      let setLastPagePagination = currentPage + pageLimit;
-      if(setLastPagePagination > data.length){
-          setLastPagePagination = data.length - 1;
-      }
-      return pageNumbers.slice(setFirstCurrentPage, setLastPagePagination);
+      setPage(prevState => prevState - 1);
   }
-  const goToPage = (page) => {
-      router.push(`?page=${page}`, null, {
-        scroll: false
-      });
+  const getTotalPagination = useMemo(() => {
+    return Math.ceil(totalDocuments / perPage);
+  }, [perPage, totalDocuments]);
+
+  const goToNextPage = () => {
+    if(page === getTotalPagination){
+        return;
+    }
+    setPage(prevState => prevState + 1);
+  }
+  const changePageHandler = (page) => {
+    setPage(+page);
   }
   return {
-      goToNextPage,
-      goToPrevPage,
-      getDataRender,
-      getPaginationRender,
-      currentPage,
-      goToPage,
-      totalDocuments: Math.round(data.length / pageLimit)
+    goToPrevPage,
+    goToNextPage,
+    page,
+    getTotalPagination,
+    hasNextPage: page < getTotalPagination,
+    hasPrevPage: page > 1,
+    changePageHandler
   }
 };
 
-export default usePagination
+export default usePagination;

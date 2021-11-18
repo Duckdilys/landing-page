@@ -5,6 +5,7 @@ import styles from "../../components/Products/Banner.module.scss";
 import Introduction from "../../components/Products/Introduction/Introduction";
 import Product from "../../components/Home/Product/Product";
 import dataFake from "../../components/Home/Product/FakeData/FakeData";
+import { checkUserIsBot } from "../../util";
 const data = {
   introduction: [
     {
@@ -114,10 +115,13 @@ const Products = ({ data }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async ({ req }) => {
+  const userIsBot = checkUserIsBot(req);
+  
   return {
     props: {
       data: data,
+      isDisabledAnimation: userIsBot
     },
   };
 };

@@ -47,9 +47,9 @@ const SwiperBackground = ({ posts }) => {
         return (
           <SwiperSlide key={index}>
             <Slide
-              style={{ background: `url('${post.url}')` }}
+              style={{ background: `url('${post.cover_url}')` }}
               title={post.title}
-              type={post.type}
+              type={post.category?.title}
             />
           </SwiperSlide>
         );

@@ -8,7 +8,10 @@ const ListNews = ({ news, categories }) => {
   const type = useSelector((state) => state.category.category);
   const renderTypes = useMemo(() => {
     return categories.map((category) => {
-      return category.title.toUpperCase();
+      return {
+        categoryId: category.id,
+        title: category.title
+      }
     });
   }, [categories]);
   return (

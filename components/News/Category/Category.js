@@ -9,8 +9,8 @@ const Category = ({ categories, type }) => {
       <h6>Danh mục tin tức</h6>
       <ul>
         <li
-          className={type === "all" ? styles.active : ""}
-          onClick={() => dispatch(categoryActions.changeCategoryHandler("all"))}
+          className={type === 0 ? styles.active : ""}
+          onClick={() => dispatch(categoryActions.changeCategoryHandler(0))}
         >
           TẤT CẢ
         </li>
@@ -18,12 +18,12 @@ const Category = ({ categories, type }) => {
           return (
             <li
               onClick={() =>
-                dispatch(categoryActions.changeCategoryHandler(category))
+                dispatch(categoryActions.changeCategoryHandler(category.categoryId))
               }
-              className={type === category ? styles.active : ''}
+              className={type === category.categoryId ? styles.active : ''}
               key={index}
             >
-              {category}
+              {category.title.toUpperCase()}
             </li>
           );
         })}

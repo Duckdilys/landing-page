@@ -5,8 +5,10 @@ import { checkUserIsBot } from "../../util";
 import { getNewsApi } from "../../config/ApiNews";
 import useFetch from "../../hook/use-fetch";
 import { useRouter } from "next/router";
-import getCategoriesCondition from '../../service/getCategories';
+import getCategoriesCondition from "../../service/getCategories";
 import getNewsByCondition from "../../service/getNews";
+import { Pagination } from "../../components/container";
+import { useSelector } from "react-redux";
 export const data = {
   posts: [
     {
@@ -30,96 +32,111 @@ export const data = {
       url: "/new-banner.png",
     },
   ],
-  news: [
-    {
-      name: "báo cáo xếp hạng các chương trình truyền hình việt nam",
-      date: new Date().toLocaleDateString("vi-vn"),
-      type: "truyền thông",
-      url_cover: "/Rectangle 134.png",
-    },
-    {
-      name: "báo cáo xếp hạng các chương trình truyền hình việt nam",
-      date: new Date().toLocaleDateString("vi-vn"),
-      type: "trung tâm vas",
-      url_cover: "/Rectangle 134.png",
-    },
-    {
-      name: "báo cáo xếp hạng các chương trình truyền hình việt nam",
-      date: new Date().toLocaleDateString("vi-vn"),
-      type: "dashboard",
-      url_cover: "/Rectangle 134.png",
-    },
-    {
-      name: "báo cáo xếp hạng các chương trình truyền hình việt nam",
-      date: new Date().toLocaleDateString("vi-vn"),
-      type: "truyền thông",
-      url_cover: "/Rectangle 134.png",
-    },
-    {
-      name: "báo cáo xếp hạng các chương trình truyền hình việt nam",
-      date: new Date().toLocaleDateString("vi-vn"),
-      type: "dashboard",
-      url_cover: "/Rectangle 134.png",
-    },
-    {
-      name: "báo cáo xếp hạng các chương trình truyền hình việt nam",
-      date: new Date().toLocaleDateString("vi-vn"),
-      type: "trung tâm vas",
-      url_cover: "/Rectangle 134.png",
-    },
-  ],
 };
-const News = ({ data, categories, news }) => {
+const News = ({ categories, news, totalPage, heading }) => {
   const { isLoading, error, fetchDataFromServer, data: dataNews } = useFetch();
+  const selectedPostByType = useSelector((state) => state.category.category);
   const [posts, setPosts] = useState(news);
+  const [totalDocuments, setTotalDocuments] = useState(totalPage);
   const router = useRouter();
-
-  const page = useMemo(() => {
-    return router.query.page || 1;
+  const query = useMemo(() => {
+    const page = +router.query.page || 1;
+    return page;
   }, [router.query]);
-  // useEffect(() => {
-  //     fetchDataFromServer({
-  //         method: 'POST',
-  //         url: getNewsApi,
-  //         data: {
-  //             page: page,
-  //             page_size: 2
-  //         }
-  //     });
-  // }, [fetchDataFromServer, page]);
-  // console.log(isLoading, error, dataNews);
+  useEffect(() => {
+    fetchDataFromServer({
+      url: getNewsApi,
+      method: "POST",
+      data: {
+        page: query,
+        keyword: "",
+        page_size: 1,
+        filters:
+          selectedPostByType === 0
+            ? undefined
+            : [
+                {
+                  name: "category_new_id",
+                  operation: "eq",
+                  value: selectedPostByType,
+                },
+              ],
+      },
+    });
+  }, [query, fetchDataFromServer, selectedPostByType]);
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+    if (!isLoading && dataNews) {
+      const posts = dataNews.result.items;
+      const transformPost = posts.map((item) => {
+        return {
+          ...item,
+          created_at: new Date(item.created_at).toLocaleDateString("vi-VN"),
+        };
+      });
+      setPosts(transformPost);
+      const totalPage = dataNews.result.total;
+      if (totalPage !== totalDocuments) {
+        setTotalDocuments(totalPage);
+      }
+    }
+  }, [isLoading, dataNews, news, totalDocuments]);
   return (
     <>
-      <SwiperBackground posts={data.posts} />
-      <ListNews categories={categories} news={posts} isLoading={isLoading} error={error} />
+      <SwiperBackground posts={heading} />
+      <ListNews
+        categories={categories}
+        news={posts}
+        isLoading={isLoading}
+        error={error}
+      />
+      {posts.length > 0 && (
+        <Pagination
+          totalDocuments={totalDocuments}
+          perPage={1}
+          currentPage={query}
+        />
+      )}
     </>
   );
 };
 
 export const getServerSideProps = async ({ req, query }) => {
   const userIsBot = checkUserIsBot(req);
-  const categories = await getCategoriesCondition(1, 10, '')
+  const categories = await getCategoriesCondition(1, 10, "");
   const page = query?.page || 1;
-  const getNewsByPage = await getNewsByCondition(page, 2, "");
-  if(categories.status >= 400 || getNewsByPage.status >= 400){
+  const getNewsByPage = await getNewsByCondition(page, 1, "");
+  const getHeadingSwiper = await getNewsByCondition(0, 4, "", {
+    sorts: [
+      {
+        property: "created_at",
+        direction: "DESC",
+      },
+    ],
+  });
+  if (
+    categories.code >= 400 ||
+    getNewsByPage.code >= 400 ||
+    getHeadingSwiper.code >= 400
+  ) {
     return {
-      notFound: true
-    }
+      notFound: true,
+    };
   }
-
   return {
     props: {
-      data: data,
       isDisabledAnimation: userIsBot,
       categories: categories?.result?.items,
-      news: getNewsByPage?.result?.items?.map(item => {
+      news: getNewsByPage?.result?.items?.map((item) => {
         return {
           ...item,
-          created_at: new Date(item.created_at).toLocaleDateString('vi-VN', {
-            month: '2-digit', day: '2-digit', year: 'numeric'
-          })
-        }
-      })
+          created_at: new Date(item.created_at).toLocaleDateString("vi-VN"),
+        };
+      }),
+      totalPage: getNewsByPage.result?.total,
+      heading: getHeadingSwiper.result?.items,
     },
   };
 };

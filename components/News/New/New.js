@@ -10,6 +10,7 @@ const New = ({ news }) => {
   return (
     <div className={styles.container}>
       <h5>Tin gần đây</h5>
+      {news.length === 0 && <p className="text-center pt-3">Không có dữ liệu</p>}
       <Grid className={styles.grid}>
         {news.map((post) => {
           return (
