@@ -9,30 +9,6 @@ import getCategoriesCondition from "../../service/getCategories";
 import getNewsByCondition from "../../service/getNews";
 import { Pagination } from "../../components/container";
 import { useSelector } from "react-redux";
-export const data = {
-  posts: [
-    {
-      type: "Truyền thông",
-      title: "báo cáo hiệu quả truyền thông online “Rap Việt”",
-      url: "/new-banner.png",
-    },
-    {
-      type: "Truyền thông",
-      title: "báo cáo hiệu quả truyền thông online “Rap Việt”",
-      url: "/new-banner.png",
-    },
-    {
-      type: "Truyền thông",
-      title: "báo cáo hiệu quả truyền thông online “Rap Việt”",
-      url: "/new-banner.png",
-    },
-    {
-      type: "Truyền thông",
-      title: "báo cáo hiệu quả truyền thông online “Rap Việt”",
-      url: "/new-banner.png",
-    },
-  ],
-};
 const News = ({ categories, news, totalPage, heading }) => {
   const { isLoading, error, fetchDataFromServer, data: dataNews } = useFetch();
   const selectedPostByType = useSelector((state) => state.category.category);

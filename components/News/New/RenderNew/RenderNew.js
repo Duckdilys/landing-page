@@ -5,7 +5,7 @@ import Link from "next/link";
 import { removeUnicode } from "../../../../util";
 import { useDispatch } from "react-redux";
 import { categoryActions } from "../../../../store/slices/category-slice";
-const RenderNew = ({ name, date, type, url_cover, image }) => {
+const RenderNew = ({ name, date, type, url_cover, image, category_id, id }) => {
   const dispatch = useDispatch();
   return (
     <div className={styles.new}>
@@ -27,10 +27,10 @@ const RenderNew = ({ name, date, type, url_cover, image }) => {
       <div
         className={`d-flex justify-content-between align-items-center ${styles.time}`}
       >
-        <h6 onClick={() => dispatch(categoryActions.changeCategoryHandler(type))}>{type}</h6>
+        <h6 onClick={() => dispatch(categoryActions.changeCategoryHandler(category_id))}>{type}</h6>
         <p>{date}</p>
       </div>
-      <Link className={styles.link} href={`/news/${removeUnicode(name)}`}>
+      <Link className={styles.link} href={`/news/${id}`}>
         {name}
       </Link>
     </div>

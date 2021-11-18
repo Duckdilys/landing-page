@@ -30,13 +30,12 @@ const BreadCrumb = ({ date, paths, className }) => {
         </Link>
         {paths &&
           paths.map((path, index) => {
-            console.log(path);
             return (
               <Link href={"/"} key={index}>
                 <a>
                   <li className={path.color ? styles.color : ''}>
                     {path.name}{" "}
-                    {index !== paths.length - 2 && (
+                    {index !== paths.length - 1 && (
                       <span>
                         <Image
                           src={"/arrow-bread-crumb-icon.svg"}

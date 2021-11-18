@@ -20,6 +20,8 @@ const New = ({ news }) => {
               name={post.title}
               type={post?.category?.title}
               url_cover={post.cover_url}
+              category_id={post.category_new_id}
+              id={post.id}
             />
           );
         })}
