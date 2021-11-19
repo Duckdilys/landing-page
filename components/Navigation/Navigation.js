@@ -42,27 +42,26 @@ const Navigation = () => {
                 return (
                   <li
                     className={`position-relative ${styles.dropdown} ${
-                      router.asPath === path.path && styles.active
+                      router.asPath === path.path ||
+                      router.pathname === `${path.path}/[id]`
+                        ? styles.active
+                        : ""
                     }`}
                     key={path.name}
                   >
-                    <Link href={path.path} passHref={true}>
-                      <a className='d-flex justify-content-between align-items-center'>
-                        {path.name}
-                        <svg
-                          width="14"
-                          height="8"
-                          viewBox="0 0 14 8"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.23793 -4.99558e-07L6.99984 4.7619L11.7617 -8.32597e-08L13.6665 0.952381L6.99984 7.61905L0.33317 0.95238L2.23793 -4.99558e-07Z"
-                            fill="#1D1D1D"
-                          />
-                        </svg>
-                      </a>
-                    </Link>
+                    {path.name}
+                    <svg
+                      width="14"
+                      height="8"
+                      viewBox="0 0 14 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.23793 -4.99558e-07L6.99984 4.7619L11.7617 -8.32597e-08L13.6665 0.952381L6.99984 7.61905L0.33317 0.95238L2.23793 -4.99558e-07Z"
+                        fill="#1D1D1D"
+                      />
+                    </svg>
                     <ul ref={listRef} className={`${styles["list-dropdown"]}`}>
                       <li>
                         <Link href="/">
@@ -89,6 +88,16 @@ const Navigation = () => {
                         </Link>
                       </li>
                     </ul>
+                  </li>
+                );
+              }
+              if (index === 3) {
+                return (
+                  <li
+                    className={router.asPath === path.path ? styles.active : ""}
+                    key={path.name}
+                  >
+                    <Link href={path.path}>{path.name}</Link>
                   </li>
                 );
               }

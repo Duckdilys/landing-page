@@ -63,6 +63,9 @@
 }
 .container{
     padding-bottom: 0 !important;
+    p{
+        padding-left: 0;
+    }
 }
 .background{
     background: var(--light-gray);

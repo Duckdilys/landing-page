@@ -6,6 +6,9 @@ import Introduction from "../../components/Products/Introduction/Introduction";
 import Product from "../../components/Home/Product/Product";
 import dataFake from "../../components/Home/Product/FakeData/FakeData";
 import { checkUserIsBot } from "../../util";
+import { getProductById } from "../../config/ApiProducts";
+import axiosConfig from "../../service/base";
+import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
 const data = {
   introduction: [
     {
@@ -37,29 +40,29 @@ const data = {
     },
   ],
 };
-const Products = ({ data }) => {
+const Products = ({ data, data_product }) => {
   return (
     <>
       <BannerPage
-        title="Giải pháp về hạ tầng và phân tích dữ liệu"
+        title={data_product?.title || "Không có dữ liệu"}
         classNameBanner={styles.banner}
         classNameBox={styles.box}
       />
-      {data.line_content.map((content, index) => {
-        return (
-          <TextImage
-            key={index}
-            mainTitle={content.main_title}
-            title={content.title}
-            src={content.url}
-            aosImage="fade-left"
-            iconImage={null}
-            classNameContainer={styles.container}
-            className="flex-row-reverse"
-            aos="fade-right"
-          />
-        );
-      })}
+      <TextImage
+        mainTitle={"Thông tin chi tiết"}
+        title={
+          data_product?.infos[0]
+            ? data_product?.infos[0].title
+            : "Không có dữ liệu"
+        }
+        src={"/Products.png"}
+        aosImage="fade-left"
+        iconImage={null}
+        classNameContainer={styles.container}
+        className="flex-row-reverse"
+        aos="fade-right"
+      />
+      );
       <Introduction
         aos="fade-left"
         title="chúng tôi đã làm gì?"
@@ -77,33 +80,36 @@ const Products = ({ data }) => {
           );
         })}
       </Introduction>
-      <Introduction
-        imageConfig={{ "data-aos": "fade-left" }}
-        className={styles.information}
-        src={"/product_intro_1.png"}
-      >
-        <div data-aos="fade-right" data-aos-delay={500} data-aos-offset={300}>
-          <h5>Bạn muốn biết thêm thông tin?</h5>
-          <p className={styles.title}>
-            Nếu muốn biết thêm thông tin chi tiết, vui lòng liên hệ theo số điện
-            thoại hoặc truy cập đường link dưới đây:
-          </p>
-          <div
-            className={`d-flex align-items-center justify-content-between ${styles["information-box"]}`}
-          >
-            <div className={`d-flex align-items-center ${styles.content}`}>
-              <Image
-                src={"/Icon/phone-black-icon.svg"}
-                alt=""
-                width="24"
-                height="24"
-              />
-              <span>0975-718-168</span>
+      {data_product.landing_page && (
+        <Introduction
+          imageConfig={{ "data-aos": "fade-left" }}
+          className={styles.information}
+          src={"/product_intro_1.png"}
+        >
+          <div data-aos="fade-right" data-aos-delay={500} data-aos-offset={300}>
+            <h5>Bạn muốn biết thêm thông tin?</h5>
+            <p className={styles.title}>
+              Nếu muốn biết thêm thông tin chi tiết, vui lòng liên hệ theo số
+              điện thoại hoặc truy cập đường link dưới đây:
+            </p>
+            <div
+              className={`d-flex align-items-center justify-content-between ${styles["information-box"]}`}
+            >
+              <div className={`d-flex align-items-center ${styles.content}`}>
+                <Image
+                  src={"/Icon/phone-black-icon.svg"}
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+                <span>0975-718-168</span>
+              </div>
+              <Button>truy cập đến trang web</Button>
             </div>
-            <Button>truy cập đến trang web</Button>
           </div>
-        </div>
-      </Introduction>
+        </Introduction>
+      )}
+      {!data_product.landing_page && <BannerLanding/>}
       <Product
         className={styles.background}
         classNameContainer={styles["container-product"]}
@@ -115,13 +121,23 @@ const Products = ({ data }) => {
   );
 };
 
-export const getServerSideProps = async ({ req }) => {
+export const getServerSideProps = async ({ req, params }) => {
   const userIsBot = checkUserIsBot(req);
-  
+  const { id } = params;
+
+  const data_product = await axiosConfig({
+    url: getProductById(id),
+  });
+  if (data_product.code >= 400) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       data: data,
-      isDisabledAnimation: userIsBot
+      isDisabledAnimation: userIsBot,
+      data_product: data_product?.result,
     },
   };
 };

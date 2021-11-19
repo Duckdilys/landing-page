@@ -5,15 +5,14 @@
     max-width: 830px;
 }
 .text{
-    max-width: 600px;
+    min-width: 600px;
     box-shadow: var(--shadow-button-primary);
     img{
         width: 30px;
         height: 24px !important;
-        height: var(--size-space);
         position: absolute;
         left: 32px;
-        top: 45%;
+        top: 50%;
         transform: translateY(50%);
     }
     padding: var(--size-space);

@@ -1,3 +1,7 @@
+@mixin text-transform {
+  text-transform: uppercase !important;
+  font-size: var(--fs-normal) !important;
+}
 .container {
   height: 80px;
 }
@@ -45,6 +49,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    @include text-transform();
+    cursor: pointer;
+    font-weight: 600;
   }
 }
 .list-dropdown{
@@ -57,8 +64,7 @@
   background: rgba(255, 255, 255, 0.9);
   line-height: var(--line-height-primary);
   a{
-    text-transform: uppercase !important;
-    font-size: var(--fs-normal) !important;
+    @include text-transform();
     font-weight: normal !important;
   }
   left: 0;
