@@ -2,23 +2,21 @@
     margin: var(--xxl-size) 0;   
 }
 .image{
-    width: 65%;
-    img{
-        box-shadow: var(--shadow-dark);
-    }
+    max-width: 830px;
 }
 .text{
     max-width: 600px;
     box-shadow: var(--shadow-button-primary);
     img{
-        width: 40px;
+        width: 30px;
+        height: 24px !important;
         height: var(--size-space);
         position: absolute;
         left: 32px;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 45%;
+        transform: translateY(50%);
     }
-    padding: 64px;
+    padding: var(--size-space);
     position: absolute;
     background: rgba($color: #fff, $alpha: .8);
     z-index: 5;
@@ -36,6 +34,9 @@
     line-height: 26px;
     letter-spacing: 1px;
     font-weight: var(--weight-400);
+}
+.title-item{
+    padding-left: 40px;
 }
 .container-line{
     margin-top: 0;

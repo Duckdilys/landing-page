@@ -3,7 +3,11 @@ import styles from "./Position.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import Type from "./Type/Type";
-const Position = ({ url, title, date, place, salary, types }) => {
+import { removeUnicode } from "../../../../util";
+import { useRouter } from "next/router";
+const Position = ({ url, title, date, place, salary, types, id }) => {
+  const router = useRouter();
+  
   return (
     <div
       className={`d-flex justify-content-between align-items-center ${styles.container}`}
@@ -21,7 +25,7 @@ const Position = ({ url, title, date, place, salary, types }) => {
       </div>
       <div className={styles.content}>
         <div className="d-flex justify-content-between align-items-center">
-          <Link href="/" passHref={true}>
+          <Link href={`${router.pathname}/${id}`} passHref={true}>
             <a>
               <h5>{title}</h5>
             </a>
@@ -48,7 +52,7 @@ const Position = ({ url, title, date, place, salary, types }) => {
               />
             </svg>
 
-            <span>{place}</span>
+            <span className={styles.place}>{place}</span>
           </div>
           <div className="d-flex align-items-center">
             <svg
@@ -64,7 +68,7 @@ const Position = ({ url, title, date, place, salary, types }) => {
               />
             </svg>
 
-            <span>{salary}</span>
+            <span className={styles.text}>{salary}</span>
           </div>
         </div>
         <div className={`d-flex align-items-center ${styles.flex}`}>

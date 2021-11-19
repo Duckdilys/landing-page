@@ -29,7 +29,7 @@ const News = ({ categories, news, totalPage, heading }) => {
         page_size: 1,
         filters:
           selectedPostByType === 0
-            ? undefined
+            ? null
             : [
                 {
                   name: "category_new_id",

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const axiosConfig = async ({ method, url, data, headers }) => {
+const axiosConfig = async ({ method, url, data, headers, params }) => {
     try{
         const response = await axios({
             method: method ? method : "GET",
@@ -10,6 +10,9 @@ const axiosConfig = async ({ method, url, data, headers }) => {
             } : null,
             headers: headers ? {
                 ...headers
+            } : null,
+            params: params ? {
+                ...params
             } : null
         });
         if(response.status >= 400 || response.data.code >= 400 || !response.data){

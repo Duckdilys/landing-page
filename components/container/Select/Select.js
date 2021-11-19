@@ -16,7 +16,8 @@ const Select = ({
     if (typeof setValueByFn === "function") {
       setValueByFn(value);
     }
-    changeToggleHandler();
+    setIsBlur(true);
+    setIsFocus(false);
   };
   const changeBlurHandler = () => {
     setIsBlur(true);
@@ -42,7 +43,7 @@ const Select = ({
           }`}
         >
           {listValue.map((list, index) => (
-            <li onClick={setValueHandler.bind(null, list)} key={index}>
+            <li onClick={() => setValueHandler(list)} key={index}>
               {list}
             </li>
           ))}

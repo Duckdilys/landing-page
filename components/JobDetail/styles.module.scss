@@ -1,5 +1,5 @@
 .banner {
-  height: 50vh !important;
+  height: 216px !important;
   background-attachment: unset !important;
 }
 .box {
@@ -50,7 +50,7 @@
 
 .share {
   h4 {
-    font-size: var(--fs-large);
+    font-size: var(--fs-normal);
     text-align: start !important;
     padding-bottom: 30px !important;
   }
@@ -67,7 +67,7 @@
     span:last-child {
       width: 36px;
       height: 36px;
-      background: var(--black-primary);
+      background: var(--orange-primary);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -77,5 +77,5 @@
   }
 }
 .container-right {
-  margin-left: var(--size-space) !important;
+  width: 30%;
 }

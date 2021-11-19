@@ -15,65 +15,39 @@ import Requiredment from "../../components/JobDetail/Requiredment/Requiredment";
 import Overview from "../../components/JobDetail/Overview/Overview";
 import RelatedWork from "../../components/JobDetail/RelatedWork/RelatedWork";
 import FormCV from "../../components/JobDetail/FormCV/FormCV";
+import { checkUserIsBot } from "../../util";
+import axiosConfig from "../../service/base";
+import { ApiJob } from "../../config/ApiJob";
 const dataFake = {
-  job_title: {
-    title: "UI/UX Designer",
-    types: ["Phần mềm", "Junior", "Full-time"],
-    url_cover: "/cover_static.png",
-  },
-  description: `<p>Every dollar you spend on a kitchen remodel increases the value of your home by 50 cents. Some contractors will give you an estimate based on what they think you want done, and work completed under these circumstances is almost guaranteed to cost more.</p>
-    <ul>
-        <li>It be very specific about what you want done, and spell it out in the contract — right down to the materials you’d like used. </li>
-        <li>Make sure that contractors’ estimates include the full scope of your project.</li>
-    </ul>
-   `,
-  requirement: `
-   <p>Every dollar you spend on a kitchen remodel increases the value of your home by 50 cents. Some contractors will give you an estimate based on what they think you want done, and work completed under these circumstances is almost guaranteed to cost more. </p>
-    <p>It be very specific about what you want done, and spell it out in the contract — right down to the materials you’d like used. Make sure that contractors’ estimates include the full scope of your project.</p>`,
-  offered: `
-    <p>You have to be very specific about what you want done, and spell it out in the contract — right down to the materials you’d like used. Make sure that contractors’ estimates include the full scope of your project.</p>
-    <p>It be very specific about what you want done, and spell it out in the contract — right down to the materials you’d like used. Make sure that contractors’ estimates include the full scope of your project.</p>
-    `,
-  job_overview: {
-    salary: "Thỏa thuận",
-    ranking: "junior",
-    experience: "Tối thiểu 1 năm",
-    work_methods: "Full-Time",
-    quantity_candidates: "3 ứng viên",
-    place: "Hà Nội",
-    dateline_submit: new Date().toLocaleDateString("vi-vn"),
-  },
   related_jobs: jobFakes.jobs.filter((item, index) => {
     return index < 2;
   }),
 };
-const JobDetail = ({ data }) => {
+const JobDetail = ({ data, data_job }) => {
   const dispatch = useDispatch();
   return (
     <>
       <BannerPage
-        style={{ background: `url("${data.job_title.url_cover}")` }}
+        style={{ background: `url("/job_description.png")` }}
         classNameBanner={styles.banner}
         classNameBox={styles.box}
-        title={data.job_title.title}
+        title={data_job.title}
       >
         <div
           className={`d-flex justify-content-center align-items-center ${styles.types}`}
         >
-          {data.job_title.types.map((type, index) => {
-            return <Type key={index}>{type}</Type>;
-          })}
+          <Type>{data_job.level}</Type>
         </div>
       </BannerPage>
       <LayoutContainer className={styles.container}>
         <div className={`d-flex justify-content-between ${styles.grid}`}>
           <div className={styles["left-side"]}>
-            <Description description={data.description} />
+            <Description description={data_job.job_description} />
             <Requiredment
-              requirement={data.requirement}
+              requirement={data_job?.job_requirements || ""}
               title="Yêu cầu công việc"
             />
-            <Requiredment requirement={data.offered} title="Quyền lợi" />
+            <Requiredment requirement={data_job?.job_benefits || ""} title="Quyền lợi" />
             <Button
               options={{
                 onClick: () => dispatch(modelActions.openModelHandler()),
@@ -84,7 +58,7 @@ const JobDetail = ({ data }) => {
             </Button>
           </div>
           <div className={styles["container-right"]}>
-            <Overview overview={data.job_overview} />
+            <Overview overview={data_job} />
             <div className={styles.share}>
               <h4>Chia sẻ công việc này</h4>
               <div className={`d-flex align-items-center ${styles.line}`}>
@@ -114,22 +88,25 @@ const JobDetail = ({ data }) => {
     </>
   );
 };
-export const getStaticPaths = async () => {
-  return {
-    paths: [
-      {
-        params: {
-          jobId: "1",
-        },
-      },
-    ],
-    fallback: "blocking",
-  };
-};
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({params, req}) => {
+  const { jobId } = params;
+  const userIsBot = checkUserIsBot(req);
+  const getJobById = await axiosConfig({
+    url: ApiJob,
+    params: {
+      id: jobId
+    }
+  });
+  if(getJobById.code >= 400){
+    return {
+      notFound: true
+    }
+  }
   return {
     props: {
       data: dataFake,
+      isDisabledAnimation: userIsBot,
+      data_job: getJobById.result
     },
   };
 };

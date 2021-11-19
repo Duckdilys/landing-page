@@ -14,7 +14,7 @@ const TextImage = ({ title, className, src, mainTitle, classText, aosImage, icon
         >
           <h5>{mainTitle}</h5>
           {iconImage && <Image src={iconImage} alt="" />}
-          {title}
+          <p className={styles['title-item']}>{title}</p>
         </div>
         <div data-aos={aosImage || 'fade-right'} data-aos-delay={0} className={`position-relative ${styles.image} ${classImage}`}>
           <Image src={src} alt="" />
