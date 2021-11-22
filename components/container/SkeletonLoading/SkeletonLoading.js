@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./SkeletonLoading.module.scss";
 
-const SkeletonLoading = ({ src, classContainer, times, imageClassName }) => {
+const SkeletonLoading = ({ src, classContainer, times, imageClassName, containerSkeleton }) => {
     const _renderSkeleton = (number) => {
         const array = [];
         for(let i = 0; i < number; i++){
@@ -11,8 +11,8 @@ const SkeletonLoading = ({ src, classContainer, times, imageClassName }) => {
     }
   return (
     <div className={`${styles.loading} ${classContainer}`}>
-      {src && <div classNames={`${styles.image} ${styles.skeleton} ${imageClassName}`}></div>}
-      <div className={styles['container-text']}>
+      {src && <div className={`${styles.image} ${styles.skeleton} ${imageClassName}`}></div>}
+      <div className={`${styles['container-text']} ${containerSkeleton}`}>
         {times && <div className={styles.lines}>{_renderSkeleton(+times)}</div>}
       </div>
     </div>

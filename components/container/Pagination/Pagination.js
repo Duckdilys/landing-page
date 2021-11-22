@@ -39,7 +39,7 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
           <Link
             href={`${Router.pathname}?page=${page - 1}`}
             passHref={true}
-            scroll={true}
+            scroll={false}
           >
             <a onClick={() => changePageHandler(page - 1)}>
               <li>{page - 1}</li>
@@ -49,7 +49,7 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
         <Link
           href={`${Router.pathname}?page=${page}`}
           passHref={true}
-          scroll={true}
+          scroll={false}
         >
           <a onClick={() => changePageHandler(+page)}>
             <li className={styles.active}>{page}</li>
@@ -59,7 +59,7 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
           <Link
             href={`${Router.pathname}?page=${page + 1}`}
             passHref={true}
-            scroll={true}
+            scroll={false}
           >
             <a onClick={() => changePageHandler(page + 1)}>
               <li>{page + 1}</li>

@@ -14,6 +14,7 @@ import "aos/dist/aos.css";
 
 function MyApp({ Component, pageProps }) {
   const { isDisabledAnimation } = pageProps;
+
   useEffect(() => {
     if(isDisabledAnimation){
       AOS.init({

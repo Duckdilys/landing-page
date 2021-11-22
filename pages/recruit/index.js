@@ -12,7 +12,7 @@ import styles from "../../components/Recruit/style/styles.module.scss";
 import { getJobs } from "../../service";
 import { checkUserIsBot } from "../../util";
 import { useRouter } from "next/router";
-import useFetch from '../../hook/use-fetch';
+import useFetch from "../../hook/use-fetch";
 import { ApiJob } from "../../config/ApiJob";
 export const dataFake = {
   landing_content: {
@@ -77,13 +77,13 @@ const Recruit = ({ data, jobs, totalJobs }) => {
   const { query } = useRouter();
   const page = +query.page || 1;
 
-  const {fetchDataFromServer, error, data: dataNews, isLoading} = useFetch();
+  const { fetchDataFromServer, error, data: dataNews, isLoading } = useFetch();
   useEffect(() => {
     fetchDataFromServer({
       url: ApiJob,
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       data: {
         page: page,
@@ -92,17 +92,17 @@ const Recruit = ({ data, jobs, totalJobs }) => {
         sorts: [
           {
             property: "created_at",
-            direction: "DESC"
-          }
-        ]
-      }
-    })
+            direction: "DESC",
+          },
+        ],
+      },
+    });
   }, [fetchDataFromServer, page]);
   useEffect(() => {
-    if(isLoading || error){
+    if (isLoading || error) {
       return;
     }
-    if(!isLoading && dataNews){
+    if (!isLoading && dataNews) {
       setJob(dataNews.result.items);
       setTotalJob(dataNews.result.total);
     }
@@ -120,7 +120,7 @@ const Recruit = ({ data, jobs, totalJobs }) => {
       <ContainerSmall className={styles.container}>
         <Grid>
           <FormEmail />
-          <Positions positions={job} page={page} totalDocuments={totalJob} />
+          <Positions isLoading={isLoading} positions={job} page={page} totalDocuments={totalJob} />
         </Grid>
       </ContainerSmall>
     </>

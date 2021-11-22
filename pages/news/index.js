@@ -26,7 +26,7 @@ const News = ({ categories, news, totalPage, heading }) => {
       data: {
         page: query,
         keyword: "",
-        page_size: 1,
+        page_size: 8,
         filters:
           selectedPostByType === 0
             ? null
@@ -67,11 +67,12 @@ const News = ({ categories, news, totalPage, heading }) => {
         news={posts}
         isLoading={isLoading}
         error={error}
+        perPage={8}
       />
       {posts.length > 0 && (
         <Pagination
           totalDocuments={totalDocuments}
-          perPage={1}
+          perPage={8}
           currentPage={query}
         />
       )}
@@ -83,7 +84,7 @@ export const getServerSideProps = async ({ req, query }) => {
   const userIsBot = checkUserIsBot(req);
   const categories = await getCategoriesCondition(1, 10, "");
   const page = query?.page || 1;
-  const getNewsByPage = await getNewsByCondition(page, 1, "");
+  const getNewsByPage = await getNewsByCondition(page, 8, "");
   const getHeadingSwiper = await getNewsByCondition(0, 4, "", {
     sorts: [
       {

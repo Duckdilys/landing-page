@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 const usePagination = (perPage, currentPage, totalDocuments) => {
   const [page, setPage] = useState(currentPage);
   const router = useRouter();
-
+  
   useEffect(() => {
     router.push(`?page=${page}`);
   }, [page]);

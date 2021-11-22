@@ -21,6 +21,7 @@ const Navigation = () => {
   useEffect(() => {
     window.addEventListener("scroll", scrollWindowHandler);
   }, [scrollWindowHandler]);
+
   return (
     <div
       className={`${styles["nav-fix"]} ${
@@ -94,7 +95,7 @@ const Navigation = () => {
               if (index === 3) {
                 return (
                   <li
-                    className={router.asPath === path.path ? styles.active : ""}
+                    className={((router.asPath === path.path) || (router.pathname === path.path)) ? styles.active : ""}
                     key={path.name}
                   >
                     <Link href={path.path}>{path.name}</Link>
@@ -103,7 +104,7 @@ const Navigation = () => {
               }
               return (
                 <li
-                  className={router.asPath === path.path ? styles.active : ""}
+                  className={((router.asPath === path.path) || (router.pathname === path.path)) ? styles.active : ""}
                   key={path.name}
                 >
                   <Link href={path.path}>{path.name}</Link>
