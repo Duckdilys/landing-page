@@ -1,10 +1,13 @@
 import Navigation from "../components/Navigation/Navigation";
+import App from "next/app";
 import Footer from "../components/Footer/Footer";
 import { Overlay, ButtonUpTop } from "../components/container";
 import React, { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "../store/store";
 import AOS from "aos";
+import axiosConfig from "../service/base";
+import { apiGetProducts } from "../config/ApiProducts";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.scss";
 import "swiper/swiper-bundle.min.css";
@@ -12,14 +15,13 @@ import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "aos/dist/aos.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, products }) {
   const { isDisabledAnimation } = pageProps;
-
   useEffect(() => {
-    if(isDisabledAnimation){
+    if (isDisabledAnimation) {
       AOS.init({
-        disable: true
-      })
+        disable: true,
+      });
       return;
     }
     AOS.init({
@@ -33,7 +35,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
-        <Navigation />
+        <Navigation products={products} />
         <ButtonUpTop />
         <Overlay />
         <Component {...pageProps} />
@@ -42,4 +44,23 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
+MyApp.getInitialProps = async function (ctx) {
+  const pageProps = await App.getInitialProps(ctx);
+  const products = await axiosConfig({
+    url: apiGetProducts,
+    method: "POST",
+    data: {},
+  });
+  if (products.code >= 400) {
+    return {
+      ...pageProps,
+      products: [],
+      // temporary for error, not having
+    };
+  }
+  return {
+    ...pageProps,
+    products: products?.result?.items,
+  };
+};
 export default MyApp;

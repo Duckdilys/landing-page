@@ -34,7 +34,7 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
                       "en-us"
                     )}
                     salary={item?.salary}
-                    types={[item?.level]}
+                    types={[item?.level, item?.career]}
                     url={item.infos[0] ? item.infos[0]?.src : "/position.png"}
                     place={item?.work_address}
                     id={item.id}
@@ -44,7 +44,7 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
           </>
         )}
       </Grid>
-      {totalDocuments !== 0 && (
+      {positions.length > 0 && totalDocuments !== 0 && (
         <Pagination
           perPage={8}
           currentPage={page}

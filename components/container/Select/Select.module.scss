@@ -16,13 +16,17 @@
     ul{
         list-style: none;
         position: absolute;
-        top: calc(100% + 10px);
+        top: 100%;
         padding-left: 0;
         background: var(--white);
         width: 100%;
         left: 0;
         z-index: 10000;
         padding: 0;
+        li{
+            text-transform: capitalize;
+        }
+        padding: 15px;
     }
     .value{
         display: flex;
@@ -33,13 +37,22 @@
         color: var(--black-primary);
     }
     .list{
-        height: 0;
-        overflow-y: scroll;
         line-height: var(--line-height-primary);
-        transition: all .5s ease-in-out;
+        transition: all .3s ease-in-out;
+        overflow: hidden;
+        box-shadow: var(--shadow-list);
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 4px;
+            background: var(--orange-primary);
+            left: 0;
+        }
     }
-    .focus{
-        height: 120px;
-        padding: 15px;
+    .hidden{
+        opacity: 0;
+        pointer-events: none !important;
     }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Button } from "../../container";
+import { Grid, Button, TextArea } from "../../container";
 import Image from "next/image";
 import styles from "./Form.module.scss";
 import Link from "next/link";
@@ -96,9 +96,11 @@ const Form = ({ contact }) => {
         {renderInput.map((input, index) => {
           return <Input key={index} {...input} />;
         })}
-        <textarea
-          rows="4"
-          placeholder="Nội dung"
+        <TextArea
+          textarea={{
+            rows: "4",
+            placeholder: "Nội dung",
+          }}
           className={`w-100 ${styles.text}`}
         />
         <div className={styles.button}>

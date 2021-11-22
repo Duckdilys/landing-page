@@ -7,7 +7,7 @@ import useFetch from "../../hook/use-fetch";
 import { useRouter } from "next/router";
 import getCategoriesCondition from "../../service/getCategories";
 import getNewsByCondition from "../../service/getNews";
-import { Pagination } from "../../components/container";
+import { Pagination, BreadCrumbScript } from "../../components/container";
 import { useSelector } from "react-redux";
 const News = ({ categories, news, totalPage, heading }) => {
   const { isLoading, error, fetchDataFromServer, data: dataNews } = useFetch();
@@ -61,6 +61,15 @@ const News = ({ categories, news, totalPage, heading }) => {
   }, [isLoading, dataNews, news, totalDocuments]);
   return (
     <>
+      <BreadCrumbScript
+        title={`Tin tức | MH - Solution | Trang ${query}`}
+        dataElement={news.map((item) => {
+          return {
+            name: item.title,
+            href: `${router.pathname}/${item.id}`,
+          };
+        })}
+      />
       <SwiperBackground posts={heading} />
       <ListNews
         categories={categories}
@@ -83,7 +92,7 @@ const News = ({ categories, news, totalPage, heading }) => {
 export const getServerSideProps = async ({ req, query }) => {
   const userIsBot = checkUserIsBot(req);
   const categories = await getCategoriesCondition(1, 10, "");
-  const page = query?.page || 1;
+  const page = +query?.page || 1;
   const getNewsByPage = await getNewsByCondition(page, 8, "");
   const getHeadingSwiper = await getNewsByCondition(0, 4, "", {
     sorts: [

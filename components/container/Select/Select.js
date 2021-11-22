@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Select.module.scss";
 import Image from "next/image";
+
 const Select = ({
   children,
   className,
@@ -34,13 +35,12 @@ const Select = ({
       onBlur={changeBlurHandler}
       className={`${styles.select} d-flex justify-content-between align-items-center ${className}`}
     >
-      {valueField ? valueField : firstTitle}
+      {valueField ? valueField.toUpperCase() : firstTitle}
       <Image src="/arrow-down-icon.svg" width="10px" height="13px" alt="" />
       {listValue && (
         <ul
-          className={`${listValue.length > 2 ? styles.list : ""} ${
-            isFocus && !isBlur && styles.focus
-          }`}
+          style={{ height: isFocus && !isBlur ? `${30 * listValue.length + 30}px` : `0px` }}
+          className={` ${styles.list} ${isFocus && !isBlur ? "" : styles.hidden}`}
         >
           {listValue.map((list, index) => (
             <li onClick={() => setValueHandler(list)} key={index}>

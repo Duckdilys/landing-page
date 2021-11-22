@@ -3,7 +3,7 @@
     color: var(--black);
     background: var(--white);
     border: 2px solid var(--button-primary);
-    border-radius: 2px;
+    border-radius: 2px !important;
     transition: all .35s cubic-bezier(0.23, 1, 0.320, 1);
     &:hover{
         background: var(--orange-primary);

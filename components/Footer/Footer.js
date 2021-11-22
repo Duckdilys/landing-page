@@ -3,32 +3,7 @@ import { LayoutContainer, Logo, Grid } from "../container";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-const paths = [
-  {
-    name: "Trang chủ",
-    path: "/",
-  },
-  {
-    name: "Giới thiệu",
-    path: "/",
-  },
-  {
-    name: "Sản phẩm",
-    path: "/",
-  },
-  {
-    name: "Tin Tức",
-    path: "/",
-  },
-  {
-    name: "Tuyển dụng",
-    path: "/",
-  },
-  {
-    name: "Liên hệ",
-    path: "/",
-  },
-];
+import paths from "../Navigation/path";
 
 const Footer = () => {
   return (
@@ -85,16 +60,6 @@ const Footer = () => {
                 />
                 <span>Điện thoại: 0975718168</span>
               </li>
-              {/* <li data-aos="fade-up" data-aos-delay={1000}>
-                <Image src="/Icon/web-icon.svg" alt="" width="20" height="20" />
-                <a
-                  rel="noreferrer"
-                  href="https://www.facebook.com/mhsolution.vn"
-                  target="_blank"
-                >
-                  Facebook: https://www.facebook.com/mhsolution.vn
-                </a>
-              </li> */}
             </ul>
           </Grid>
         </LayoutContainer>

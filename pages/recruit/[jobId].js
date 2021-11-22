@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BannerPage,
   LayoutContainer,
   Button,
+  BreadCrumbScript,
 } from "../../components/container";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { modelActions } from "../../store/slices/model-slice";
-import { dataFake as jobFakes } from ".";
 import Type from "../../components/Recruit/Positions/Position/Type/Type";
 import styles from "../../components/JobDetail/styles.module.scss";
 import Description from "../../components/JobDetail/Description/Description";
@@ -18,15 +18,46 @@ import FormCV from "../../components/JobDetail/FormCV/FormCV";
 import { checkUserIsBot } from "../../util";
 import axiosConfig from "../../service/base";
 import { ApiJob } from "../../config/ApiJob";
-const dataFake = {
-  related_jobs: jobFakes.jobs.filter((item, index) => {
-    return index < 2;
-  }),
-};
-const JobDetail = ({ data, data_job }) => {
+import useFetch from "../../hook/use-fetch";
+
+const JobDetail = ({ data_job }) => {
   const dispatch = useDispatch();
+  const {
+    fetchDataFromServer,
+    isLoading,
+    error,
+    data: dataRelated,
+  } = useFetch();
+  useEffect(() => {
+    fetchDataFromServer({
+      url: ApiJob,
+      method: "POST",
+      data: {
+        page: 1,
+        page_size: 2,
+        keyword: "",
+        sorts: [
+          {
+            property: "created_at",
+            direction: "DESC",
+          },
+        ],
+        filters: [
+          {
+            name: "career",
+            operation: "eq",
+            value: data_job?.career,
+          },
+        ],
+      },
+    });
+  }, [fetchDataFromServer, data_job.career]);
   return (
     <>
+      <BreadCrumbScript
+        dataElement={[]}
+        title={`Tuyển dụng - ${data_job.title.toUpperCase()} | MH - Solution`}
+      />
       <BannerPage
         style={{ background: `url("/job_description.png")` }}
         classNameBanner={styles.banner}
@@ -36,7 +67,9 @@ const JobDetail = ({ data, data_job }) => {
         <div
           className={`d-flex justify-content-center align-items-center ${styles.types}`}
         >
-          <Type>{data_job.level}</Type>
+          {[data_job?.level, data_job?.career].map((item, key) => {
+            return <Type key={key}>{item}</Type>;
+          })}
         </div>
       </BannerPage>
       <LayoutContainer className={styles.container}>
@@ -47,7 +80,10 @@ const JobDetail = ({ data, data_job }) => {
               requirement={data_job?.job_requirements || ""}
               title="Yêu cầu công việc"
             />
-            <Requiredment requirement={data_job?.job_benefits || ""} title="Quyền lợi" />
+            <Requiredment
+              requirement={data_job?.job_benefits || ""}
+              title="Quyền lợi"
+            />
             <Button
               options={{
                 onClick: () => dispatch(modelActions.openModelHandler()),
@@ -82,31 +118,30 @@ const JobDetail = ({ data, data_job }) => {
             </div>
           </div>
         </div>
-        <RelatedWork relatedWork={data.related_jobs} />
+        <RelatedWork relatedWork={dataRelated} isLoading={isLoading} />
       </LayoutContainer>
       <FormCV />
     </>
   );
 };
-export const getServerSideProps = async ({params, req}) => {
+export const getServerSideProps = async ({ params, req }) => {
   const { jobId } = params;
   const userIsBot = checkUserIsBot(req);
   const getJobById = await axiosConfig({
     url: ApiJob,
     params: {
-      id: jobId
-    }
+      id: jobId,
+    },
   });
-  if(getJobById.code >= 400){
+  if (getJobById.code >= 400) {
     return {
-      notFound: true
-    }
+      notFound: true,
+    };
   }
   return {
     props: {
-      data: dataFake,
       isDisabledAnimation: userIsBot,
-      data_job: getJobById.result
+      data_job: getJobById.result,
     },
   };
 };

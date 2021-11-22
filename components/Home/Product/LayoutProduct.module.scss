@@ -2,13 +2,11 @@
 .image {
   position: relative;
   img {
-    border-radius: 8px;
     box-shadow: var(--shadow-dark);
   }
 }
 @mixin padding-box {
   padding: 32px;
-  border-radius: 5px;
 }
 .layout {
   h4 {

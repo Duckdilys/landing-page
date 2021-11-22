@@ -37,6 +37,7 @@ const News = ({ news }) => {
                         src={item.cover_url}
                         type={item.type || "Dashboard"}
                         title={item.title}
+                        id={item.id}
                       />
                     </SwiperSlide>
                   );
@@ -56,12 +57,13 @@ const News = ({ news }) => {
                       title={item.title}
                       content={item.content}
                       date={item.created_at}
+                      id={item.id}
                     />
                   );
                 }
               })}
             </Grid>
-            <Link passHref={true} href={"/news"}><a><Button className={styles.button}>Xem tất cả</Button></a></Link>
+            <Link passHref={true} href={`/news`}><a><Button className={styles.button}>Xem tất cả</Button></a></Link>
           </Col>
         </Row>
       </LayoutContainer>

@@ -3,7 +3,6 @@ import styles from "./Position.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import Type from "./Type/Type";
-import { removeUnicode } from "../../../../util";
 import { useRouter } from "next/router";
 const Position = ({ url, title, date, place, salary, types, id }) => {
   const router = useRouter();

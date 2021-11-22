@@ -8,19 +8,35 @@ import { getProductsByCondition } from "../service/getProducts";
 import getNewsByCondition from "../service/getNews";
 import getPartnerCondition from "../service/getPartners";
 import { checkUserIsBot } from "../util";
+import { BreadCrumbScript } from "../components/container";
 export default function Home({ news, products, banner, partners }) {
   return (
     <>
+      <BreadCrumbScript dataElement={[
+        {
+          name: "Home",
+          href: "/"
+        },
+        {
+          name: "Xem tất cả",
+          href: '/news'
+        },
+        ...news.map(item => {
+          return {
+            name: item.title,
+            href: `/news/${item.id}`
+          }
+        })
+      ]} title={"MH Solution - Giải pháp 4.0"}/>
       <ContainerBanner banner={banner} />
       <Product product={products} />
       <News news={news} />
-      <Partner partners={partners}/>
+      <Partner partners={partners} />
     </>
   );
 }
 
-export const getServerSideProps = async ({req}) => {
-  
+export const getServerSideProps = async ({ req }) => {
   const userIsBot = checkUserIsBot(req);
 
   const bannerData = await axiosConfig({
@@ -29,12 +45,17 @@ export const getServerSideProps = async ({req}) => {
   const product = await getProductsByCondition(1, 4);
   const news = await getNewsByCondition(1, 4, "");
   const partners = await getPartnerCondition(1, 10);
-  
-  if (bannerData.code >= 400 || product.code >= 400 || news.code >= 400 || partners.code >= 400) {
+
+  if (
+    bannerData.code >= 400 ||
+    product.code >= 400 ||
+    news.code >= 400 ||
+    partners.code >= 400
+  ) {
     return {
       notFound: true,
     };
-  } 
+  }
 
   return {
     props: {
@@ -47,7 +68,7 @@ export const getServerSideProps = async ({req}) => {
       products: product.result.items,
       banner: bannerData,
       partners: partners.result.items,
-      isDisabledAnimation: userIsBot
+      isDisabledAnimation: userIsBot,
     },
   };
 };

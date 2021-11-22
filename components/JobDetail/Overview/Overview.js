@@ -16,7 +16,7 @@ const Overview = ({ overview }) => {
         <Box title="Cấp bậc" content={overview?.level} />
         <Box title="Kinh nghiệm" content={overview?.work_experience} />
         <Box title="Hình thức làm việc" content={overview?.work_type} />
-        <Box title="Số lượng cần tuyển" content={overview?.number_receruits} />
+        <Box title="Số lượng cần tuyển" content={overview?.number_recruits} />
         <Box title="Địa chỉ làm việc" content={overview?.work_address} />
         <Box
           title="Hạn nộp hồ sơ"

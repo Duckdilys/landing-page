@@ -4,6 +4,7 @@ import {
   ContainerSmall,
   Grid,
   Pagination,
+  BreadCrumbScript,
 } from "../../components/container";
 import FindPosition from "../../components/Recruit/FindPosition/FindPosition";
 import FormEmail from "../../components/Recruit/FormEmail/FormEmail";
@@ -14,70 +15,21 @@ import { checkUserIsBot } from "../../util";
 import { useRouter } from "next/router";
 import useFetch from "../../hook/use-fetch";
 import { ApiJob } from "../../config/ApiJob";
-export const dataFake = {
-  landing_content: {
-    url_landing: "/static_recruit.png",
-    introduction: "Tham gia cùng chúng tôi",
-  },
-  jobs: [
-    {
-      url_cover: "/position.png",
-      title: "UX/UI Designer",
-      date: new Date().toLocaleDateString("vi-vn"),
-      place: "Hà Nội",
-      salary: "Thỏa thuận",
-      refer_fields: ["Phần mềm", "Junior", "Full-time"],
-    },
-    {
-      url_cover: "/position.png",
-      title: "UX/UI Designer",
-      date: new Date().toLocaleDateString("vi-vn"),
-      place: "Hà Nội",
-      salary: "Thỏa thuận",
-      refer_fields: ["Phần mềm", "Junior", "Full-time"],
-    },
-    {
-      url_cover: "/position.png",
-      title: "UX/UI Designer",
-      date: new Date().toLocaleDateString("vi-vn"),
-      place: "Hà Nội",
-      salary: "Thỏa thuận",
-      refer_fields: ["Phần mềm", "Junior", "Full-time"],
-    },
-    {
-      url_cover: "/position.png",
-      title: "UX/UI Designer",
-      date: new Date().toLocaleDateString("vi-vn"),
-      place: "Hà Nội",
-      salary: "Thỏa thuận",
-      refer_fields: ["Phần mềm", "Junior", "Full-time"],
-    },
-    {
-      url_cover: "/position.png",
-      title: "UX/UI Designer",
-      date: new Date().toLocaleDateString("vi-vn"),
-      place: "Hà Nội",
-      salary: "Thỏa thuận",
-      refer_fields: ["Phần mềm", "Junior", "Full-time"],
-    },
-    {
-      url_cover: "/position.png",
-      title: "UX/UI Designer",
-      date: new Date().toLocaleDateString("vi-vn"),
-      place: "Hà Nội",
-      salary: "Thỏa thuận",
-      refer_fields: ["Phần mềm", "Junior", "Full-time"],
-    },
-  ],
-};
-const Recruit = ({ data, jobs, totalJobs }) => {
+
+const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
+  const router = useRouter();
   const [job, setJob] = useState(jobs);
   const [totalJob, setTotalJob] = useState(totalJobs);
-
-  const { query } = useRouter();
+  const [queryFilter, setQueryFilter] = useState(null);
+  const { query, pathname } = useRouter();
   const page = +query.page || 1;
 
   const { fetchDataFromServer, error, data: dataNews, isLoading } = useFetch();
+
+  const setQueryFilterHandler = (query) => {
+    setQueryFilter(query);
+    router.push(`?page=${1}`);
+  };
   useEffect(() => {
     fetchDataFromServer({
       url: ApiJob,
@@ -95,9 +47,10 @@ const Recruit = ({ data, jobs, totalJobs }) => {
             direction: "DESC",
           },
         ],
+        filters: queryFilter,
       },
     });
-  }, [fetchDataFromServer, page]);
+  }, [fetchDataFromServer, page, queryFilter]);
   useEffect(() => {
     if (isLoading || error) {
       return;
@@ -109,18 +62,37 @@ const Recruit = ({ data, jobs, totalJobs }) => {
   }, [isLoading, error, dataNews]);
   return (
     <>
+      <BreadCrumbScript
+        dataElement={jobs.map((item) => {
+          return {
+            name: item.title,
+            href: `${pathname}/${item.id}`,
+          };
+        })}
+        title={"Tuyển dụng | MH - Solution"}
+      />
       <BannerPage
         classNameBox={`text-center ${styles.box}`}
         title="cơ hội nghề nghiệp"
-        style={{ background: `url('${data.landing_content.url_landing}')` }}
-        introduction={data.landing_content.introduction}
+        style={{ background: `url('/static_recruit.png')` }}
+        introduction={"Tham gia cùng chúng tôi"}
       >
-        <FindPosition />
+        <FindPosition
+          setQueryFilterHandler={setQueryFilterHandler}
+          allCareer={allCareer}
+          allMethods={allMethods}
+          allRanked={allRanked}
+        />
       </BannerPage>
       <ContainerSmall className={styles.container}>
         <Grid>
           <FormEmail />
-          <Positions isLoading={isLoading} positions={job} page={page} totalDocuments={totalJob} />
+          <Positions
+            isLoading={isLoading}
+            positions={job}
+            page={page}
+            totalDocuments={totalJob}
+          />
         </Grid>
       </ContainerSmall>
     </>
@@ -129,6 +101,9 @@ const Recruit = ({ data, jobs, totalJobs }) => {
 
 export const getServerSideProps = async ({ req, query }) => {
   const userIsBot = checkUserIsBot(req);
+  if (userIsBot) {
+    return;
+  }
   const page = +query.page || 1;
   const data = await getJobs({
     page_size: 8,
@@ -141,17 +116,44 @@ export const getServerSideProps = async ({ req, query }) => {
       },
     ],
   });
-  if (data.code >= 400) {
+  const getAllJobs = await getJobs({});
+  if (data.code >= 400 || getAllJobs.code >= 400) {
     return {
       notFound: true,
     };
   }
+
+  const getCareer = [
+    ...new Set(
+      data?.result?.items?.map((item) => {
+        return item?.career;
+      })
+    ),
+  ];
+
+  const getRanked = [
+    ...new Set(
+      data?.result?.items?.map((item) => {
+        return item?.level;
+      })
+    ),
+  ];
+
+  const getMethodsWorking = [
+    ...new Set(
+      data?.result?.items?.map((item) => {
+        return item?.work_type;
+      })
+    ),
+  ];
   return {
     props: {
-      data: dataFake,
       jobs: data?.result?.items,
       totalJobs: data?.result?.total,
       isDisabledAnimation: userIsBot,
+      allCareer: getCareer,
+      allRanked: getRanked,
+      allMethods: getMethodsWorking,
     },
   };
 };

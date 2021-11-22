@@ -1,26 +1,31 @@
 import React from "react";
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
-const BreadCrumbScript = ({ dataElement }) => {
+import paths from "../../../Navigation/path";
+const BreadCrumbScript = ({ dataElement, title }) => {
   const structureList = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: dataElement.map((item, index) => {
+    itemListElement: [
+      ...paths, ...dataElement
+    ]?.map((item, index) => {
       return {
         "@type": "ListItem",
         position: index + 1,
         name: item.name || "",
-        item: item.href || "",
-      };
-    }),
+        item: item.href || item.path || ""
+      }
+    })
   };
 
   return (
     <Head>
-      <script type="application/ld+json">
-        {structureList}
-        {ReactHtmlParser(JSON.stringify(structureList))}
-      </script>
+      <title>{title}</title>
+      {dataElement && (
+        <script type="application/ld+json">
+          {ReactHtmlParser(JSON.stringify(structureList))}
+        </script>
+      )}
     </Head>
   );
 };

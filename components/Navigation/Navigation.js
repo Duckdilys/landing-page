@@ -5,7 +5,7 @@ import { Logo } from "../container";
 import Link from "next/link";
 import paths from "./path";
 import styles from "./Navigation.module.scss";
-const Navigation = () => {
+const Navigation = ({ products }) => {
   const router = useRouter();
   const [navIsScrolled, setNavIsScrolled] = useState(false);
 
@@ -21,7 +21,6 @@ const Navigation = () => {
   useEffect(() => {
     window.addEventListener("scroll", scrollWindowHandler);
   }, [scrollWindowHandler]);
-
   return (
     <div
       className={`${styles["nav-fix"]} ${
@@ -64,30 +63,23 @@ const Navigation = () => {
                       />
                     </svg>
                     <ul ref={listRef} className={`${styles["list-dropdown"]}`}>
-                      <li>
-                        <Link href="/">
-                          Giải pháp mạng xã hội nội bộ cho doanh nghiệp và tổ
-                          chức
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          Giải pháp mạng xã hội nội bộ cho doanh nghiệp và tổ
-                          chức
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          Giải pháp mạng xã hội nội bộ cho doanh nghiệp và tổ
-                          chức
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/">
-                          Giải pháp mạng xã hội nội bộ cho doanh nghiệp và tổ
-                          chức
-                        </Link>
-                      </li>
+                      {products &&
+                        products?.map((item) => {
+                          return (
+                            <li
+                              className={
+                                router.asPath === `/products/${item.id}`
+                                  ? styles.active
+                                  : ""
+                              }
+                              key={item.id}
+                            >
+                              <Link href={`/products/${item.id}`}>
+                                {item.title}
+                              </Link>
+                            </li>
+                          );
+                        })}
                     </ul>
                   </li>
                 );
@@ -95,7 +87,13 @@ const Navigation = () => {
               if (index === 3) {
                 return (
                   <li
-                    className={((router.asPath === path.path) || (router.pathname === path.path)) ? styles.active : ""}
+                    className={
+                      router.asPath === path.path ||
+                      router.pathname === path.path ||
+                      router.pathname === `${path.path}/[id]`
+                        ? styles.active
+                        : ""
+                    }
                     key={path.name}
                   >
                     <Link href={path.path}>{path.name}</Link>
@@ -104,7 +102,13 @@ const Navigation = () => {
               }
               return (
                 <li
-                  className={((router.asPath === path.path) || (router.pathname === path.path)) ? styles.active : ""}
+                  className={
+                    router.asPath === path.path ||
+                    router.pathname === path.path ||
+                    router.pathname === `${path.path}/[jobId]`
+                      ? styles.active
+                      : ""
+                  }
                   key={path.name}
                 >
                   <Link href={path.path}>{path.name}</Link>

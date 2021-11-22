@@ -11,3 +11,14 @@
 .grid{
     grid-template-columns: repeat(3, minmax(457px, 1fr));
 }
+.image{
+    width: 92px;
+    height: 92px;
+}
+.loading-skeleton{
+    width: calc(100% - 110px);
+}
+.container-loading{
+    padding: var(--size-space);
+    border: 1px solid var(--border-color);
+}

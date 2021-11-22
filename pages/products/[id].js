@@ -1,6 +1,11 @@
 import React, { Fragment } from "react";
 import Image from "next/image";
-import { BannerPage, TextImage, Button } from "../../components/container";
+import {
+  BannerPage,
+  TextImage,
+  Button,
+  BreadCrumbScript,
+} from "../../components/container";
 import styles from "../../components/Products/Banner.module.scss";
 import Introduction from "../../components/Products/Introduction/Introduction";
 import Product from "../../components/Home/Product/Product";
@@ -43,6 +48,19 @@ const data = {
 const Products = ({ data, data_product }) => {
   return (
     <>
+      <BreadCrumbScript
+        title={`${data_product.title} || MH-Solution`}
+        dataElement={[
+          {
+            name: data_product.title,
+            href: `/products/${data_product.id}`,
+          },
+          {
+            name: "Website",
+            href: data_product.website,
+          },
+        ]}
+      />
       <BannerPage
         title={data_product?.title || "Không có dữ liệu"}
         classNameBanner={styles.banner}
@@ -71,14 +89,14 @@ const Products = ({ data, data_product }) => {
           "data-aos": "fade-right",
         }}
       >
-        {data.introduction.map((item, index) => {
+        {data_product?.infos?.length > 0 ? data_product?.infos?.map((item, index) => {
           return (
             <Fragment key={index}>
               <h5>{item.title}</h5>
               <p>{item.content}</p>
             </Fragment>
           );
-        })}
+        }) : <p className="text-center">Không có dữ liệu</p>}
       </Introduction>
       {data_product.landing_page && (
         <Introduction
@@ -109,7 +127,7 @@ const Products = ({ data, data_product }) => {
           </div>
         </Introduction>
       )}
-      {!data_product.landing_page && <BannerLanding/>}
+      {!data_product.landing_page && <BannerLanding />}
       <Product
         className={styles.background}
         classNameContainer={styles["container-product"]}

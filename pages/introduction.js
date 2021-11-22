@@ -1,5 +1,5 @@
 import React from "react";
-import { TextImage } from "../components/container";
+import { TextImage, BreadCrumbScript } from "../components/container";
 import Banner from "../components/Introduction/Banner/Banner";
 import styles from "../styles/styles.module.scss";
 import RootValue from "../components/Introduction/RootValue/RootValue";
@@ -14,6 +14,12 @@ import { checkUserIsBot } from "../util";
 const Introduction = ({ dataIntroduction, founderData, partners }) => {
   return (
     <>
+    <BreadCrumbScript title={'Giới thiệu'} dataElement={[
+      {
+        name: 'Giới thiệu',
+        href: '/introduction'
+      }
+    ]}/>
       <section>
         <Banner data={dataIntroduction} />
         {dataIntroduction && (
