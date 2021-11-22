@@ -1,11 +1,14 @@
 @import '../../../theme/fixing';
 @import '../../../styles/grid';
 .news{
-    padding-top: var(--xxl-size);
+    padding-top: var(--size-space);
     h4{
         text-align: start;
-        padding-bottom: var(--size-space) !important;
-        font-size: 40px;
+        padding-bottom: var(--mg-16) !important;
+        font-size: 24px;
     }  
     
+}
+.grid{
+    @include grid-template-column(3, var(--mg-16));
 }

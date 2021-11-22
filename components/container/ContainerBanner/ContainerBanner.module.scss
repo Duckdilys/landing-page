@@ -19,3 +19,10 @@
     position: absolute;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .container{
+    margin-top: 56px;
+    height: calc(100vh - 56px) !important;
+  }
+}

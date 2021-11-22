@@ -12,8 +12,11 @@ const Overlay = (props) => {
             document.body.removeAttribute('data-model');
         }
     }, [overlayIsOpen]);
+    const clickModalHandler = () => {
+        dispatch(modelActions.closeModelHandler());
+    }
     return(
-        <div onClick={() => dispatch(modelActions.closeModelHandler())} className={`${styles.container} ${overlayIsOpen && styles.open} ${props.container}`}>
+        <div onClick={clickModalHandler} className={`${styles.container} ${overlayIsOpen && styles.open} ${props.container}`}>
             {props.children}
         </div>
     )

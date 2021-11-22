@@ -14,3 +14,34 @@
 .banner{
     height: 50vh !important;
 }
+.grid{
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    width: 65%;
+    padding-right: var(--middle-space);
+}
+.grid-near{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    width: 35%;
+    .news{
+        max-height: 100%;
+        img{
+            height: 250px;
+            object-fit: cover;
+        }
+        a{
+            font-size: var(--fs-normal) !important;
+            line-height: var(--middle-space) !important;
+        }
+        &::before{
+            background: linear-gradient(180deg, rgba(35, 32, 32, 0.05) 44.27%, rgba(21, 19, 19, 0.9) 96.13%);
+            height: 100%;
+        }
+    }
+    .text{
+        padding: var(--xs-size) var(--sm-size) !important;
+    }
+}

@@ -4,6 +4,8 @@ import {
   BannerPage,
   BreadCrumb,
   LayoutContainer,
+  Grid,
+  BreadCrumbScript,
 } from "../../components/container";
 import { checkUserIsBot } from "../../util";
 import styles from "../../components/DetailBlog/style/styles.module.scss";
@@ -11,10 +13,11 @@ import DetailBlog from "../../components/DetailBlog/DetailBlog";
 import Share from "../../components/DetailBlog/Share/Share";
 import OtherNews from "../../components/DetailBlog/OtherNews/OtherNews";
 import axiosConfig from "../../service/base";
-import { getNewById } from "../../config/ApiNews";
-import {getNews} from '../../service';
+import { getNewById, getNewsApi } from "../../config/ApiNews";
+import { getNews } from "../../service";
+import Slide from "../../components/Home/News/Slide/Slide";
 
-const BlogDetail = ({ data, related_news }) => {
+const BlogDetail = ({ data, related_news, hot_news }) => {
   const router = useRouter();
   return (
     <>
@@ -25,24 +28,43 @@ const BlogDetail = ({ data, related_news }) => {
         title={data?.title}
       />
       <LayoutContainer className={styles["container-detail"]}>
-        <BreadCrumb
-          paths={[
-            {
-              name: "Tin Tức",
-              link: "/news",
-              color: true,
-            },
-            {
-              name: data.category?.title,
-              path: router.pathname,
-            },
-          ]}
-          date={new Date(data?.created_at).toLocaleDateString("vi-vn")}
-          className={styles["bread-crumb"]}
-        />
-        <DetailBlog data={data?.content} />
-        <Share />
-        <OtherNews data={related_news}/>
+        <div className={styles.grid}>
+          <div className={styles.left}>
+            <BreadCrumb
+              paths={[
+                {
+                  name: "Tin Tức",
+                  link: "/news",
+                  color: true,
+                },
+                {
+                  name: data.category?.title,
+                  path: router.pathname,
+                },
+              ]}
+              date={new Date(data?.created_at).toLocaleDateString("vi-vn")}
+              className={styles["bread-crumb"]}
+            />
+            <DetailBlog data={data?.content} />
+            <Share />
+            <OtherNews data={related_news} />
+          </div>
+          <Grid className={styles["grid-near"]}>
+            {hot_news?.map((item) => {
+              return (
+                <Slide
+                  contentClassName={styles.text}
+                  className={styles.news}
+                  key={item.id}
+                  src={item?.cover_url}
+                  id={item?.id}
+                  title={item?.title}
+                  type={item?.category?.title}
+                />
+              );
+            })}
+          </Grid>
+        </div>
       </LayoutContainer>
     </>
   );
@@ -59,11 +81,29 @@ export const getServerSideProps = async ({ req, query }) => {
       {
         name: "category_new_id",
         operation: "eq",
-        value: id
-      }
-    ]
+        value: id,
+      },
+    ],
   });
-  if (postDetail.code >= 400) {
+  const getHotNews = await axiosConfig({
+    url: getNewsApi,
+    method: "POST",
+    data: {
+      page: 1,
+      page_size: 3,
+      sorts: [
+        {
+          property: "created_at",
+          direction: "DESC",
+        },
+      ],
+    },
+  });
+  if (
+    postDetail.code >= 400 ||
+    postRelated.code >= 400 ||
+    getHotNews.code >= 400
+  ) {
     return {
       notFound: true,
     };
@@ -73,6 +113,7 @@ export const getServerSideProps = async ({ req, query }) => {
       data: postDetail.result,
       related_news: postRelated?.result?.items,
       isDisabledAnimation: userIsBot,
+      hot_news: getHotNews?.result?.items,
     },
   };
 };

@@ -18,7 +18,7 @@ const LayoutProduct = ({
       data-aos={aos}
       className={`${styles.layout} ${className} position-relative`}
     >
-      <div>
+      <div className="d-flex flex-column align-items-center text-center">
         <Icon />
         <h4>{title}</h4>
       </div>

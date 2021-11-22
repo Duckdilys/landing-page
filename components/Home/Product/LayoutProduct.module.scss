@@ -11,8 +11,7 @@
 .layout {
   h4 {
     font-size: 20px;
-    text-align: start;
-    padding: 16px 0 32px 0;
+    padding: var(--mg-16) 0 var(--pd-64) 0;
     margin: 0;
     font-weight: 700;
     line-height: 32px;
@@ -62,7 +61,6 @@
 .image{
   max-height: 100%;
   max-width: 100%;
-  min-width: 241px;
   min-height: 233px;
   img{
     position: absolute;

@@ -5,13 +5,8 @@ import Link from "next/link";
 const BreadCrumb = ({ date, paths, className }) => {
   return (
     <div
-      className={`${styles["bread-crumb"]} ${className}`}
+      className={`${styles["bread-crumb"]} d-flex justify-content-between align-items-center ${className}`}
     >
-      {date && (
-        <div className={`d-flex align-items-center ${styles.date}`}>
-          <span>{date}</span>
-        </div>
-      )}
       <ul>
         <Link href="/" passHref={true}>
           <a>
@@ -51,6 +46,11 @@ const BreadCrumb = ({ date, paths, className }) => {
             );
           })}
       </ul>
+      {date && (
+        <div className={`d-flex align-items-center ${styles.date}`}>
+          <span>{date}</span>
+        </div>
+      )}
     </div>
   );
 };
