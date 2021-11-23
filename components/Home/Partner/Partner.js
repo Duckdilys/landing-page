@@ -4,7 +4,7 @@ import styles from "./Partner.module.scss";
 import { SwiperSlide } from "swiper/react";
 import useMedia from "../../../hook/use-media";
 const Partner = (props) => {
-  const matchMobile = useMedia("(max-width: 576px)");
+  const matchMobile = useMedia("(max-width: 375px)");
   const _renderSlider = (number) => {
     const array = [];
     // fake slider
@@ -36,7 +36,7 @@ const Partner = (props) => {
                 breakpoints: {
                   320: {
                     slidesPerView: 2,
-                    spaceBetween: 0,
+                    spaceBetween: 20,
                   },
                   576: {
                     slidesPerView: 3,
@@ -46,9 +46,9 @@ const Partner = (props) => {
                     slidesPerView: 4,
                     spaceBetween: 32,
                   },
-                  991: {
+                  1024: {
                     slidesPerView: 5,
-                    spaceBetween: 64,
+                    spaceBetween: 42,
                   },
                 },
               }}
@@ -70,7 +70,7 @@ const Partner = (props) => {
             </SwiperContainer>
           )}
           {matchMobile && (
-            <Grid className={styles['grid-partner']}>
+            <div className={styles['grid-partner']}>
               {props.partners?.map((item, index) => {
                 if(index < 5){
                   return (
@@ -83,7 +83,7 @@ const Partner = (props) => {
                   );
                 }
               })}
-            </Grid>
+            </div>
           )}
         </LayoutContainer>
       </div>

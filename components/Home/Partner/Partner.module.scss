@@ -1,6 +1,9 @@
 @import '../../../theme/fixing';
 .container-middle{
     @include title();
+    h4{
+        padding-bottom: 0 !important;
+    }
 }
 .container-bg{
     margin-top: 0;
@@ -11,20 +14,24 @@
     padding: 0;
     .image{
         min-width: 185px;
-        height: 120px;
+        height: 100px;
+        &:hover{
+            img{
+                opacity: 1;
+            }
+        }
         img{
             width: 100%;
             height: auto;
+            opacity: .75;
+            transition: all .35s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         overflow: hidden;
     }
 }
-.background{
-    background-color: var(--light-gray);
-}
 .left, .right{
-    width: 64px;
-    height: 64px;
+    width: 42px;
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +45,7 @@
     }
     svg{
         width: var(--sm-size);
-        height: 24px;
+        height: var(--mg-16);
     }
     &:hover{
         box-shadow: var(--shadow-primary);
@@ -49,17 +56,19 @@
     }
 }
 .grid-partner{
-   grid-template-columns: repeat(3, 88px);
+   display: flex;
+   flex-wrap: wrap;
    .mobile-partner{
        overflow: hidden;
+       margin-right: var(--size-space);
+       margin-bottom: var(--size-space);
    }
    img{
        width: 88px;
-       height: 48px;
+       height: 44px;
    }
    justify-content: center;
    align-items: center;
-   gap: 32px;
 }
 @media screen and (max-width: 1260px) {
     .left{
@@ -85,16 +94,14 @@
     }
 }
 
-@media screen and (max-width: 576px) {
-    .swiper{
-        .image{
-            min-width: 88px;
-            height: 48px;
-            overflow: hidden;
-            img{
-                object-fit: cover;
-                height: 100%;
-            }
-        }
+@media screen and (max-width: 768px) {
+    .left{
+        left: 0;
+    }
+    .right{
+        right: 0;
+    }
+    .container-bg{
+        padding: var(--middle-space);
     }
 }

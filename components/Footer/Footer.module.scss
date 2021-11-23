@@ -186,6 +186,7 @@
 }
 @media screen and (max-width: 991px) {
     .footer{
+        margin-top: var(--pd-64);
         .grid{
             grid-template-columns: repeat(2, 1fr) !important;
             gap: var(--pd-48);
