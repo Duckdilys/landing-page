@@ -1,7 +1,7 @@
 .banner {
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    background-position: center left !important;
+    background-position: center center !important;
     position: relative !important;
     h3{
         color: var(--white);
@@ -32,4 +32,21 @@
 .container{
     margin-bottom: 0;
     margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .banner{
+        .content{
+            padding-bottom: var(--pd-96);
+        }
+        h3{
+            font-size: 32px !important;
+        }
+        .line{
+            margin: var(--middle-space) 0;
+        }
+        .text{
+            font-size: var(--fs-normal);
+        }
+    }
 }

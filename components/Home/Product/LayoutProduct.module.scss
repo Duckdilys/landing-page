@@ -7,6 +7,9 @@
 }
 @mixin padding-box {
   padding: 32px;
+  @media screen and (max-width: 991px) {
+    padding: var(--middle-space);
+  }
 }
 .layout {
   h4 {
@@ -117,4 +120,42 @@
 }
 .color{
   background: var(--darker-orange) !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .layout{
+    h4{
+      font-size: var(--fs-nlarge);
+    }
+    .show--container{
+      padding: var(--middle-space);
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .layout{
+    overflow: visible !important;
+    border: 1px solid var(--border-color);
+    outline: none !important;
+    h4{
+      padding-bottom: 0 !important;
+      font-size: var(--fs-nlarge) !important;
+      letter-spacing: 1.6px;
+      
+    }
+    .line{
+      margin: var(--middle-space) 0;
+    }
+    .show--container{
+      button{
+        margin-top: var(--pd-48);
+      }
+    }
+  }
+  .image{
+    padding-top: var(--pd-52);
+    min-height: 197px;
+    width: 100%;
+  }
 }

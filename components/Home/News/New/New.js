@@ -4,12 +4,14 @@ import { Image } from "../../../container";
 import Link from "next/link";
 import { removeUnicode } from "../../../../util";
 import styles from "./New.module.scss";
+import useMedia from "../../../../hook/use-media";
 const New = ({ src, title, date, content, id }) => {
+  const matchMedia = useMedia('(max-width: 576px)');
   return (
     <Row>
       <Col
-        xs={12}
-        sm={12}
+        xs={6}
+        sm={6}
         md={6}
         lg={6}
         className={`${styles.image} position-relative`}
@@ -20,9 +22,9 @@ const New = ({ src, title, date, content, id }) => {
           </a>
         </Link>
       </Col>
-      <Col xs={12} sm={12} md={6} lg={6} className={styles.content}>
+      <Col xs={6} sm={6} md={6} lg={6} className={styles.content}>
         <Link href={`/news/${id}`}>{title}</Link>
-        <p className={styles["text-content"]}>{content}</p>
+        {!matchMedia && <p className={styles["text-content"]}>{content}</p>}
         <p className={styles.date}>{date}</p>
       </Col>
     </Row>

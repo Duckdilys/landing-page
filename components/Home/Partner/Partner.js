@@ -1,8 +1,10 @@
 import React from "react";
-import { LayoutContainer, SwiperContainer, Image } from "../../container";
+import { LayoutContainer, SwiperContainer, Image, Grid } from "../../container";
 import styles from "./Partner.module.scss";
 import { SwiperSlide } from "swiper/react";
+import useMedia from "../../../hook/use-media";
 const Partner = (props) => {
+  const matchMobile = useMedia("(max-width: 576px)");
   const _renderSlider = (number) => {
     const array = [];
     // fake slider
@@ -18,40 +20,71 @@ const Partner = (props) => {
   return (
     <div className={`${styles["container-middle"]} ${props.className}`}>
       <h4>Đối tác</h4>
-      <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" className={styles.background}>
+      <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        className={styles.background}
+      >
         <LayoutContainer className={styles["container-bg"]}>
-          <SwiperContainer
-            className={styles.swiper}
-            navigation
-            config={{
-              left: styles.left,
-              right: styles.right,
-              breakpoints: {
-                320: {
-                  slidesPerView: 1,
-                  spaceBetween: 0,
-                },
-                576: {
-                  slidesPerView: 3,
-                  spaceBetween: 10,
-                },
-                768: {
+          {!matchMobile && (
+            <SwiperContainer
+              className={styles.swiper}
+              navigation={matchMobile ? false : true}
+              config={{
+                left: styles.left,
+                right: styles.right,
+                breakpoints: {
+                  320: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                  },
+                  576: {
+                    slidesPerView: 3,
+                    spaceBetween: 32,
+                  },
+                  768: {
                     slidesPerView: 4,
+                    spaceBetween: 32,
+                  },
+                  991: {
+                    slidesPerView: 5,
+                    spaceBetween: 64,
+                  },
                 },
-                991: {
-                  slidesPerView: 5,
-                  spaceBetween: 64,
-                },
-              },
-            }}
-            loop
-          >
-            {props.partners && props.partners?.map(item => {
-              
-              return <SwiperSlide key={item.id}><Image className={styles.image} src={item.avatar} alt=""/></SwiperSlide>
-            })}
-            {!props.partners && _renderSlider(5)}
-          </SwiperContainer>
+              }}
+              loop
+            >
+              {props.partners &&
+                props.partners?.map((item) => {
+                  return (
+                    <SwiperSlide key={item.id}>
+                      <Image
+                        className={`${styles.image} d-flex justify-content-center align-items-center`}
+                        src={item.avatar}
+                        alt=""
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              {!props.partners && _renderSlider(5)}
+            </SwiperContainer>
+          )}
+          {matchMobile && (
+            <Grid className={styles['grid-partner']}>
+              {props.partners?.map((item, index) => {
+                if(index < 5){
+                  return (
+                    <Image
+                      className={`${styles.image} ${styles['mobile-partner']}`}
+                      key={item.id}
+                      alt=""
+                      src={item?.avatar}
+                    />
+                  );
+                }
+              })}
+            </Grid>
+          )}
         </LayoutContainer>
       </div>
     </div>

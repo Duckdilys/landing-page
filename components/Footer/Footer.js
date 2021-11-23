@@ -10,29 +10,46 @@ const Footer = () => {
       <footer className={styles.footer}>
         <LayoutContainer className={styles["container-footer"]}>
           <Grid className={styles.grid}>
-            <div
-              data-aos="fade-right"
-              className={`d-flex flex-column justify-content-between`}
-            >
+            <div data-aos="fade-right" className={styles['logo-box']}>
               <Image src={"/logo-footer.png"} alt="" className={styles.logo} />
               <div className={`d-flex align-items-center ${styles.copyright}`}>
                 <Image src="/copy-right.svg" alt="" />
                 <span>Copyright 2020</span>
               </div>
             </div>
-            <ul className={styles.list}>
-              {paths.map((item, index) => {
-                return (
-                  <li
-                    data-aos="fade-up"
-                    data-aos-delay={index * 200}
-                    key={item.name}
-                    data-aos-offset={120}
-                  >
-                    <Link href={item.path}>{item.name}</Link>
-                  </li>
-                );
-              })}
+            <ul className={`${styles.list} ${styles['paths-list']}`}>
+              <div className={styles.paths}>
+                {paths.map((item, index) => {
+                  if (index < paths.length / 2) {
+                    return (
+                      <li
+                        data-aos="fade-up"
+                        data-aos-delay={index * 200}
+                        key={item.name}
+                        data-aos-offset={120}
+                      >
+                        <Link href={item.path}>{item.name}</Link>
+                      </li>
+                    );
+                  }
+                })}
+              </div>
+              <div className={styles.paths}>
+                {paths.map((item, index) => {
+                  if (index > paths.length / 2 - 1) {
+                    return (
+                      <li
+                        data-aos="fade-up"
+                        data-aos-delay={index * 200}
+                        key={item.name}
+                        data-aos-offset={120}
+                      >
+                        <Link href={item.path}>{item.name}</Link>
+                      </li>
+                    );
+                  }
+                })}
+              </div>
             </ul>
             <ul className={styles["list-contact"]}>
               <li data-aos="fade-up">Thông tin liên hệ</li>
@@ -47,19 +64,34 @@ const Footer = () => {
               </li>
             </ul>
             <ul className={`${styles.list} ${styles.email}`}>
-                <li>Đăng ký email</li>
-                <li className={styles.middle}>Đăng ký email để nhận tin tức và dịch vụ mới nhất từ chúng tôi</li>
-                <div className={`d-flex justify-content-between align-items-center ${styles.box}`}>
-                  <Input input={{
-                    type: 'email',
-                    placeholder: 'Địa chỉ Email'
-                  }}/>
-                  <Button>Đăng ký</Button>
-                </div>
-                <li className={`d-flex align-items-center ${styles['list-media']}`}>
-                  <Image className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`} src="/facebook-blue.svg" alt=""/>
-                  <Image className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`} src="/linkeln-blue.svg" alt=""/>
-                </li>
+              <li>Đăng ký email</li>
+              <li className={styles.middle}>
+                Đăng ký email để nhận tin tức và dịch vụ mới nhất từ chúng tôi
+              </li>
+              <div className={`d-flex justify-content-between ${styles.box}`}>
+                <Input
+                  input={{
+                    type: "email",
+                    placeholder: "Địa chỉ Email",
+                  }}
+                  className={styles.input}
+                />
+                <Button>Đăng ký</Button>
+              </div>
+              <li
+                className={`d-flex align-items-center ${styles["list-media"]}`}
+              >
+                <Image
+                  className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
+                  src="/facebook-blue.svg"
+                  alt=""
+                />
+                <Image
+                  className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
+                  src="/linkeln-blue.svg"
+                  alt=""
+                />
+              </li>
             </ul>
           </Grid>
         </LayoutContainer>

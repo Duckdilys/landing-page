@@ -12,6 +12,7 @@ const LayoutProduct = ({
   src,
   path,
   aos,
+  tabletView
 }) => {
   return (
     <div
@@ -31,11 +32,11 @@ const LayoutProduct = ({
           />
         )}
       </div>
-      <div className={`${styles["show--container"]}`}>
+      <div className={`d-flex flex-column align-items-center justify-content-center ${styles["show--container"]}`}>
         <Icon className={styles.color} src={"/project_icon_white.svg"} />
         <h4 data-transition-delay="500">{title}</h4>
-        <Line className={styles.line} />
-        <p className={styles.content} data-transition-delay="1000">
+        <Line style={{width: tabletView ? '96px' : '150px'}} className={styles.line} />
+        <p className={`${styles.content} text-center`} data-transition-delay="1000">
           {content}
         </p>
         <Link data-transition-delay="1500" href={path || "/"} passHref={true}>

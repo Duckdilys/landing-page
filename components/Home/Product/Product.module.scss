@@ -1,0 +1,22 @@
+@mixin mg {
+    margin: 0 2px !important;
+}
+.container{
+    overflow: hidden;
+    padding-bottom: 26px;
+}
+.normal{
+    width: 6px;
+    height: 6px;
+    @include mg();
+}
+.bullet{
+    width: 10px !important;
+    height: 10px !important;
+    @include mg();
+
+}
+.slide-swiper{
+    width: 272px !important;
+}
+

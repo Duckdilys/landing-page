@@ -19,6 +19,7 @@ const SwiperContainer = ({
   classNameActiveBullet,
   classActiveCurrent,
   containerPagination,
+  spaceBetween
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -26,6 +27,7 @@ const SwiperContainer = ({
     <Swiper
       data-aos={aos}
       slidesPerView={slidesPerView || "auto"}
+      spaceBetween={spaceBetween || 0}
       onInit={
         navigation
           ? (swiper) => {

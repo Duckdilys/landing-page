@@ -12,3 +12,10 @@
         box-shadow: var(--shadow-primary);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .button{
+        padding: 8px 12px;
+        font-size: var(--fs-xs) !important;
+    }
+}

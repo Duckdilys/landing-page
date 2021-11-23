@@ -20,11 +20,38 @@
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing);
   }
+  @media screen and (max-width: 991px) {
+    padding-bottom: 24px !important;
+    font-size: 24px !important;
+  }
 }
 
 @mixin container-item {
   .container{
     @extend .container;
-    @include title();
+    h4 {
+      padding-bottom: 48px !important;
+      margin: 0;
+      font-weight: 700;
+      font-size: 40px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .container{
+      h4{
+        font-size: 24px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  @mixin title {
+      h4{
+        padding-bottom: 24px !important;
+      }
   }
 }
