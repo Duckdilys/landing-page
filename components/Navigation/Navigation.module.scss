@@ -9,6 +9,7 @@
   height: 100%;
 }
 .nav-fix {
+  box-shadow: var(--shadow-button-primary);
   position: fixed;
   top: 0;
   z-index: 101;

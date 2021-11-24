@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
 import {
-  BannerPage,
   BreadCrumb,
   LayoutContainer,
   Grid,
@@ -64,12 +63,13 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
               date={new Date(data?.created_at).toLocaleDateString("vi-vn")}
               className={styles["bread-crumb"]}
             />
-            <h4 className="text-start">{data?.title}</h4>
+            <h4 className={`text-start ${styles.title}`}>{data?.title}</h4>
             <DetailBlog data={data?.content} />
             <Share />
             <OtherNews data={related_news} />
           </div>
           <Grid className={styles["grid-near"]}>
+            <h4 className="text-start">Tin tức nổi bật</h4>
             {hot_news?.map((item) => {
               return (
                 <Slide

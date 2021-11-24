@@ -15,6 +15,7 @@ const OtherNews = ({ data }) => {
               date={new Date(item.created_at).toLocaleDateString('vi-vn')}
               type={item?.category?.title}
               url_cover={item.cover_url}
+              id={item?.id}
               image={{
                 height: "166px",
                 width: "297px",

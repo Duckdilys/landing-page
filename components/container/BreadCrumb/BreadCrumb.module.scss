@@ -19,7 +19,7 @@
             text-transform: uppercase;
             span{
                 display: block;
-                padding: 0 20px;
+                padding: 0 var(--mg-16);
             }
             &:first-child{
                 & > div{
