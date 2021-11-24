@@ -14,6 +14,7 @@ import { checkUserIsBot } from "../../util";
 import { getProductById } from "../../config/ApiProducts";
 import axiosConfig from "../../service/base";
 import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
+import { apiGetProducts } from "../../config/ApiProducts";
 const data = {
   introduction: [
     {
@@ -45,7 +46,8 @@ const data = {
     },
   ],
 };
-const Products = ({ data, data_product }) => {
+const Products = ({ data_product, other_products }) => {
+  console.log(other_products);
   return (
     <>
       <BreadCrumbScript
@@ -80,7 +82,6 @@ const Products = ({ data, data_product }) => {
         className="flex-row-reverse"
         aos="fade-right"
       />
-      );
       <Introduction
         aos="fade-left"
         title="chúng tôi đã làm gì?"
@@ -89,20 +90,25 @@ const Products = ({ data, data_product }) => {
           "data-aos": "fade-right",
         }}
       >
-        {data_product?.infos?.length > 0 ? data_product?.infos?.map((item, index) => {
-          return (
-            <Fragment key={index}>
-              <h5>{item.title}</h5>
-              <p>{item.content}</p>
-            </Fragment>
-          );
-        }) : <p className="text-center">Không có dữ liệu</p>}
+        {data_product?.infos?.length > 0 ? (
+          data_product?.infos?.map((item, index) => {
+            return (
+              <Fragment key={index}>
+                <h5>{item.title}</h5>
+                <p>{item.content}</p>
+              </Fragment>
+            );
+          })
+        ) : (
+          <p className="text-center">Không có dữ liệu</p>
+        )}
       </Introduction>
       {data_product.landing_page && (
         <Introduction
           imageConfig={{ "data-aos": "fade-left" }}
           className={styles.information}
           src={"/product_intro_1.png"}
+          childrenClassName={styles.text}
         >
           <div data-aos="fade-right" data-aos-delay={500} data-aos-offset={300}>
             <h5>Bạn muốn biết thêm thông tin?</h5>
@@ -131,7 +137,7 @@ const Products = ({ data, data_product }) => {
       <Product
         className={styles.background}
         classNameContainer={styles["container-product"]}
-        product={data.other_products}
+        product={other_products}
         title="sản phẩm khác của chúng tôi"
         classNameGrid={styles.grid}
       />
@@ -146,7 +152,16 @@ export const getServerSideProps = async ({ req, params }) => {
   const data_product = await axiosConfig({
     url: getProductById(id),
   });
-  if (data_product.code >= 400) {
+
+  const all_products = await axiosConfig({
+    url: apiGetProducts,
+    method: "POST",
+    data: {
+      page_size: 4
+    },
+  });
+
+  if (data_product.code >= 400 || all_products.code >= 400) {
     return {
       notFound: true,
     };
@@ -156,6 +171,9 @@ export const getServerSideProps = async ({ req, params }) => {
       data: data,
       isDisabledAnimation: userIsBot,
       data_product: data_product?.result,
+      other_products: all_products?.result?.items?.filter(item => {
+        return +item.id !== +id;
+      })
     },
   };
 };

@@ -44,9 +44,6 @@ const Product = ({
             className={styles.container}
             slidesPerView="auto"
             spaceBetween={17}
-            config={{
-              autoResize: false,
-            }}
           >
             {_renderProducts.map((item, index) => {
               return (

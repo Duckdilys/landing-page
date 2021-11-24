@@ -1,7 +1,7 @@
 .input{
     input{
         padding: var(--input-space);
-        border: 1px solid var(--gray-lighter);
+        border: 1px solid var(--gray-lighter) !important;
         outline: none !important;
         &::placeholder{
             font-weight: var(--weight-400);
@@ -10,6 +10,9 @@
             font-size: var(--fs-normal);
         }
         transition: all .35s ease;
+        &:hover{
+            border-color: var(--border-color) !important;
+        }
     }
     position: relative;
     > div{

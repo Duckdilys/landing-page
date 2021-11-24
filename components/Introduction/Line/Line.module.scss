@@ -42,3 +42,46 @@
     margin-bottom: 0;
     padding-bottom: var(--xxl-size);
 }
+
+@media screen and (max-width: 1200px) {
+    .image{
+        max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .image{
+        max-width: 450px;
+    }
+    .text{
+        min-width: 500px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .text{
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        h5{
+            padding-bottom: 4px;
+            font-size: var(--fs-large);
+        }
+    }
+    .container-line{
+        .container{
+            margin-top: var(--middle-space);
+            display: grid !important;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--pd-12);
+            .image{
+                max-width: 100%;
+            }
+            margin-bottom: 0 !important;
+        }
+        padding-top: 0;
+    }
+    .text, .image{
+        max-width: 100%;
+        min-width: 100%;
+    }
+}

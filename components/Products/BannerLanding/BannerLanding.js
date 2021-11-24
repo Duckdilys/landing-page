@@ -1,5 +1,12 @@
 import React from "react";
-import { ContainerSmall, Image, Button, Input, Grid } from "../../container";
+import {
+  ContainerSmall,
+  Image,
+  Button,
+  Input,
+  Grid,
+  TextArea,
+} from "../../container";
 import styles from "./BannerLanding.module.scss";
 import Link from "next/link";
 const BannerLanding = () => {
@@ -43,7 +50,13 @@ const BannerLanding = () => {
               placeholder: "Email",
             }}
           />
-          <textarea placeholder="Nội dung" cols="10"></textarea>
+          <TextArea
+            textarea={{
+              placeholder: "Nội dung",
+              cols: "10",
+              rows: "5"
+            }}
+          ></TextArea>
         </Grid>
         <div className={`${styles.submit} text-center`}>
           <Button>Gửi nội dung</Button>

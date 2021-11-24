@@ -56,19 +56,17 @@
     }
 }
 .grid-partner{
-   display: flex;
-   flex-wrap: wrap;
+   grid-template-columns: repeat(3, 1fr);
    .mobile-partner{
        overflow: hidden;
-       margin-right: var(--size-space);
-       margin-bottom: var(--size-space);
    }
    img{
-       width: 88px;
-       height: 44px;
+       width: 100%;
+       height: auto;
    }
    justify-content: center;
    align-items: center;
+   gap: var(--size-space);
 }
 @media screen and (max-width: 1260px) {
     .left{

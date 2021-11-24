@@ -70,12 +70,12 @@ const Partner = (props) => {
             </SwiperContainer>
           )}
           {matchMobile && (
-            <div className={styles['grid-partner']}>
+            <Grid className={styles["grid-partner"]}>
               {props.partners?.map((item, index) => {
-                if(index < 5){
+                if (index < 5) {
                   return (
                     <Image
-                      className={`${styles.image} ${styles['mobile-partner']}`}
+                      className={`${styles.image} ${styles["mobile-partner"]}`}
                       key={item.id}
                       alt=""
                       src={item?.avatar}
@@ -83,7 +83,7 @@ const Partner = (props) => {
                   );
                 }
               })}
-            </div>
+            </Grid>
           )}
         </LayoutContainer>
       </div>

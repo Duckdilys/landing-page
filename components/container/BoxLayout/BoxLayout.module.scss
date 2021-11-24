@@ -14,3 +14,17 @@
   position: relative;
   z-index: 100;
 }
+
+@media screen and (max-width: 1260px) {
+  .container{
+    max-width: calc(100% - 48px) !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .container{
+    h4{
+      font-size: var(--fs-xxl);
+    }
+  }
+}
