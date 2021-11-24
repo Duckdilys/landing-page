@@ -10,7 +10,7 @@ const RenderNew = ({ name, date, type, url_cover, image, category_id, id }) => {
   return (
     <div className={styles.new}>
       <div className={`position-relative ${styles.image}`}>
-        <Link passHref={true} href={`/news/${removeUnicode(name)}`}>
+        <Link passHref={true} href={`/news/${id}`}>
           <a>
           <Image
             src={url_cover}

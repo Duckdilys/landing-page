@@ -36,3 +36,11 @@
         color: var(--orange-primary) !important;
     }
 }
+
+@media screen and (max-width: 991px) {
+    .bread-crumb{
+        ul li{
+            font-size: var(--fs-nlarge);
+        }
+    }
+}

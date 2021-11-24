@@ -1,13 +1,10 @@
 @import '../../../theme/fixing';
 .container-middle{
     @include title();
-    h4{
-        padding-bottom: 0 !important;
-    }
 }
 .container-bg{
     margin-top: 0;
-    padding: 72px 0;
+    padding: 0 !important;
     margin-bottom: 0;
 }
 .swiper{
@@ -80,11 +77,6 @@
     }
 }
 @media screen and (max-width: 991px) {
-    .container-middle{
-        h4{
-            font-size: 24px;
-        }
-    }
     .swiper{
         .image{
             min-width: 150px;
@@ -100,6 +92,15 @@
         right: 0;
     }
     .container-bg{
+        padding-bottom: 0 !important;
         padding: var(--middle-space);
+        margin: 0 !important;
+    }
+    .container-middle{
+        padding-bottom: 0 !important;
+        h4{
+            font-size: 24px;
+            padding-bottom: var(--middle-space) !important;
+        }
     }
 }

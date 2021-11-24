@@ -9,45 +9,13 @@ import {
 import styles from "../../components/Products/Banner.module.scss";
 import Introduction from "../../components/Products/Introduction/Introduction";
 import Product from "../../components/Home/Product/Product";
-import dataFake from "../../components/Home/Product/FakeData/FakeData";
 import { checkUserIsBot } from "../../util";
 import { getProductById } from "../../config/ApiProducts";
 import axiosConfig from "../../service/base";
 import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
 import { apiGetProducts } from "../../config/ApiProducts";
-const data = {
-  introduction: [
-    {
-      title: "#1 Title",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra purus eget felis, tristique morbi tellus. Non eros tellus orci, sollicitudin convallis diam quam et.",
-    },
-    {
-      title: "#1 Title",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra purus eget felis, tristique morbi tellus. Non eros tellus orci, sollicitudin convallis diam quam et.",
-    },
-    {
-      title: "#1 Title",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra purus eget felis, tristique morbi tellus. Non eros tellus orci, sollicitudin convallis diam quam et.",
-    },
-  ],
-  other_products: dataFake.filter((item, index) => {
-    return index !== dataFake.length - 1;
-  }),
-  title_banner: "Giải pháp về hạ tầng và phân tích dữ liệu",
-  line_content: [
-    {
-      main_title: "Thông tin chi tiết",
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor egestas tempus elementum nulla. Non suspendisse vulputate leo tempor, nisi sit massa, ut tincidunt. Rhoncus maecenas mauris turpis facilisi lacus pharetra. Pretium scelerisque eget egestas volutpat volutpat malesuada. Aliquam nibh neque leo consectetur vitae leo.",
-      url: "/Products.png",
-    },
-  ],
-};
 const Products = ({ data_product, other_products }) => {
-  console.log(other_products);
+
   return (
     <>
       <BreadCrumbScript
@@ -168,7 +136,6 @@ export const getServerSideProps = async ({ req, params }) => {
   }
   return {
     props: {
-      data: data,
       isDisabledAnimation: userIsBot,
       data_product: data_product?.result,
       other_products: all_products?.result?.items?.filter(item => {

@@ -7,6 +7,13 @@
 .left, .right{
     z-index: 10;
 }
-.swiper{
-    padding-bottom: 52px;
+.slide{
+    width: 404px;
+    height: 554px;
+}
+@media screen and (max-width: 768px) {
+    .slide{
+        width: 312px !important;
+        height: 428px !important;
+    }
 }

@@ -21,23 +21,49 @@
 }
 
 .button{
-    bottom: 70px;
     top: auto;
-    width: 48px;
-    height: 48px;
+    bottom: 24px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     svg{
-        width: 12px;
-        height: 18px;
+        width: 20px;
+        height: 30px;
     }
     background: var(--light-black-bg);
 }
 .left{
-    left: 42%;
+    right: 120px;
+    left: auto;
 }
 .right{
-    right: 42%;
+    right: 24px;
+}
+
+@media screen and (max-width: 576px) {
+    .swiper{
+        height: 328px;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .pagination{
+        bottom: var(--pd-12) !important;
+    }
+    .normal-pagination{
+        width: 6px;
+        height: 6px;
+    }
+    .active-pagination{
+        width: 10px !important;
+        height: 10px !important;
+    }
+    .slide{
+        height: 328px;
+        position: relative;
+    }
 }

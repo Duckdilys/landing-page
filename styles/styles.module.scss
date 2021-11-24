@@ -7,6 +7,8 @@
     margin-top: 0 !important;
     margin-bottom: 0;
 }
-.top{
-    @extend .container;
+
+.introduction{
+    padding: var(--middle-space);
+    padding-bottom: var(--middle-space);
 }

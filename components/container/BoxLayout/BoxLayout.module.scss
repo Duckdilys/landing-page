@@ -28,3 +28,9 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .container{
+    padding: var(--middle-space) !important;
+  }
+}

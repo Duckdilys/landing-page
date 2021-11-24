@@ -19,3 +19,14 @@
     color: var(--orange-primary);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .box-container{
+    padding: var(--middle-space);
+    margin-top: -40px;
+    h4{
+      padding-bottom: 0;
+      font-size: var(--fs-xxl);
+    }
+  }
+}

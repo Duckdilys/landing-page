@@ -78,7 +78,7 @@ const News = ({ categories, news, totalPage, heading }) => {
         error={error}
         perPage={8}
       />
-      {posts.length > 0 && (
+      {posts.length >= 8 && (
         <Pagination
           totalDocuments={totalDocuments}
           perPage={8}
@@ -94,7 +94,7 @@ export const getServerSideProps = async ({ req, query }) => {
   const categories = await getCategoriesCondition(1, 10, "");
   const page = +query?.page || 1;
   const getNewsByPage = await getNewsByCondition(page, 8, "");
-  const getHeadingSwiper = await getNewsByCondition(0, 4, "", {
+  const getHeadingSwiper = await getNewsByCondition(0, 5, "", {
     sorts: [
       {
         property: "created_at",

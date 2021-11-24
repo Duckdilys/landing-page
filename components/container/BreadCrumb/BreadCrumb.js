@@ -8,21 +8,6 @@ const BreadCrumb = ({ date, paths, className }) => {
       className={`${styles["bread-crumb"]} d-flex justify-content-between align-items-center ${className}`}
     >
       <ul>
-        <Link href="/" passHref={true}>
-          <a>
-            <li>
-              <Image src="/home-icon.svg" width="20px" height="20px" alt="" />
-              <span>
-                <Image
-                  src="/arrow-bread-crumb-icon.svg"
-                  height="10px"
-                  width="6px"
-                  alt=""
-                />
-              </span>
-            </li>
-          </a>
-        </Link>
         {paths &&
           paths.map((path, index) => {
             return (

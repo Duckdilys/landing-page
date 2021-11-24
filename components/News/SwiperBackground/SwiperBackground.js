@@ -1,15 +1,17 @@
-import React, { useRef } from "react";
+import React from "react";
 import { SwiperSlide } from "swiper/react";
 import { SwiperContainer } from "../../container";
 import styles from "./SwiperBackground.module.scss";
 import Slide from "../Slide/Slide";
+import useMedia from "../../../hook/use-media";
 const SwiperBackground = ({ posts }) => {
+  const matchMobile = useMedia('(max-width: 991px)');
   return (
     <SwiperContainer
       className={styles.swiper}
       pagination
       delay={5000}
-      navigation
+      navigation={matchMobile ? false : true}
       loop
       slidesPerView={1}
       classActiveCurrent={styles.current}
@@ -45,11 +47,12 @@ const SwiperBackground = ({ posts }) => {
     >
       {posts.map((post, index) => {
         return (
-          <SwiperSlide key={index}>
+          <SwiperSlide className={styles.slide} key={index}>
             <Slide
               style={{ background: `url('${post.cover_url}')` }}
               title={post.title}
               type={post.category?.title}
+              id={post.id}
             />
           </SwiperSlide>
         );

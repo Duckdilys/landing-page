@@ -11,17 +11,26 @@ import { apiIntroduction } from "../config/ApiIntroduction";
 import { ApiFounder } from "../config/ApiFounder";
 import { getPartnerCondition } from "../service";
 import { checkUserIsBot } from "../util";
+import useMedia from "../hook/use-media";
 const Introduction = ({ dataIntroduction, founderData, partners }) => {
+  const matchMedia = useMedia("(max-width: 768px)");
+
   return (
     <>
-    <BreadCrumbScript title={'Giới thiệu'} dataElement={[
-      {
-        name: 'Giới thiệu',
-        href: '/introduction'
-      }
-    ]}/>
+      <BreadCrumbScript
+        title={"Giới thiệu"}
+        dataElement={[
+          {
+            name: "Giới thiệu || MH - Solution",
+            href: "/introduction",
+          },
+        ]}
+      />
       <section>
-        <Banner data={dataIntroduction} />
+        <Banner data={!matchMedia ? dataIntroduction : ""} />
+        {matchMedia && (
+          <div className={styles.introduction}>{dataIntroduction?.content}</div>
+        )}
         {dataIntroduction && (
           <>
             {dataIntroduction?.visions?.map((item, index) => {
@@ -75,7 +84,11 @@ export const getServerSideProps = async ({ req }) => {
     data: {},
   });
   const partners = await getPartnerCondition();
-  if (dataIntroduction.code >= 400 || dataFounder.code >= 400 || partners.code >= 400) {
+  if (
+    dataIntroduction.code >= 400 ||
+    dataFounder.code >= 400 ||
+    partners.code >= 400
+  ) {
     return {
       notFound: true,
     };
@@ -85,7 +98,7 @@ export const getServerSideProps = async ({ req }) => {
       isDisabledAnimation: userIsBot,
       dataIntroduction: dataIntroduction.result?.items[0],
       founderData: dataFounder.result?.items,
-      partners: partners.result.items
+      partners: partners.result.items,
     },
   };
 };

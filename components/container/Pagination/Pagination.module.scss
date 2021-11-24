@@ -1,6 +1,7 @@
 .container {
   list-style: none;
   padding-top: var(--pagination-space);
+  padding-left: 0;
   li {
     width: var(--w-36);
     height: var(--w-36);

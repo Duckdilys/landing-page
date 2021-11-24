@@ -20,7 +20,7 @@
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing);
   }
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 768px) {
     padding-bottom: 24px !important;
     font-size: 24px !important;
   }
@@ -28,7 +28,8 @@
 
 @mixin container-item {
   .container{
-    @extend .container;
+    margin-top: 120px;
+    margin-bottom: 120px;
     h4 {
       padding-bottom: 48px !important;
       margin: 0;
@@ -43,7 +44,9 @@
     .container{
       h4{
         font-size: 24px !important;
+        padding-bottom: var(--middle-space) !important;
       }
+      margin: var(--pd-64) 0 !important;
     }
   }
 }

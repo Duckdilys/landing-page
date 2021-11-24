@@ -3,27 +3,16 @@ import { ContainerSmall, SwiperContainer } from "../../container";
 import { SwiperSlide } from "swiper/react";
 import RenderSlide from "./RenderSlide/RenderSlide";
 import styles from "./Founder.module.scss";
+import useMedia from "../../../hook/use-media";
 const Founder = ({ dataFounder }) => {
   
+  const isMatchMobile = useMedia('(max-width: 768px)');
   return (
     <ContainerSmall>
       <h4>Sáng Lập - Cố Vấn</h4>
       <SwiperContainer
         config={{
-          breakpoints: {
-            200: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-            576: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 24,
-            },
-          },
+
           left: styles.left,
           right: styles.right,
           "data-aos-delay": 1000,
@@ -31,19 +20,20 @@ const Founder = ({ dataFounder }) => {
         }}
         aos="fade-up"
         className={styles.swiper}
-        loop
-        navigation
+        spaceBetween={isMatchMobile ? 16 : 24}
+        navigation={dataFounder.length > 1 ? true : false}
         pagination
         clickable={true}
       >
         {dataFounder ? (
           dataFounder?.map((founder, index) => {
             return (
-              <SwiperSlide key={index}>
+              <SwiperSlide className={styles.slide} key={index}>
                 <RenderSlide
-                  name={founder.full_name}
-                  introduction={founder.introduction || "Không có dữ liệu"}
-                  url_cover={founder.image || "/Founder-2.png"}
+                  name={founder.name}
+                  introduction={founder.about || "Không có dữ liệu"}
+                  url_cover={founder.avatar || "/Founder-2.png"}
+                  socials={founder.socials}
                 />
               </SwiperSlide>
             );

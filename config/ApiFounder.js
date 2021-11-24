@@ -1,6 +1,6 @@
 import { serverURL } from ".";
 
-const ApiFounder = `${serverURL}/applicant/search`;
+const ApiFounder = `${serverURL}/co-founder/search`;
 
 export {
     ApiFounder

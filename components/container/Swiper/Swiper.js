@@ -19,7 +19,8 @@ const SwiperContainer = ({
   classNameActiveBullet,
   classActiveCurrent,
   containerPagination,
-  spaceBetween
+  spaceBetween,
+  isPost
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);

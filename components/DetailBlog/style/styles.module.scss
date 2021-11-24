@@ -45,3 +45,13 @@
         padding: var(--xs-size) var(--sm-size) !important;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .left{
+        width: 100%;
+    }
+}

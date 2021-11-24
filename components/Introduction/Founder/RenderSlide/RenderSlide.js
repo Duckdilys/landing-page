@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Image } from "../../../container";
 import styles from "./RenderSlide.module.scss";
-const RenderSlide = ({ name, introduction, url_cover }) => {
+const RenderSlide = ({ name, introduction, url_cover, socials }) => {
   return (
     <div
       className={styles.container}
@@ -17,21 +17,13 @@ const RenderSlide = ({ name, introduction, url_cover }) => {
           <h5>{name}</h5>
           <p>{introduction}</p>
           <div className={`d-flex align-items-center ${styles.social}`}>
-            <Link href="/" passHref={true}>
-              <a>
-                <Image src={"/facebook-icon.svg"} alt="" />
-              </a>
-            </Link>
-            <Link href="/" passHref={true}>
-              <a>
-                <Image src={"/linkedln-icon.svg"} alt="" />
-              </a>
-            </Link>
-            <Link href="/" passHref={true}>
-              <a>
-                <Image src={"/instagram-icon.svg"} alt="" />
-              </a>
-            </Link>
+            {socials && socials?.map((item, index) => {
+              return <Link href={item?.src} key={index} passHref={true}>
+                <a>
+                  <Image src={item?.icon} alt=""/>
+                </a>
+              </Link>
+            })}
           </div>
         </div>
       </div>

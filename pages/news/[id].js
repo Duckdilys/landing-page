@@ -16,17 +16,36 @@ import axiosConfig from "../../service/base";
 import { getNewById, getNewsApi } from "../../config/ApiNews";
 import { getNews } from "../../service";
 import Slide from "../../components/Home/News/Slide/Slide";
-
 const BlogDetail = ({ data, related_news, hot_news }) => {
   const router = useRouter();
   return (
     <>
-      <BannerPage
+      <BreadCrumbScript
+        dataElement={[
+          ...related_news?.map((item) => {
+            return {
+              name: item?.title,
+              href: `/news/${item.id}`,
+            };
+          }),
+          ...hot_news.map((item) => {
+            return {
+              name: item?.title,
+              href: `/news/${item.id}`,
+            };
+          }),
+          {
+            name: data?.title,
+            href: `/news/${data?.id}`,
+          },
+        ]}
+      />
+      {/* <BannerPage
         classNameBox={styles.container}
         classNameBanner={styles.banner}
         style={{ background: `url('/Banner_detail.png')` }}
         title={data?.title}
-      />
+      /> */}
       <LayoutContainer className={styles["container-detail"]}>
         <div className={styles.grid}>
           <div className={styles.left}>
@@ -45,6 +64,7 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
               date={new Date(data?.created_at).toLocaleDateString("vi-vn")}
               className={styles["bread-crumb"]}
             />
+            <h4 className="text-start">{data?.title}</h4>
             <DetailBlog data={data?.content} />
             <Share />
             <OtherNews data={related_news} />

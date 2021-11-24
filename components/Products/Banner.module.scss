@@ -3,7 +3,8 @@
     background: url('../../public/Banner_Products.png');
 }
 .box{
-    margin-top: -200px;
+    margin-top: -120px;
+    text-align: justify;
     h4{
         padding-bottom: 0 !important;
         margin: auto;
@@ -69,7 +70,7 @@
 }
 .background{
     background: var(--light-gray);
-    padding: 64px 0;
+    padding: var(--pd-64) 0;
     margin: var(--space) 0;
 }
 .container-product{
@@ -87,5 +88,13 @@
 }
 
 @media screen and (max-width: 768px) {
-   
+   .box{
+       margin-top: -75px;
+   }
+   .background{
+       margin-top: 0;
+   }
+   .container{
+       padding-top: var(--middle-space);
+   }
 }

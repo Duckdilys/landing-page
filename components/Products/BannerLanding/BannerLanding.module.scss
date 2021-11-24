@@ -89,6 +89,7 @@
 }
 @media screen and (max-width: 768px) {
   .container{
+    margin-top: var(--pd-36);
     h5{
       font-size: var(--fs-large) !important;
       padding-bottom: var(--mg-16) !important;
