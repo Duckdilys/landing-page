@@ -4,6 +4,7 @@ import { SwiperSlide } from "swiper/react";
 import RenderSlide from "./RenderSlide/RenderSlide";
 import styles from "./Founder.module.scss";
 const Founder = ({ dataFounder }) => {
+  
   return (
     <ContainerSmall>
       <h4>Sáng Lập - Cố Vấn</h4>
@@ -35,14 +36,14 @@ const Founder = ({ dataFounder }) => {
         pagination
         clickable={true}
       >
-        {dataFounder.items[0] ? (
-          dataFounder.items[0]?.map((founder, index) => {
+        {dataFounder ? (
+          dataFounder?.map((founder, index) => {
             return (
               <SwiperSlide key={index}>
                 <RenderSlide
-                  name={founder.name}
-                  introduction={founder.introduction}
-                  url_cover={founder.image}
+                  name={founder.full_name}
+                  introduction={founder.introduction || "Không có dữ liệu"}
+                  url_cover={founder.image || "/Founder-2.png"}
                 />
               </SwiperSlide>
             );

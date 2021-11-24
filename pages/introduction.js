@@ -84,7 +84,7 @@ export const getServerSideProps = async ({ req }) => {
     props: {
       isDisabledAnimation: userIsBot,
       dataIntroduction: dataIntroduction.result?.items[0],
-      founderData: dataFounder.result,
+      founderData: dataFounder.result?.items,
       partners: partners.result.items
     },
   };
