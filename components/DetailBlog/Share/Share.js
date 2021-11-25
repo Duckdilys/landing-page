@@ -9,9 +9,9 @@ const Share = () => {
       <Link href="/" passHref={true}>
         <a>
           <Image
-            src={"/facebook-box-icon.svg"}
-            width="36px"
-            height="36px"
+            src={"/fb-blue-icon.svg"}
+            width="32px"
+            height="32px"
             alt=""
           />
         </a>
@@ -19,21 +19,16 @@ const Share = () => {
       <Link href="/" passHref={true}>
         <a>
           <Image
-            src={"/twitter-box-icon.svg"}
-            width="36px"
-            height="36px"
+            src={"/tw-blue-icon.svg"}
+            width="32px"
+            height="32px"
             alt=""
           />
         </a>
       </Link>
-      <Link href="/" passHref={true}>
+      <Link href={'/'} passHref={true}>
         <a>
-          <Image
-            src={"/instagram-box-icon.svg"}
-            width="36px"
-            height="36px"
-            alt=""
-          />
+          <Image src={'/noron-icon.svg'} width="36px" height="36px" alt=""/>
         </a>
       </Link>
     </div>

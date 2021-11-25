@@ -5,6 +5,7 @@ import styles from "./Form.module.scss";
 import Link from "next/link";
 import Input from "../Input/Input";
 import { ValidateLengthInput } from "../../../util";
+import useMedia from "../../../hook/use-media";
 const renderInput = [
   {
     validateInput: (value) => Boolean(ValidateLengthInput(value)),
@@ -50,6 +51,7 @@ const renderInput = [
   },
 ];
 const Form = ({ contact }) => {
+  const matchMobile = useMedia("(max-width: 768px)");
   const icon = [
     "/home-dark-icon.svg",
     "/email-icon.svg",
@@ -68,28 +70,33 @@ const Form = ({ contact }) => {
               </li>
             );
           })}
-          <li className={`d-flex align-items-center ${styles.social}`}>
-            <Link href="/" passHref={true}>
-              <a>
-                <Image
-                  src="/facebook-white-icon.svg"
-                  alt=""
-                  width="10px"
-                  height="20px"
-                />
-              </a>
-            </Link>
-            <Link href="/" passHref={true}>
-              <a>
-                <Image
-                  src="/linkedln-white.svg"
-                  alt=""
-                  width="17px"
-                  height="17px"
-                />
-              </a>
-            </Link>
-          </li>
+          {
+            !matchMobile && 
+            <>
+              <li className={`d-flex align-items-center ${styles.social}`}>
+                <Link href="/" passHref={true}>
+                  <a>
+                    <Image
+                      src="/facebook-white-icon.svg"
+                      alt=""
+                      width="10px"
+                      height="20px"
+                    />
+                  </a>
+                </Link>
+                <Link href="/" passHref={true}>
+                  <a>
+                    <Image
+                      src="/linkedln-white.svg"
+                      alt=""
+                      width="17px"
+                      height="17px"
+                    />
+                  </a>
+                </Link>
+              </li>
+            </>
+          }
         </ul>
       </div>
       <form className={styles.form}>

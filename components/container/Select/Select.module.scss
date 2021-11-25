@@ -56,3 +56,16 @@
         pointer-events: none !important;
     }
 }
+
+@media screen and (max-width: 1250px) {
+    .select{
+        padding: var(--pd-12) var(--mg-16);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .select{
+        border: 1px solid var(--border-mobile);
+        
+    }
+}

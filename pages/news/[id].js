@@ -15,11 +15,14 @@ import axiosConfig from "../../service/base";
 import { getNewById, getNewsApi } from "../../config/ApiNews";
 import { getNews } from "../../service";
 import Slide from "../../components/Home/News/Slide/Slide";
+import useMedia from "../../hook/use-media";
 const BlogDetail = ({ data, related_news, hot_news }) => {
+  const isMobile = useMedia('(max-width: 768px)');
   const router = useRouter();
   return (
     <>
       <BreadCrumbScript
+        title={`${data?.title} | MH - Solution`}
         dataElement={[
           ...related_news?.map((item) => {
             return {
@@ -49,6 +52,7 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
         <div className={styles.grid}>
           <div className={styles.left}>
             <BreadCrumb
+              isMobile={isMobile}
               paths={[
                 {
                   name: "Tin Tức",

@@ -12,7 +12,7 @@
     height: 93px;
 }
 .grid{
-    grid-template-columns: repeat(6, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 50px;
 }
 .copyright{
@@ -47,7 +47,6 @@
     }
 }
 .email{
-    grid-column: span 2;
     line-height: var(--line-height-primary);
     li{
         &:first-child{
@@ -106,7 +105,6 @@
     }
 }
 .list-contact{
-    grid-column: span 2;
     @extend .list;
     li{
         display: flex;

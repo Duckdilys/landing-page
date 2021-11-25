@@ -9,3 +9,11 @@
     padding-bottom: 16px;
     display: block;
 }
+
+@media screen and (max-width: 768px) {
+    .input{
+        input{
+            padding: var(--mg-16) var(--pd-12);
+        }
+    }
+}

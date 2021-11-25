@@ -83,4 +83,17 @@
             height: 100%;
         }
     }
+    .container-detail{
+        padding: 0 !important;
+    }
+    .left, .grid-near{
+        padding: var(--middle-space);
+        .title{
+            padding-bottom: var(--middle-space) !important;
+        }
+    }
+    .bread-crumb{
+        padding-bottom: var(--pd-12);
+        border-bottom: 1px solid var(--border-mobile);
+    }
 }

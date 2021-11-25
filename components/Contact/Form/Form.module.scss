@@ -76,3 +76,22 @@
         font-weight: var(--weight-700);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .grid{
+        @include grid-template-column(1, var(--pd-20));
+    }
+    .information{
+        ul{
+            li{
+                padding-bottom: var(--pd-12);
+                span{
+                    padding-left: var(--pd-12);
+                }
+            }
+        }
+    }
+    .text{
+        padding: var(--mg-16) var(--pd-12);
+    }
+}

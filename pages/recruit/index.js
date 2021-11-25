@@ -85,7 +85,7 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
         />
       </BannerPage>
       <ContainerSmall className={styles.container}>
-        <Grid>
+        <Grid className={styles.grid}>
           <FormEmail />
           <Positions
             isLoading={isLoading}

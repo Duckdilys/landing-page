@@ -73,10 +73,12 @@
 @media screen and (max-width: 768px) {
   .container-bg{
     margin-top: 0;
+    margin-bottom: 0;
     padding: var(--middle-space);
   }
   .container{
-    padding: 0;
+    padding: 0 !important;
+    
     .intro{
       padding: var(--mg-16) 0;
     }

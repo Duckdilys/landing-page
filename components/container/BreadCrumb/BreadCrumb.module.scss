@@ -28,13 +28,15 @@
             }
         }
     }
-    .date{
-        font-size: 20px;
-        color: var(--gray-secondary);
-    }
     .color{
         color: var(--orange-primary) !important;
     }
+}
+.date{
+    font-size: 20px;
+    color: var(--gray-secondary);
+    line-height: var(--line-height-primary);
+    letter-spacing: var(--letter-spacing);
 }
 
 @media screen and (max-width: 991px) {
@@ -42,5 +44,12 @@
         ul li{
             font-size: var(--fs-nlarge);
         }
+    }
+}
+@media screen and (max-width: 768px) {
+    .date{
+        font-size: var(--fs-nlarge);
+        padding-top: var(--pd-12);
+        padding-bottom: 8px;
     }
 }

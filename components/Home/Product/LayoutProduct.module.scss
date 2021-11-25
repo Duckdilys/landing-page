@@ -34,8 +34,6 @@
   flex-direction: column;
   justify-content: space-between;
   transition: all .75s ease-in-out !important;
-  overflow: hidden;
-  transition-delay: .75s;
   .content{
     @include show-n-line(4);
   }
@@ -86,7 +84,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  transition: all 0.75s ease;
+  transition: all 0.75s ease-in-out;
   box-shadow: var(--shadow-primary);
   pointer-events: none;
   h4 {
