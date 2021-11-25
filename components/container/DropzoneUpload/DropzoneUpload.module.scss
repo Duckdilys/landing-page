@@ -23,3 +23,14 @@
     background: var(--orange-light-primary);
     cursor: pointer;
 }
+
+@media screen and (max-width: 576px) {
+    .dropzone{
+        h5{
+            font-size: var(--fs-small);
+        }
+        p{
+            font-size: var(--fs-xs);
+        }
+    }
+}

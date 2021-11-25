@@ -16,3 +16,9 @@
         font-size: var(--fs-normal);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .box{
+        padding: var(--mg-16) 0;
+    }
+}

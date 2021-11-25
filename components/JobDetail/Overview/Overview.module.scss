@@ -18,3 +18,17 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .container{ 
+        h6{
+            font-size: var(--fs-small);
+        }
+        .box{
+            padding: 0 var(--middle-space);
+        }
+        h5{
+            padding: var(--middle-space);
+        }
+    }
+}

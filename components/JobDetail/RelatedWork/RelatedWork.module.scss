@@ -22,7 +22,15 @@
     padding: var(--size-space);
     border: 1px solid var(--border-color);
 }
-
+@media screen and (max-width: 991px) {
+    .container{
+        h4{
+            padding-top: var(--middle-space);
+            padding-bottom: 12px !important;
+            font-size: var(--fs-large) !important;
+        }
+    }
+}
 @media screen and (max-width: 768px) {
     .grid{
         grid-template-columns: repeat(1, 1fr);
