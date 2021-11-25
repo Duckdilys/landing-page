@@ -2,14 +2,14 @@
     letter-spacing: var(--letter-spacing);
     h4{
         text-align: start;
-        font-size: 40px;
+        font-size: 24px;
         line-height: 60px;
-        padding-bottom: var(--size-space) !important;
+        padding-bottom: var(--mg-16) !important;
+        padding-top: var(--size-space);
     }
-    padding-top: var(--pd-64);
 }
 .grid{
-    grid-template-columns: repeat(3, minmax(457px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 }
 .image{
     width: 92px;
@@ -21,4 +21,10 @@
 .container-loading{
     padding: var(--size-space);
     border: 1px solid var(--border-color);
+}
+
+@media screen and (max-width: 768px) {
+    .grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

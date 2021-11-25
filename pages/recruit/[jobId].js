@@ -5,7 +5,6 @@ import {
   Button,
   BreadCrumbScript,
 } from "../../components/container";
-import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { modelActions } from "../../store/slices/model-slice";
 import Type from "../../components/Recruit/Positions/Position/Type/Type";
@@ -19,8 +18,11 @@ import { checkUserIsBot } from "../../util";
 import axiosConfig from "../../service/base";
 import { ApiJob } from "../../config/ApiJob";
 import useFetch from "../../hook/use-fetch";
+import useMedia from "../../hook/use-media";
+import Share from "../../components/JobDetail/Share/Share";
 
 const JobDetail = ({ data_job }) => {
+  const matchMobile = useMedia("(max-width: 991px)");
   const dispatch = useDispatch();
   const {
     fetchDataFromServer,
@@ -95,27 +97,7 @@ const JobDetail = ({ data_job }) => {
           </div>
           <div className={styles["container-right"]}>
             <Overview overview={data_job} />
-            <div className={styles.share}>
-              <h4>Chia sẻ công việc này</h4>
-              <div className={`d-flex align-items-center ${styles.line}`}>
-                <span>
-                  <Image
-                    src="/facebook-square-icon.svg"
-                    alt=""
-                    width="36px"
-                    height="36px"
-                  />
-                </span>
-                <span>
-                  <Image
-                    src="/linkedln-white.svg"
-                    width="20px"
-                    height="20px"
-                    alt=""
-                  />
-                </span>
-              </div>
-            </div>
+            {!matchMobile && <Share />}
           </div>
         </div>
         <RelatedWork relatedWork={dataRelated} isLoading={isLoading} />

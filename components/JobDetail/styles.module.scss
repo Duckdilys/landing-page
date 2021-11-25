@@ -79,3 +79,19 @@
 .container-right {
   width: 30%;
 }
+
+@media screen and (max-width: 991px) {
+  .grid{
+    flex-direction: column-reverse;
+  }
+  .left-side, .container-right{
+    width: 100%;
+  }
+  .left-side{
+    h1, h2, h3, h4, h5, h6{
+      padding-bottom: 4px !important;
+      padding-top: var(--size-space) !important;
+      font-size: var(--fs-nlarge);
+    }
+  }
+}

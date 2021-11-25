@@ -4,6 +4,7 @@ import Position from "../../Recruit/Positions/Position/Position";
 import { Grid } from "../../container";
 import { SkeletonLoading } from "../../container";
 const RelatedWork = ({ relatedWork, isLoading }) => {
+  console.log(relatedWork);
   return (
     <div className={styles.container}>
       <h4>Công việc liên quan</h4>
@@ -31,7 +32,7 @@ const RelatedWork = ({ relatedWork, isLoading }) => {
               date={new Date(work?.created_at).toLocaleDateString("vi-vn")}
               place={work?.work_address}
               salary={work?.salary}
-              // types={[...work.refer_fields]}
+              types={[work?.work_type, work?.level, work?.career]}
             />
           );
         })}

@@ -9,7 +9,9 @@ const Position = ({ url, title, date, place, salary, types, id, isMobile }) => {
   const router = useRouter();
   return (
     <div className={`${styles.container}`}>
-      <div className={`d-flex justify-content-between ${styles.wrap} align-items-center`}>
+      <div
+        className={`d-flex justify-content-between ${styles.wrap} align-items-center`}
+      >
         <div className={`position-relative ${styles.image}`}>
           {url && (
             <Image
@@ -22,7 +24,9 @@ const Position = ({ url, title, date, place, salary, types, id, isMobile }) => {
           )}
         </div>
         <div className={styles.content}>
-          <div className={`d-flex justify-content-between align-items-center flex-wrap`}>
+          <div
+            className={`d-flex justify-content-between align-items-center flex-wrap`}
+          >
             <Link href={`${router.pathname}/${id}`} passHref={true}>
               <a>
                 <h5>{title}</h5>
@@ -83,27 +87,16 @@ const Position = ({ url, title, date, place, salary, types, id, isMobile }) => {
         </div>
       </div>
       <div className={`d-flex align-items-center ${styles.flex}`}>
-            {types &&
-            !isMobile &&
-              types.map((type, index) => {
-                return (
-                  <Type className={styles["work-type"]} key={index}>
-                    {type}
-                  </Type>
-                );
-              })}
-          </div>
-          <div className={`d-flex align-items-center ${styles.flex}`}>
-            {types &&
-              isMobile &&
-              types.map((type, index) => {
-                return (
-                  <Type className={styles["work-type"]} key={index}>
-                    {type}
-                  </Type>
-                );
-              })}
-          </div>  
+        {types &&
+          isMobile &&
+          types.map((type, index) => {
+            return (
+              <Type className={styles["work-type"]} key={index}>
+                {type}
+              </Type>
+            );
+          })}
+      </div>
     </div>
   );
 };
