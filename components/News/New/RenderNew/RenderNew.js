@@ -5,10 +5,10 @@ import Link from "next/link";
 import { removeUnicode } from "../../../../util";
 import { useDispatch } from "react-redux";
 import { categoryActions } from "../../../../store/slices/category-slice";
-const RenderNew = ({ name, date, type, url_cover, image, category_id, id }) => {
+const RenderNew = ({ name, date, type, url_cover, image, category_id, id, className, routeClassName }) => {
   const dispatch = useDispatch();
   return (
-    <div className={styles.new}>
+    <div className={`${styles.new} ${className}`}>
       <div className={`position-relative ${styles.image}`}>
         <Link passHref={true} href={`/news/${id}`}>
           <a>
@@ -25,7 +25,7 @@ const RenderNew = ({ name, date, type, url_cover, image, category_id, id }) => {
         </Link>
       </div>
       <div
-        className={`d-flex justify-content-between align-items-center ${styles.time}`}
+        className={`d-flex justify-content-between align-items-center ${styles.time} ${routeClassName}`}
       >
         <h6 onClick={() => dispatch(categoryActions.changeCategoryHandler(category_id))}>{type}</h6>
         <p>{date}</p>

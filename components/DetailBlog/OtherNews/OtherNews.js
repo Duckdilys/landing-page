@@ -10,9 +10,10 @@ const OtherNews = ({ data }) => {
         {data.map((item, index) => {
           return (
             <RenderNew
+              routeClassName={styles.route}
               key={index}
               name={item.title}
-              date={new Date(item.created_at).toLocaleDateString('vi-vn')}
+              date={new Date(item.created_at).toLocaleDateString("vi-vn")}
               type={item?.category?.title}
               url_cover={item.cover_url}
               id={item?.id}

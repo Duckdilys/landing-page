@@ -6,10 +6,13 @@
         line-height: 60px;
         padding-bottom: var(--mg-16) !important;
         padding-top: var(--size-space);
+        letter-spacing: var(--letter-spacing-secondary);
+        font-weight: var(--weight-700);
     }
 }
 .grid{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, 457px);
+    gap: 16px;
 }
 .image{
     width: 92px;
@@ -34,5 +37,6 @@
 @media screen and (max-width: 768px) {
     .grid{
         grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
     }
 }

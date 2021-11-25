@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Input, Select, Button } from "../../container";
 import useInput from "../../../hook/use-input";
 import styles from "./FIndPosition.module.scss";
-
+import useMedia from "../../../hook/use-media";
 const helperFilterHandler = (name, value) => {
   return {
     name: name,
@@ -17,6 +17,7 @@ const FindPosition = ({
   allRanked,
   setQueryFilterHandler,
 }) => {
+  const isMobile = useMedia('(max-width: 1200px)');
   const functionCheckValidate = useCallback((value) => {
     return value.trim().length > 0;
   }, []);
@@ -58,7 +59,7 @@ const FindPosition = ({
           onBlur: inputIsTouchHandler,
         }}
       >
-        <Image src={"/search-icon.svg"} alt="" width="18px" height="18px" />
+        <Image src={"/search-icon.svg"} alt="" width={isMobile ? "16px" : "18px"} height={isMobile ? "16px" : "18px"} />
       </Input>
       <Select
         setValueByFn={setWorkType}

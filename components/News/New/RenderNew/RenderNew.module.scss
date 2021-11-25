@@ -10,6 +10,7 @@
             }
         }
     }
+    letter-spacing: var(--letter-spacing);
     a{
         @include show-n-line(2);
         color: var(--black-primary);
@@ -20,6 +21,8 @@
         &:hover{
             color: var(--orange-primary) !important;
         }
+        letter-spacing: var(--letter-spacing);
+        line-height: var(--middle-space);
     }
     letter-spacing: var(--letter-spacing);
     .time{

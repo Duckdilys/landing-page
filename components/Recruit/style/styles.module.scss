@@ -1,16 +1,18 @@
 .box{
-    margin-top: -200px;
+    margin-top: -180px;
     & > p{
         font-weight: var(--weight-700);
         letter-spacing: var(--letter-spacing);
         padding-top: var(--mg-16);
         text-transform: uppercase;
-        padding-bottom: var(--xxl-size);
+        padding-bottom: var(--size-space);
+        line-height: var(--middle-space);
     }
     h4{
         padding-bottom: 0;
         margin-bottom: 0;
-        line-height: 60px;
+        line-height: 56px;
+        letter-spacing: var(--letter-spacing-secondary);
     }
 }
 .container{
@@ -24,5 +26,18 @@
     }
     .container{
         margin-top: var(--middle-space) !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .box{
+        h4{
+            line-height: 36px;
+        }
+        & > p{
+            line-height: 20px;
+            padding-top: var(--xs-size);
+            padding-bottom: var(--middle-space);
+        }
     }
 }

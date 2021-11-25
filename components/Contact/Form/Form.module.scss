@@ -5,7 +5,7 @@
 .information{
     line-height: var(--line-height-primary);
     h5{
-        padding-bottom: var(--mg-35);
+        padding-bottom: var(--size-space);
         margin: 0;
         font-weight: var(--weight-700);
         font-size: var(--fs-xxl);
@@ -54,6 +54,7 @@
     h4{
         margin-bottom: 0;
         padding-bottom: var(--xxl-size);
+        letter-spacing: var(--letter-spacing-secondary);
     }
     margin-top: -150px;
     
@@ -63,6 +64,7 @@
     padding: var(--middle-space);
     resize: none;
     outline: none;
+    line-height: normal;
 }
 .button{
     padding-top: var(--size-space);
@@ -74,6 +76,9 @@
         text-transform: uppercase;
         font-size: var(--fs-normal);
         font-weight: var(--weight-700);
+        width: 173px;
+        height: 56px;
+        padding: 0;
     }
 }
 
@@ -85,10 +90,18 @@
         ul{
             li{
                 padding-bottom: var(--pd-12);
+                font-size: var(--fs-small);
                 span{
-                    padding-left: var(--pd-12);
+                    padding-left: 13px;
                 }
             }
+        }
+    }
+    .button{
+        padding-top: 0;
+        button{
+            width: 100%;
+            height: 44px;
         }
     }
     .text{

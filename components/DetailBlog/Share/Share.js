@@ -28,7 +28,7 @@ const Share = () => {
       </Link>
       <Link href={'/'} passHref={true}>
         <a>
-          <Image src={'/noron-icon.svg'} width="36px" height="36px" alt=""/>
+          <Image src={'/Noron.png'} width="48px" height="48px" alt=""/>
         </a>
       </Link>
     </div>

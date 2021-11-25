@@ -1,6 +1,6 @@
 .container{
     a{
-        padding-right: var(--size-space);
+        padding-right: var(--middle-space);
         &:last-child{
             padding-right: 0;
         }
@@ -13,8 +13,9 @@
         font-weight: var(--weight-400);
         letter-spacing: var(--letter-spacing);
         padding-right: 16px;
+        line-height: var(--line-height-primary);
     }
-    padding: var(--share-pd);
+    padding: 37px 0px 45px 0px;
     border-bottom: 1px solid var(--border-color);
     
 }

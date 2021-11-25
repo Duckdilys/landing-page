@@ -6,13 +6,17 @@
         text-align: start;
         padding-bottom: var(--mg-16) !important;
         font-size: 24px;
+        letter-spacing: var(--letter-spacing-secondary);
+        line-height: 36px;
     }  
     
 }
 .grid{
     @include grid-template-column(3, var(--mg-16));
 }
-
+.route{
+    padding-top: 8px !important;
+}
 @media screen and (max-width: 991px) {
     .grid{
         @include grid-template-column(1, var(--mg-16));

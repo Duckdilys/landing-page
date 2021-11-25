@@ -17,7 +17,7 @@ import { getNews } from "../../service";
 import Slide from "../../components/Home/News/Slide/Slide";
 import useMedia from "../../hook/use-media";
 const BlogDetail = ({ data, related_news, hot_news }) => {
-  const isMobile = useMedia('(max-width: 768px)');
+  const isMobile = useMedia("(max-width: 768px)");
   const router = useRouter();
   return (
     <>
@@ -72,22 +72,24 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
             <Share />
             <OtherNews data={related_news} />
           </div>
-          <Grid className={styles["grid-near"]}>
-            <h4 className="text-start">Tin tức nổi bật</h4>
-            {hot_news?.map((item) => {
-              return (
-                <Slide
-                  contentClassName={styles.text}
-                  className={styles.news}
-                  key={item.id}
-                  src={item?.cover_url}
-                  id={item?.id}
-                  title={item?.title}
-                  type={item?.category?.title}
-                />
-              );
-            })}
-          </Grid>
+          <div className={styles.bg}>
+          <h4 className="text-start">Tin tức nổi bật</h4>
+            <Grid className={styles["grid-near"]}>
+              {hot_news?.map((item) => {
+                return (
+                  <Slide
+                    contentClassName={styles.text}
+                    className={styles.news}
+                    key={item.id}
+                    src={item?.cover_url}
+                    id={item?.id}
+                    title={item?.title}
+                    type={item?.category?.title}
+                  />
+                );
+              })}
+            </Grid>
+          </div>
         </div>
       </LayoutContainer>
     </>

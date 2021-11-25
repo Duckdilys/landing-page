@@ -3,8 +3,10 @@
     background: var(--lighest-orange);
     color: var(--orange-primary);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing);
+    letter-spacing: var(--letter-spacing-normal);
     font-size: var(--fs-xs);
     transition: all .3s ease;
     margin-bottom: 8px;
+    font-weight: var(--weight-600);
+    line-height: 26px;
 }

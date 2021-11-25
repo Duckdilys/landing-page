@@ -26,11 +26,11 @@
 @media screen and (max-width: 1250px) {
     .input{
         input{
-            padding: var(--pd-12) var(--mg-16) var(--pd-12) 44px;
+            padding: 26px var(--mg-16) 26px 56px;
             height: 100%;
         }
         & > div{
-            left: var(--mg-16);
+            left: 26px;
         }
     }
     .filter{
@@ -47,7 +47,12 @@
         width: 100%;
         input{
             width: 100%;
+            padding: var(--mg-16) var(--mg-16) var(--mg-16) 46px;
             border: 1px solid var(--border-mobile) !important;
+            font-size: var(--fs-small);
+        }
+        & > div{
+            left: 16px;
         }
     }
 }

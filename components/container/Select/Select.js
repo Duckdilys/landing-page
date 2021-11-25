@@ -39,7 +39,7 @@ const Select = ({
       <Image src="/arrow-down-icon.svg" width="10px" height="13px" alt="" />
       {listValue && (
         <ul
-          style={{ height: isFocus && !isBlur ? `${30 * listValue.length + 30}px` : `0px` }}
+          style={{ height: isFocus && !isBlur ? `${30 * listValue.length + 60}px` : `0px` }}
           className={` ${styles.list} ${isFocus && !isBlur ? "" : styles.hidden}`}
         >
           {listValue.map((list, index) => (

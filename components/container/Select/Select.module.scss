@@ -1,5 +1,5 @@
 .select{
-    padding: var(--middle-space) var(--mg-26);
+    padding: var(--mg-26);
     border-left: 1px solid var(--gray-lighter);
     position: relative;
     cursor: pointer;
@@ -25,8 +25,9 @@
         padding: 0;
         li{
             text-transform: capitalize;
+            padding-bottom: var(--mg-16);
         }
-        padding: 15px;
+        padding: 16px 24px;
     }
     .value{
         display: flex;
@@ -39,7 +40,6 @@
     .list{
         line-height: var(--line-height-primary);
         transition: all .3s ease-in-out;
-        overflow: hidden;
         box-shadow: var(--shadow-list);
         &::before{
             content: '';
@@ -66,6 +66,6 @@
 @media screen and (max-width: 1200px) {
     .select{
         border: 1px solid var(--border-mobile);
-        
+        font-size: var(--fs-small);
     }
 }

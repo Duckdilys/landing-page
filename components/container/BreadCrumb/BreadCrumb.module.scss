@@ -12,6 +12,7 @@
             display: inline-block;
         }
         li{
+            letter-spacing: var(--letter-spacing-normal);
             font-size: var(--fs-large);
             display: flex;
             justify-content: center;
@@ -20,6 +21,7 @@
             span{
                 display: block;
                 padding: 0 var(--mg-16);
+                letter-spacing: var(--letter-spacing-normal);
             }
             &:first-child{
                 & > div{
@@ -31,6 +33,7 @@
     .color{
         color: var(--orange-primary) !important;
     }
+    padding-bottom: var(--mg-16) !important;
 }
 .date{
     font-size: 20px;

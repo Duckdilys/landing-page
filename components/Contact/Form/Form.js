@@ -65,38 +65,11 @@ const Form = ({ contact }) => {
           {Object.values(contact).map((content, index) => {
             return (
               <li className="d-flex align-items-center" key={index}>
-                <Image src={icon[index]} alt="" width="23px" height="23px" />
+                <Image src={icon[index]} alt="" width={matchMobile ? "16px" : "23px"} height={matchMobile ? "16px" : "23px"} />
                 <span>{content}</span>
               </li>
             );
           })}
-          {
-            !matchMobile && 
-            <>
-              <li className={`d-flex align-items-center ${styles.social}`}>
-                <Link href="/" passHref={true}>
-                  <a>
-                    <Image
-                      src="/facebook-white-icon.svg"
-                      alt=""
-                      width="10px"
-                      height="20px"
-                    />
-                  </a>
-                </Link>
-                <Link href="/" passHref={true}>
-                  <a>
-                    <Image
-                      src="/linkedln-white.svg"
-                      alt=""
-                      width="17px"
-                      height="17px"
-                    />
-                  </a>
-                </Link>
-              </li>
-            </>
-          }
         </ul>
       </div>
       <form className={styles.form}>

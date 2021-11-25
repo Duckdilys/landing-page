@@ -9,6 +9,7 @@
         padding-bottom: var(--sm-size);
         text-transform: uppercase;
         margin: 0;
+        letter-spacing: var(--letter-spacing);
     }
     p{
         padding-bottom: var(--middle-space);
@@ -20,6 +21,11 @@
         input{
             padding: var(--mg-16);
             width: 100%;
+            font-size: var(--fs-small);
+            &::placeholder{
+                font-size: var(--fs-normal);
+                letter-spacing: var(--letter-spacing);
+            }
         }
         display: block;
     }

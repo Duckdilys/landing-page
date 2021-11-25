@@ -1,5 +1,10 @@
 .container {
-  margin-top: var(--xxl-size);
+  margin-top: 48px; 
+  h6{
+    line-height: var(--line-height-primary);
+    letter-spacing: var(--letter-spacing);
+    font-weight: var(--weight-700);
+  }
 }
 .grid {
   grid-template-columns: repeat(4, 1fr);
@@ -16,6 +21,9 @@
 @media screen and (max-width: 991px) {
   .grid{
     display: block;
+  }
+  .container{
+    margin-top: var(--middle-space);
   }
 }
 @media screen and (max-width: 768px) {
