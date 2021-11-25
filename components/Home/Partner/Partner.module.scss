@@ -1,6 +1,12 @@
 @import '../../../theme/fixing';
 .container-middle{
     @include title();
+    h4{
+        letter-spacing: var(--letter-spacing-secondary);
+        line-height: 56px;
+        padding-bottom: 80px !important;
+    }
+    margin-bottom: 120px;
 }
 .container-bg{
     margin-top: 0;
@@ -11,7 +17,6 @@
     padding: 0;
     .image{
         min-width: 185px;
-        height: 100px;
         &:hover{
             img{
                 opacity: 1;
@@ -19,7 +24,8 @@
         }
         img{
             width: 100%;
-            height: auto;
+            height: 100px;
+            object-fit: contain;
             opacity: .75;
             transition: all .35s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
@@ -85,6 +91,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .container-middle{
+        margin-bottom: var(--pd-64);
+    }
     .left{
         left: 0;
     }
@@ -101,6 +110,7 @@
         h4{
             font-size: 24px;
             padding-bottom: var(--middle-space) !important;
+            line-height: 36px;
         }
     }
 }

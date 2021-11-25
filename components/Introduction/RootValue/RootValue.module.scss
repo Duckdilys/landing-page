@@ -5,6 +5,8 @@
   h4 {
     font-size: 24px;
     padding: 0 !important;
+    letter-spacing: var(--letter-spacing-secondary);
+    line-height: 36px;
   }
   line-height: 26px;
   h5 {
@@ -12,11 +14,13 @@
     font-size: var(--fs-normal);
     color: var(--orange-primary);
     line-height: var(--line-height-primary);
+    letter-spacing: var(--letter-spacing);
   }
   .intro {
     padding: var(--size-space) var(--fs-normal);
     max-width: 800px;
     margin: 0 auto;
+    letter-spacing: var(--letter-spacing);
   }
   margin: 0 auto;
 }
@@ -74,13 +78,24 @@
   .container-bg{
     margin-top: 0;
     margin-bottom: 0;
-    padding: var(--middle-space);
+    padding: var(--size-space);
   }
   .container{
     padding: 0 !important;
+    h4{
+      font-size: var(--fs-large);
+      line-height: var(--line-height-primary);
+    }
     
     .intro{
       padding: var(--mg-16) 0;
+      font-size: var(--fs-small);
+      letter-spacing: 0.5px;
+      max-width: 100%;
+    }
+    h5{
+      font-size: var(--fs-small);
+      line-height: 24px;
     }
   }
 }

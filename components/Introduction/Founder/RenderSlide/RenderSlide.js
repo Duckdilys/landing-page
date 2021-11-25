@@ -14,7 +14,7 @@ const RenderSlide = ({ name, introduction, url_cover, socials }) => {
         >
           <p>Vị trí - Chức vụ</p>
           <h5>{name}</h5>
-          <p>{introduction}</p>
+          <p className={styles.intro}>{introduction}</p>
           <div className={`d-flex align-items-center ${styles.social}`}>
             {socials &&
               socials?.map((item, index) => {

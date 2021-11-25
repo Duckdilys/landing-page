@@ -2,10 +2,12 @@
     margin: var(--xxl-size) 0;   
 }
 .image{
-    max-width: 830px;
+    img{
+        min-width: 830px;
+    }
 }
 .text{
-    min-width: 600px;
+    min-width: 618px;
     box-shadow: var(--shadow-button-primary);
     img{
         width: 30px;
@@ -25,7 +27,8 @@
         font-size: 24px;
         letter-spacing: 1.5px;
         font-weight: 700;
-        padding-bottom: var(--size-space);
+        padding-bottom: var(--middle-space);
+        letter-spacing: var(--letter-spacing-normal);
         margin: 0;
         text-transform: uppercase;
     }
@@ -43,13 +46,21 @@
 }
 @media screen and (max-width: 1200px) {
     .image{
-        max-width: 600px;
+        min-width: 600px;
+        img{
+            min-width: 600px;
+            width: 600px;
+        }
     }
 }
 
 @media screen and (max-width: 991px) {
     .image{
-        max-width: 450px;
+        min-width: 450px;
+        img{
+            min-width: 450px;
+            width: 450px;
+        }
     }
     .text{
         min-width: 500px;
@@ -59,7 +70,7 @@
     .text{
         position: static;
         box-shadow: none;
-        padding: var(--pd-12) 0 var(--pd-48) 0;
+        padding: 0 0 var(--pd-48) 0;
         h5{
             padding-bottom: 4px;
             font-size: var(--fs-large);
@@ -87,5 +98,11 @@
     .text, .image{
         max-width: 100%;
         min-width: 100%;
+        min-width: 100%;
+        width: 100%;
+        img{
+            width: 100%;
+            min-width: 100%;
+        }
     }
 }

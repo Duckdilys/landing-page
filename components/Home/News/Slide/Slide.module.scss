@@ -34,6 +34,7 @@
       font-size: var(--fs-small);
       margin-bottom: var(--sm-size);
       display: inline-block;
+      letter-spacing: var(--letter-spacing);
     }
     a {
       text-decoration: none;
@@ -60,4 +61,29 @@
     max-width: 100%;
     max-height: 100%;
   } 
+}
+
+@media screen and (max-width: 768px) {
+  .slide{
+    .content{
+      padding: var(--middle-space);
+      span{
+        padding: 4px 8px;
+        font-size: var(--fs-xs);
+        margin-bottom: 4px;
+      }
+      a{
+        font-size: var(--fs-nlarge);
+        line-height: var(--line-height-primary);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .slide{
+    img{
+        height: 220px;
+    }
+  }
 }

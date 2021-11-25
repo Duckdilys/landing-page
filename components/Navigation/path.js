@@ -9,7 +9,7 @@ const paths = [
     },
     {
         name: 'Sản phẩm',
-        path: '/products'
+        path: '/products/1'
     },
     {
         name: 'Tin tức',

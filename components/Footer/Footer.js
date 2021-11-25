@@ -3,13 +3,14 @@ import { LayoutContainer, Grid, Image, Input, Button } from "../container";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 import paths from "../Navigation/path";
-
+import { useRouter } from "next/router";
 const Footer = () => {
+  const router = useRouter();
   return (
     <>
       <footer className={styles.footer}>
         <LayoutContainer className={styles["container-footer"]}>
-          <Grid className={styles.grid}>
+          <div className={styles.grid}>
             <div data-aos="fade-right" className={styles['logo-box']}>
               <Image src={"/logo-footer.png"} alt="" className={styles.logo} />
               <div className={`d-flex align-items-center ${styles.copyright}`}>
@@ -27,6 +28,7 @@ const Footer = () => {
                         data-aos-delay={index * 200}
                         key={item.name}
                         data-aos-offset={120}
+                        className={(router.asPath === item.path) ? styles.active : ''}
                       >
                         <Link href={item.path}>{item.name}</Link>
                       </li>
@@ -39,6 +41,7 @@ const Footer = () => {
                   if (index > paths.length / 2 - 1) {
                     return (
                       <li
+                        className={router.asPath === item.path ? styles.active : ''}
                         data-aos="fade-up"
                         data-aos-delay={index * 200}
                         key={item.name}
@@ -93,7 +96,7 @@ const Footer = () => {
                 />
               </li>
             </ul>
-          </Grid>
+          </div>
         </LayoutContainer>
       </footer>
     </>

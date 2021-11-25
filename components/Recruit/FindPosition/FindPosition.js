@@ -62,16 +62,16 @@ const FindPosition = ({
       </Input>
       <Select
         setValueByFn={setWorkType}
-        listValue={allCareer}
+        listValue={["Phần mềm", "Kinh doanh", "Back Office"]}
         firstTitle="Ngành nghề"
       />
       <Select
-        listValue={allRanked}
+        listValue={["Intern", "Fresher", "Junior", "Middle", "Middle Senior", "Senior"]}
         setValueByFn={setLevel}
         firstTitle="Cấp bậc"
       />
       <Select
-        listValue={allMethods}
+        listValue={["Full-time", "Part-time"]}
         setValueByFn={setMethod}
         firstTitle="Hình thức làm việc"
       />

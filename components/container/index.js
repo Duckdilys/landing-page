@@ -25,6 +25,7 @@ import DropzoneUpload from './DropzoneUpload/DropzoneUpload';
 import ButtonUpTop from './ButtonUpTop/ButtonUpTop';
 import TextArea from './TextArea/TextArea';
 import { BreadCrumbScript } from './SEO';
+import Loading from './Loading/Loading';
 export {
     Logo,
     Line,
@@ -52,5 +53,6 @@ export {
     DropzoneUpload,
     ButtonUpTop,
     TextArea,
-    BreadCrumbScript
+    BreadCrumbScript,
+    Loading
 }

@@ -8,7 +8,7 @@ const Founder = ({ dataFounder }) => {
   
   const isMatchMobile = useMedia('(max-width: 768px)');
   return (
-    <ContainerSmall>
+    <ContainerSmall className={styles.container}>
       <h4>Sáng Lập - Cố Vấn</h4>
       <SwiperContainer
         config={{

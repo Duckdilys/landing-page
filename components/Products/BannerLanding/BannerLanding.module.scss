@@ -89,19 +89,35 @@
 }
 @media screen and (max-width: 768px) {
   .container{
-    margin-top: var(--pd-36);
+    margin-top: var(--pd-36) !important;
     h5{
       font-size: var(--fs-large) !important;
       padding-bottom: var(--mg-16) !important;
+      line-height: 32px !important;
     }
     .contact{
       .grid{
         grid-template-columns: repeat(1, 1fr);
+        gap: var(--pd-12);
+        input{
+            padding: var(--pd-12) var(--mg-16);
+            font-size: var(--fs-small);
+            &::placeholder{
+              font-size: var(--fs-small);
+            }
+        }
       } 
       textarea{
         padding: var(--pd-12) var(--mg-16) !important;
       }
+      .submit{
+        padding-top: var(--pd-12);
+        button{
+          width: 100%;
+        }
+      }
     }
+
   }
   .contact{
     padding-top: var(--pd-36) !important;

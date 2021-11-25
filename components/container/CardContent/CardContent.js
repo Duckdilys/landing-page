@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./CardContent.module.scss";
 import Image from "next/image";
 import { Line } from "..";
+import useMedia from "../../../hook/use-media";
 // import useHover from "../../../hook/use-hover";
 const CardContent = ({
   iconSrc,
@@ -15,6 +16,7 @@ const CardContent = ({
   options,
   iconChangeInHover,
 }) => {
+  const mobile = useMedia('(max-width: 991px)');
   // const { isHover, isHoverHandler, isNotHoverHandler } = useHover(false);
   return (
     <div
@@ -31,8 +33,8 @@ const CardContent = ({
         <Image
           src={iconSrc}
           alt=""
-          width={iconWidth || "32px"}
-          height={"38px"}
+          width={!mobile ? (iconWidth || "32px") : (iconWidth || "28px")}
+          height={!mobile ? "38px" : "28px"}
         />
       </div>
       <p className={styles.title}>{title}</p>

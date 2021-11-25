@@ -1,9 +1,14 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./TextArea.module.scss";
-
-const TextArea = (props) => {
-  return <textarea className={`${styles["text-area"]} ${props.className}`} {...props.textarea} />;
-};
-
+/* eslint-disable react/display-name */
+const TextArea = forwardRef((props, ref) => {
+  return (
+    <textarea
+      ref={ref}
+      className={`${styles["text-area"]} ${props.className}`}
+      {...props.textarea}
+    />
+  );
+});
 
 export default TextArea;

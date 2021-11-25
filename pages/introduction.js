@@ -14,7 +14,7 @@ import { checkUserIsBot } from "../util";
 import useMedia from "../hook/use-media";
 const Introduction = ({ dataIntroduction, founderData, partners }) => {
   const matchMedia = useMedia("(max-width: 768px)");
-
+  
   return (
     <>
       <BreadCrumbScript
@@ -38,8 +38,8 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
                 return (
                   <TextImage
                     aos="fade-right"
-                    title={item?.title || "Không có tiêu đề"}
-                    mainTitle={item?.content || "Không có nội dung chi tiết"}
+                    title={item?.content || "Không có tiêu đề"}
+                    mainTitle={item?.title || "Không có nội dung chi tiết"}
                     src={item?.src || "/Image (2).png"}
                     key={index}
                     className="flex-row-reverse"
@@ -51,11 +51,11 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
               return (
                 <TextImage
                   aos="fade-left"
-                  title={item?.title || "Không có tiêu đề"}
-                  mainTitle={item?.content || "Không có nội dung chi tiết"}
+                  title={item?.content || "Không có tiêu đề"}
+                  mainTitle={item?.title || "Không có nội dung chi tiết"}
                   src={item?.src || "/Image (2).png"}
                   key={index}
-                  className="flex-row-reverse"
+                  classText={styles.reverse}
                   iconImage={"/icon.png"}
                 />
               );

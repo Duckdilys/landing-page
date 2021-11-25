@@ -11,9 +11,20 @@
     width: 404px;
     height: 554px;
 }
+.container{
+    background: var(--light-gray);
+    padding-top: var(--pd-64);
+    padding-bottom: var(--pd-64);
+    padding-right: 0;
+}
 @media screen and (max-width: 768px) {
     .slide{
         width: 312px !important;
         height: 428px !important;
     }
+    .container{
+        padding-top: var(--size-space);
+        padding-bottom: var(--size-space);
+    }
 }
+

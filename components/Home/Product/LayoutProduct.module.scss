@@ -19,7 +19,8 @@
     font-weight: 700;
     line-height: 32px;
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    letter-spacing: var(--letter-spacing-normal);
   }
   @include padding-box();
   background: var(--white);
@@ -42,6 +43,7 @@
       .show--container{
         pointer-events: visible;
           height: 100%;
+          opacity: 1 !important;
           opacity: 1;
           h4{
             color: var(--white);
@@ -75,6 +77,7 @@
     max-height: 100%;
     object-fit: cover;
   }
+  overflow: hidden;
 }
 .show--container {
   background: var(--background-primary);
@@ -84,11 +87,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  transition: all 0.75s ease-in-out;
+  transition: all 0.5s ease-in-out;
   box-shadow: var(--shadow-primary);
   pointer-events: none;
   h4 {
     padding-bottom: 0;
+    color: var(--white);
+    padding-bottom: var(--size-space) !important;
   }
   a {
     text-decoration: none;
@@ -113,8 +118,7 @@
       opacity: 0;
   }
   color: var(--white);
-  height: 0;
-  opacity: 0;
+  opacity: 0 !important;
 }
 .color{
   background: var(--darker-orange) !important;

@@ -37,3 +37,13 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .new{
+        .time{
+            padding-top: 8px;
+        }
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: var(--mg-16);
+    }
+}

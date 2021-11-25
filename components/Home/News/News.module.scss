@@ -3,6 +3,10 @@
     background: var(--light-gray);
     padding: 64px 0;
     margin: 120px 0;
+    h5{
+        letter-spacing: var(--letter-spacing-normal);
+        line-height: var(--line-height-primary);
+    }
 }
 .contain{
     margin-top: 0;
@@ -10,19 +14,27 @@
     @include title();
 }
 .button-left{
-    left: 36px;
+    left: 15px;
 }
 .button-right{
-    right: 36px;
+    right: 15px;
 }
 .button-left, .button-right{
+    background: var(--white);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
     svg{
-        width: 16px;
-        height: 32px;
+        width: 8px;
+        height: 16px;
     }
     svg,
     path{
         transition: all .35 ease;
+        stroke: var(--black-primary);
     }
     &:hover{
         path{
@@ -38,10 +50,11 @@
         font-weight: var(--weight-700);
         text-transform: uppercase;
         color: var(--orange-primary);
+        line-height: var(--size-space);
     }
 }
 .button{
-    margin-top: 23px;
+    margin-top: 24px;
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -51,15 +64,34 @@
 .swiper{
     padding-bottom: 50px;
 }
-
 @media screen and (max-width: 768px) {
     .button{
         margin-top: var(--pd-18);
     }
     .grid{
-        gap: var(--pd-17);
+        gap: 0;
+        h5{
+            padding-bottom: 11px;
+        }
+        & > div {
+            padding-bottom: 17px;
+            &:last-child{
+                padding-bottom: 0;
+            }
+        }
     }
     .container{
-        margin: var(--pd-64) 0;
+        margin-top: 66px !important;
+        h4{
+            padding-bottom: var(--middle-space) !important;
+        }
+        padding-top: var(--size-space);
+        padding-bottom: var(--size-space);
+        margin-bottom: var(--pd-64) !important;
+
+    }
+    .contain{
+        padding-bottom: 0 !important;
+        margin: 0 !important;
     }
 }

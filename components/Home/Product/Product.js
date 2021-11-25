@@ -31,7 +31,7 @@ const Product = ({
   });
   return (
     <div className={`${className}`}>
-      <LayoutContainer className={classNameContainer}>
+      <LayoutContainer className={`${styles['container-product']} ${classNameContainer}`}>
         <h4>{title ? title : "Sản Phẩm"}</h4>
         {!tabletView && (
           <Grid className={classNameGrid}>{_renderProducts}</Grid>

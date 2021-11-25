@@ -1,7 +1,7 @@
 .container {
   background: url("/Image.png");
   z-index: 1;
-  position: static;
+  position: relative;
   background-position: center center !important;
   background-attachment: unset !important;
 }
@@ -17,6 +17,8 @@
     font-size: 40px;
     padding-bottom: 32px;
     color: var(--orange-primary);
+    margin: 0;
+    line-height: 56px;
   }
 }
 
@@ -25,8 +27,18 @@
     padding: var(--middle-space);
     margin-top: -40px;
     h4{
+      line-height: 36px;
       padding-bottom: 0;
       font-size: var(--fs-xxl);
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .box-container{
+    h4{
+      max-width: 279px;
+      margin: 0 auto;
     }
   }
 }

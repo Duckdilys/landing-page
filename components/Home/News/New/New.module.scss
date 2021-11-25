@@ -21,11 +21,14 @@
     line-height: 24px;
     text-transform: uppercase;
     font-weight: var(--weight-700);
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    letter-spacing: var(--letter-spacing);
   }
   padding-left: 0;
   p {
     margin: 0;
+    letter-spacing: var(--letter-spacing);
+    line-height: 20px;
   }
 }
 .text-content,
@@ -39,6 +42,8 @@
   @include show-n-line(3);
   padding-bottom: 0;
   margin-bottom: var(--sm-size) !important;
+  letter-spacing: var(--letter-spacing);
+  line-height: 20px;
 }
 .date {
   color: var(--border-color);
@@ -54,10 +59,13 @@
 
 @media screen and (max-width: 576px) {
   .image{
-    max-width: 137px;
-    max-height: 78px;
+    width: 137px;
+    height: 78px;
+    min-height: 78px;
+    margin-right: 12px;
     img{
       min-height: 78px;
+      min-width: 137px;
     }
   }
   .content{
@@ -65,8 +73,8 @@
       font-size: var(--fs-small);
       margin-bottom: 4px;
       @include show-n-line(3);
+      line-height: 20px;
     }
-    width: calc(100% - 150px);
   }
   .date{
     padding-bottom: 0;

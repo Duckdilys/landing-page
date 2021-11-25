@@ -11,7 +11,9 @@ import styles from "./News.module.scss";
 import Slide from "./Slide/Slide";
 import New from "./New/New";
 import Link from 'next/link';
+import useMedia from "../../../hook/use-media";
 const News = ({ news }) => {
+  const matchMedia = useMedia('(max-width: 768px)');
   return (
     <div className={styles.container}>
       <LayoutContainer className={styles.contain}>
@@ -25,7 +27,7 @@ const News = ({ news }) => {
                 right: styles["button-right"],
               }}
               className={styles.swiper}
-              navigation
+              navigation={matchMedia ? false : true}
               loop
               pagination
             >

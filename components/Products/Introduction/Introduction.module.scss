@@ -2,6 +2,13 @@
 .grid {
   @include grid-template-column(2, var(--size-space));
 }
+.container-grid{
+  margin-top: 36px;
+  h4{
+    padding-bottom: var(--size-space) !important;
+    letter-spacing: var(--letter-spacing-secondary);
+  }
+}
 .content {
   h5 {
     font-size: var(--fs-normal);
@@ -48,6 +55,7 @@
             text-align: start !important;
             font-size: var(--fs-large) !important;
             font-weight: var(--weight-700);
+            letter-spacing: var(--letter-spacing) !important;
         }
     }
 }

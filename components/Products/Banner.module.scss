@@ -9,7 +9,7 @@
         padding-bottom: 0 !important;
         margin: auto;
         max-width: 617px;
-        line-height: 60px;
+        line-height: 56px;
         letter-spacing: var(--letter-spacing);
     }
 }
@@ -72,6 +72,10 @@
     background: var(--light-gray);
     padding: var(--pd-64) 0;
     margin: var(--space) 0;
+    h4{
+        font-size: 40px;
+        line-height: 56px;
+    }
 }
 .container-product{
     margin-top: 0;
@@ -79,17 +83,34 @@
 }
 .grid{
     @include grid-template-column(3, 24px);
+    max-width: 940px;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 991px) {
     .box{
         margin-top: -100px;
     }
+    .background{
+        h4{
+            padding-bottom: var(--middle-space) !important;
+            font-size: 24px;
+        }
+        margin: 0;
+        padding-top: var(--size-space);
+        padding-bottom: var(--size-space);
+        & > div{
+            margin-bottom: 0 !important;
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
    .box{
-       margin-top: -75px;
+       margin-top: -50px;
+       h4{
+           line-height: 36px;
+       }
    }
    .background{
        margin-top: 0;
