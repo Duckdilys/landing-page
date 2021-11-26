@@ -19,3 +19,11 @@
     border-bottom: 1px solid var(--border-color);
     
 }
+
+
+@media screen and (max-width: 768px) {
+    .container{
+        padding-top: var(--pd-18);
+        padding-bottom: 30px;
+    }
+}

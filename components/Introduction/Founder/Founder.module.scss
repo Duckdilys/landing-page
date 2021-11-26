@@ -20,6 +20,9 @@
       padding-bottom: var(--size-space) !important;
   }
 }
+.swiper{
+  padding-bottom: 52px;
+}
 .bg {
   background: var(--light-gray);
   padding-top: var(--pd-64);
@@ -41,5 +44,17 @@
         padding-right: 24px;
       }
     }
+  }
+  .swiper{
+    padding-bottom: 26px;
+  }
+  .bullet{
+    width: 6px;
+    height: 6px;
+  }
+  .active-bullet{
+    width: 10px !important;
+    height: 10px !important;
+    border-width: 1px !important;
   }
 }

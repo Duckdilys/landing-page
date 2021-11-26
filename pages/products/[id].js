@@ -14,9 +14,9 @@ import { getProductById } from "../../config/ApiProducts";
 import axiosConfig from "../../service/base";
 import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
 import { apiGetProducts } from "../../config/ApiProducts";
+import useMedia from "../../hook/use-media";
 const Products = ({ data_product, other_products }) => {
-
-  console.log(data_product);
+  const isMobile = useMedia('(max-width: 768px)');
   return (
     <>
       <BreadCrumbScript
@@ -47,8 +47,10 @@ const Products = ({ data_product, other_products }) => {
         src={"/Products.png"}
         aosImage="fade-left"
         iconImage={null}
+        classImage={styles['text-image']}
+        classText={styles['text-banner']}
         classNameContainer={styles.container}
-        className="flex-row-reverse"
+        className={`flex-row-reverse ${styles['container-text']}`}
         aos="fade-right"
       />
       <Introduction

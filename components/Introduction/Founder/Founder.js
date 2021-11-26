@@ -20,8 +20,10 @@ const Founder = ({ dataFounder }) => {
           aos="fade-up"
           className={styles.swiper}
           spaceBetween={isMatchMobile ? 16 : 24}
-          navigation={dataFounder.length > 1 ? true : false}
+          navigation={(dataFounder.length > 1 && !isMatchMobile) ? true : false}
           pagination
+          classNameNormalBullet={styles.bullet}
+          classNameActiveBullet={styles['active-bullet']}
           clickable={true}
         >
           {dataFounder ? (

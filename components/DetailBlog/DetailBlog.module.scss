@@ -18,3 +18,13 @@
         font-weight: var(--weight-700);
     }
 }
+
+
+@media screen and (max-width: 768px) {
+    .content{
+        font-size: var(--fs-small);
+        h1, h2, h3, h4, h5, h6 {
+            font-size: var(--fs-nlarge);
+        }
+    }
+}

@@ -105,14 +105,14 @@
         .brand{
             width: 36px;
             height: 36px;
-            background-color: var(--white);
-            &:last-child{
-                margin-left: var(--middle-space);
+            margin-left: 21px;
+            &:first-child{
+                margin-left: 0;
             }
         }
         img{
-            width: 100%;
-            height: 16px;
+            width: 38px;
+            height: 38px;
         }
     }
 }
@@ -259,6 +259,34 @@
                 padding-top: 0;
                 font-size: var(--fs-xs);
             }
+            .box{
+                height: 44px;
+                button{
+                    
+                    height: 44px;
+                    padding: 0;
+                }
+                input{
+                    width: 100%;
+                    height: 44px;
+                }
+                .input{
+                    height: 44px;
+                    width: 100%;
+                }
+            }
+        }
+        .list-media{
+            justify-content: center;
+            img{
+                width: 28px;
+                height: 28px;
+            }
+            .brand{
+                width: 28px;
+                height: 28px;
+                margin-left: var(--mg-16);
+            }
         }
         .list-contact{
             li{
@@ -267,6 +295,7 @@
                     padding-bottom: var(--pd-12);
                     font-size: var(--fs-small);
                 }
+           
             }
         }
     }

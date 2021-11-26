@@ -23,20 +23,19 @@
 .button{
     top: auto;
     bottom: 24px;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     svg{
-        width: 20px;
-        height: 30px;
+        width: 15px;
+        height: 15px;
     }
     background: var(--light-black-bg);
 }
 .left{
-    right: 120px;
+    right: 90px;
     left: auto;
 }
 .right{
@@ -61,6 +60,8 @@
     .active-pagination{
         width: 10px !important;
         height: 10px !important;
+        border-width: 1px;
+        border-color: var(--orange-primary) !important;
     }
     .slide{
         height: 328px;

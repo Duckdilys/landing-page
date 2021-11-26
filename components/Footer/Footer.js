@@ -86,12 +86,17 @@ const Footer = () => {
               >
                 <Image
                   className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                  src="/facebook-blue.svg"
+                  src="/Facebook.png"
                   alt=""
                 />
                 <Image
                   className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                  src="/linkeln-blue.svg"
+                  src="/linkedin.png"
+                  alt=""
+                />
+                <Image
+                  className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
+                  src="/Noron 2.png"
                   alt=""
                 />
               </li>

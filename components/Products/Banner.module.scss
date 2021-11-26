@@ -103,6 +103,20 @@
             margin-bottom: 0 !important;
         }
     }
+    .text-image{
+        min-width: 500px;
+        width: 500px;
+        img{
+            width: 500px;
+            min-width: 500px;
+        }
+    }
+    .text-banner{
+        padding: var(--middle-space);
+        h5{
+            font-size: 20px;
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -110,6 +124,23 @@
        margin-top: -50px;
        h4{
            line-height: 36px;
+       }
+   }
+   .container{
+       .container-text{
+           display: flex !important;
+           flex-direction: column-reverse !important;
+       }
+   }
+   .text-banner{
+       padding: 0;
+   }
+   .text-image{
+       min-width: 100%;
+       width: 100%;
+       img{
+           width: 100%;
+           min-width: 100%;
        }
    }
    .background{
