@@ -18,8 +18,9 @@
     height: 93px;
 }
 .grid{
-    display: flex;
-    justify-content: space-between;
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 0 !important
 }
 .copyright{
     color: var(--black-primary);
@@ -70,11 +71,11 @@
         letter-spacing: var(--letter-spacing);
     }
     .input{
-        height: 52px;
+        height: 52px !important;
     }
     input, button{
-        padding: var(--mg-16);
-        height: 52px;
+        padding: var(--mg-16) !important;
+        height: 52px !important;
     }
     .box{
         width: 100%;
