@@ -49,6 +49,7 @@ const Navigation = ({ products }) => {
                 if (index === 2) {
                   return (
                     <li
+                      onClick={changeToggleHandler}
                       className={`position-relative ${styles.dropdown} ${
                         router.asPath === path.path ||
                         router.pathname === `${path.path}/[id]`
@@ -99,6 +100,7 @@ const Navigation = ({ products }) => {
                   
                   return (
                     <li
+                      onClick={changeToggleHandler}
                       className={
                         router.asPath === path.path ||
                         router.pathname === path.path ||
@@ -114,6 +116,7 @@ const Navigation = ({ products }) => {
                 }
                 return (
                   <li
+                    onClick={changeToggleHandler}
                     className={
                       router.asPath === path.path ||
                       router.pathname === path.path ||

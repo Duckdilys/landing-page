@@ -206,6 +206,7 @@
         font-size: var(--fs-small);
       }
       .dropdown {
+        line-height: 20px;
         svg,
         &::before {
           display: none;
@@ -217,8 +218,9 @@
           width: 100%;
           pointer-events: visible !important;
           visibility: visible;
-          padding: var(--mg-16) var(--pd-48) var(--mg-16) var(--pd-48);
-          a {
+          padding: var(--mg-16) var(--middle-space);
+          padding-bottom: 0;
+          a{
             text-transform: capitalize !important;
           }
         }

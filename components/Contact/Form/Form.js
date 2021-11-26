@@ -74,7 +74,7 @@ const Form = ({ contact }) => {
       </div>
       <form className={styles.form}>
         {renderInput.map((input, index) => {
-          return <Input key={index} {...input} />;
+          return <Input className={styles.input} key={index} {...input} />;
         })}
         <TextArea
           textarea={{
