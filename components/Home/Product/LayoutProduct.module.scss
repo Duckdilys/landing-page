@@ -12,6 +12,7 @@
   }
 }
 .layout {
+  height: 497px;
   h4 {
     font-size: 20px;
     padding: var(--mg-16) 0 var(--pd-64) 0;
@@ -19,7 +20,6 @@
     font-weight: 700;
     line-height: 32px;
     position: relative;
-    overflow: hidden;
     letter-spacing: var(--letter-spacing-normal);
   }
   @include padding-box();
@@ -28,6 +28,7 @@
   .icon-image {
     width: 48px;
     height: 48px;
+    min-height: 48px;
     border-radius: 50%;
     background: var(--light-orange);
   }
@@ -93,7 +94,7 @@
   h4 {
     padding-bottom: 0;
     color: var(--white);
-    padding-bottom: var(--size-space) !important;
+    padding-bottom: 0 !important;
   }
   a {
     text-decoration: none;
@@ -109,7 +110,7 @@
     transition-delay: .5s;
   }
   .line {
-    margin-bottom: 32px;
+    margin: var(--size-space) 0;
   }
   p{
       line-height: 28px;
@@ -140,6 +141,7 @@
     overflow: visible !important;
     border: 1px solid var(--border-color);
     outline: none !important;
+    height: 401px;
     h4{
       padding-bottom: 0 !important;
       font-size: var(--fs-nlarge) !important;

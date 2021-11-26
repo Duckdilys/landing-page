@@ -5,6 +5,9 @@
 .grid{
     grid-template-columns: repeat(3, 1fr);
 }
+.container{
+    margin-top: 0;
+}
 
 @media screen and (max-width: 991px) {
     .grid{

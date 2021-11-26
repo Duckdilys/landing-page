@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Image } from "../../../container";
 import styles from "./RenderSlide.module.scss";
 const RenderSlide = ({ name, introduction, url_cover, socials }) => {
-  console.log(socials);
   return (
     <div className={styles.container}>
       <Image src={url_cover} alt="" />

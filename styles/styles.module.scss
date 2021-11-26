@@ -17,3 +17,20 @@
     left: auto;
     right: 0;
 }
+
+.top{
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+@media screen and (max-width: 991px) {
+    .top{
+        margin-top: var(--pd-64);
+        margin-bottom: var(--pd-64);
+        h4{
+            font-size: var(--fs-large);
+            letter-spacing: var(--letter-spacing-normal);
+            padding-bottom: var(--middle-space) !important;
+        }
+    }
+}

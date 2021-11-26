@@ -1,7 +1,7 @@
 .container{
     h4{
         font-size: 24px;
-        letter-spacing: 1px;
+        letter-spacing: var(--letter-spacing-secondary);
         text-align: center;
         padding-bottom: 48px;
     }
@@ -11,8 +11,10 @@
     .container{
         h4{
             font-size: var(--fs-large) !important;
-            padding-bottom: var(--mg-16);
+            padding-bottom: var(--mg-16) !important;
             line-height: 32px;
+            letter-spacing: var(--letter-spacing-normal);
         }
     }
 }
+

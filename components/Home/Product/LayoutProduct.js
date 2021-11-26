@@ -12,7 +12,9 @@ const LayoutProduct = ({
   src,
   path,
   aos,
-  tabletView
+  tabletView,
+  iconSrc,
+  srcSet
 }) => {
   return (
     <div
@@ -20,7 +22,7 @@ const LayoutProduct = ({
       className={`${styles.layout} ${className} position-relative`}
     >
       <div className="d-flex flex-column align-items-center text-center">
-        <Icon />
+        <Icon src={iconSrc}/>
         <h4>{title}</h4>
       </div>
       <div className={`position-relative ${styles.image}`}>
@@ -33,7 +35,7 @@ const LayoutProduct = ({
         )}
       </div>
       <div className={`d-flex flex-column align-items-center justify-content-center ${styles["show--container"]}`}>
-        <Icon className={styles.color} src={"/project_icon_white.svg"} />
+        <Icon className={styles.color} src={srcSet || "/project_icon_white.svg"} />
         <h4 data-transition-delay="500">{title}</h4>
         <Line style={{width: tabletView ? '96px' : '150px'}} className={styles.line} />
         <p className={`${styles.content} text-center`} data-transition-delay="1000">

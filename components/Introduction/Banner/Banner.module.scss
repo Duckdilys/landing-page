@@ -12,6 +12,9 @@
   margin-top: -150px;
   z-index: 5;
   line-height: 28px;
+  & > p{
+    letter-spacing: var(--letter-spacing);
+  }
   h4 {
     letter-spacing: 0.5px;
     font-size: 40px;

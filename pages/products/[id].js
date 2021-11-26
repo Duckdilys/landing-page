@@ -16,6 +16,7 @@ import BannerLanding from "../../components/Products/BannerLanding/BannerLanding
 import { apiGetProducts } from "../../config/ApiProducts";
 const Products = ({ data_product, other_products }) => {
 
+  console.log(data_product);
   return (
     <>
       <BreadCrumbScript
@@ -37,10 +38,10 @@ const Products = ({ data_product, other_products }) => {
         classNameBox={styles.box}
       />
       <TextImage
-        mainTitle={"Thông tin chi tiết"}
+        mainTitle={data_product?.title}
         title={
-          data_product?.infos[0]
-            ? data_product?.infos[0].title
+          data_product?.content
+            ? data_product?.content
             : "Không có dữ liệu"
         }
         src={"/Products.png"}
@@ -52,7 +53,7 @@ const Products = ({ data_product, other_products }) => {
       />
       <Introduction
         aos="fade-left"
-        title="chúng tôi đã làm gì?"
+        title="Chúng tôi cung cấp giải pháp với các ưu điểm vượt trội"
         src={"/product_intro_1.png"}
         imageConfig={{
           "data-aos": "fade-right",
@@ -71,7 +72,7 @@ const Products = ({ data_product, other_products }) => {
           <p className="text-center">Không có dữ liệu</p>
         )}
       </Introduction>
-      {data_product.landing_page && (
+      {!data_product.landing_page && (
         <Introduction
           imageConfig={{ "data-aos": "fade-left" }}
           className={styles.information}
@@ -79,10 +80,9 @@ const Products = ({ data_product, other_products }) => {
           childrenClassName={styles.text}
         >
           <div data-aos="fade-right" data-aos-delay={500} data-aos-offset={300}>
-            <h5>Bạn muốn biết thêm thông tin?</h5>
+            <h5>Tìm hiểu thêm thông tin về Giải pháp của chúng tôi</h5>
             <p className={styles.title}>
-              Nếu muốn biết thêm thông tin chi tiết, vui lòng liên hệ theo số
-              điện thoại hoặc truy cập đường link dưới đây:
+            Hãy để các chuyên gia tư vấn miễn phí và có thời gian trải nghiệm trước khi quyết định sử dụng giải pháp của chúng tôi!
             </p>
             <div
               className={`d-flex align-items-center justify-content-between ${styles["information-box"]}`}
@@ -101,7 +101,7 @@ const Products = ({ data_product, other_products }) => {
           </div>
         </Introduction>
       )}
-      {!data_product.landing_page && <BannerLanding />}
+      {data_product?.landing_page && <BannerLanding />}
       <Product
         className={styles.background}
         classNameContainer={styles["container-product"]}
@@ -120,6 +120,8 @@ export const getServerSideProps = async ({ req, params }) => {
   const data_product = await axiosConfig({
     url: getProductById(id),
   });
+
+
 
   const all_products = await axiosConfig({
     url: apiGetProducts,

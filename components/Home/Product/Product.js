@@ -4,6 +4,8 @@ import LayoutProduct from "./LayoutProduct";
 import useMedia from "../../../hook/use-media";
 import { SwiperSlide } from "swiper/react";
 import styles from "./Product.module.scss";
+const listIcon = ['/five-star-icon.svg', '/ad-icon.svg', '/noron-orange-icon.svg', '/control-icon.svg'];
+const hoverIcon = ['/five-star-white-icon.svg', '/ad-white-icon.svg', '/noron-white-icon.svg', '/social-white-icon.svg']
 const Product = ({
   product,
   title,
@@ -26,6 +28,8 @@ const Product = ({
         content={item.content}
         path={"/"}
         tabletView={tabletView}
+        iconSrc={listIcon[index]}
+        srcSet={hoverIcon[index]}
       />
     );
   });

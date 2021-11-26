@@ -36,10 +36,10 @@ const BannerLanding = () => {
       <div className={`position-relative w-100 ${styles.img}`}>
         <Image src={"/landing_page.png"} alt="" />
         <div className={`${styles.text} text-center`}>
-          <h5>Bạn muốn biết thêm thông tin về giải pháp?</h5>
+          <h5>Tìm hiểu thêm thông tin về Giải pháp của chúng tôi</h5>
           <Link href="https://www.noron.vn/" passHref={true}>
             <a>
-              <Button>Truy cập noron</Button>
+              <Button>Truy cập website</Button>
             </a>
           </Link>
         </div>

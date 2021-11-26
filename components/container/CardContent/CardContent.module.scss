@@ -4,11 +4,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: var(--size-space) var(--size-space) 60px var(--size-space);
+    padding: var(--size-space);
     .title{
         font-weight: var(--weight-700);
         font-size: var(--fs-large);
         text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-normal);
     }
     outline: 1px solid var(--gray-lighter);  
     .line{
@@ -17,7 +18,7 @@
     }
     .content{
         font-weight: var(--weight-400);
-        letter-spacing: 1px;
+        letter-spacing: var(--letter-spacing);
         line-height: 28px;
     }
     .image{
@@ -38,9 +39,19 @@
 
 @media screen and (max-width: 991px) {
     .card{
+        padding: var(--middle-space);
         .image{
             width: 48px;
             height: 48px;
+        }
+        .line{
+            margin: var(--middle-space) 0;
+        }
+        .title{
+            font-size: var(--fs-nlarge);
+        }
+        .content{
+            font-size: var(--fs-small);
         }
     }
 }

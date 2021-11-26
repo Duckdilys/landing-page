@@ -1,9 +1,10 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import styles from "./RootValue.module.scss";
-import { Logo } from "../../container";
-import CircleContainer from "./CircleContainer/CircleContainer";
+import { Logo, Image } from "../../container";
+import useMedia from "../../../hook/use-media";
 const RootValue = ({ data }) => {
+  const isMobile = useMedia("(max-width: 768px)");
   return (
     <div className={styles["container-bg"]}>
       <Container className={`text-center ${styles.container}`}>
@@ -24,7 +25,7 @@ const RootValue = ({ data }) => {
           “Sáng tạo, chủ động, phát huy tính đồng đội, trách nhiệm với bản thân,
           công ty và khách hàng.”
         </h5>
-        {data.length > 0 ? 
+        {/* {data.length > 0 ? 
         <div
           data-aos="fade-up"
           data-aos-delay={800}
@@ -36,7 +37,7 @@ const RootValue = ({ data }) => {
           >
             <Logo />
           </div>
-          <div data-aos="fade-up" className={styles["container-circle"]}>
+          {/* <div data-aos="fade-up" className={styles["container-circle"]}>
             {data.map((item, index) => {
               return (
                 <CircleContainer
@@ -49,9 +50,15 @@ const RootValue = ({ data }) => {
                 />
               );
             })}
-          </div>
+          </div> */}
+        {/* </div> */}
+        {/* // : <p className="text-center pt-5">Không có thông tin</p>} */}
+        <div className={styles.image}>
+          <Image
+            src={!isMobile ? "/desktop-cr.png" : "/mobile-sr.png"}
+            alt=""
+          />
         </div>
-        : <p className="text-center pt-5">Không có thông tin</p>}
       </Container>
     </div>
   );

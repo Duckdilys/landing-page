@@ -1,9 +1,11 @@
 import React from "react";
 import { CardContent, Grid, ContainerSmall } from "../../container";
 import styles from "./Competitive.module.scss";
+
+const iconImage = ['/project_icon.png', '/analyst-icon.svg', '/people-icon.svg'];
 const Competitive = ({ data }) => {
   return (
-    <ContainerSmall>
+    <ContainerSmall className={styles.container}>
       <h4>Thế mạnh cạnh tranh</h4>
       <Grid
         config={{
@@ -17,7 +19,8 @@ const Competitive = ({ data }) => {
             return (
               <CardContent
                 key={index}
-                iconSrc={item?.src || "/project_icon.png"}
+                className="text-center"
+                iconSrc={item?.src || iconImage[index]}
                 lineClassName={styles.line}
                 title={item?.title || "không có tiêu đề"}
                 content={item?.content || "Không có tiêu đề"}
