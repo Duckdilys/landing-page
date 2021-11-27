@@ -80,7 +80,8 @@ const Navigation = ({ products }) => {
                             return (
                               <li
                                 className={
-                                  (router.asPath || router.pathname) === `/products/${item.id}`
+                                  (router.asPath || router.pathname) ===
+                                  `/products/${item.id}`
                                     ? styles.active
                                     : ""
                                 }
@@ -97,7 +98,6 @@ const Navigation = ({ products }) => {
                   );
                 }
                 if (index === 3) {
-                  
                   return (
                     <li
                       onClick={changeToggleHandler}

@@ -9,6 +9,7 @@ import getNewsByCondition from "../service/getNews";
 import getPartnerCondition from "../service/getPartners";
 import { checkUserIsBot } from "../util";
 import { BreadCrumbScript } from "../components/container";
+import { DataImageProduct } from "../components/container/DataImageProduct/DataImageProduct";
 export default function Home({ news, products, banner, partners }) {
   return (
     <>
@@ -29,7 +30,7 @@ export default function Home({ news, products, banner, partners }) {
         })
       ]} title={"MH Solution - Giải pháp 4.0"}/>
       <ContainerBanner banner={banner} />
-      <Product product={products} />
+      <Product product={products} images={DataImageProduct}/>
       <News news={news} />
       <Partner partners={partners} />
     </>
@@ -69,6 +70,7 @@ export const getServerSideProps = async ({ req }) => {
       banner: bannerData,
       partners: partners.result.items,
       isDisabledAnimation: userIsBot,
+      image_products: DataImageProduct
     },
   };
 };

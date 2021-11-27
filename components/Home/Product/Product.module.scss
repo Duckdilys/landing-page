@@ -5,6 +5,12 @@
     overflow: hidden;
     padding-bottom: 26px;
 }
+.container-product{
+    & > h4{
+        line-height: 56px;
+        letter-spacing: var(--letter-spacing-secondary);
+    }
+}
 .normal{
     width: 6px;
     height: 6px;
@@ -26,6 +32,9 @@
     }
     .container-product{
         padding-right: 0 !important;
+        & > h4{
+            line-height: 36px;
+        }
     }
 }
 @media screen and (max-width: 768px) {

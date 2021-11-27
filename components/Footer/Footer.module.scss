@@ -65,8 +65,9 @@
     }
     .middle{
         padding-top: var(--mg-16);
-        padding-bottom: var(--middle-space);
-        font-size: var(--fs-normal);
+        padding-bottom: var(--mg-16);
+        line-height: 20px;
+        font-size: var(--fs-small);
         font-weight: var(--weight-400);
         letter-spacing: var(--letter-spacing);
     }
@@ -100,9 +101,13 @@
         color: var(--white);
         font-weight: var(--weight-700);
         padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .list-media{
         padding-top: var(--size-space) !important;
+        padding-bottom: 0;
         .brand{
             width: 36px;
             height: 36px;
@@ -122,11 +127,15 @@
     li{
         display: flex;
         align-items: center;
-        font-size: var(--fs-small);
+        padding-bottom: 8px;
         &:first-child{
             font-size: var(--fs-normal);
             font-weight: 700;
             text-transform: uppercase;
+            padding-bottom: 16px;
+        }
+        span{
+            font-size: var(--fs-small);
         }
     }
     a{
@@ -199,7 +208,7 @@
         .grid{
             display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important;
-            gap: 48px;
+            gap: 48px !important;
         }
         input{
             padding: var(--pd-12) var(--mg-16);
@@ -224,7 +233,7 @@
         .grid{
             display: flex !important;
             flex-direction: column;
-            gap: 0;
+            gap: 0 !important;
             width: 100%;
         }
         .list{
@@ -263,7 +272,7 @@
             .box{
                 height: 44px;
                 button{
-                    
+                    width: 50%;
                     height: 44px;
                     padding: 0;
                 }

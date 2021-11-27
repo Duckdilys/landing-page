@@ -11,24 +11,23 @@ const Footer = () => {
       <footer className={styles.footer}>
         <LayoutContainer className={styles["container-footer"]}>
           <div className={styles.grid}>
-            <div data-aos="fade-right" className={styles['logo-box']}>
+            <div className={styles["logo-box"]}>
               <Image src={"/logo-footer.png"} alt="" className={styles.logo} />
               <div className={`d-flex align-items-center ${styles.copyright}`}>
                 <Image src="/copy-right.svg" alt="" />
                 <span>Copyright 2020</span>
               </div>
             </div>
-            <ul className={`${styles.list} ${styles['paths-list']}`}>
+            <ul className={`${styles.list} ${styles["paths-list"]}`}>
               <div className={styles.paths}>
                 {paths.map((item, index) => {
                   if (index < paths.length / 2) {
                     return (
                       <li
-                        data-aos="fade-up"
-                        data-aos-delay={index * 200}
                         key={item.name}
-                        data-aos-offset={120}
-                        className={(router.asPath === item.path) ? styles.active : ''}
+                        className={
+                          router.asPath === item.path ? styles.active : ""
+                        }
                       >
                         <Link href={item.path}>{item.name}</Link>
                       </li>
@@ -41,11 +40,10 @@ const Footer = () => {
                   if (index > paths.length / 2 - 1) {
                     return (
                       <li
-                        className={router.asPath === item.path ? styles.active : ''}
-                        data-aos="fade-up"
-                        data-aos-delay={index * 200}
+                        className={
+                          router.asPath === item.path ? styles.active : ""
+                        }
                         key={item.name}
-                        data-aos-offset={120}
                       >
                         <Link href={item.path}>{item.name}</Link>
                       </li>
@@ -55,14 +53,14 @@ const Footer = () => {
               </div>
             </ul>
             <ul className={styles["list-contact"]}>
-              <li data-aos="fade-up">Thông tin liên hệ</li>
-              <li data-aos="fade-up" data-aos-delay={200}>
+              <li>Thông tin liên hệ</li>
+              <li data-aos-delay={200}>
                 <span>Văn phòng Số 24, ngõ 224 Trung Kính, Hà Nội</span>
               </li>
-              <li data-aos="fade-up" data-aos-delay={400}>
+              <li data-aos-delay={400}>
                 <span>Email: contact@mhsolution.vn</span>
               </li>
-              <li data-aos="fade-up" data-aos-delay={600}>
+              <li data-aos-delay={600}>
                 <span>Điện thoại: 0975718168</span>
               </li>
             </ul>
@@ -86,17 +84,17 @@ const Footer = () => {
               >
                 <Image
                   className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                  src="/Facebook.png"
+                  src={"/fb-icon-footer.svg"}
                   alt=""
                 />
                 <Image
                   className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                  src="/linkedin.png"
+                  src={"/linkedln-icon-footer.svg"}
                   alt=""
                 />
                 <Image
                   className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                  src="/Noron 2.png"
+                  src={"/noron-icon-footer.svg"}
                   alt=""
                 />
               </li>

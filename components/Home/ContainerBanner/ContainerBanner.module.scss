@@ -13,7 +13,7 @@
     .content{
         color: var(--white);
         padding-bottom: 120px;
-        max-width: 620px;
+        max-width: 750px;
         position: relative;
         z-index: 100;
     }
@@ -39,7 +39,7 @@
     margin-top: 0 !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
     .banner{
         .content{
             padding-bottom: 0;
@@ -55,6 +55,7 @@
         .text{
             font-size: var(--fs-normal);
             letter-spacing: var(--letter-spacing);
+            line-height: var(--middle-space);
         }
     }
 }

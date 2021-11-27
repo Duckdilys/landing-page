@@ -6,7 +6,7 @@ const Icon = ({ className , src}) => {
     <div
       className={`${styles["icon-image"]} d-flex justify-content-center align-items-center ${className}`}
     >
-      <Image src={src || "/project_icon.png"} alt="" width="20" height="20" />
+      <Image src={src || "/project_icon.png"} alt="" width="28" height="20" />
     </div>
   );
 };

@@ -2,7 +2,7 @@
     position: relative;
 }
 .pagination{
-    bottom: 110px !important;
+    bottom: 64px !important;
 }
 .normal-pagination{
     background: var(--gray-lighter) !important;
@@ -37,9 +37,11 @@
 .left{
     right: 90px;
     left: auto;
+    bottom: 30px;
 }
 .right{
     right: 24px;
+    bottom: 30px;
 }
 
 @media screen and (max-width: 576px) {

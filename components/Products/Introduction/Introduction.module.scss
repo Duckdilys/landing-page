@@ -8,6 +8,7 @@
     padding-bottom: var(--size-space) !important;
     letter-spacing: var(--letter-spacing-secondary);
   }
+  margin-bottom: 60px;
 }
 .content {
   h5 {
@@ -51,13 +52,14 @@
     }
     .container-grid{
         margin-top: 0 !important;
-        margin-bottom: 0;
+        margin-bottom: var(--size-space) !important;
         h4{
             padding-bottom: var(--pd-12) !important;
             text-align: start !important;
             font-size: var(--fs-large) !important;
             font-weight: var(--weight-700);
             letter-spacing: var(--letter-spacing) !important;
+            padding-top: 36px;
         }
     }
 }

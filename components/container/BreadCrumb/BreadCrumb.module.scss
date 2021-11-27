@@ -49,6 +49,11 @@
     ul li {
       font-size: var(--fs-nlarge);
     }
+    .date{
+      span{
+        font-size: var(--fs-nlarge) !important;
+      }
+    }
   }
 }
 @media screen and (max-width: 768px) {

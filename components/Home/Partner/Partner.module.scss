@@ -4,7 +4,7 @@
     h4{
         letter-spacing: var(--letter-spacing-secondary);
         line-height: 56px;
-        padding-bottom: 80px !important;
+        padding-bottom: var(--pd-64) !important;
     }
     margin-bottom: 120px;
 }
@@ -17,11 +17,6 @@
     padding: 0;
     .image{
         min-width: 185px;
-        &:hover{
-            img{
-                opacity: 1;
-            }
-        }
         img{
             width: 100%;
             height: 100px;
@@ -33,28 +28,26 @@
     }
 }
 .left, .right{
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     background: var(--white);
-    box-shadow: 0px 2px 5px rgba(91, 91, 91, 0.2);
     transition: all .35s ease-in-out;
+    box-shadow: var(--box-shadow);
     path{
         stroke: var(--orange-primary);
         stroke-width: 4;
     }
     svg{
-        width: var(--sm-size);
-        height: var(--mg-16);
+        width: 9px;
+        height: 18px;
     }
     &:hover{
-        box-shadow: var(--shadow-primary);
-        background: var(--orange-primary);
         path{
-            stroke: var(--white);
+            stroke: var(--orange-primary);
         }
     }
 }

@@ -13,6 +13,7 @@
 }
 .layout {
   height: 497px;
+  width: 297px;
   h4 {
     font-size: 20px;
     padding: var(--mg-16) 0 var(--pd-64) 0;
@@ -63,9 +64,10 @@
   }
 }
 .image{
-  max-height: 100%;
-  max-width: 100%;
-  min-height: 233px;
+  width: 233px;
+  height: 241px;
+  position: absolute !important;
+  bottom: 24px;
   img{
     position: absolute;
     top: 0;
@@ -125,6 +127,21 @@
   background: var(--darker-orange) !important;
 }
 
+@media screen and (max-width: 1300px) {
+  .layout{
+    width: 100%;
+  }
+  .image{
+    position: relative !important;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+}
 @media screen and (max-width: 1200px) {
   .layout{
     h4{
@@ -142,11 +159,12 @@
     border: 1px solid var(--border-color);
     outline: none !important;
     height: 401px;
+    width: 272px;
     h4{
       padding-bottom: 0 !important;
       font-size: var(--fs-nlarge) !important;
-      letter-spacing: 1.6px;
-      
+      letter-spacing: var(--letter-spacing-normal);
+      line-height: 28px;
     }
     .line{
       margin: var(--middle-space) 0;
@@ -154,12 +172,23 @@
     .show--container{
       button{
         margin-top: var(--pd-48);
+        padding: 16px 24px !important;
+        font-size: var(--fs-small) !important;
       }
     }
   }
   .image{
-    padding-top: var(--pd-52);
+    padding-top: 52px;
     min-height: 197px;
     width: 100%;
+    height: 197px;
+    width: 224px;
+    position: absolute !important;
+    bottom: 24px;
+    img{
+      height: 197px;
+      width: 224px;
+      position: relative !important;
+    }
   }
 }

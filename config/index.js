@@ -1,2 +1,2 @@
-export const serverURL = 'http://18.140.113.16:9600/api';
+export const serverURL = 'http://13.212.108.101:9600/api';
 // process.env.SERVER_URL

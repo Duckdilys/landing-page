@@ -15,8 +15,14 @@ import axiosConfig from "../../service/base";
 import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
 import { apiGetProducts } from "../../config/ApiProducts";
 import useMedia from "../../hook/use-media";
-const Products = ({ data_product, other_products }) => {
-  const isMobile = useMedia('(max-width: 768px)');
+import { DataImageProduct } from "../../components/container/DataImageProduct/DataImageProduct";
+import { useRouter } from "next/router";
+const Products = ({ data_product, other_products, images }) => {
+  const isMobile = useMedia('(max-width: 991px)');
+  const isMiddleBox = useMedia('(max-width: 1250px)');
+  const router = useRouter();
+  
+  const findImageProduct = DataImageProduct.find(item => item.id.toString() === router.query.id.toString());
   return (
     <>
       <BreadCrumbScript
@@ -36,6 +42,7 @@ const Products = ({ data_product, other_products }) => {
         title={data_product?.title || "Không có dữ liệu"}
         classNameBanner={styles.banner}
         classNameBox={styles.box}
+        style={{background: `url('${findImageProduct?.href || "/banner_product_2.png"}')`}}
       />
       <TextImage
         mainTitle={data_product?.title}
@@ -78,7 +85,7 @@ const Products = ({ data_product, other_products }) => {
         <Introduction
           imageConfig={{ "data-aos": "fade-left" }}
           className={styles.information}
-          src={"/product_intro_1.png"}
+          src={isMobile ? null : "/product_intro_1.png"}
           childrenClassName={styles.text}
         >
           <div data-aos="fade-right" data-aos-delay={500} data-aos-offset={300}>
@@ -93,12 +100,12 @@ const Products = ({ data_product, other_products }) => {
                 <Image
                   src={"/Icon/phone-black-icon.svg"}
                   alt=""
-                  width="24"
-                  height="24"
+                  width={isMiddleBox ? "15px" : "24px"}
+                  height={isMiddleBox ? "15px" : "24px"}
                 />
                 <span>0975-718-168</span>
               </div>
-              <Button>truy cập đến trang web</Button>
+              <Button className={styles.btn}>truy cập đến trang web</Button>
             </div>
           </div>
         </Introduction>
@@ -110,6 +117,7 @@ const Products = ({ data_product, other_products }) => {
         product={other_products}
         title="sản phẩm khác của chúng tôi"
         classNameGrid={styles.grid}
+        images={images}
       />
     </>
   );
@@ -119,6 +127,9 @@ export const getServerSideProps = async ({ req, params }) => {
   const userIsBot = checkUserIsBot(req);
   const { id } = params;
 
+  const filterImage = DataImageProduct.filter(item => {
+    return item.id.toString() !== id.toString();
+  })
   const data_product = await axiosConfig({
     url: getProductById(id),
   });
@@ -144,7 +155,8 @@ export const getServerSideProps = async ({ req, params }) => {
       data_product: data_product?.result,
       other_products: all_products?.result?.items?.filter(item => {
         return +item.id !== +id;
-      })
+      }),
+      images: filterImage
     },
   };
 };

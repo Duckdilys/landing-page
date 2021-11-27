@@ -6,7 +6,7 @@ const Introduction = ({ title, children, className, src, imageConfig, aos, child
     <ContainerSmall className={styles['container-grid']}>
       {title && <h4>{title}</h4>}
       <Grid className={`${styles.grid} ${className}`}>
-        <Image imageConfig={{...imageConfig}} src={src} alt="" />
+        {src && <Image imageConfig={{...imageConfig}} src={src} alt="" />}
         <div className={`${styles.content} ${childrenClassName}`} data-aos={aos ? aos : ''}>
           {children}
         </div>

@@ -12,6 +12,7 @@ const Product = ({
   className,
   classNameContainer,
   classNameGrid,
+  images
 }) => {
   const tabletView = useMedia("(max-width: 991px)");
   const _renderProducts = product.map((item, index) => {
@@ -23,7 +24,7 @@ const Product = ({
       <LayoutProduct
         aos="fade-up"
         key={index}
-        src={src}
+        src={images[index].href || "/banner_product_2.png"}
         title={item.title}
         content={item.content}
         path={"/"}
