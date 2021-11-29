@@ -44,7 +44,7 @@ export const getServerSideProps = async ({ req }) => {
     url: getHomePageById(1),
   });
   const product = await getProductsByCondition(1, 4);
-  const news = await getNewsByCondition(1, 4, "");
+  const news = await getNewsByCondition(1, 3, "");
   const partners = await getPartnerCondition(1, 10);
 
   if (

@@ -67,6 +67,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .swiper{
+        padding-bottom: 50px;
+    }
     .button{
         margin-top: var(--pd-18);
     }
@@ -95,5 +98,16 @@
     .contain{
         padding-bottom: 0 !important;
         margin: 0 !important;
+    }
+    .pagination{
+        margin-bottom: var(--middle-space);
+    }
+    .normal{
+        width: 6px !important;
+        height: 6px !important;
+    }
+    .active{
+        width: 10px !important;
+        height: 10px !important;
     }
 }

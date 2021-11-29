@@ -27,12 +27,15 @@ const News = ({ news }) => {
                 right: styles["button-right"],
               }}
               className={styles.swiper}
+              containerPagination={styles.pagination}
               navigation={matchMedia ? false : true}
               loop
               pagination
+              classNameActiveBullet={styles.active}
+              classNameNormalBullet={styles.normal}
             >
               {news.map((item, index) => {
-                if (index == 0) {
+                if (index < 5) {
                   return (
                     <SwiperSlide key={item.id}>
                       <Slide
