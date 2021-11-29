@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Grid, Button, TextArea } from "../../container";
 import Image from "next/image";
 import styles from "./Form.module.scss";
@@ -13,7 +13,7 @@ const renderInput = [
       type: "text",
       autoComplete: "off",
       placeholder: "Tên",
-      required: true,
+      required: true
     },
     error: "Tên không được để trống",
   },
@@ -57,6 +57,12 @@ const Form = ({ contact }) => {
     "/email-icon.svg",
     "/phone-side-icon.svg",
   ];
+  const nameRef = useRef();
+  const addressRef = useRef();
+  const phoneRef = useRef();
+  const emailRef = useRef();
+  const contentRef = useRef();
+  const totalRef = [nameRef, addressRef, phoneRef, emailRef, contentRef];
   return (
     <Grid className={styles.grid}>
       <div className={styles.information}>
@@ -65,7 +71,12 @@ const Form = ({ contact }) => {
           {Object.values(contact).map((content, index) => {
             return (
               <li className="d-flex align-items-center" key={index}>
-                <Image src={icon[index]} alt="" width={matchMobile ? "16px" : "23px"} height={matchMobile ? "16px" : "23px"} />
+                <Image
+                  src={icon[index]}
+                  alt=""
+                  width={matchMobile ? "16px" : "23px"}
+                  height={matchMobile ? "16px" : "23px"}
+                />
                 <span>{content}</span>
               </li>
             );
@@ -74,7 +85,7 @@ const Form = ({ contact }) => {
       </div>
       <form className={styles.form}>
         {renderInput.map((input, index) => {
-          return <Input className={styles.input} key={index} {...input} />;
+          return <Input ref={totalRef[index]} className={styles.input} key={index} {...input}  />;
         })}
         <TextArea
           textarea={{

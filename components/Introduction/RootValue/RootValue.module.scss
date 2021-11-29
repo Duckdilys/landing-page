@@ -95,14 +95,15 @@
     }
     
     .intro{
-      padding: var(--mg-16) 0;
+      padding: var(--pd-12) 0;
       font-size: var(--fs-small);
       letter-spacing: 0.5px;
       max-width: 100%;
+      line-height: 20px;
     }
     h5{
       font-size: var(--fs-small);
-      line-height: 24px;
+      line-height: 20px;
     }
   }
   .image{

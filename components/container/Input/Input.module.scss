@@ -30,3 +30,9 @@
 .input-error{
     border-color: red !important;
 }
+
+@media screen and (max-width: 768px) {
+    .error{
+        font-size: var(--fs-small);
+    }
+}

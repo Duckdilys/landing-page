@@ -144,7 +144,10 @@ input[type='number']{
   background: transparent !important;
   border: 2px solid var(--orange-primary);
 }
-
+.error__text{
+  color: red;
+  font-size: 14px;
+}
 @mixin scale-start {
   transform: scale(0);
   opacity: 0;

@@ -166,6 +166,9 @@
            display: flex !important;
            flex-direction: column-reverse !important;
        }
+       h5{
+           letter-spacing: var(--letter-spacing-normal);
+       }
    }
    .text-banner{
        padding: 0;

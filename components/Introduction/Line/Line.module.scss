@@ -86,6 +86,11 @@
             font-size: var(--fs-large);
             line-height: var(--size-space);
         }
+        p{
+            font-size: var(--fs-small);
+            line-height: 20px;
+            letter-spacing: var(--letter-spacing);
+        }
         
     }
     .title-item{
