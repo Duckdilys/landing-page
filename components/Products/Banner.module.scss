@@ -2,6 +2,7 @@
 .banner{
     background: url('../../public/Banner_Products.png');
     height: 464px !important;
+    background-attachment: unset !important;
 }
 .box{
     margin-top: -120px;
@@ -43,10 +44,10 @@
     }
     h5{
         font-size: 24px !important;
-        line-height: 36px;
+        line-height: 40px;
         font-weight: var(--weight-700);
         text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: var(--letter-spacing-secondary) !important;
     }
     .content{
         span{
@@ -75,7 +76,7 @@
 .background{
     background: var(--light-gray);
     padding: var(--pd-64) 0;
-    margin: var(--space) 0;
+    margin-top: var(--space);
 }
 .container-product{
     margin-top: 0;

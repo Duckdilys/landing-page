@@ -2,7 +2,7 @@ import React from "react";
 import { CardContent, Grid, ContainerSmall } from "../../container";
 import styles from "./Competitive.module.scss";
 
-const iconImage = ['/project_icon.png', '/analyst-icon.svg', '/people-icon.svg'];
+const iconImage = ['/project_icon.svg', '/analyst-icon.svg', '/Team.svg'];
 const Competitive = ({ data }) => {
   return (
     <ContainerSmall className={styles.container}>

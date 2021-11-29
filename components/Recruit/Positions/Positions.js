@@ -33,10 +33,10 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
                     key={index}
                     title={item?.title}
                     date={new Date(item?.created_at).toLocaleDateString(
-                      "en-us"
+                      "vi-vn"
                     )}
                     salary={item?.salary}
-                    types={[item?.level, item?.career]}
+                    types={[item?.level, item?.career, item?.work_type]}
                     url={item.infos[0] ? item.infos[0]?.src : "/position.png"}
                     place={item?.work_address}
                     id={item.id}

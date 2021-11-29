@@ -40,6 +40,7 @@
         line-height: var(--middle-space);
     }
     width: 32%;
+    height: fit-content;
 }
 .grid-near{
     grid-template-columns: repeat(1, 1fr);

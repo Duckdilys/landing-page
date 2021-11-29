@@ -56,7 +56,7 @@ const FormCV = () => {
       onSubmit={submitFormHandler}
       className={`${styles.container} ${isOpened && styles["container-back"]}`}
     >
-      <h4>Nộp đơn ứng tuyển cho vị trí này</h4>
+      <h4>nộp cv ứng tuyển cho vị trí này</h4>
       <Grid className={styles.grid}>
         <Input
           inputDefine={{
@@ -101,13 +101,6 @@ const FormCV = () => {
             ValidateLengthInput(value) && value.includes("@")
           }
           error="Email không được phép trống"
-        />
-        <Input
-          inputDefine={{
-            type: "text",
-            autoComplete: "off",
-            placeholder: "Link sản phẩm (Nếu có)",
-          }}
         />
         <DropzoneUpload
           title="Click để tải lên CV của bạn"
@@ -177,7 +170,7 @@ const FormCV = () => {
               disabled: isLoadingSession,
             }}
           >
-            Nộp hồ sơ ngay
+            Ứng tuyển ngay
           </Button>
         </div>
       </div>

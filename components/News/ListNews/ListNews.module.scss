@@ -5,6 +5,7 @@
     letter-spacing: var(--letter-spacing);
     font-weight: var(--weight-700);
   }
+  margin-bottom: var(--pd-64);
 }
 .grid {
   grid-template-columns: repeat(4, 1fr);

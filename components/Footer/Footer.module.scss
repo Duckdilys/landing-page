@@ -37,8 +37,10 @@
     list-style: none;
     padding-left: 0;
     max-width: 265px;
+    
     li{
         padding-bottom: 16px;
+        letter-spacing: var(--letter-spacing);
     }
     a{
         text-transform: uppercase;

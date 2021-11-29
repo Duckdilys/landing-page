@@ -3,12 +3,12 @@
   @include grid-template-column(2, var(--middle-space));
 }
 .container-grid{
-  margin-top: 36px;
+  margin-top: 96px;
   h4{
     padding-bottom: var(--size-space) !important;
     letter-spacing: var(--letter-spacing-secondary);
   }
-  margin-bottom: 60px;
+  margin-bottom: 96px;
 }
 .content {
   h5 {

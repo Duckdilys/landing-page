@@ -30,7 +30,24 @@
         }
     }
 }
-
+.background-image{
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: var(--overlay-image);
+    }
+}
+.background-right{
+    &::before{
+        background: linear-gradient(89.76deg, rgba(20, 18, 18, 0.69) 0.03%, rgba(45, 40, 40, 0) 36.34%);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+}
 @media screen and (max-width: 991px) {
     .box{
         .top{

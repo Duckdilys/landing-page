@@ -15,6 +15,12 @@ import useMedia from "../hook/use-media";
 const Introduction = ({ dataIntroduction, founderData, partners }) => {
   const matchMedia = useMedia("(max-width: 768px)");
 
+  const getDataFromServer = () => {
+    const visions = dataIntroduction?.visions || [];
+    const missions = dataIntroduction?.missions ||  [];
+
+    return [...visions, ...missions];
+  }
   return (
     <>
       <BreadCrumbScript
@@ -36,7 +42,7 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
           )}
           {dataIntroduction && (
             <>
-              {dataIntroduction?.visions?.map((item, index) => {
+              {getDataFromServer().map((item, index) => {
                 if (index % 2 === 0) {
                   return (
                     <TextImage
@@ -48,6 +54,7 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
                       className="flex-row-reverse"
                       aosImage="fade-left"
                       iconImage={"/icon.png"}
+                      classImage={styles['background-image']}
                     />
                   );
                 }
@@ -56,10 +63,11 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
                     aos="fade-left"
                     title={item?.content || "Không có tiêu đề"}
                     mainTitle={item?.title || "Không có nội dung chi tiết"}
-                    src={item?.src || "/Image (2).png"}
+                    src={item?.src || "/vision.png"}
                     key={index}
                     classText={styles.reverse}
                     iconImage={"/icon.png"}
+                    classImage={`${styles['background-image']} ${styles['background-right']}`}
                   />
                 );
               })}

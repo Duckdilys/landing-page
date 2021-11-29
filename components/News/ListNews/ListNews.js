@@ -5,7 +5,7 @@ import Category from "../Category/Category";
 import New from "../New/New";
 import styles from "./ListNews.module.scss";
 import useMedia from "../../../hook/use-media";
-const ListNews = ({ news, categories, isLoading, perPage }) => {
+const ListNews = ({ news, categories, isLoading, perPage, children }) => {
   const matchMedia = useMedia("(max-width: 991px)");
   const type = useSelector((state) => state.category.category);
   const renderTypes = useMemo(() => {
@@ -35,7 +35,9 @@ const ListNews = ({ news, categories, isLoading, perPage }) => {
           postTypes={renderTypes}
           news={news}
           turnLoadingToArray={turnLoadingToArray}
-        />
+        >
+          {children}
+        </New>
       </Grid>
     </ContainerSmall>
   );

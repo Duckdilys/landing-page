@@ -48,7 +48,6 @@ const BannerLanding = () => {
       },
     });
   };
-  console.log(data, error, isLoading);
   return (
     <ContainerSmall className={styles.container}>
       <div className={`position-relative w-100 ${styles.img}`}>

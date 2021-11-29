@@ -6,7 +6,7 @@
     height: 100%;
     object-fit: cover;
     transition: all .5s ease-in-out;
-    min-height: 168px;
+    height: 168px;
     &:hover{
       transform: scale(1.1);
     }
@@ -52,7 +52,7 @@
 @media screen and (max-width: 991px) {
   .image{
     img{
-      min-height: 150px;
+      height: 150px;
     }
   }
 }
@@ -64,7 +64,7 @@
     min-height: 78px;
     margin-right: 12px;
     img{
-      min-height: 78px;
+      height: 78px;
       min-width: 137px;
     }
   }

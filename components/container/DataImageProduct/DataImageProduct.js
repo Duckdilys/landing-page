@@ -5,7 +5,7 @@ export const DataImageProduct = [
     },
     {
         id: 2,
-        href: '/banner_product_2.png'
+        href: '/product_banner_1.png'
     }, 
     {
         id: 3,

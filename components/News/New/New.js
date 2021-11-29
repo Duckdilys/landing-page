@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { Grid } from "../../container";
 import styles from "./New.module.scss";
 import RenderNew from "./RenderNew/RenderNew";
-const New = ({ news, isLoading, turnLoadingToArray, matchMedia }) => {
+const New = ({ news, isLoading, turnLoadingToArray, matchMedia, children }) => {
   const filterPostByCategory = useCallback(() => {}, []);
   useEffect(() => {
     filterPostByCategory();
@@ -31,6 +31,7 @@ const New = ({ news, isLoading, turnLoadingToArray, matchMedia }) => {
             );
           })}
       </Grid>
+      {children}
     </div>
   );
 };

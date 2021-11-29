@@ -69,7 +69,7 @@ const JobDetail = ({ data_job }) => {
         <div
           className={`d-flex justify-content-center align-items-center ${styles.types}`}
         >
-          {[data_job?.level, data_job?.career].map((item, key) => {
+          {[data_job?.level, data_job?.career, data_job?.work_type].map((item, key) => {
             return <Type key={key}>{item}</Type>;
           })}
         </div>
@@ -92,7 +92,7 @@ const JobDetail = ({ data_job }) => {
               }}
               className={styles["submit-btn"]}
             >
-              Nộp đơn ứng tuyển
+              Ứng tuyển ngay
             </Button>
           </div>
           <div className={styles["container-right"]}>

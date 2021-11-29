@@ -15,6 +15,7 @@ const CardContent = ({
   colorLine,
   options,
   iconChangeInHover,
+  contentClassName
 }) => {
   const mobile = useMedia('(max-width: 991px)');
   // const { isHover, isHoverHandler, isNotHoverHandler } = useHover(false);
@@ -42,7 +43,7 @@ const CardContent = ({
         className={`${styles.line} ${lineClassName}`}
         style={{ background: colorLine || "black" }}
       />
-      <p className={styles.content}>{content}</p>
+      <p className={`${styles.content} ${contentClassName ? contentClassName : ''}`}>{content}</p>
     </div>
   );
 };

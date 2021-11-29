@@ -45,7 +45,7 @@ const Products = ({ data_product, other_products, images }) => {
         style={{background: `url('${findImageProduct?.href || "/banner_product_2.png"}')`}}
       />
       <TextImage
-        mainTitle={data_product?.title}
+        mainTitle={"Thông tin chi tiết"}
         title={
           data_product?.content
             ? data_product?.content
@@ -85,11 +85,11 @@ const Products = ({ data_product, other_products, images }) => {
         <Introduction
           imageConfig={{ "data-aos": "fade-left" }}
           className={styles.information}
-          src={isMobile ? null : "/product_intro_1.png"}
+          src={isMobile ? null : "/banner 2.png"}
           childrenClassName={styles.text}
         >
           <div data-aos="fade-right" data-aos-delay={500} data-aos-offset={300}>
-            <h5>Tìm hiểu thêm thông tin về Giải pháp của chúng tôi</h5>
+            <h5 style={{paddingBottom: '16px'}}>Tìm hiểu thêm thông tin về Giải pháp của chúng tôi</h5>
             <p className={styles.title}>
             Hãy để các chuyên gia tư vấn miễn phí và có thời gian trải nghiệm trước khi quyết định sử dụng giải pháp của chúng tôi!
             </p>

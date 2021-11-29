@@ -55,13 +55,13 @@ const Footer = () => {
             <ul className={styles["list-contact"]}>
               <li>Thông tin liên hệ</li>
               <li data-aos-delay={200}>
-                <span>Văn phòng Số 24, ngõ 224 Trung Kính, Hà Nội</span>
+                <span>Địa chỉ: Số 24, ngõ 224 Trung Kính, Hà Nội</span>
               </li>
               <li data-aos-delay={400}>
                 <span>Email: contact@mhsolution.vn</span>
               </li>
               <li data-aos-delay={600}>
-                <span>Điện thoại: 0975718168</span>
+                <span>Điện thoại: 097 571 8168</span>
               </li>
             </ul>
             <ul className={`${styles.list} ${styles.email}`}>
