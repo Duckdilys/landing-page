@@ -1,0 +1,32 @@
+.layout{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    padding: var(--size-space);
+    width: 50%;
+    text-align: center;
+    z-index: 12;
+    font-size: var(--fs-normal);
+    letter-spacing: var(--letter-spacing);
+    line-height: var(--line-height-primary);
+    button{
+        background: var(--orange-primary);
+        border: none;
+        color: var(--white);
+    }
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .layout{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .layout{
+        width: 90%;
+    }
+}

@@ -9,6 +9,7 @@ import useMedia from "../../hook/use-media";
 import useToggle from "../../hook/use-toggle";
 const Navigation = ({ products }) => {
   const router = useRouter();
+  const [isHover, setIsHover] = useState(false);
   const [navIsScrolled, setNavIsScrolled] = useState(false);
   const matchHamburger = useMedia("(max-width: 991px)");
   const { toggle, changeToggleHandler } = useToggle(false);
@@ -49,6 +50,8 @@ const Navigation = ({ products }) => {
                 if (index === 2) {
                   return (
                     <li
+                      onMouseEnter={() => setIsHover(true)}
+                      onMouseLeave={() => setIsHover(false)}
                       onClick={changeToggleHandler}
                       className={`position-relative ${styles.dropdown} ${
                         router.asPath === path.path ||
@@ -74,6 +77,7 @@ const Navigation = ({ products }) => {
                       <ul
                         ref={listRef}
                         className={`${styles["list-dropdown"]}`}
+                        style={{height: isHover ? `${products.length * 70}px` : '0px'}}
                       >
                         {products &&
                           products?.map((item) => {

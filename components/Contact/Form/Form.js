@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
-import { Grid, Button, TextArea } from "../../container";
+import { Grid, Button, TextArea, Loading } from "../../container";
 import Image from "next/image";
 import styles from "./Form.module.scss";
-import Link from "next/link";
 import Input from "../Input/Input";
 import { ValidateLengthInput } from "../../../util";
 import useMedia from "../../../hook/use-media";
+import useFetch from "../../../hook/use-fetch";
+import { ApiCooperation } from "../../../config/ApiCooperation";
+import { CSSTransition } from "react-transition-group";
+import OverlayBG from "../../container/OverlayBG/OverlayBG";
+import FixLayout from "../../container/FixLayout/FixLayout";
 const renderInput = [
   {
     validateInput: (value) => Boolean(ValidateLengthInput(value)),
@@ -13,7 +17,7 @@ const renderInput = [
       type: "text",
       autoComplete: "off",
       placeholder: "Tên",
-      required: true
+      required: true,
     },
     error: "Tên không được để trống",
   },
@@ -51,6 +55,8 @@ const renderInput = [
   },
 ];
 const Form = ({ contact }) => {
+  const { fetchDataFromServer, data, error, isLoading, resetAllHandler } =
+    useFetch();
   const matchMobile = useMedia("(max-width: 768px)");
   const icon = [
     "/home-dark-icon.svg",
@@ -63,42 +69,109 @@ const Form = ({ contact }) => {
   const emailRef = useRef();
   const contentRef = useRef();
   const totalRef = [nameRef, addressRef, phoneRef, emailRef, contentRef];
+
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+    const name = nameRef.current?.value;
+    const address = addressRef.current?.value;
+    const phone = phoneRef.current?.value;
+    const email = emailRef.current?.value;
+    const content = contentRef.current?.value;
+
+    fetchDataFromServer({
+      url: ApiCooperation,
+      method: "POST",
+      data: {
+        full_name: name,
+        phone_name: phone,
+        email: email,
+        address: address,
+        about: content,
+      },
+    });
+  };
   return (
-    <Grid className={styles.grid}>
-      <div className={styles.information}>
-        <h5>Thông tin liên hệ</h5>
-        <ul>
-          {Object.values(contact).map((content, index) => {
+    <>
+      <Grid className={styles.grid}>
+        <div className={styles.information}>
+          <h5>Thông tin liên hệ</h5>
+          <ul>
+            {Object.values(contact).map((content, index) => {
+              return (
+                <li className="d-flex align-items-center" key={index}>
+                  <Image
+                    src={icon[index]}
+                    alt=""
+                    width={matchMobile ? "16px" : "23px"}
+                    height={matchMobile ? "16px" : "23px"}
+                  />
+                  <span>{content}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <form onSubmit={submitFormHandler} className={styles.form}>
+          {renderInput.map((input, index) => {
             return (
-              <li className="d-flex align-items-center" key={index}>
-                <Image
-                  src={icon[index]}
-                  alt=""
-                  width={matchMobile ? "16px" : "23px"}
-                  height={matchMobile ? "16px" : "23px"}
-                />
-                <span>{content}</span>
-              </li>
+              <Input
+                ref={totalRef[index]}
+                className={styles.input}
+                key={index}
+                {...input}
+              />
             );
           })}
-        </ul>
-      </div>
-      <form className={styles.form}>
-        {renderInput.map((input, index) => {
-          return <Input ref={totalRef[index]} className={styles.input} key={index} {...input}  />;
-        })}
-        <TextArea
-          textarea={{
-            rows: "4",
-            placeholder: "Nội dung",
-          }}
-          className={`w-100 ${styles.text}`}
-        />
-        <div className={styles.button}>
-          <Button>Gửi nội dung</Button>
-        </div>
-      </form>
-    </Grid>
+          <TextArea
+            ref={contentRef}
+            textarea={{
+              rows: "4",
+              placeholder: "Nội dung",
+            }}
+            className={`w-100 ${styles.text}`}
+          />
+          <div className={styles.button}>
+            <Button
+              options={{
+                type: "submit",
+              }}
+            >
+              Gửi nội dung
+            </Button>
+          </div>
+          {isLoading && <div className="text-center pt-3"><Loading/></div>}
+        </form>
+      </Grid>
+      <CSSTransition
+        in={!isLoading && data}
+        unmountOnExit
+        mountOnEnter
+        timeout={500}
+        classNames="form-open"
+      >
+        <>
+          <FixLayout className="text-center">
+            {data && +data.code < 400 && (
+              <p>
+                Chúng tôi đã nhận được thông tin và sẽ liên hệ tới bạn trong
+                thời gian sớm nhất
+              </p>
+            )}
+            {data && +data.code >= 400 && <p>Có lỗi xảy ra, xin thử lại sau</p>}
+            <div className="text-end pt-5">
+              <Button
+                options={{
+                  onClick: resetAllHandler,
+                }}
+              >
+                Xác nhận
+              </Button>
+            </div>
+          </FixLayout>
+          <OverlayBG onClick={resetAllHandler} />
+        </>
+      </CSSTransition>
+    </>
   );
 };
 

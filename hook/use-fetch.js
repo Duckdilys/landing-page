@@ -124,6 +124,11 @@ const useFetch = () => {
     },
     []
   );
+  const resetAllHandler = () => {
+    dispatch({
+      type: typeDispatch.RESET
+    })
+  }
   const fakeFetchingData = useCallback((data) => {
     dispatch({
       type: typeDispatch.LOADING
@@ -145,6 +150,7 @@ const useFetch = () => {
     status: state.status,
     download_progress: state.download_progress,
     upload_progress: state.upload_progress,
+    resetAllHandler: resetAllHandler
   };
 };
 

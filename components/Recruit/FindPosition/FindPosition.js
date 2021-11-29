@@ -34,13 +34,13 @@ const FindPosition = ({
     const position = positionRef.current.value;
     const filter = [];
     if (workType) {
-      filter.push(helperFilterHandler("career", workType));
+      filter.push(helperFilterHandler("career", workType || undefined));
     }
     if (level) {
-      filter.push(helperFilterHandler("level", level));
+      filter.push(helperFilterHandler("level", level || undefined));
     }
     if (method) {
-      filter.push(helperFilterHandler("work_type", method));
+      filter.push(helperFilterHandler("work_type", method || undefined));
     }
     setQueryFilterHandler([...filter, helperFilterHandler("title", position)]);
   };
