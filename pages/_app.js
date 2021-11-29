@@ -14,9 +14,9 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "aos/dist/aos.css";
+import { checkUserIsBot } from '../util';
 
-function MyApp({ Component, pageProps, products }) {
-  const { isDisabledAnimation } = pageProps;
+function MyApp({ Component, pageProps, isDisabledAnimation, products }) {
   useEffect(() => {
     if (isDisabledAnimation) {
       AOS.init({
@@ -46,6 +46,8 @@ function MyApp({ Component, pageProps, products }) {
 }
 MyApp.getInitialProps = async function (ctx) {
   const pageProps = await App.getInitialProps(ctx);
+  const { res, req } = ctx.ctx;
+  const userIsBot = checkUserIsBot(req);
   const products = await axiosConfig({
     url: apiGetProducts,
     method: "POST",
@@ -54,12 +56,14 @@ MyApp.getInitialProps = async function (ctx) {
   if (products.code >= 400) {
     return {
       ...pageProps,
+
       products: [],
       // temporary for error, not having
     };
   }
   return {
     ...pageProps,
+    isDisabledAnimation: userIsBot,
     products: products?.result?.items,
   };
 };
