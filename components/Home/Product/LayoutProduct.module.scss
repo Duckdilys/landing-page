@@ -160,6 +160,15 @@
     outline: none !important;
     height: 401px;
     width: 272px;
+    .icon-image{
+      width: var(--size-space);
+      height: var(--size-space);
+      min-height: var(--size-space);
+      img{
+        width: 16px;
+        height: 14px;
+      }
+    }
     h4{
       padding-bottom: 0 !important;
       font-size: var(--fs-nlarge) !important;
@@ -171,9 +180,14 @@
     }
     .show--container{
       button{
-        margin-top: var(--pd-48);
-        padding: 16px 24px !important;
+        margin-top: 40px;
+        padding: 16px 20px !important;
         font-size: var(--fs-small) !important;
+      }
+      p{
+        line-height: 20px;
+        font-size: 14px;
+        letter-spacing: var(--letter-spacing);
       }
     }
   }
