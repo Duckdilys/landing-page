@@ -21,21 +21,20 @@ const LayoutProduct = ({
       data-aos={aos}
       className={`${styles.layout} ${className} position-relative`}
     >
-      <div>
-        <div className="d-flex flex-column align-items-between align-items-center justify-content-between text-center">
-          <Icon src={iconSrc} />
-          <h4>{title}</h4>
-        </div>
-        <div className={`position-relative ${styles.image}`}>
-          {src && (
-            <Image
-              src={src || "/demo-image.png"}
-              alt=""
-              className={styles.image}
-            />
-          )}
-        </div>
+      <div className="d-flex flex-column align-items-between align-items-center justify-content-between text-center">
+        <Icon src={iconSrc} />
+        <h4>{title}</h4>
       </div>
+      <div className={`position-relative ${styles.image}`}>
+        {src && (
+          <Image
+            src={src || "/demo-image.png"}
+            alt=""
+            className={styles.image}
+          />
+        )}
+      </div>
+
       <div
         className={`d-flex flex-column align-items-center justify-content-center ${styles["show--container"]}`}
       >
