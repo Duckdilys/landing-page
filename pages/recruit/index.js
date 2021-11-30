@@ -22,8 +22,8 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
   const [totalJob, setTotalJob] = useState(totalJobs);
   const [queryFilter, setQueryFilter] = useState(null);
   const { query, pathname } = useRouter();
+  
   const page = +query.page || 1;
-
   const { fetchDataFromServer, error, data: dataNews, isLoading } = useFetch();
 
   const setQueryFilterHandler = (query) => {
@@ -31,10 +31,6 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
     router.push(`?page=${1}`);
   };
   useEffect(() => {
-    console.log(queryFilter);
-    if(!queryFilter){
-      return;
-    }
     fetchDataFromServer({
       url: ApiJob,
       method: "POST",

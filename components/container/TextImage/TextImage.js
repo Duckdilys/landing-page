@@ -2,7 +2,7 @@ import React from "react";
 import styles from '../../Introduction/Line/Line.module.scss';
 import { LayoutContainer, Image } from '..';
 import useMedia from "../../../hook/use-media";
-const TextImage = ({ title, className, src, mainTitle, classText, aosImage, iconImage, aos, classImage, classNameContainer }) => {
+const TextImage = ({ title, className, src, mainTitle, classText, aosImage, iconImage, aos, classImage, classNameContainer, rightText }) => {
   const matchMobile = useMedia('(max-width: 768px)');
   return (
     <LayoutContainer className={`${styles["container-line"]} ${classNameContainer}`}>
@@ -15,7 +15,7 @@ const TextImage = ({ title, className, src, mainTitle, classText, aosImage, icon
         <div
           data-aos={aos ? aos : "fade-up"}
           data-aos-delay={750}
-          className={`${styles.text} ${classText}`}
+          className={`${styles.text} ${classText} ${rightText && styles['text-right']}`}
         >
           <h5>{mainTitle}</h5>
           {iconImage && !matchMobile && <Image src={iconImage} alt="" />}

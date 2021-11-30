@@ -18,11 +18,13 @@ import useMedia from "../../hook/use-media";
 import { DataImageProduct } from "../../components/container/DataImageProduct/DataImageProduct";
 import { useRouter } from "next/router";
 const Products = ({ data_product, other_products, images }) => {
-  const isMobile = useMedia('(max-width: 991px)');
-  const isMiddleBox = useMedia('(max-width: 1250px)');
+  const isMobile = useMedia("(max-width: 991px)");
+  const isMiddleBox = useMedia("(max-width: 1250px)");
   const router = useRouter();
-  
-  const findImageProduct = DataImageProduct.find(item => item.id.toString() === router.query.id.toString());
+
+  const findImageProduct = DataImageProduct.find(
+    (item) => item.id.toString() === router.query.id.toString()
+  );
   return (
     <>
       <BreadCrumbScript
@@ -42,24 +44,59 @@ const Products = ({ data_product, other_products, images }) => {
         title={data_product?.title || "Không có dữ liệu"}
         classNameBanner={styles.banner}
         classNameBox={styles.box}
-        style={{background: `url('${findImageProduct?.href || "/banner_product_2.png"}')`}}
+        style={{
+          background: `url('${
+            findImageProduct?.href || "/banner_product_2.png"
+          }')`,
+        }}
       />
       <TextImage
         mainTitle={"Thông tin chi tiết"}
         title={
-          data_product?.content
-            ? data_product?.content
-            : "Không có dữ liệu"
+          data_product?.content ? data_product?.content : "Không có dữ liệu"
         }
         src={"/Products.png"}
         aosImage="fade-left"
         iconImage={null}
-        classImage={styles['text-image']}
-        classText={styles['text-banner']}
+        classImage={styles["text-image"]}
+        classText={styles["text-banner"]}
         classNameContainer={styles.container}
-        className={`flex-row-reverse ${styles['container-text']}`}
+        className={`${styles["container-text"]}`}
         aos="fade-right"
+        rightText
       />
+      {data_product?.infos?.map((item, index) => {
+        if (index % 2 === 0) {
+          return (
+            <TextImage
+              key={index}
+              mainTitle={item?.title}
+              title={item?.content || "Không có dữ liệu"}
+              src={item?.src || "/Products.png"}
+              aosImage="fade-left"
+              classImage={styles["text-image"]}
+              classText={styles["text-banner"]}
+              classNameContainer={styles.container}
+              className={`flex-row-reverse ${styles["container-text"]}`}
+              aos="fade-right"
+            />
+          );
+        }
+        return (
+          <TextImage
+            key={index}
+            title={item?.content}
+            mainTitle={item?.title}
+            src={item?.src || "/Products.png"}
+            aosImage="fade-right"
+            classImage={styles["text-image"]}
+            classNameContainer={styles.container}
+            aos="fade-left"
+            className={`d-flex ${styles['container-text']}`}
+            rightText
+          />
+        );
+      })}
       <Introduction
         aos="fade-left"
         title="Chúng tôi cung cấp giải pháp với các ưu điểm vượt trội"
@@ -89,9 +126,12 @@ const Products = ({ data_product, other_products, images }) => {
           childrenClassName={styles.text}
         >
           <div data-aos="fade-right" data-aos-delay={500} data-aos-offset={300}>
-            <h5 style={{paddingBottom: '16px'}}>Tìm hiểu thêm thông tin về Giải pháp của chúng tôi</h5>
+            <h5 style={{ paddingBottom: "16px" }}>
+              Tìm hiểu thêm thông tin về Giải pháp của chúng tôi
+            </h5>
             <p className={styles.title}>
-            Hãy để các chuyên gia tư vấn miễn phí và có thời gian trải nghiệm trước khi quyết định sử dụng giải pháp của chúng tôi!
+              Hãy để các chuyên gia tư vấn miễn phí và có thời gian trải nghiệm
+              trước khi quyết định sử dụng giải pháp của chúng tôi!
             </p>
             <div
               className={`d-flex align-items-center justify-content-between ${styles["information-box"]}`}
@@ -127,20 +167,18 @@ export const getServerSideProps = async ({ req, params }) => {
   const userIsBot = checkUserIsBot(req);
   const { id } = params;
 
-  const filterImage = DataImageProduct.filter(item => {
+  const filterImage = DataImageProduct.filter((item) => {
     return item.id.toString() !== id.toString();
-  })
+  });
   const data_product = await axiosConfig({
     url: getProductById(id),
   });
-
-
 
   const all_products = await axiosConfig({
     url: apiGetProducts,
     method: "POST",
     data: {
-      page_size: 4
+      page_size: 4,
     },
   });
 
@@ -153,10 +191,10 @@ export const getServerSideProps = async ({ req, params }) => {
     props: {
       isDisabledAnimation: userIsBot,
       data_product: data_product?.result,
-      other_products: all_products?.result?.items?.filter(item => {
+      other_products: all_products?.result?.items?.filter((item) => {
         return +item.id !== +id;
       }),
-      images: filterImage
+      images: filterImage,
     },
   };
 };

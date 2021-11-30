@@ -29,7 +29,7 @@ const Footer = () => {
                           router.asPath === item.path ? styles.active : ""
                         }
                       >
-                        <Link href={item.path}>{item.name}</Link>
+                        <Link href={index === 2 ? `${item.path}/1` : item.path}>{item.name}</Link>
                       </li>
                     );
                   }

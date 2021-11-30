@@ -17,16 +17,26 @@ const RenderSlide = ({ name, introduction, url_cover, socials }) => {
           <div className={`d-flex align-items-center ${styles.social}`}>
             {socials &&
               socials?.map((item, index) => {
-                if(item.src !== "null"){
+                if (item.src !== "null" || item.src) {
                   return (
                     <Link href={item.src} key={index} passHref={true}>
                       <a>
-                        <Image src="/fb-orange-icon.svg" alt="" />
+                        <Image
+                          className={item.type === 'fb' && styles.img}
+                          src={
+                            item.type === "fb"
+                              ? "/fb-orange-icon.svg"
+                              : item.type === "Noron"
+                              ? "/noron-orange-icon.svg"
+                              : ""
+                          }
+                          alt=""
+                        />
                       </a>
                     </Link>
                   );
                 }
-                return ''
+                return "";
               })}
           </div>
         </div>

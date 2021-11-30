@@ -117,6 +117,10 @@
         }
     }
 }
+.text-right{
+    left: auto;
+    right: 0;
+}
 @media screen and (max-width: 991px) {
     .box{
         margin-top: -100px;

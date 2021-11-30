@@ -3,7 +3,19 @@
 }
 .image{
     img{
-        min-width: 830px;
+        width: 830px;
+        height: 507px;
+        object-fit: cover;
+    }
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(89.76deg, rgba(20, 18, 18, 0.71) 0.03%, rgba(45, 40, 40, 0) 42.67%);
     }
 }
 .text{
@@ -45,6 +57,10 @@
         font-weight: var(--weight-400);
     }
 }
+.text-right{
+    right: 0;
+    left: auto;
+}
 .title-item{
     padding-left: 40px;
     letter-spacing: var(--letter-spacing);
@@ -59,6 +75,7 @@
         img{
             min-width: 600px;
             width: 600px;
+            height: 366px;
         }
     }
 }
@@ -69,6 +86,7 @@
         img{
             min-width: 450px;
             width: 450px;
+            height: auto;
         }
     }
     .text{

@@ -62,6 +62,12 @@
     background: var(--white);
     border-radius: 50%;
     img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  .img{
+    img{
       width: 10px;
       height: 19px;
     }
