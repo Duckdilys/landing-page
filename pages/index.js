@@ -10,28 +10,31 @@ import getPartnerCondition from "../service/getPartners";
 import { checkUserIsBot } from "../util";
 import { BreadCrumbScript } from "../components/container";
 import { DataImageProduct } from "../components/container/DataImageProduct/DataImageProduct";
-export default function Home({ news, products, banner, partners }) {
+export default function Home({ news, products, banner, partners, highlightPosts }) {
   return (
     <>
-      <BreadCrumbScript dataElement={[
-        {
-          name: "Home",
-          href: "/"
-        },
-        {
-          name: "Xem tất cả",
-          href: '/news'
-        },
-        ...news.map(item => {
-          return {
-            name: item.title,
-            href: `/news/${item.id}`
-          }
-        })
-      ]} title={"MH Solution - Giải pháp 4.0"}/>
+      <BreadCrumbScript
+        dataElement={[
+          {
+            name: "Home",
+            href: "/",
+          },
+          {
+            name: "Xem tất cả",
+            href: "/news",
+          },
+          ...news.map((item) => {
+            return {
+              name: item.title,
+              href: `/news/${item.id}`,
+            };
+          }),
+        ]}
+        title={"MH Solution - Giải pháp 4.0"}
+      />
       <ContainerBanner banner={banner} />
-      <Product product={products} images={DataImageProduct}/>
-      <News news={news} />
+      <Product product={products} images={DataImageProduct} />
+      <News highlightPosts={highlightPosts} news={news} />
       <Partner partners={partners} />
     </>
   );
@@ -46,12 +49,27 @@ export const getServerSideProps = async ({ req }) => {
   const product = await getProductsByCondition(1, 4);
   const news = await getNewsByCondition(1, 3, "");
   const partners = await getPartnerCondition(1, 10);
-
+  const highlightPosts = await getNewsByCondition(0, 3, "", {
+    sorts: [
+      {
+        property: "created_at",
+        direction: "DESC",
+      },
+    ],
+    filters: [
+      {
+        name: 'is_highlights',
+        operation: 'eq',
+        value: 1
+      }
+    ]
+  });
   if (
     bannerData.code >= 400 ||
     product.code >= 400 ||
     news.code >= 400 ||
-    partners.code >= 400
+    partners.code >= 400 ||
+    highlightPosts.code >= 400
   ) {
     return {
       notFound: true,
@@ -66,11 +84,12 @@ export const getServerSideProps = async ({ req }) => {
           created_at: new Date(post.created_at).toLocaleDateString("vi-VN"),
         };
       }),
-      products: product.result.items,
-      banner: bannerData,
-      partners: partners.result.items,
+      products: product.result.items || [],
+      banner: bannerData || "",
+      partners: partners.result.items || [],
       isDisabledAnimation: userIsBot,
-      image_products: DataImageProduct
+      image_products: DataImageProduct || [],
+      highlightPosts: highlightPosts
     },
   };
 };

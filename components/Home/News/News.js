@@ -10,10 +10,10 @@ import { Row, Col } from "react-bootstrap";
 import styles from "./News.module.scss";
 import Slide from "./Slide/Slide";
 import New from "./New/New";
-import Link from 'next/link';
+import Link from "next/link";
 import useMedia from "../../../hook/use-media";
-const News = ({ news }) => {
-  const matchMedia = useMedia('(max-width: 768px)');
+const News = ({ news, highlightPosts }) => {
+  const matchMedia = useMedia("(max-width: 768px)");
   return (
     <div className={styles.container}>
       <LayoutContainer className={styles.contain}>
@@ -34,19 +34,17 @@ const News = ({ news }) => {
               classNameActiveBullet={styles.active}
               classNameNormalBullet={styles.normal}
             >
-              {news.map((item, index) => {
-                if (index < 5) {
-                  return (
-                    <SwiperSlide key={item.id}>
-                      <Slide
-                        src={item.cover_url}
-                        type={item.type || "Dashboard"}
-                        title={item.title}
-                        id={item.id}
-                      />
-                    </SwiperSlide>
-                  );
-                }
+              {highlightPosts?.result?.items.map((item, index) => {
+                return (
+                  <SwiperSlide key={item.id}>
+                    <Slide
+                      src={item.cover_url}
+                      type={item.type || "Dashboard"}
+                      title={item.title}
+                      id={item.id}
+                    />
+                  </SwiperSlide>
+                );
               })}
             </SwiperContainer>
           </Col>
@@ -68,7 +66,11 @@ const News = ({ news }) => {
                 }
               })}
             </Grid>
-            <Link passHref={true} href={`/news`}><a><Button className={styles.button}>Xem tất cả</Button></a></Link>
+            <Link passHref={true} href={`/news`}>
+              <a>
+                <Button className={styles.button}>Xem tất cả</Button>
+              </a>
+            </Link>
           </Col>
         </Row>
       </LayoutContainer>
