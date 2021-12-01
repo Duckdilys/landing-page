@@ -1,6 +1,9 @@
 .swiper{
     position: relative;
 }
+.contain{
+    margin-top: 80px;
+}
 .pagination{
     bottom: 64px !important;
 }
@@ -34,19 +37,16 @@
     }
     background: var(--light-black-bg);
 }
-.left{
-    right: 90px;
-    left: auto;
-    bottom: 35px;
+@media screen and (max-width: 991px) {
+    .pagination{
+        bottom: 14px !important;
+    }
+    .contain{
+        margin-top: 56px;
+    }
 }
-.right{
-    right: 24px;
-    bottom: 35px;
-}
-
 @media screen and (max-width: 576px) {
     .swiper{
-        height: 328px;
         img{
             width: 100%;
             height: auto;

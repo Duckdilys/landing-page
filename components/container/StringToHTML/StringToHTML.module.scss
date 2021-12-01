@@ -1,0 +1,8 @@
+.parser{
+    p, ul{
+        padding-bottom: 16px;
+        &:last-child{
+            padding-bottom: 0;
+        }
+    }
+}

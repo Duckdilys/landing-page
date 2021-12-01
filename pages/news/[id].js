@@ -42,12 +42,6 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
           },
         ]}
       />
-      {/* <BannerPage
-        classNameBox={styles.container}
-        classNameBanner={styles.banner}
-        style={{ background: `url('/Banner_detail.png')` }}
-        title={data?.title}
-      /> */}
       <LayoutContainer className={styles["container-detail"]}>
         <div className={styles.grid}>
           <div className={styles.left}>
@@ -102,12 +96,13 @@ export const getServerSideProps = async ({ req, query }) => {
   const postDetail = await axiosConfig({
     url: getNewById(+id),
   });
+
   const postRelated = await getNews(0, 4, "", {
     filters: [
       {
         name: "category_new_id",
         operation: "eq",
-        value: id,
+        value: id
       },
     ],
   });

@@ -1,7 +1,6 @@
 @import '../../styles/grid';
 .banner{
     background: url('../../public/Banner_Products.png');
-    height: 464px !important;
     background-attachment: unset !important;
 }
 .box{
@@ -65,6 +64,7 @@
     p{
         padding-left: 0;
     }
+    margin-top: var(--pd-64) !important;
 }
 .btn{
     width: 267px;

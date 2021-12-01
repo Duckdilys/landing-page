@@ -92,26 +92,9 @@ const Form = ({ contact }) => {
   };
   return (
     <>
-      <Grid className={styles.grid}>
-        <div className={styles.information}>
-          <h5>Thông tin liên hệ</h5>
-          <ul>
-            {Object.values(contact).map((content, index) => {
-              return (
-                <li className="d-flex align-items-center" key={index}>
-                  <Image
-                    src={icon[index]}
-                    alt=""
-                    width={matchMobile ? "16px" : "23px"}
-                    height={matchMobile ? "16px" : "23px"}
-                  />
-                  <span>{content}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <form onSubmit={submitFormHandler} className={styles.form}>
+      <form onSubmit={submitFormHandler} className={styles.form}>
+        <h4>Liên hệ với chúng tôi</h4>
+        <Grid className={styles.grid}>
           {renderInput.map((input, index) => {
             return (
               <Input
@@ -130,7 +113,13 @@ const Form = ({ contact }) => {
             }}
             className={`w-100 ${styles.text}`}
           />
-          <div className={styles.button}>
+          {isLoading && (
+            <div className="text-center pt-3">
+              <Loading />
+            </div>
+          )}
+        </Grid>
+        <div className={styles.button}>
             <Button
               options={{
                 type: "submit",
@@ -139,9 +128,7 @@ const Form = ({ contact }) => {
               Gửi nội dung
             </Button>
           </div>
-          {isLoading && <div className="text-center pt-3"><Loading/></div>}
-        </form>
-      </Grid>
+      </form>
       <CSSTransition
         in={!isLoading && data}
         unmountOnExit

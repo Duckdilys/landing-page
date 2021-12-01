@@ -1,6 +1,6 @@
 import React from "react";
 import { BoxLayout, ContainerBanner } from "..";
-
+import { StringToHTML } from "..";
 const BannerPage = ({
   classNameBanner,
   title,
@@ -14,7 +14,7 @@ const BannerPage = ({
       <ContainerBanner className={classNameBanner} style={{...style}} />
       <BoxLayout className={classNameBox}>
         {title && <h4>{title}</h4>}
-        {introduction && <p>{introduction}</p>}
+        {introduction && <StringToHTML string={introduction}/>}
         {children}
       </BoxLayout>
     </>

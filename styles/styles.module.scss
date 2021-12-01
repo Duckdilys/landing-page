@@ -61,3 +61,11 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .introduction{
+        & > div, p, ul, li{
+            font-size: var(--fs-small) !important;
+        }
+    }
+}

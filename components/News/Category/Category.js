@@ -14,7 +14,7 @@ const Category = ({ categories, type, matchMedia }) => {
   };
   return (
     <div className={styles.category}>
-      <h6>{matchMedia ? "Tin gần đây" : "Danh mục tin tức"}</h6>
+      {!matchMedia &&  <h6>Danh mục tin tức</h6>}
       <div className={styles.flow}>
         <ul>
           <li

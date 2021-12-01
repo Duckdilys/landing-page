@@ -1,9 +1,10 @@
+@import '../../../styles/grid';
 .banner {
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-position: center center !important;
     position: relative !important;
-    height: calc(100vh - 80px) !important;
+    @include ratio(0);
     h3{
         color: var(--white);
         line-height: var(--pd-64);
@@ -41,6 +42,7 @@
 
 @media screen and (max-width: 991px) {
     .banner{
+        padding-top: 80%;
         .content{
             padding-bottom: 0;
             bottom: 96px;
@@ -57,5 +59,12 @@
             letter-spacing: var(--letter-spacing);
             line-height: var(--middle-space);
         }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .banner{
+        height: calc(100vh - 56px) !important;
+        background-position: 60% 50% !important;
     }
 }

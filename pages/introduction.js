@@ -11,6 +11,7 @@ import { apiIntroduction } from "../config/ApiIntroduction";
 import { ApiFounder } from "../config/ApiFounder";
 import { getPartnerCondition } from "../service";
 import { checkUserIsBot } from "../util";
+import { StringToHTML } from "../components/container";
 import useMedia from "../hook/use-media";
 const Introduction = ({ dataIntroduction, founderData, partners }) => {
   const matchMedia = useMedia("(max-width: 768px)");
@@ -37,7 +38,7 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
           <Banner data={!matchMedia ? dataIntroduction : ""} />
           {matchMedia && (
             <div className={styles.introduction}>
-              {dataIntroduction?.content}
+              <StringToHTML string={dataIntroduction?.content}/>
             </div>
           )}
           {dataIntroduction && (

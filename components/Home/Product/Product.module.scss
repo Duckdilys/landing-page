@@ -23,10 +23,13 @@
 
 }
 .slide-swiper{
-    width: 272px !important;
+    width: 297px !important;
 }
 
 @media screen and (max-width: 991px) {
+    .slide-swiper{
+        width: 272px !important;
+    }
     .container{
         padding-right: 0 !important;
     }

@@ -26,7 +26,7 @@
   }
   @include padding-box();
   background: var(--white);
-  outline: 1px solid var(--border-color);
+  border: 1px solid var(--border-color);
   .icon-image {
     width: 48px;
     height: 48px;
@@ -34,12 +34,11 @@
     border-radius: 50%;
     background: var(--light-orange);
   }
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   transition: all .75s ease-in-out !important;
   .content{
     @include show-n-line(4);
+    line-height: var(--line-height-primary);
+    letter-spacing: var(--letter-spacing);
   }
   &:hover{
     outline: none;
@@ -68,7 +67,7 @@
   width: 233px;
   height: 241px;
   position: absolute !important;
-  bottom: 24px;
+  bottom: 32px;
   margin-top: 24px;
   img{
     position: absolute;
@@ -82,7 +81,6 @@
     max-height: 100%;
     object-fit: cover;
   }
-  overflow: hidden;
 }
 .show--container {
   background: var(--background-primary);
@@ -115,6 +113,10 @@
   }
   .line {
     margin: var(--size-space) 0;
+    height: 2px;
+  }
+  .text{
+    height: 201px;
   }
   p{
       line-height: 28px;
@@ -131,22 +133,6 @@
 }
 
 @media screen and (max-width: 1300px) {
-  .layout{
-    width: 100%;
-  }
-  .image{
-    position: relative !important;
-    // display: flex;
-    // justify-content: flex-end;
-    // align-items: center;
-    width: 100%;
-    margin-top: 32px;
-    height: 197px;
-    img{
-      width: 100%;
-      height: 197px;
-    }
-  }
   .show--container{
     p{
       height: auto;
@@ -169,7 +155,6 @@
   .layout{
     overflow: visible !important;
     border: 1px solid var(--border-color);
-    outline: none !important;
     height: 401px;
     width: 272px;
     .icon-image{
@@ -201,6 +186,18 @@
         font-size: 14px;
         letter-spacing: var(--letter-spacing);
       }
+      .text{
+        height: auto;
+        position: absolute;
+        bottom: var(--middle-space);
+        left: 0;
+        padding-left: var(--middle-space);
+        padding-right: var(--middle-space);
+      }
+      .content{
+        line-height: 20px;
+        font-size: var(--fs-small);
+      }
     }
   }
   .image{
@@ -211,10 +208,5 @@
     width: 224px;
     position: absolute !important;
     bottom: 24px;
-    img{
-      height: 197px;
-      width: 224px;
-      position: relative !important;
-    }
   }
 }

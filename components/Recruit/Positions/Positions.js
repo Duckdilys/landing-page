@@ -32,15 +32,14 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
                   <Position
                     key={index}
                     title={item?.title}
-                    date={new Date(item?.created_at).toLocaleDateString(
-                      "vi-vn"
-                    )}
                     salary={item?.salary}
                     types={[item?.level, item?.career, item?.work_type]}
                     url={item.infos[0] ? item.infos[0]?.src : "/position.png"}
                     place={item?.work_address}
                     id={item.id}
                     isMobile={matchMedia}
+                    time_start={item?.created_at}
+                    time_end={item?.end_time}
                   />
                 );
               })}

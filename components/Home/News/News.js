@@ -3,6 +3,7 @@ import {
   SwiperContainer,
   Grid,
   Button,
+  Image
 } from "../../container";
 import React from "react";
 import { SwiperSlide } from "swiper/react";
@@ -50,7 +51,6 @@ const News = ({ news, highlightPosts }) => {
           </Col>
           <Col data-aos="fade-left" xs={12} sm={12} md={6} lg={6}>
             <Grid className={styles.grid}>
-              <h5>Tin gần đây</h5>
               {news.map((item, index) => {
                 if (index >= 1) {
                   return (
@@ -68,7 +68,7 @@ const News = ({ news, highlightPosts }) => {
             </Grid>
             <Link passHref={true} href={`/news`}>
               <a>
-                <Button className={styles.button}>Xem tất cả</Button>
+                <Button className={`d-flex align-items-center ${styles.button}`}>Xem tất cả <Image src={'/arrow-right-icon.svg'} alt=""/> </Button>
               </a>
             </Link>
           </Col>

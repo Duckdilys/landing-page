@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Image } from "../../../container";
 import styles from "./RenderSlide.module.scss";
+import { StringToHTML } from "../../../container";
 const RenderSlide = ({ name, introduction, url_cover, socials }) => {
   return (
     <div className={styles.container}>
@@ -13,27 +14,27 @@ const RenderSlide = ({ name, introduction, url_cover, socials }) => {
         >
           <p>Vị trí - Chức vụ</p>
           <h5>{name}</h5>
-          <p className={styles.intro}>{introduction}</p>
+          <div className={styles.intro}>
+            <StringToHTML string={introduction} />
+          </div>
           <div className={`d-flex align-items-center ${styles.social}`}>
             {socials &&
               socials?.map((item, index) => {
                 if (item.src !== "null" || item.src) {
                   return (
-                    <Link href={item.src} key={index} passHref={true}>
-                      <a>
-                        <Image
-                          className={item.type === 'fb' && styles.img}
-                          src={
-                            item.type === "fb"
-                              ? "/fb-orange-icon.svg"
-                              : item.type === "Noron"
-                              ? "/noron-orange-icon.svg"
-                              : ""
-                          }
-                          alt=""
-                        />
-                      </a>
-                    </Link>
+                    <a href={item.src} target="_blank" rel="noreferrer" key={index}>
+                      <Image
+                        className={item.type === "fb" && styles.img}
+                        src={
+                          item.type === "fb"
+                            ? "/fb-orange-icon.svg"
+                            : item.type === "Noron"
+                            ? "/noron-orange-icon.svg"
+                            : ""
+                        }
+                        alt=""
+                      />
+                    </a>
                   );
                 }
                 return "";

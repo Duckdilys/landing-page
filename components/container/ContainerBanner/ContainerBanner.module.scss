@@ -1,9 +1,9 @@
 .container {
-  height: calc(50vh - 80px) !important;
+  padding-top: calc(464px / 1441px * 100%);
   background: url("../../../public/banner.png");
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  background-position: center !important;
+  background-position: 50% 50% !important;
   position: relative;
   background-attachment: fixed !important;
   margin-top: 80px;
@@ -23,6 +23,11 @@
 @media screen and (max-width: 991px) {
   .container{
     margin-top: 56px;
-    height: calc(50vh - 56px) !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container{
+    padding-top: calc(183.73px / 375px * 100%);
   }
 }

@@ -53,9 +53,9 @@ const Products = ({ data_product, other_products, images }) => {
       <TextImage
         mainTitle={"Thông tin chi tiết"}
         title={
-          data_product?.content ? data_product?.content : "Không có dữ liệu"
+          data_product?.contents ? data_product?.contents[0]?.content : "Không có dữ liệu"
         }
-        src={"/Products.png"}
+        src={data_product?.contents ? data_product?.contents[0]?.src : '/Products.png'}
         aosImage="fade-left"
         iconImage={null}
         classImage={styles["text-image"]}
@@ -100,7 +100,7 @@ const Products = ({ data_product, other_products, images }) => {
       <Introduction
         aos="fade-left"
         title="Chúng tôi cung cấp giải pháp với các ưu điểm vượt trội"
-        src={"/product_intro_1.png"}
+        src={data_product?.info_url || "/product_intro_1.png"}
         imageConfig={{
           "data-aos": "fade-right",
         }}
@@ -118,7 +118,7 @@ const Products = ({ data_product, other_products, images }) => {
           <p className="text-center">Không có dữ liệu</p>
         )}
       </Introduction>
-      {!data_product.landing_page && (
+      {data_product.landing_page && (
         <Introduction
           imageConfig={{ "data-aos": "fade-left" }}
           className={styles.information}
@@ -143,14 +143,14 @@ const Products = ({ data_product, other_products, images }) => {
                   width={isMiddleBox ? "15px" : "24px"}
                   height={isMiddleBox ? "15px" : "24px"}
                 />
-                <span>0975-718-168</span>
+                <span>{data_product?.phone_number}</span>
               </div>
-              <Button className={styles.btn}>truy cập đến trang web</Button>
+              <a href={data_product?.landing_page || "/"} target="_blank" rel="noreferrer"><Button className={styles.btn}>truy cập đến trang web</Button></a>
             </div>
           </div>
         </Introduction>
       )}
-      {data_product?.landing_page && <BannerLanding />}
+      {!data_product?.landing_page && <BannerLanding />}
       <Product
         className={styles.background}
         classNameContainer={styles["container-product"]}

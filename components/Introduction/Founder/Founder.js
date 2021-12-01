@@ -14,8 +14,8 @@ const Founder = ({ dataFounder }) => {
           config={{
             left: styles.left,
             right: styles.right,
-            "data-aos-delay": 1000,
-            "data-aos-offset": 300,
+            "data-aos-delay": 200,
+            "data-aos-offset": 150,
           }}
           aos="fade-up"
           className={styles.swiper}

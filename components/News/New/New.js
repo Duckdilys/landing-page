@@ -9,7 +9,6 @@ const New = ({ news, isLoading, turnLoadingToArray, matchMedia, children }) => {
   }, [filterPostByCategory]);
   return (
     <div className={styles.container}>
-      {!matchMedia && <h5>Tin gần đây</h5>}
       {news.length === 0 && (
         <p className="text-center pt-3">Không có dữ liệu</p>
       )}

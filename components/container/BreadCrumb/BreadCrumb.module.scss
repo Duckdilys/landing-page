@@ -13,7 +13,7 @@
     }
     li {
       letter-spacing: var(--letter-spacing-normal);
-      font-size: var(--fs-large);
+      font-size: var(--fs-normal);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,7 +36,7 @@
   padding-bottom: var(--mg-16) !important;
   .date {
     span {
-      font-size: 20px !important;
+      font-size: var(--fs-normal) !important;
       color: var(--gray-secondary);
       line-height: var(--line-height-primary);
       letter-spacing: var(--letter-spacing);
@@ -58,7 +58,7 @@
 }
 @media screen and (max-width: 768px) {
   .date {
-    font-size: var(--fs-nlarge);
+    font-size: var(--fs-small);
     padding-top: var(--pd-12);
     padding-bottom: 8px;
     color: var(--gray-secondary);

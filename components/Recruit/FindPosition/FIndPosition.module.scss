@@ -5,10 +5,12 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     letter-spacing: var(--letter-spacing);
+    line-height: 0;
 }
 .input{
     input{
         border: none !important;
+        height: 100%;
     }
 }
 .button{
@@ -20,6 +22,7 @@
         color: var(--white);
         font-weight: var(--weight-700);
         text-transform: uppercase;
+        height: 56px;
     }
 }
 

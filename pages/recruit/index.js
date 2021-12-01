@@ -111,7 +111,7 @@ export const getServerSideProps = async ({ req, query }) => {
     keyword: "",
     sorts: [
       {
-        property: "createdAt",
+        property: "created_at",
         direction: "DESC",
       },
     ],

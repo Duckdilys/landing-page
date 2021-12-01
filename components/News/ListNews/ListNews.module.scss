@@ -28,5 +28,7 @@
   }
 }
 @media screen and (max-width: 768px) {
-  
+  .container{
+    margin-top: var(--middle-space) !important;
+  }
 }
