@@ -4,7 +4,7 @@ import styles from "./Positions.module.scss";
 import { Grid, Pagination, SkeletonLoading } from "../../container";
 import useMedia  from "../../../hook/use-media";
 const Positions = ({ positions, totalDocuments, page, isLoading }) => {
-  const matchMedia = useMedia('(max-width: 1100px)')
+  const matchMedia = useMedia('(max-width: 576px)')
   return (
     <div className={styles.container}>
       <Grid className={styles.grid}>
@@ -33,7 +33,7 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
                     key={index}
                     title={item?.title}
                     salary={item?.salary}
-                    types={[item?.level, item?.career, item?.work_type]}
+                    types={[item?.career, item?.level, item?.work_type]}
                     url={item.infos[0] ? item.infos[0]?.src : "/position.png"}
                     place={item?.work_address}
                     id={item.id}

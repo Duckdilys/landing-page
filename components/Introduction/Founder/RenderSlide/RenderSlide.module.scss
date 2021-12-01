@@ -103,6 +103,9 @@
     .intro{
       line-height: 20px;
       font-size: var(--fs-small);
+      p{
+        font-size: 14px !important;
+      }
     }
     h5{
       padding-bottom: var(--middle-space);

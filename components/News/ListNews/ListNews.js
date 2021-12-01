@@ -22,24 +22,35 @@ const ListNews = ({ news, categories, isLoading, perPage, children }) => {
     );
   });
   return (
-    <ContainerSmall className={styles.container}>
-      <Grid className={styles.grid}>
+    <>
+      {matchMedia && (
         <Category
           type={type}
           categories={renderTypes}
           matchMedia={matchMedia}
         />
-        <New
-          matchMedia={matchMedia}
-          isLoading={isLoading}
-          postTypes={renderTypes}
-          news={news}
-          turnLoadingToArray={turnLoadingToArray}
-        >
-          {children}
-        </New>
-      </Grid>
-    </ContainerSmall>
+      )}
+      <ContainerSmall className={styles.container}>
+        <Grid className={styles.grid}>
+          {!matchMedia && (
+            <Category
+              type={type}
+              categories={renderTypes}
+              matchMedia={matchMedia}
+            />
+          )}
+          <New
+            matchMedia={matchMedia}
+            isLoading={isLoading}
+            postTypes={renderTypes}
+            news={news}
+            turnLoadingToArray={turnLoadingToArray}
+          >
+            {children}
+          </New>
+        </Grid>
+      </ContainerSmall>
+    </>
   );
 };
 export default ListNews;

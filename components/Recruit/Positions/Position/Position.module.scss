@@ -71,7 +71,7 @@
     }
   }
   .places {
-    padding: 14px 0 8px 0;
+    padding: 13px 0 7px 0;
     span {
       font-size: var(--fs-small);
       font-weight: var(--weight-400);
@@ -134,5 +134,8 @@
       }
     }
     padding: var(--mg-16);
+  }
+  .flex{
+    margin-top: 12px;
   }
 }

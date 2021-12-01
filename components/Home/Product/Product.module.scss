@@ -3,7 +3,7 @@
 }
 .container{
     overflow: hidden;
-    padding-bottom: 48px;
+    padding-bottom: 34px;
 }
 .container-product{
     & > h4{
@@ -37,6 +37,7 @@
         padding-right: 0 !important;
         & > h4{
             line-height: 36px;
+            padding-right: 24px;
         }
     }
 }

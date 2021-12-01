@@ -78,13 +78,11 @@ const News = ({ categories, news, totalPage, heading }) => {
         error={error}
         perPage={8}
       >
-        {posts.length > 9 && (
-          <Pagination
-            totalDocuments={totalDocuments}
-            perPage={9}
-            currentPage={query}
-          />
-        )}
+        <Pagination
+          totalDocuments={totalDocuments}
+          perPage={9}
+          currentPage={query}
+        />
       </ListNews>
     </>
   );
@@ -104,11 +102,11 @@ export const getServerSideProps = async ({ req, query }) => {
     ],
     filters: [
       {
-        name: 'is_highlights',
-        operation: 'eq',
-        value: 1
-      }
-    ]
+        name: "is_highlights",
+        operation: "eq",
+        value: 1,
+      },
+    ],
   });
   if (
     categories.code >= 400 ||

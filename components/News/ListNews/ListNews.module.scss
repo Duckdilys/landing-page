@@ -24,11 +24,6 @@
     display: block;
   }
   .container{
-    margin-top: var(--middle-space);
-  }
-}
-@media screen and (max-width: 768px) {
-  .container{
-    margin-top: var(--middle-space) !important;
+    margin-top: 0 !important;
   }
 }

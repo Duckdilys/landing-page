@@ -14,7 +14,7 @@ const TextImage = ({ title, className, src, mainTitle, classText, aosImage, icon
         </div>
         <div
           data-aos={aos ? aos : "fade-up"}
-          data-aos-delay={750}
+          data-aos-delay={250}
           className={`${styles.text} ${classText} ${rightText && styles['text-right']}`}
         >
           <h5>{mainTitle}</h5>

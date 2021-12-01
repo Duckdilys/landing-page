@@ -12,9 +12,6 @@ const helperFilterHandler = (name, value) => {
   };
 };
 const FindPosition = ({
-  allCareer,
-  allMethods,
-  allRanked,
   setQueryFilterHandler,
 }) => {
   const isMobile = useMedia('(max-width: 1200px)');
@@ -63,16 +60,16 @@ const FindPosition = ({
       </Input>
       <Select
         setValueByFn={setWorkType}
-        listValue={["Phần mềm", "Kinh doanh", "Back Office"]}
+        listValue={["Tất cả", "Phần mềm", "Kinh doanh", "Back Office"]}
         firstTitle="Ngành nghề"
       />
       <Select
-        listValue={["Intern", "Fresher", "Junior", "Middle", "Middle Senior", "Senior"]}
+        listValue={["Tất cả", "Intern", "Fresher", "Junior", "Middle", "Middle Senior", "Senior"]}
         setValueByFn={setLevel}
         firstTitle="Cấp bậc"
       />
       <Select
-        listValue={["Full-time", "Part-time"]}
+        listValue={["Tất cả", "Full-time", "Part-time"]}
         setValueByFn={setMethod}
         firstTitle="Hình thức làm việc"
       />

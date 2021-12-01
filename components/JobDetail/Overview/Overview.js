@@ -12,7 +12,7 @@ const Overview = ({ overview }) => {
     <div className={styles.container}>
       <h5>Tổng quan về công việc</h5>
       <div className={styles.box}>
-        <Box title="Mức lương" content={overview?.salary} />
+        <Box title="Mức lương" content={overview?.salary} className={styles.salary}/>
         <Box title="Cấp bậc" content={overview?.level} />
         <Box title="Kinh nghiệm" content={overview?.work_experience} />
         <Box title="Hình thức làm việc" content={overview?.work_type} />

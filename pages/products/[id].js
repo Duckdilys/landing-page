@@ -5,6 +5,7 @@ import {
   TextImage,
   Button,
   BreadCrumbScript,
+  Line,
 } from "../../components/container";
 import styles from "../../components/Products/Banner.module.scss";
 import Introduction from "../../components/Products/Introduction/Introduction";
@@ -56,16 +57,15 @@ const Products = ({ data_product, other_products, images }) => {
           data_product?.contents ? data_product?.contents[0]?.content : "Không có dữ liệu"
         }
         src={data_product?.contents ? data_product?.contents[0]?.src : '/Products.png'}
-        aosImage="fade-left"
+        aosImage="fade-right"
         iconImage={null}
         classImage={styles["text-image"]}
         classText={styles["text-banner"]}
         classNameContainer={styles.container}
-        className={`${styles["container-text"]}`}
-        aos="fade-right"
-        rightText
+        className={`${styles["container-text"]} flex-row-reverse`}
+        aos="fade-left"
       />
-      {data_product?.infos?.map((item, index) => {
+      {/* {data_product?.infos?.map((item, index) => {
         if (index % 2 === 0) {
           return (
             <TextImage
@@ -96,7 +96,7 @@ const Products = ({ data_product, other_products, images }) => {
             rightText
           />
         );
-      })}
+      })} */}
       <Introduction
         aos="fade-left"
         title="Chúng tôi cung cấp giải pháp với các ưu điểm vượt trội"
@@ -125,7 +125,8 @@ const Products = ({ data_product, other_products, images }) => {
           src={isMobile ? null : "/banner 2.png"}
           childrenClassName={styles.text}
         >
-          <div data-aos="fade-right" data-aos-delay={500} data-aos-offset={300}>
+          {isMobile && <Line style={{background: 'black', width: '96px', height: '1px', margin: '32px 0px'}}/>}
+          <div data-aos="fade-right">
             <h5 style={{ paddingBottom: "16px" }}>
               Tìm hiểu thêm thông tin về Giải pháp của chúng tôi
             </h5>
@@ -150,7 +151,7 @@ const Products = ({ data_product, other_products, images }) => {
           </div>
         </Introduction>
       )}
-      {!data_product?.landing_page && <BannerLanding />}
+      {!data_product?.landing_page && <BannerLanding website={data_product?.website} />}
       <Product
         className={styles.background}
         classNameContainer={styles["container-product"]}

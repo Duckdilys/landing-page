@@ -57,6 +57,7 @@ const renderInput = [
 const Form = ({ contact }) => {
   const { fetchDataFromServer, data, error, isLoading, resetAllHandler } =
     useFetch();
+  
   const matchMobile = useMedia("(max-width: 768px)");
   const icon = [
     "/home-dark-icon.svg",

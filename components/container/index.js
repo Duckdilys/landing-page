@@ -26,6 +26,7 @@ import ButtonUpTop from './ButtonUpTop/ButtonUpTop';
 import TextArea from './TextArea/TextArea';
 import { BreadCrumbScript } from './SEO';
 import Loading from './Loading/Loading';
+import OverlayBG from './OverlayBG/OverlayBG';
 export {
     Logo,
     Line,
@@ -54,5 +55,6 @@ export {
     ButtonUpTop,
     TextArea,
     BreadCrumbScript,
-    Loading
+    Loading,
+    OverlayBG
 }

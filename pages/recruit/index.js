@@ -43,7 +43,7 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
         keyword: "",
         sorts: [
           {
-            property: "created_at",
+            property: "end_time",
             direction: "DESC",
           },
         ],
@@ -111,7 +111,7 @@ export const getServerSideProps = async ({ req, query }) => {
     keyword: "",
     sorts: [
       {
-        property: "created_at",
+        property: "end_time",
         direction: "DESC",
       },
     ],

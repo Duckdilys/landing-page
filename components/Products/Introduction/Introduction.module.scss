@@ -17,7 +17,7 @@
     padding-bottom: var(--xs-size);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing);
-
+    line-height: 24px;
   }
   p {
     line-height: 28px;
@@ -59,7 +59,7 @@
             font-size: var(--fs-large) !important;
             font-weight: var(--weight-700);
             letter-spacing: var(--letter-spacing) !important;
-            padding-top: 36px;
+            padding-top: 32px;
         }
     }
 }

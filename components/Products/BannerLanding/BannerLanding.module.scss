@@ -32,7 +32,7 @@
     h5 {
       color: var(--white);
       @include font-fs();
-      padding-bottom: 28px;
+      // padding-bottom: 28px;
       letter-spacing: calc(1px + var(--letter-spacing));
       line-height: 44px;
     }
@@ -44,6 +44,9 @@
       line-height: var(--middle-space);
       letter-spacing: var(--letter-spacing);
       border: none;
+    }
+    .space{
+      padding-bottom: 28px;
     }
   }
   .contact {

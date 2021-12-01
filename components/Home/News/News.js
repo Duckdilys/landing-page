@@ -31,9 +31,11 @@ const News = ({ news, highlightPosts }) => {
               containerPagination={styles.pagination}
               navigation={matchMedia ? false : true}
               loop
+              delay={5000}
               pagination
               classNameActiveBullet={styles.active}
               classNameNormalBullet={styles.normal}
+              
             >
               {highlightPosts?.result?.items.map((item, index) => {
                 return (
@@ -43,6 +45,7 @@ const News = ({ news, highlightPosts }) => {
                       type={item.type || "Dashboard"}
                       title={item.title}
                       id={item.id}
+                      contentClassName={styles['overlay']}
                     />
                   </SwiperSlide>
                 );

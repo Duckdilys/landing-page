@@ -4,7 +4,7 @@ import styles from "./Partner.module.scss";
 import { SwiperSlide } from "swiper/react";
 import useMedia from "../../../hook/use-media";
 const Partner = (props) => {
-  const matchMobile = useMedia("(max-width: 375px)");
+  const matchMobile = useMedia("(max-width: 768px)");
   const _renderSlider = (number) => {
     const array = [];
     // fake slider
@@ -28,6 +28,7 @@ const Partner = (props) => {
         <LayoutContainer className={styles["container-bg"]}>
           {!matchMobile && (
             <SwiperContainer
+              classOverlay={styles.overlay}
               className={styles.swiper}
               navigation={matchMobile ? false : true}
               config={{
@@ -72,16 +73,14 @@ const Partner = (props) => {
           {matchMobile && (
             <Grid className={styles["grid-partner"]}>
               {props.partners?.map((item, index) => {
-                if (index < 5) {
-                  return (
-                    <Image
-                      className={`${styles.image} ${styles["mobile-partner"]}`}
-                      key={item.id}
-                      alt=""
-                      src={item?.avatar}
-                    />
-                  );
-                }
+                return (
+                  <Image
+                    className={`${styles.image} ${styles["mobile-partner"]}`}
+                    key={item.id}
+                    alt=""
+                    src={item?.avatar}
+                  />
+                );
               })}
             </Grid>
           )}

@@ -60,6 +60,9 @@
     @include text-transform();
     cursor: pointer;
     font-weight: 600;
+    &:last-child{
+      margin-right: 0;
+    }
   }
 }
 .list-dropdown {

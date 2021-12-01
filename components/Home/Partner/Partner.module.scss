@@ -26,6 +26,12 @@
         overflow: hidden;
     }
 }
+.left{
+    left: 10px;
+}
+.right{
+    right: 10px;
+}
 .left, .right{
     width: 48px;
     height: 48px;
@@ -35,7 +41,7 @@
     border-radius: 50%;
     background: var(--white);
     transition: all .35s ease-in-out;
-    box-shadow: var(--box-shadow);
+    
     path{
         stroke: var(--orange-primary);
         stroke-width: 4;
@@ -104,5 +110,9 @@
             padding-bottom: var(--middle-space) !important;
             line-height: 36px;
         }
+    }
+    .grid-partner{
+        padding-left: var(--middle-space);
+        padding-right: var(--middle-space);
     }
 }

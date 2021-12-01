@@ -1,6 +1,6 @@
 .banner {
-  height: 216px !important;
   background-attachment: unset !important;
+  padding-top: calc(216px / 1441px * 100%);
 }
 .box {
   margin-top: -120px;
@@ -52,7 +52,12 @@
   text-transform: uppercase;
   margin-top: var(--size-space);
 }
-
+.line{
+  img{
+    width: 40px;
+    height: 40px;
+  }
+}
 .share {
   background: var(--light-gray);
   h4 {
@@ -74,7 +79,6 @@
     span:last-child {
       width: 36px;
       height: 36px;
-      background: var(--orange-primary);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -113,6 +117,14 @@
     h4{
       padding-bottom: var(--pd-12);
       margin: 0;
+    }
+  }
+  .types{
+    div{
+      margin-right: 8px;
+      font-size: var(--fs-small) !important;
+      line-height: 20px;
+      letter-spacing: var(--letter-spacing);
     }
   }
 }

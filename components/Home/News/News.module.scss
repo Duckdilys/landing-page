@@ -19,6 +19,13 @@
 .button-right{
     right: 32px;
 }
+.pagination{
+    bottom: var(--mg-16) !important;
+    z-index: 100;
+}
+.normal{
+    background: var(--gray-lighter);
+}
 .button-left, .button-right{
     top: 45%;
     background: rgba(29, 29, 29, 0.6);
@@ -75,13 +82,14 @@
         color: var(--black-primary);
     }
 }
-.swiper{
-    padding-bottom: 50px;
-}
 
 @media screen and (max-width: 768px) {
     .swiper{
-        padding-bottom: 50px;
+        margin-bottom: 16px;
+    }
+    .pagination{
+        bottom: 8px !important;
+        margin-bottom: 0 !important;
     }
     .button{
         margin-top: var(--pd-18);

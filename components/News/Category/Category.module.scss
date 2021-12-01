@@ -62,6 +62,8 @@
 
 @media screen and (max-width: 991px) {
     .category{
+        margin-top: var(--middle-space);
+        padding-left: var(--middle-space) !important;
         h6{
             padding-bottom: var(--mg-16);
             font-size: var(--fs-nlarge);

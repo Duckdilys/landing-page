@@ -64,7 +64,7 @@
     p{
         padding-left: 0;
     }
-    margin-top: var(--pd-64) !important;
+    margin-top: 64px !important;
 }
 .btn{
     width: 267px;
@@ -95,6 +95,9 @@
             flex-direction: column-reverse;
             align-items: center;
             padding: var(--mg-16);
+            a{
+                width: 100%;
+            }
         }
         .content{
             font-size: var(--fs-small) !important;
@@ -156,6 +159,9 @@
         & > div{
             width: 100% !important;
         }
+        h5{
+            font-size: 20px !important;
+        }
     }
 }
 
@@ -167,6 +173,7 @@
        }
    }
    .container{
+       margin-top: 0 !important;
        .container-text{
            display: flex !important;
            flex-direction: column-reverse !important;
@@ -190,7 +197,7 @@
        margin-top: 0;
    }
    .container{
-       padding-top: var(--middle-space);
+       padding-top: 24px;
    }
    .title{
        line-height: 28px;

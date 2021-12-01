@@ -37,6 +37,9 @@
   color: var(--light-black);
   padding-bottom: var(--sm-size);
   line-height: 20px;
+  p{
+    padding-bottom: 0
+  }
 }
 .text-content{
   @include show-n-line(3);

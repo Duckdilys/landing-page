@@ -118,6 +118,13 @@ export const getServerSideProps = async ({ req, query }) => {
           direction: "DESC",
         },
       ],
+      filters: [
+        {
+          name: 'is_highlights',
+          operation: 'eq',
+          value: 1
+        }
+      ]
     },
   });
   if (

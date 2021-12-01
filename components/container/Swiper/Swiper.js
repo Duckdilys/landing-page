@@ -20,7 +20,8 @@ const SwiperContainer = ({
   classActiveCurrent,
   containerPagination,
   spaceBetween,
-  isPost
+  classOverlay,
+  isPost,
 }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -51,29 +52,37 @@ const SwiperContainer = ({
       }
       className={`${styles.swiper} ${className}`}
       loop={loop ? true : false}
-      autoplay={ delay ? {
-        delay: delay,
-      } : false}
+      autoplay={
+        delay
+          ? {
+              delay: delay,
+            }
+          : false
+      }
       {...config}
     >
       {children}
       {navigation && (
         <>
-          <div
-            className={`${config && config.left ? config.left : ""} ${
-              styles.left
-            }`}
-            ref={prevRef}
-          >
-            <ArrowLeft />
+          <div className={classOverlay}>
+            <div
+              className={`${config && config.left ? config.left : ""} ${
+                styles.left
+              }`}
+              ref={prevRef}
+            >
+              <ArrowLeft />
+            </div>
           </div>
-          <div
-            className={`${config && config.right ? config.right : ""} ${
-              styles.right
-            }`}
-            ref={nextRef}
-          >
-            <ArrowLeft />
+          <div className={classOverlay}>
+            <div
+              className={`${config && config.right ? config.right : ""} ${
+                styles.right
+              }`}
+              ref={nextRef}
+            >
+              <ArrowLeft />
+            </div>
           </div>
         </>
       )}

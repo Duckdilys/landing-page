@@ -94,6 +94,9 @@
     }
 }
 @media screen and (max-width: 768px) {
+    .container{
+        margin: 48px 0;
+    }
     .text{
         position: static;
         box-shadow: none;

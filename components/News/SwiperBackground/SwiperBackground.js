@@ -22,19 +22,19 @@ const SwiperBackground = ({ posts }) => {
         classNameNormalBullet={styles["normal-pagination"]}
         classNameActiveBullet={styles["active-pagination"]}
         config={{
-          onTransitionEnd: function () {
-            const indexActive = this.realIndex;
-            this.slides.forEach((slide) => {
-              const textSlider = slide.querySelector(".container-text");
-              if (!textSlider) {
-                return;
-              }
-              textSlider.classList.remove(styles["swiper-back-active"]);
-            });
-            const textItem =
-              this.slides[indexActive].querySelector(".container-text");
-            textItem.classList.add(styles["swiper-back-active"]);
-          },
+          // onTransitionEnd: function () {
+          //   const indexActive = this.realIndex;
+          //   this.slides.forEach((slide) => {
+          //     const textSlider = slide.querySelector(".container-text");
+          //     if (!textSlider) {
+          //       return;
+          //     }
+          //     textSlider.classList.remove(styles["swiper-back-active"]);
+          //   });
+          //   const textItem =
+          //     this.slides[indexActive].querySelector(".container-text");
+          //   textItem.classList.add(styles["swiper-back-active"]);
+          // },
           right: `${styles.right} ${styles.button}`,
           left: `${styles.left} ${styles.button}`,
           // onInit: function () {

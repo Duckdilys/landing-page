@@ -21,9 +21,7 @@ const Position = ({
     <Link href={`${router.pathname}/${id}`}>
       <a>
         <div className={`${styles.container}`}>
-          <div
-            className={`d-flex justify-content-between ${styles.wrap} align-items-center`}
-          >
+          <div className={`d-flex justify-content-between ${styles.wrap}`}>
             <div className={`position-relative ${styles.image}`}>
               {url && (
                 <Image
@@ -50,11 +48,13 @@ const Position = ({
                         ? time_start + 14 * 24 * 60 * 60 * 1000 < Date.now()
                           ? "Mới"
                           : ""
-                        : "Hết hạn"}
+                        : <span style={{fontWeight: 'bold', paddingRight: '0'}}>Hết hạn</span>}
                     </span>
-                    <span>
-                      {new Date(time_end).toLocaleDateString("vi-vn")}
-                    </span>
+                    {Date.now() < time_end && (
+                      <span>
+                        {new Date(time_end).toLocaleDateString("vi-vn")}
+                      </span>
+                    )}
                   </div>
                 }
               </div>
@@ -94,17 +94,17 @@ const Position = ({
                   <span className={styles.text}>{salary}</span>
                 </div>
               </div>
-              <div className={`d-flex align-items-center ${styles.flex}`}>
-                {types &&
-                  !isMobile &&
-                  types.map((type, index) => {
+              {!isMobile && types && (
+                <div className={`d-flex align-items-center ${styles.flex}`}>
+                  {types.map((type, index) => {
                     return (
                       <Type className={styles["work-type"]} key={index}>
                         {type}
                       </Type>
                     );
                   })}
-              </div>
+                </div>
+              )}
             </div>
           </div>
           <div className={`d-flex align-items-center ${styles.flex}`}>

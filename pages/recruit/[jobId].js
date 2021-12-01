@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BannerPage,
   LayoutContainer,
@@ -20,7 +20,6 @@ import { ApiJob } from "../../config/ApiJob";
 import useFetch from "../../hook/use-fetch";
 import useMedia from "../../hook/use-media";
 import Share from "../../components/JobDetail/Share/Share";
-
 const JobDetail = ({ data_job }) => {
   const matchMobile = useMedia("(max-width: 991px)");
   const dispatch = useDispatch();
@@ -53,7 +52,7 @@ const JobDetail = ({ data_job }) => {
         ],
       },
     });
-  }, [fetchDataFromServer, data_job.career]);
+  }, [fetchDataFromServer, data_job]);
   return (
     <>
       <BreadCrumbScript
@@ -69,9 +68,11 @@ const JobDetail = ({ data_job }) => {
         <div
           className={`d-flex justify-content-center align-items-center ${styles.types}`}
         >
-          {[data_job?.level, data_job?.career, data_job?.work_type].map((item, key) => {
-            return <Type key={key}>{item}</Type>;
-          })}
+          {[data_job?.level, data_job?.career, data_job?.work_type].map(
+            (item, key) => {
+              return <Type key={key}>{item}</Type>;
+            }
+          )}
         </div>
       </BannerPage>
       <LayoutContainer className={styles.container}>
@@ -102,7 +103,7 @@ const JobDetail = ({ data_job }) => {
         </div>
         <RelatedWork relatedWork={dataRelated} isLoading={isLoading} />
       </LayoutContainer>
-      <FormCV />
+      <FormCV time_end={data_job.end_time} />
     </>
   );
 };
