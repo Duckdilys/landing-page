@@ -22,7 +22,7 @@ const LayoutProduct = ({
       data-aos={aos}
       className={`${styles.layout} ${className} position-relative`}
     >
-      <div className="d-flex flex-column align-items-between align-items-center justify-content-between text-center">
+      <div className={`d-flex flex-column align-items-between align-items-center justify-content-between text-center`}>
         <Icon src={iconSrc} />
         <h4>{title}</h4>
       </div>
@@ -36,7 +36,7 @@ const LayoutProduct = ({
             className={styles.color}
             src={srcSet || "/project_icon_white.svg"}
           />
-          <h4 data-transition-delay="500">{title}</h4>
+          <h4 className={styles.header} data-transition-delay="500">{title}</h4>
 
           <Line
             style={{ width: tabletView ? "96px" : "150px" }}

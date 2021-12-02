@@ -93,7 +93,12 @@
   transition: all 0.5s ease-in-out;
   box-shadow: var(--shadow-primary);
   pointer-events: none;
-  h4 {
+  .header{
+    padding-bottom: 0;
+    color: var(--white);
+    padding-bottom: 0 !important;
+  }
+  h4{
     padding-bottom: 0;
     color: var(--white);
     padding-bottom: 0 !important;

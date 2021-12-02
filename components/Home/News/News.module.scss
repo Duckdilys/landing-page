@@ -82,7 +82,9 @@
         color: var(--black-primary);
     }
 }
-
+.swiper{
+    padding-bottom: 0 !important;
+}
 @media screen and (max-width: 768px) {
     .swiper{
         margin-bottom: 16px;

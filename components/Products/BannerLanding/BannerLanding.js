@@ -118,17 +118,6 @@ const BannerLanding = ({ website }) => {
               <Loading />
             </div>
           )}
-          {!isLoading && data?.code >= 400 && (
-            <p className="text-center pt-3 error__text">
-              Không thể gửi thông tin, xin thử lại sau!
-            </p>
-          )}
-          {!isLoading && data?.code <= 400 && (
-            <p className="text-center pt-3">
-              Chúng tôi đã nhận được thông tin và sẽ liên hệ trong thời gian sớm
-              nhất
-            </p>
-          )}
           {/* <div className="text-center">
           <Loading />
         </div> */}

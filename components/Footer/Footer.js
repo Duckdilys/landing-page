@@ -29,7 +29,9 @@ const Footer = () => {
                           router.asPath === item.path ? styles.active : ""
                         }
                       >
-                        <Link href={index === 2 ? `${item.path}/5` : item.path}>{item.name}</Link>
+                        <Link href={index === 2 ? `${item.path}/5` : item.path}>
+                          {item.name}
+                        </Link>
                       </li>
                     );
                   }
@@ -82,11 +84,13 @@ const Footer = () => {
               <li
                 className={`d-flex align-items-center ${styles["list-media"]}`}
               >
-                <Image
-                  className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                  src={"/fb-icon-footer.svg"}
-                  alt=""
-                />
+                <a href="https://www.facebook.com/mhsolution.vn/?ref=pages_you_manage" target="_blank" rel="noreferrer">
+                  <Image
+                    className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
+                    src={"/fb-icon-footer.svg"}
+                    alt=""
+                  />
+                </a>
                 <Image
                   className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
                   src={"/linkedln-icon-footer.svg"}

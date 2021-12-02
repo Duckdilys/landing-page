@@ -16,7 +16,7 @@
     color: var(--white);
     position: absolute;
     bottom: 0;
-    padding: 0 var(--size-space) 52px var(--size-space);
+    padding: 0 var(--size-space) 52px var(--size-space) !important;
     background: linear-gradient(180deg, rgba(35, 32, 32, 0) 45.7%, rgba(255, 78, 22, 0.71) 98.52%);
     z-index: 5;
     span {
@@ -72,7 +72,7 @@
 @media screen and (max-width: 768px) {
   .slide{
     .content{
-      padding: var(--middle-space);
+      padding: var(--middle-space) !important;
       span{
         padding: 4px 8px;
         font-size: var(--fs-xs);

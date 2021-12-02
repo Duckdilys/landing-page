@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import styles from "./FormCV.module.scss";
-import { Grid, DropzoneUpload, Button } from "../../container";
+import { Grid, DropzoneUpload, Button, Loading } from "../../container";
 import Input from "./Input";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
@@ -44,7 +44,8 @@ const FormCV = ({ time_end }) => {
         email: email,
         srcFile: url
       }
-    })
+    });
+
   };
   const getFileHandler = useCallback(
     (files) => {
@@ -85,7 +86,6 @@ const FormCV = ({ time_end }) => {
     setFile(null);
     setUrl(null);
   };
-  console.log(url, file);
   return (
     <>
       <form
@@ -229,6 +229,8 @@ const FormCV = ({ time_end }) => {
                   Ứng tuyển ngay
                 </Button>
               </div>
+              {isLoadingForm && <div className="text-center"><Loading/></div>}
+              {!isLoading && data && data?.code < 400 && <p className="text-center pt-3">Chúng tôi đã nhận được thông tin của bạn, cảm ơn bạn đã ứng tuyển</p>}
             </div>
           </>
         )}
