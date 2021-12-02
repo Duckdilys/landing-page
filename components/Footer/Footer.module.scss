@@ -116,14 +116,16 @@
         .brand{
             width: 36px;
             height: 36px;
-            margin-left: 21px;
-            &:first-child{
-                margin-left: 0;
-            }
         }
         img{
             width: 38px;
             height: 38px;
+        }
+        a{
+            margin-left: 21px;
+            &:first-child{
+                margin-left: 0
+            }
         }
     }
 }
@@ -210,11 +212,13 @@
 @media screen and (max-width: 991px) {
     .footer{
         margin-top: var(--pd-64);
+        padding: var(--middle-space) !important;
         .grid{
             display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 48px !important;
         }
+        
         input{
             padding: var(--pd-12) var(--mg-16);
         }
@@ -302,6 +306,9 @@
                 height: 28px;
                 margin-left: var(--mg-16);
             }
+            a{
+                margin-left: 0;
+            }
         }
         .list-contact{
             li{
@@ -322,7 +329,8 @@
     .copyright{
         padding-top: var(--mg-16);
         justify-content: center;
-        padding-bottom: var(--size-space);
+        padding-bottom: 48px;
+
     }
     .logo-box{
         display: flex;

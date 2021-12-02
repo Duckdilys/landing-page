@@ -3,6 +3,9 @@
     position: relative;
     width: 92px;
     height: 92px;
+    img{
+      object-fit: cover;
+    }
   }
   position: relative;
   z-index: 10;

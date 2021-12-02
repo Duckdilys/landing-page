@@ -21,11 +21,13 @@ import { useRouter } from "next/router";
 const Products = ({ data_product, other_products, images }) => {
   const isMobile = useMedia("(max-width: 991px)");
   const isMiddleBox = useMedia("(max-width: 1250px)");
+  const isTablet = useMedia('(max-width: 768px)');
   const router = useRouter();
 
   const findImageProduct = DataImageProduct.find(
     (item) => item.id.toString() === router.query.id.toString()
   );
+  console.log(data_product)
   return (
     <>
       <BreadCrumbScript
@@ -47,7 +49,7 @@ const Products = ({ data_product, other_products, images }) => {
         classNameBox={styles.box}
         style={{
           background: `url('${
-            findImageProduct?.href || "/banner_product_2.png"
+            data_product?.cover_url || "/banner_product_2.png"
           }')`,
         }}
       />
@@ -125,7 +127,7 @@ const Products = ({ data_product, other_products, images }) => {
           src={isMobile ? null : "/banner 2.png"}
           childrenClassName={styles.text}
         >
-          {isMobile && <Line style={{background: 'black', width: '96px', height: '1px', margin: '32px 0px'}}/>}
+          {isTablet && <Line style={{background: 'black', width: '96px', height: '1px', margin: '32px 0px'}}/>}
           <div data-aos="fade-right">
             <h5 style={{ paddingBottom: "16px" }}>
               Tìm hiểu thêm thông tin về Giải pháp của chúng tôi

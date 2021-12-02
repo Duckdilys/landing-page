@@ -4,7 +4,13 @@ import styles from "./Footer.module.scss";
 import Link from "next/link";
 import paths from "../Navigation/path";
 import { useRouter } from "next/router";
-const Footer = () => {
+
+const images = [
+  "/fb-icon-footer.svg",
+  "/linkedln-icon-footer.svg",
+  "/noron-icon-footer.svg",
+];
+const Footer = ({ data_footer }) => {
   const router = useRouter();
   return (
     <>
@@ -84,23 +90,17 @@ const Footer = () => {
               <li
                 className={`d-flex align-items-center ${styles["list-media"]}`}
               >
-                <a href="https://www.facebook.com/mhsolution.vn/?ref=pages_you_manage" target="_blank" rel="noreferrer">
-                  <Image
-                    className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                    src={"/fb-icon-footer.svg"}
-                    alt=""
-                  />
-                </a>
-                <Image
-                  className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                  src={"/linkedln-icon-footer.svg"}
-                  alt=""
-                />
-                <Image
-                  className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
-                  src={"/noron-icon-footer.svg"}
-                  alt=""
-                />
+                {data_footer[0]?.socials?.map((item, index) => {
+                  return (
+                    <a key={index} href={item?.src}>
+                      <Image
+                        className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
+                        alt=""
+                        src={images[index]}
+                      />
+                    </a>
+                  );
+                })}
               </li>
             </ul>
           </div>

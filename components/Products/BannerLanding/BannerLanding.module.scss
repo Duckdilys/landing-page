@@ -103,6 +103,12 @@
       letter-spacing: var(--letter-spacing-normal) !important;
     }
     .contact{
+      padding-top: var(--pd-36) !important;
+      h4{
+        padding-bottom: var(--mg-16) !important;
+      }
+    }
+    .contact{
       .grid{
         grid-template-columns: repeat(1, 1fr);
         gap: var(--pd-12);
@@ -125,12 +131,6 @@
       }
     }
 
-  }
-  .contact{
-    padding-top: var(--pd-36) !important;
-    h4{
-      padding-bottom: var(--mg-16) !important;
-    }
   }
 }
 

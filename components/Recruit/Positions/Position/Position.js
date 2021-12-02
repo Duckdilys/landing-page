@@ -48,7 +48,7 @@ const Position = ({
                         ? time_start + 14 * 24 * 60 * 60 * 1000 < Date.now()
                           ? "Mới"
                           : ""
-                        : <span style={{fontWeight: 'bold', paddingRight: '0'}}>Hết hạn</span>}
+                        : <span style={{fontWeight: 'bold', paddingRight: '0'}}>Đã Hết hạn</span>}
                     </span>
                     {Date.now() < time_end && (
                       <span>

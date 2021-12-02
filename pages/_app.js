@@ -15,8 +15,9 @@ import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "aos/dist/aos.css";
 import { checkUserIsBot } from '../util';
+import { ApiContact } from "../config/ApiContact";
 
-function MyApp({ Component, pageProps, isDisabledAnimation, products }) {
+function MyApp({ Component, pageProps, isDisabledAnimation, products, data_footer }) {
   useEffect(() => {
     if (isDisabledAnimation) {
       AOS.init({
@@ -39,7 +40,7 @@ function MyApp({ Component, pageProps, isDisabledAnimation, products }) {
         <ButtonUpTop />
         <Overlay />
         <Component {...pageProps} />
-        <Footer />
+        <Footer data_footer={data_footer}/>
       </Provider>
     </>
   );
@@ -53,11 +54,17 @@ MyApp.getInitialProps = async function (ctx) {
     method: "POST",
     data: {},
   });
-  if (products.code >= 400) {
+  const data_footer = await axiosConfig({
+    url: ApiContact,
+    method: 'POST',
+    data: {}
+  });
+
+  if (products.code >= 400 || data_footer.code >= 400) {
     return {
       ...pageProps,
-
       products: [],
+      data_footer: []
       // temporary for error, not having
     };
   }
@@ -65,6 +72,7 @@ MyApp.getInitialProps = async function (ctx) {
     ...pageProps,
     isDisabledAnimation: userIsBot,
     products: products?.result?.items,
+    data_footer: data_footer?.result?.items
   };
 };
 export default MyApp;

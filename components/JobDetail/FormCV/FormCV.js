@@ -39,8 +39,8 @@ const FormCV = ({ time_end }) => {
       url: ApiApplicantCV,
       method: 'POST',
       data: {
-        fullName: name,
-        phoneNumber: phone,
+        full_name: name,
+        phone_number: phone,
         email: email,
         srcFile: url
       }
@@ -94,7 +94,7 @@ const FormCV = ({ time_end }) => {
           isOpened && styles["container-back"]
         }`}
       >
-        <h4>nộp cv ứng tuyển cho vị trí này</h4>
+        <h4>ứng tuyển cho vị trí này</h4>
         <div
           onClick={() => dispatch(modelActions.closeModelHandler())}
           className={styles.close}

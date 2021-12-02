@@ -17,7 +17,7 @@
     padding-bottom: var(--xs-size);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing);
-    line-height: 24px;
+    line-height: 36px;
   }
   p {
     line-height: 28px;
@@ -48,6 +48,9 @@
     .content{
         p{
             padding-bottom: var(--pd-12);
+        }
+        h5{
+          line-height: 32px;
         }
     }
     .container-grid{
