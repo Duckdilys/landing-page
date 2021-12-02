@@ -89,7 +89,8 @@
 }
 @media screen and (max-width: 576px) {
   .slide{
-    padding-top: calc(328px / 375px * 100%);
+    // padding-top: calc(328px / 375px * 100%);
+    height: 100%;
     h2{
       line-height: 36px !important;
       font-size: var(--fs-large) !important;
@@ -101,6 +102,7 @@
       span{
         font-size: var(--fs-xs);
       }
+      margin-top: 80px !important;
     }
   }
 }

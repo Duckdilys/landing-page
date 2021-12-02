@@ -31,6 +31,7 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
     router.push(`?page=${1}`);
   };
   useEffect(() => {
+    console.log(queryFilter);
     fetchDataFromServer({
       url: ApiJob,
       method: "POST",

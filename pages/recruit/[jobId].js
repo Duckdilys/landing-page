@@ -17,42 +17,11 @@ import FormCV from "../../components/JobDetail/FormCV/FormCV";
 import { checkUserIsBot } from "../../util";
 import axiosConfig from "../../service/base";
 import { ApiJob } from "../../config/ApiJob";
-import useFetch from "../../hook/use-fetch";
 import useMedia from "../../hook/use-media";
 import Share from "../../components/JobDetail/Share/Share";
-const JobDetail = ({ data_job }) => {
+const JobDetail = ({ data_job, related_jobs }) => {
   const matchMobile = useMedia("(max-width: 991px)");
   const dispatch = useDispatch();
-  const {
-    fetchDataFromServer,
-    isLoading,
-    error,
-    data: dataRelated,
-  } = useFetch();
-  useEffect(() => {
-    fetchDataFromServer({
-      url: ApiJob,
-      method: "POST",
-      data: {
-        page: 1,
-        page_size: 2,
-        keyword: "",
-        sorts: [
-          {
-            property: "created_at",
-            direction: "DESC",
-          },
-        ],
-        filters: [
-          {
-            name: "career",
-            operation: "eq",
-            value: data_job?.career,
-          },
-        ],
-      },
-    });
-  }, [fetchDataFromServer, data_job]);
   return (
     <>
       <BreadCrumbScript
@@ -101,7 +70,7 @@ const JobDetail = ({ data_job }) => {
             {!matchMobile && <Share />}
           </div>
         </div>
-        <RelatedWork relatedWork={dataRelated} isLoading={isLoading} />
+        <RelatedWork related_jobs={related_jobs}/>
       </LayoutContainer>
       <FormCV time_end={data_job.end_time} />
     </>
@@ -116,7 +85,29 @@ export const getServerSideProps = async ({ params, req }) => {
       id: jobId,
     },
   });
-  if (getJobById.code >= 400) {
+  const getJobByKeyword = await axiosConfig({
+    url: ApiJob,
+    method: 'POST',
+    data: {
+      page: 1,
+      page_size: 2,
+      keyword: "",
+      sorts: [
+        {
+          property: "created_at",
+          direction: "DESC",
+        },
+      ],
+      filters: [
+        {
+          name: "career",
+          operation: "eq",
+          value: getJobById.result.career,
+        },
+      ],
+    }
+  });
+  if (getJobById.code >= 400 || getJobByKeyword.code >= 400) {
     return {
       notFound: true,
     };
@@ -125,6 +116,7 @@ export const getServerSideProps = async ({ params, req }) => {
     props: {
       isDisabledAnimation: userIsBot,
       data_job: getJobById.result,
+      related_jobs: getJobByKeyword?.result?.items
     },
   };
 };

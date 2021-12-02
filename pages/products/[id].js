@@ -27,7 +27,6 @@ const Products = ({ data_product, other_products, images }) => {
   const findImageProduct = DataImageProduct.find(
     (item) => item.id.toString() === router.query.id.toString()
   );
-  console.log(data_product)
   return (
     <>
       <BreadCrumbScript

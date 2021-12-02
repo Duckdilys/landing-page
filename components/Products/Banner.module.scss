@@ -194,7 +194,9 @@
        }
    }
    .background{
-       margin-top: 0;
+       & > div{
+           margin-top: 0 !important;
+       }
    }
    .container{
        padding-top: 24px;

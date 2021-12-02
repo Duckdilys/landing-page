@@ -16,9 +16,9 @@ const Position = ({
   time_start,
   time_end,
 }) => {
-  const router = useRouter();
+
   return (
-    <Link href={`${router.pathname}/${id}`}>
+    <Link href={`/recruit/${id}`}>
       <a>
         <div className={`${styles.container}`}>
           <div className={`d-flex justify-content-between ${styles.wrap}`}>

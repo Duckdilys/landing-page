@@ -4,7 +4,6 @@ import styles from "./Positions.module.scss";
 import { Grid, Pagination, SkeletonLoading } from "../../container";
 import useMedia  from "../../../hook/use-media";
 const Positions = ({ positions, totalDocuments, page, isLoading }) => {
-  console.log(positions)
   const matchMedia = useMedia('(max-width: 576px)')
   return (
     <div className={styles.container}>

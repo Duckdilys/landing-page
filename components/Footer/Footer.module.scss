@@ -265,6 +265,12 @@
                 display: block;
                 text-align: center !important;
             }
+            a{
+                margin-left: 16px !important;
+                &:first-child{
+                    margin-left: 0 !important;
+                }
+            }
         }
     }
     .footer{
@@ -304,7 +310,6 @@
             .brand{
                 width: 28px;
                 height: 28px;
-                margin-left: var(--mg-16);
             }
             a{
                 margin-left: 0;

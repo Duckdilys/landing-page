@@ -11,6 +11,7 @@ const helperFilterHandler = (name, value) => {
     value: value,
   };
 };
+
 const FindPosition = ({
   setQueryFilterHandler,
 }) => {
@@ -30,18 +31,20 @@ const FindPosition = ({
     event.preventDefault();
     const position = positionRef.current.value;
     const filter = [];
-    if (workType) {
+    if (workType && workType !== "Tất cả") {
       filter.push(helperFilterHandler("career", workType || undefined));
     }
-    if (level) {
+    if (level && level !== "Tất cả") {
       filter.push(helperFilterHandler("level", level || undefined));
     }
-    if (method) {
+    if (method && method !== "Tất cả") {
       filter.push(helperFilterHandler("work_type", method || undefined));
     }
-    setQueryFilterHandler([...filter, helperFilterHandler("title", position)]);
+    if(position.trim().length > 0){
+      filter.push(helperFilterHandler('title', position || undefined));
+    }
+    setQueryFilterHandler(filter);
   };
-
   return (
     <form onSubmit={submitFormHandler} className={`${styles.filter}`}>
       <Input
