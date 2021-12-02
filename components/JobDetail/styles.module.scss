@@ -92,6 +92,9 @@
 }
 
 @media screen and (max-width: 991px) {
+  .box{
+    margin-top: -50px;
+  }
   .grid{
     flex-direction: column-reverse;
     padding-bottom: var(--middle-space);
@@ -113,7 +116,7 @@
 
 @media screen and (max-width: 768px) {
   .box{
-    margin-top: -80px;
+    margin-top: -30px;
     h4{
       padding-bottom: var(--pd-12);
       margin: 0;
@@ -128,3 +131,4 @@
     }
   }
 }
+
