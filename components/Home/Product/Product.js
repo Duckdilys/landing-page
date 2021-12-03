@@ -16,7 +16,8 @@ const hoverIcon = [
   "/noron-white-icon.svg",
   "/social-white-icon.svg",
 ];
-const Product = ({
+const 
+Product = ({
   product,
   title,
   className,

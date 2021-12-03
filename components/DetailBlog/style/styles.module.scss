@@ -21,7 +21,7 @@
   .title {
     padding-bottom: var(--size-space) !important;
     letter-spacing: var(--letter-spacing-secondary);
-    line-height: 56px;
+    line-height: 40px;
     font-size: 32px;
   }
 }
@@ -41,6 +41,12 @@
   }
   width: 32%;
   height: fit-content;
+  .grid-near{
+    .text {
+      padding: var(--xs-size) var(--sm-size) !important;
+      background: none !important;
+    }
+  }
 }
 .grid-near {
   grid-template-columns: repeat(1, 1fr);
@@ -77,10 +83,6 @@
         rgba(21, 19, 19, 0.9) 96.13%
       );
     }
-  }
-  .text {
-    padding: var(--xs-size) var(--sm-size) !important;
-    background: none;
   }
 }
 @media screen and (max-width: 991px) {

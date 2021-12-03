@@ -43,7 +43,12 @@
     }
   }
 }
-
+.home{
+  width: 24px;
+  height: 24px;
+  background: var(--light-gray);
+  margin-right: 12px;
+}
 @media screen and (max-width: 991px) {
   .bread-crumb {
     ul li {
