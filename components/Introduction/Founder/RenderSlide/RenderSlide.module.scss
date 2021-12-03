@@ -44,7 +44,6 @@
   }
   p {
     &:first-child {
-      font-size: var(--fs-small);
       letter-spacing: 1px;
     }
   }
@@ -96,7 +95,6 @@
     }
     p{
      &:first-child{
-       font-size: var(--fs-xs);
        line-height: 20px;
      } 
     }

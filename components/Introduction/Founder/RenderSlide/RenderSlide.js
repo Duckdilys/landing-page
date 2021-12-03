@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Image } from "../../../container";
 import styles from "./RenderSlide.module.scss";
 import { StringToHTML } from "../../../container";
-const RenderSlide = ({ name, introduction, url_cover, socials }) => {
+const RenderSlide = ({ name, introduction, url_cover, socials, job_title }) => {
   return (
     <div className={styles.container}>
       <Image src={url_cover} alt="" />
@@ -12,7 +12,7 @@ const RenderSlide = ({ name, introduction, url_cover, socials }) => {
         <div
           className={`d-flex flex-column justify-content-end ${styles.text} h-100`}
         >
-          <p>Vị trí - Chức vụ</p>
+          <p className={styles.title}>{job_title}</p>
           <h5>{name}</h5>
           <div className={styles.intro}>
             <StringToHTML string={introduction} />

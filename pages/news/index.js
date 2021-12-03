@@ -40,6 +40,7 @@ const News = ({ categories, news, totalPage, heading }) => {
       },
     });
   }, [query, fetchDataFromServer, selectedPostByType]);
+  console.log(dataNews);
   useEffect(() => {
     if (isLoading) {
       return;
@@ -54,11 +55,10 @@ const News = ({ categories, news, totalPage, heading }) => {
       });
       setPosts(transformPost);
       const totalPage = dataNews.result.total;
-      if (totalPage !== totalDocuments) {
-        setTotalDocuments(totalPage);
-      }
+      setTotalDocuments(totalPage);
     }
   }, [isLoading, dataNews, news, totalDocuments]);
+  console.log(totalDocuments);
   return (
     <>
       <BreadCrumbScript
@@ -78,11 +78,11 @@ const News = ({ categories, news, totalPage, heading }) => {
         error={error}
         perPage={8}
       >
-        <Pagination
+        {totalDocuments > 0 && totalDocuments && <Pagination
           totalDocuments={totalDocuments}
           perPage={9}
           currentPage={query}
-        />
+        />}
       </ListNews>
     </>
   );

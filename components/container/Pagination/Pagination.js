@@ -20,21 +20,19 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
       <ul
         className={`d-flex justify-content-center align-items-center ${styles.container} ${className}`}
       >
-        {getTotalPagination !== 1 && (
-          <li
-            className={`${currentPage === 1 ? styles.disabled : ""} ${
-              styles["btn--direction"]
-            }`}
-            onClick={goToPrevPage}
-          >
-            <Image
-              src={"/Icon/arrow-left-orange-icon.svg"}
-              alt=""
-              height="14"
-              width="7"
-            />
-          </li>
-        )}
+        <li
+          className={`${currentPage === 1 ? styles.disabled : ""} ${
+            styles["btn--direction"]
+          }`}
+          onClick={goToPrevPage}
+        >
+          <Image
+            src={"/Icon/arrow-left-orange-icon.svg"}
+            alt=""
+            height="14"
+            width="7"
+          />
+        </li>
         {page !== 1 && (
           <Link
             href={`${Router.pathname}?page=${page - 1}`}
@@ -66,22 +64,20 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
             </a>
           </Link>
         )}
-        {
-          getTotalPagination !== 1 && 
-          <li
-            className={`${page === totalDocuments ? styles.disabled : ""} ${
-              styles["btn--direction"]
-            }`}
-            onClick={goToNextPage}
-          >
-            <Image
-              src={"/Icon/arrow-right-orange-icon.svg"}
-              alt=""
-              height="14"
-              width="7"
-            />
-          </li>
-        }
+
+        <li
+          className={`${page === totalDocuments ? styles.disabled : ""} ${
+            styles["btn--direction"]
+          }`}
+          onClick={goToNextPage}
+        >
+          <Image
+            src={"/Icon/arrow-right-orange-icon.svg"}
+            alt=""
+            height="14"
+            width="7"
+          />
+        </li>
       </ul>
     </>
   );

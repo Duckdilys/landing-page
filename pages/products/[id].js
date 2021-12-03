@@ -154,8 +154,8 @@ const Products = ({ data_product, other_products, images }) => {
       )}
       {!data_product?.landing_page && <BannerLanding website={data_product?.website} />}
       <Product
-        className={styles.background}
-        classNameContainer={styles["container-product"]}
+        className={`${styles.background}`}
+        classNameContainer={`${styles["container-product"]} d-flex flex-column justify-content-center align-items-center`}
         product={other_products}
         title="sản phẩm khác của chúng tôi"
         classNameGrid={styles.grid}
