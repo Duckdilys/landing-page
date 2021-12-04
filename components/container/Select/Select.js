@@ -28,6 +28,7 @@ const Select = ({
     setIsFocus(true);
     setIsBlur(false);
   };
+
   return (
     <div
       tabIndex={0}
@@ -35,7 +36,7 @@ const Select = ({
       onBlur={changeBlurHandler}
       className={`${styles.select} d-flex justify-content-between align-items-center ${className}`}
     >
-      {valueField ? valueField.toUpperCase() : firstTitle}
+      {valueField ? <span className={styles.bold}>{valueField}</span> : firstTitle}
       <Image src="/arrow-down-icon.svg" width="10px" height="13px" alt="" />
       {listValue && (
         <ul

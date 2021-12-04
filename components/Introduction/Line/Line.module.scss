@@ -100,12 +100,12 @@
     .text{
         position: static;
         box-shadow: none;
-        padding: 0 0 30px 0;
+        padding: 0 0 36px 0;
         line-height: 20px;
         h5{
-            padding-bottom: 4px;
+            padding-bottom: 8px;
             font-size: var(--fs-large);
-            line-height: var(--size-space);
+            line-height: var(--line-height-primary);
         }
         p{
             font-size: var(--fs-small);

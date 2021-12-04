@@ -124,11 +124,11 @@ const useFetch = () => {
     },
     []
   );
-  const resetAllHandler = () => {
+  const resetAllHandler = useCallback(() => {
     dispatch({
       type: typeDispatch.RESET
     })
-  }
+  }, []);
   const fakeFetchingData = useCallback((data) => {
     dispatch({
       type: typeDispatch.LOADING

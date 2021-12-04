@@ -56,7 +56,9 @@
         pointer-events: none !important;
     }
 }
-
+.bold{
+    font-weight: bold;
+}
 @media screen and (max-width: 1250px) {
     .select{
         padding: var(--pd-12) var(--mg-16);

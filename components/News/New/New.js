@@ -9,7 +9,7 @@ const New = ({ news, isLoading, turnLoadingToArray, matchMedia, children }) => {
   }, [filterPostByCategory]);
   return (
     <div className={styles.container}>
-      {news.length === 0 && (
+      {news.length === 0 && !isLoading && (
         <p className="text-center pt-3">Không có dữ liệu</p>
       )}
       <Grid className={styles.grid}>

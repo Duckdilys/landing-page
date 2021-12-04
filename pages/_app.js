@@ -27,9 +27,9 @@ function MyApp({ Component, pageProps, isDisabledAnimation, products, data_foote
     }
     AOS.init({
       once: true,
-      offset: 200,
+      offset: 150,
       duration: 1000,
-      delay: 200,
+      delay: 100,
       anchorPlacement: "top-center",
     });
   }, [isDisabledAnimation]);

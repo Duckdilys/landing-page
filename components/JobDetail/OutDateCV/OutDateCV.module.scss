@@ -1,0 +1,30 @@
+.outdate{
+    padding: var(--size-space);
+    background: var(--gray-light);
+    margin-top: var(--size-space);
+    margin-bottom: var(--size-space);
+    text-align: center;
+    h4{
+        font-size: 20px;
+        line-height: 32px;
+        letter-spacing: var(--letter-spacing-normal);
+        font-weight: var(--weight-700);
+        margin: 0;
+        padding: 0 !important;
+    }
+    p{
+        line-height: var(--line-height-primary);
+        letter-spacing: var(--letter-spacing);
+        font-weight: var(--weight-400);
+        padding: var(--mg-16) 0;
+        max-width: 608px;
+        margin: auto;
+    }
+    button{
+        background: var(--orange-primary);
+        color: var(--white);
+        border: none;
+        text-transform: uppercase;
+        padding: var(--mg-16) 40px;
+    }
+}

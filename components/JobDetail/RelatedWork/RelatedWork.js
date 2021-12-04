@@ -2,11 +2,9 @@ import React from "react";
 import styles from "./RelatedWork.module.scss";
 import Position from "../../Recruit/Positions/Position/Position";
 import { Grid } from "../../container";
-import { SkeletonLoading } from "../../container";
 import useMedia from "../../../hook/use-media";
 const RelatedWork = ({ related_jobs }) => {
   const isMobile = useMedia("(max-width: 576px)");
-  console.log(related_jobs);
   return (
     <div className={styles.container}>
       <h4>Công việc liên quan</h4>
@@ -23,6 +21,8 @@ const RelatedWork = ({ related_jobs }) => {
               types={[work?.work_type, work?.level, work?.career]}
               isMobile={isMobile}
               id={work.id}
+              time_end={work?.end_time}
+              time_start={work?.created_at}
             />
           );
         })}

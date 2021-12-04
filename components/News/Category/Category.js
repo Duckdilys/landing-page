@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Category.module.scss";
 import { categoryActions } from "../../../store/slices/category-slice";
 const Category = ({ categories, type, matchMedia }) => {
-  
   const dispatch = useDispatch();
   const [position, setPosition] = useState(null);
 
+  useEffect(() => {
+    dispatch(categoryActions.changeCategoryHandler(0));
+    // reset
+  }, [dispatch]);
+  const listRef = useRef();
   const changeType = (id, event) => {
     dispatch(categoryActions.changeCategoryHandler(id));
     const position = event.target.getBoundingClientRect();
@@ -26,6 +30,7 @@ const Category = ({ categories, type, matchMedia }) => {
           {categories?.map((category, index) => {
             return (
               <li
+                ref={listRef}
                 onClick={(event) => changeType(category.categoryId, event)}
                 className={type === category.categoryId ? styles.active : ""}
                 key={index}

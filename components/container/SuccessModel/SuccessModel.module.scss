@@ -1,0 +1,41 @@
+.box{
+    .img{
+        width: 64px;
+        height: 64px;
+        background: var(--green-light-success);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        .image{
+            width: 41px;
+            height: 41px;
+            background: var(--green-success);
+        }
+    }
+    z-index: 1000;
+    h4{
+        font-size: 20px;
+        line-height: var(--size-space);
+        padding-bottom: var(--pd-12);
+        padding-top: var(--middle-space);
+        margin: auto;
+        text-transform: capitalize;
+        letter-spacing: var(--letter-spacing-primary);
+    }    
+    p{
+        line-height: var(--line-height-primary);
+        letter-spacing: var(--letter-spacing);
+        font-weight: var(--weight-400);
+        padding-bottom: var(--size-space);
+        max-width: 600px;
+        margin: auto;
+    }
+    button{
+        background: var(--orange-primary);
+        border: none;
+        color: var(--white);
+        text-transform: uppercase;
+    }
+}

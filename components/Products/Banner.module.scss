@@ -1,18 +1,19 @@
 @import '../../styles/grid';
 .banner{
-    background: url('../../public/Banner_Products.png');
     background-attachment: unset !important;
 }
 .box{
-    margin-top: -120px;
     text-align: justify;
     h4{
         padding-bottom: 0 !important;
         margin: auto;
-        max-width: 617px;
         line-height: 56px;
         letter-spacing: var(--letter-spacing);
     }
+}
+.image{
+    padding: var(--pd-12);
+    background: var(--orange-light-danger);
 }
 .text{
     text-transform: none !important;
@@ -59,12 +60,19 @@
         box-shadow: var(--shadow-button-primary);
     }
 }
+.introduction{
+    gap: var(--size-space);
+}
 .container{
     padding-bottom: 0 !important;
+
     p{
         padding-left: 0;
     }
-    margin-top: 64px !important;
+    margin-top: 48px !important;
+    & > div{
+        margin-top: 0;
+    }
 }
 .btn{
     width: 267px;
@@ -130,9 +138,6 @@
     }
 }
 @media screen and (max-width: 991px) {
-    .box{
-        margin-top: -100px;
-    }
     .background{
         h4{
             padding-bottom: var(--middle-space) !important;
@@ -172,7 +177,6 @@
 
 @media screen and (max-width: 768px) {
    .box{
-       margin-top: -50px;
        h4{
            line-height: 36px;
        }
@@ -186,6 +190,9 @@
        h5{
            letter-spacing: var(--letter-spacing-normal);
        }
+   }
+   .introduction{
+       gap: 12px;
    }
    .text-banner{
        padding: 0;

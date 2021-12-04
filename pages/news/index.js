@@ -40,7 +40,6 @@ const News = ({ categories, news, totalPage, heading }) => {
       },
     });
   }, [query, fetchDataFromServer, selectedPostByType]);
-  console.log(dataNews);
   useEffect(() => {
     if (isLoading) {
       return;
@@ -58,7 +57,6 @@ const News = ({ categories, news, totalPage, heading }) => {
       setTotalDocuments(totalPage);
     }
   }, [isLoading, dataNews, news, totalDocuments]);
-  console.log(totalDocuments);
   return (
     <>
       <BreadCrumbScript

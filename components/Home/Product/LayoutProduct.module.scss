@@ -24,9 +24,9 @@
     position: relative;
     letter-spacing: var(--letter-spacing-normal);
   }
+  border: 1px solid var(--border-color);  
   @include padding-box();
   background: var(--white);
-  border: 1px solid var(--border-color);
   .icon-image {
     width: 48px;
     height: 48px;
@@ -41,7 +41,7 @@
     letter-spacing: var(--letter-spacing);
   }
   &:hover{
-    border: none;
+    border-color: var(--orange-primary);
       .show--container{
         pointer-events: visible;
           height: 100%;
@@ -121,7 +121,11 @@
     height: 2px;
   }
   .text{
-    height: 201px;
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    padding-left: var(--middle-space);
+    padding-right: var(--middle-space);
   }
   p{
       line-height: 28px;
@@ -159,7 +163,6 @@
 @media screen and (max-width: 991px) {
   .layout{
     overflow: visible !important;
-    border: 1px solid var(--border-color);
     height: 401px;
     width: 272px;
     .icon-image{

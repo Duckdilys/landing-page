@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./RenderNew.module.scss";
 import Image from "next/dist/client/image";
 import Link from "next/link";
-import { removeUnicode } from "../../../../util";
 import { useDispatch } from "react-redux";
 import { categoryActions } from "../../../../store/slices/category-slice";
 const RenderNew = ({ name, date, type, url_cover, image, category_id, id, className, routeClassName }) => {

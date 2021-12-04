@@ -28,10 +28,11 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
 
   const setQueryFilterHandler = (query) => {
     setQueryFilter(query);
-    router.push(`?page=${1}`);
+    router.push(`?page=${1}`, null, {
+      scroll: false
+    });
   };
   useEffect(() => {
-    console.log(queryFilter);
     fetchDataFromServer({
       url: ApiJob,
       method: "POST",
@@ -76,7 +77,6 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
         classNameBox={`text-center ${styles.box}`}
         title="cơ hội nghề nghiệp"
         style={{ background: `url('/static_recruit.png')` }}
-        introduction={"Tham gia cùng chúng tôi"}
       >
         <FindPosition
           setQueryFilterHandler={setQueryFilterHandler}

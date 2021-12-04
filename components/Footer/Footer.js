@@ -1,17 +1,37 @@
-import React from "react";
-import { LayoutContainer, Grid, Image, Input, Button } from "../container";
+import React, { useEffect, useRef } from "react";
+import { LayoutContainer, Image, Input, Button, OverlayBG } from "../container";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 import paths from "../Navigation/path";
 import { useRouter } from "next/router";
-
+import { ApiCooperation } from "../../config/ApiCooperation";
+import { ValidateLengthInput } from "../../util";
 const images = [
   "/fb-icon-footer.svg",
-  "/linkedln-icon-footer.svg",
   "/noron-icon-footer.svg",
+  "/linkedln-icon-footer.svg",
 ];
+import useFetch from "../../hook/use-fetch";
+import { CSSTransition } from "react-transition-group";
+import SuccessModel from "../container/SuccessModel/SuccessModel";
 const Footer = ({ data_footer }) => {
   const router = useRouter();
+  const { isLoading, error, data, fetchDataFromServer } = useFetch();
+  const emailRef = useRef();
+  const submitFormHandler = () => {
+    const email = emailRef.current.value;
+    const emailIsValid = ValidateLengthInput(email, 0) && email.includes("@");
+    if (!emailIsValid) {
+      return;
+    }
+    fetchDataFromServer({
+      url: ApiCooperation,
+      method: "POST",
+      data: {
+        email: email,
+      },
+    });
+  };
   return (
     <>
       <footer className={styles.footer}>
@@ -79,13 +99,20 @@ const Footer = ({ data_footer }) => {
               </li>
               <div className={`d-flex justify-content-between ${styles.box}`}>
                 <Input
+                  ref={emailRef}
                   input={{
                     type: "email",
                     placeholder: "Địa chỉ Email",
                   }}
                   className={styles.input}
                 />
-                <Button>Đăng ký</Button>
+                <Button
+                  options={{
+                    onClick: submitFormHandler,
+                  }}
+                >
+                  Đăng ký
+                </Button>
               </div>
               <li
                 className={`d-flex align-items-center ${styles["list-media"]}`}
@@ -106,6 +133,12 @@ const Footer = ({ data_footer }) => {
           </div>
         </LayoutContainer>
       </footer>
+      <CSSTransition in={!isLoading && data?.code < 400} unmountOnExit mountOnEnter classNames="form-open" timeout={750}>
+            <>
+              
+              
+            </>
+      </CSSTransition>
     </>
   );
 };

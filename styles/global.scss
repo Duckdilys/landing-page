@@ -57,6 +57,7 @@ body, html{
   --border-color: #888888;
   --border-mobile: #C5C5C5;
   --light-orange: #ffede8;
+  --orange-light-danger: #FFF0EC;
   --less-dark-orange: #fd7d55;
   --lighest-orange: #FFF4F0;
   --darker-orange: #ff6432;
@@ -79,13 +80,18 @@ body, html{
   --radius: 10px;
   --md-radius: 15px;
   --dark-gray: #fafafa;
+  --gray-light: #F1F3F5;
+  --green-success: #0BAA4A;
+  --green-light-success: #D8FFE7;
   --orange-primary-light: #faf7f7;
+  --gray-dark: #F3F3F3;
   --weight-400: 400;
   --weight-600: 600;
   --weight-700: 700;
   --weight-800: 800;
   --weight-900: 900;
   --weight-1000: 1000;
+  --line-height-bold: 36px;
   --weight-bold: bold;
   --border-black: #888888;
   --light-orange-primary: #FF602D;
@@ -157,7 +163,12 @@ input[type='number']{
   transform: scale(1);
   opacity: 1;
 }
-
+@mixin fade-start {
+  opacity: 0;
+}
+@mixin fade-finish {
+  opacity: 1;
+}
 .scale-enter{
   @include scale-start();
 }

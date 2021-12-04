@@ -22,11 +22,6 @@ const Products = ({ data_product, other_products, images }) => {
   const isMobile = useMedia("(max-width: 991px)");
   const isMiddleBox = useMedia("(max-width: 1250px)");
   const isTablet = useMedia('(max-width: 768px)');
-  const router = useRouter();
-
-  const findImageProduct = DataImageProduct.find(
-    (item) => item.id.toString() === router.query.id.toString()
-  );
   return (
     <>
       <BreadCrumbScript
@@ -104,7 +99,9 @@ const Products = ({ data_product, other_products, images }) => {
         src={data_product?.info_url || "/product_intro_1.png"}
         imageConfig={{
           "data-aos": "fade-right",
+          className: styles.image
         }}
+        className={styles.introduction}
       >
         {data_product?.infos?.length > 0 ? (
           data_product?.infos?.map((item, index) => {

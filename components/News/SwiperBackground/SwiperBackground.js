@@ -1,15 +1,14 @@
 import React from "react";
 import { SwiperSlide } from "swiper/react";
-import { SwiperContainer } from "../../container";
+import { ContainerSmall, SwiperContainer } from "../../container";
 import styles from "./SwiperBackground.module.scss";
 import Slide from "../Slide/Slide";
 import useMedia from "../../../hook/use-media";
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 
 const SwiperBackground = ({ posts }) => {
   const matchMobile = useMedia("(max-width: 991px)");
   return (
-    <div className={styles.contain}>
+    <ContainerSmall className={styles.contain}>
       <SwiperContainer
         className={styles.swiper}
         pagination
@@ -61,7 +60,7 @@ const SwiperBackground = ({ posts }) => {
           );
         })}
       </SwiperContainer>
-    </div>
+    </ContainerSmall>
   );
 };
 

@@ -35,12 +35,12 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
       />
       <div className={styles.box}>
         <section>
-          <Banner data={!matchMedia ? dataIntroduction : ""} />
-          {matchMedia && (
+          <Banner data={dataIntroduction} />
+          {/* {matchMedia && (
             <div className={styles.introduction}>
               <StringToHTML string={dataIntroduction?.content}/>
             </div>
-          )}
+          )} */}
           {dataIntroduction && (
             <>
               {getDataFromServer().map((item, index) => {

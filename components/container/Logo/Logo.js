@@ -6,10 +6,10 @@ const Logo = (props) => {
   return (
     <Image
       className={props.className}
-      src={match ? "/logo-svg-icon.svg" : "/Logo.png"}
+      src={match ? "/logo-svg-icon.svg" : "/Logo-icon-svg.svg"}
       alt="logo"
-      width={match ? "46.67" : "175"}
-      height={match ? "32" : "40"}
+      width={match ? "46.67" : "78"}
+      height={match ? "32" : "44"}
       {...props}
     />
   );

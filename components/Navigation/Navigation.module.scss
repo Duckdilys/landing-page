@@ -225,6 +225,13 @@
           padding-bottom: 0;
           a{
             text-transform: capitalize !important;
+            font-size: var(--fs-small) !important;
+          }
+          border-top: 1px solid var(--border-mobile);
+          margin-top: 16px;
+          letter-spacing: var(--letter-spacing);
+          li{
+            padding-bottom: var(--mg-16);
           }
         }
       }

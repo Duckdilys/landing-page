@@ -1,6 +1,7 @@
 import React from "react";
 import { BoxLayout, ContainerBanner } from "..";
 import { StringToHTML } from "..";
+import styles from './styles.module.scss';
 const BannerPage = ({
   classNameBanner,
   title,
@@ -12,7 +13,7 @@ const BannerPage = ({
   return (
     <>
       <ContainerBanner className={classNameBanner} style={{...style}} />
-      <BoxLayout className={classNameBox}>
+      <BoxLayout className={`${styles.container} ${classNameBox}`}>
         {title && <h4>{title}</h4>}
         {introduction && <StringToHTML string={introduction}/>}
         {children}

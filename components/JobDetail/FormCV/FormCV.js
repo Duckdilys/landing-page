@@ -9,7 +9,8 @@ import useFetch from "../../../hook/use-fetch";
 import { modelActions } from "../../../store/slices/model-slice";
 import { CSSTransition } from "react-transition-group";
 import { ApiApplicantCV } from "../../../config/ApiApplicant";
-const FormCV = ({ time_end }) => {
+import SuccessModel from "../../container/SuccessModel/SuccessModel";
+const FormCV = ({ time_end, id, timeIsExpire }) => {
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState(null);
@@ -25,27 +26,35 @@ const FormCV = ({ time_end }) => {
     error: errorForm,
     isLoading: isLoadingForm,
     data: dataForm,
+    resetAllHandler,
   } = useFetch();
   const submitFormHandler = (event) => {
     event.preventDefault();
-    console.log(url);
     if (Date.now() > time_end || !url) {
       return;
     }
-    const name = nameRef.current.value;
-    const email = emailRef.current.value;
-    const phone = phoneRef.current.value;
+    const name = nameRef.current?.value;
+    const email = emailRef.current?.value;
+    const phone = phoneRef.current?.value;
+    const emailIsValid = ValidateLengthInput(email, 0) && email.includes("@");
+    const nameIsValid = ValidateLengthInput(name, 0);
+    const phoneIsValid = ValidateLengthInput(phone, 0);
+    if (!emailIsValid || !nameIsValid || !phoneIsValid) {
+      return;
+    }
     uploadFormHandler({
       url: ApiApplicantCV,
-      method: 'POST',
+      method: "POST",
       data: {
         full_name: name,
         phone_number: phone,
         email: email,
-        srcFile: url
-      }
+        srcFile: url,
+        created_at: Date.now(),
+        create_by: id,
+        job_id: id
+      },
     });
-
   };
   const getFileHandler = useCallback(
     (files) => {
@@ -65,7 +74,6 @@ const FormCV = ({ time_end }) => {
     [fetchDataFromServer]
   );
   useEffect(() => {
-    console.log(1);
     if (isLoading) {
       setIsLoadingSession(true);
     }
@@ -74,7 +82,7 @@ const FormCV = ({ time_end }) => {
         setIsLoadingSession(false);
       }, 1000);
     }
-    if (!isLoading && error) {
+    if ((!isLoading && error)) {
       setFile(null);
       setUrl(null);
     }
@@ -82,10 +90,19 @@ const FormCV = ({ time_end }) => {
       setUrl(data?.result?.file_url);
     }
   }, [isLoading, error, data]);
-  const removeFileHandler = () => {
+  const removeFileHandler = useCallback(() => {
     setFile(null);
     setUrl(null);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (!isOpened) {
+      setTimeout(() => {
+        resetAllHandler();
+        removeFileHandler();
+      }, 500);
+    }
+  }, [isOpened, resetAllHandler, removeFileHandler]);
   return (
     <>
       <form
@@ -94,7 +111,6 @@ const FormCV = ({ time_end }) => {
           isOpened && styles["container-back"]
         }`}
       >
-        <h4>ứng tuyển cho vị trí này</h4>
         <div
           onClick={() => dispatch(modelActions.closeModelHandler())}
           className={styles.close}
@@ -102,138 +118,122 @@ const FormCV = ({ time_end }) => {
           <div></div>
           <div></div>
         </div>
-        {Date.now() > time_end ? (
-          <p className={`text-center`} style={{ color: "red" }}>
-            Thời gian nộp đã hết hạn, bạn không thể nộp CV
-          </p>
-        ) : (
-          <>
-            <Grid className={styles.grid}>
-              <Input
-                ref={nameRef}
-                inputDefine={{
-                  type: "text",
-                  required: true,
-                  autoComplete: "off",
-                  placeholder: "Họ và tên *",
-                }}
-                error="Tên không được phép trống"
-                checkValidate={(value) => ValidateLengthInput(value)}
-              />
-              <Input
-                ref={phoneRef}
-                inputDefine={{
-                  type: "number",
-                  required: true,
-                  autoComplete: "off",
-                  placeholder: "Số điện thoại liên hệ *",
-                  minLength: "1",
-                  maxLength: "11",
-                }}
-                checkValidate={(value) => ValidateLengthInput(value)}
-                className={styles["phone-input"]}
-                error="Số điện thoại không được phép trống"
-              />
-            </Grid>
-            <div className={styles.inputs}>
-              <Input
-                ref={emailRef}
-                inputDefine={{
-                  type: "email",
-                  required: true,
-                  autoComplete: "off",
-                  placeholder: "Địa chỉ email *",
-                }}
-                checkValidate={(value) =>
-                  ValidateLengthInput(value) && value.includes("@")
-                }
-                error="Email không được phép trống"
-              />
-              <DropzoneUpload
-                title="Click để tải lên CV của bạn"
-                fileAllowTitle="Chấp nhận file .pdf kích thước dưới 10MB"
-                configDropzone={{
-                  accept: ".pdf",
-                  multiple: false,
-                }}
-                getFilesHandler={getFileHandler}
-              />
-              <CSSTransition
-                in={!!file && !error}
-                timeout={750}
-                classNames="scale"
-                unmountOnExit
-                mountOnEnter
-              >
-                <div
-                  className={`position-relative d-inline-flex align-items-center ${
-                    styles.upload
-                  } ${isLoadingSession && styles["upload-disabled"]}`}
-                >
-                  <span
-                    onClick={removeFileHandler}
-                    className={styles["remove-file"]}
-                  >
-                    <Image
-                      src="/close-icon.svg"
-                      alt=""
-                      width="15px"
-                      height="15px"
-                    />
-                  </span>
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="far"
-                    data-icon="folder"
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                    className="svg-inline--fa fa-folder fa-w-16 fa-3x"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"
-                      className=""
-                    ></path>
-                  </svg>
-                  <a
-                    rel="noreferrer"
-                    href={data ? data.result.file_url : ""}
-                    target="_blank"
-                  >
-                    <p className={styles.text}>{file}</p>
-                  </a>
-                  {isLoadingSession && (
-                    <span
-                      className={`${styles.loading}`}
-                      style={{ width: `${upload_progress}%` }}
-                    >
-                      <span className={styles.progress}></span>
-                    </span>
-                  )}
-                </div>
-              </CSSTransition>
-              {!isLoadingSession && error && (
-                <p className={styles.error}>
-                  CV không thể upload, xin thử lại sau
-                </p>
-              )}
-              <div className={styles.button}>
-                <Button
-                  options={{
-                    type: "submit",
-                    disabled: isLoadingSession,
+        <>
+          {(!dataForm || dataForm?.code >= 400) && (
+            <>
+              <h4>{timeIsExpire ? "Gửi CV cho nhà tuyển dụng" : "ứng tuyển cho vị trí này"}</h4>
+              <Grid className={styles.grid}>
+                <Input
+                  ref={nameRef}
+                  inputDefine={{
+                    type: "text",
+                    required: true,
+                    autoComplete: "off",
+                    placeholder: "Họ và tên",
                   }}
+                  error="Tên không được phép trống"
+                  checkValidate={(value) => ValidateLengthInput(value)}
+                />
+                <Input
+                  ref={phoneRef}
+                  inputDefine={{
+                    type: "number",
+                    required: true,
+                    autoComplete: "off",
+                    placeholder: "Số điện thoại liên hệ",
+                    minLength: "1",
+                    maxLength: "11",
+                  }}
+                  checkValidate={(value) => ValidateLengthInput(value)}
+                  className={styles["phone-input"]}
+                  error="Số điện thoại không được phép trống"
+                />
+              </Grid>
+              <div className={styles.inputs}>
+                <Input
+                  ref={emailRef}
+                  inputDefine={{
+                    type: "email",
+                    required: true,
+                    autoComplete: "off",
+                    placeholder: "Địa chỉ email",
+                  }}
+                  checkValidate={(value) =>
+                    ValidateLengthInput(value) && value.includes("@")
+                  }
+                  error="Email không được phép trống"
+                />
+                <CSSTransition
+                  in={!file && !url}
+                  unmountOnExit
+                  mountOnEnter
+                  timeout={0}
+                  classNames="fade"
                 >
-                  Ứng tuyển ngay
-                </Button>
+                  <DropzoneUpload
+                    title="Click để tải lên CV của bạn"
+                    fileAllowTitle="Chấp nhận file .pdf kích thước dưới 10MB"
+                    configDropzone={{
+                      accept: ".pdf",
+                      multiple: false,
+                    }}
+                    getFilesHandler={getFileHandler}
+                  />
+                </CSSTransition>
+                <CSSTransition
+                  in={!!file}
+                  timeout={500}
+                  classNames="scale"
+                  unmountOnExit
+                  mountOnEnter
+                >
+                  <div
+                    className={`d-flex w-100 position-relative justify-content-between align-items-center ${
+                      styles.upload
+                    } ${isLoadingSession && styles["upload-disabled"]} ${
+                      !isLoadingSession && data?.code >= 400 && styles.error
+                    }`}
+                  >
+                    <span className={styles.file}>{file}</span>
+                    <span className="d-flex align-items-center">
+                      <span className={styles.percent}>{upload_progress}%</span>
+                      <span
+                        onClick={removeFileHandler}
+                        className={`d-flex align-items-center justify-content-center ${styles.remove}`}
+                      >
+                        <Image
+                          src="/close-icon.svg"
+                          alt=""
+                          width="12px"
+                          height="12px"
+                        />
+                      </span>
+                    </span>
+                  </div>
+                </CSSTransition>
+                <div className={styles.button}>
+                  <Button
+                    options={{
+                      type: "submit",
+                      disabled: isLoadingSession,
+                    }}
+                    className={
+                      (isLoadingSession || isLoadingForm) && styles.disabled
+                    }
+                  >
+                    Ứng tuyển ngay
+                  </Button>
+                </div>
+                {isLoadingForm && (
+                  <div className="text-center">
+                    <Loading />
+                  </div>
+                )}
               </div>
-              {isLoadingForm && <div className="text-center"><Loading/></div>}
-              {!isLoading && data && data?.code < 400 && <p className="text-center pt-3">Chúng tôi đã nhận được thông tin của bạn, cảm ơn bạn đã ứng tuyển</p>}
-            </div>
-          </>
-        )}
+            </>
+          )}
+          {!isLoadingForm && dataForm?.code < 400 && <SuccessModel onRemoveModel={() => dispatch(modelActions.closeModelHandler())}/>}
+        </>
       </form>
     </>
   );

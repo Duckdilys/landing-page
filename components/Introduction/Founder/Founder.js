@@ -6,7 +6,6 @@ import styles from "./Founder.module.scss";
 import useMedia from "../../../hook/use-media";
 const Founder = ({ dataFounder }) => {
   const isMatchMobile = useMedia("(max-width: 768px)");
-  console.log(dataFounder);
   return (
     <div className={styles.bg}>
       <ContainerSmall className={styles.container}>

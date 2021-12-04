@@ -3,7 +3,7 @@
     h4{
         text-align: start;
         font-size: 24px;
-        line-height: 60px;
+        line-height: var(--line-height-bold);
         padding-bottom: var(--mg-16) !important;
         padding-top: var(--size-space);
         letter-spacing: var(--letter-spacing-secondary);
@@ -29,8 +29,8 @@
     .container{
         h4{
             padding-top: var(--middle-space);
-            padding-bottom: 12px !important;
             font-size: var(--fs-large) !important;
+            letter-spacing: var(--letter-spacing-primary);
         }
     }
 }

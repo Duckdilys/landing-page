@@ -46,7 +46,7 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
           </>
         )}
       </Grid>
-      {positions.length > 0 && totalDocuments > 6 && (
+      {positions.length > 0 && (
         <Pagination
           perPage={8}
           currentPage={page}

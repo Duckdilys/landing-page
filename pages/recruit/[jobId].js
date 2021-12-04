@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   BannerPage,
   LayoutContainer,
@@ -19,9 +19,12 @@ import axiosConfig from "../../service/base";
 import { ApiJob } from "../../config/ApiJob";
 import useMedia from "../../hook/use-media";
 import Share from "../../components/JobDetail/Share/Share";
+import OutDateCV from "../../components/JobDetail/OutDateCV/OutDateCV";
 const JobDetail = ({ data_job, related_jobs }) => {
   const matchMobile = useMedia("(max-width: 991px)");
   const dispatch = useDispatch();
+  const { end_time } = data_job;
+  const timeIsExpire = Date.now() > end_time;
   return (
     <>
       <BreadCrumbScript
@@ -56,23 +59,28 @@ const JobDetail = ({ data_job, related_jobs }) => {
               requirement={data_job?.job_benefits || ""}
               title="Quyền lợi"
             />
-            <Button
-              options={{
-                onClick: () => dispatch(modelActions.openModelHandler()),
-              }}
-              className={styles["submit-btn"]}
-            >
-              Ứng tuyển ngay
-            </Button>
+
+            {Date.now() < end_time &&
+              <Button
+                options={{
+                  onClick: () => dispatch(modelActions.openModelHandler()),
+                }}
+                className={styles["submit-btn"]}
+              >
+                Ứng tuyển ngay
+              </Button>
+            }
+            {timeIsExpire && <OutDateCV/>}
+            {matchMobile && <Share />}
           </div>
           <div className={styles["container-right"]}>
             <Overview overview={data_job} />
             {!matchMobile && <Share />}
           </div>
         </div>
-        <RelatedWork related_jobs={related_jobs}/>
+        <RelatedWork related_jobs={related_jobs} />
       </LayoutContainer>
-      <FormCV time_end={data_job.end_time} />
+      <FormCV timeIsExpire={timeIsExpire} time_end={data_job.end_time} id={data_job.id} />
     </>
   );
 };
@@ -87,7 +95,7 @@ export const getServerSideProps = async ({ params, req }) => {
   });
   const getJobByKeyword = await axiosConfig({
     url: ApiJob,
-    method: 'POST',
+    method: "POST",
     data: {
       page: 1,
       page_size: 2,
@@ -105,7 +113,7 @@ export const getServerSideProps = async ({ params, req }) => {
           value: getJobById.result.career,
         },
       ],
-    }
+    },
   });
   if (getJobById.code >= 400 || getJobByKeyword.code >= 400) {
     return {
@@ -116,7 +124,7 @@ export const getServerSideProps = async ({ params, req }) => {
     props: {
       isDisabledAnimation: userIsBot,
       data_job: getJobById.result,
-      related_jobs: getJobByKeyword?.result?.items
+      related_jobs: getJobByKeyword?.result?.items,
     },
   };
 };

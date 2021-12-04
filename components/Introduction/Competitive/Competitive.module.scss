@@ -7,9 +7,15 @@
 }
 .container{
     margin-top: 0;
+    h4{
+        padding-bottom: var(--size-space) !important;
+    }
 }
 @media screen and (max-width: 991px) {
     .grid{
         grid-template-columns: repeat(1, 1fr);
+    }
+    .container{
+        margin-bottom: 80px !important;
     }
 }

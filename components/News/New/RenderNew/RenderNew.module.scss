@@ -50,7 +50,10 @@
                 line-height: 20px;
             }
         }
-        
+        a{
+            font-size: var(--fs-small);
+            line-height: 20px;
+        }
         border-bottom: 1px solid var(--border-mobile);
         padding-bottom: var(--mg-16);
     }
