@@ -12,11 +12,10 @@ const images = [
   "/linkedln-icon-footer.svg",
 ];
 import useFetch from "../../hook/use-fetch";
-import { CSSTransition } from "react-transition-group";
-import SuccessModel from "../container/SuccessModel/SuccessModel";
+import ModelSuccess from "../container/ModelSuccess/ModelSuccess";
 const Footer = ({ data_footer }) => {
   const router = useRouter();
-  const { isLoading, error, data, fetchDataFromServer } = useFetch();
+  const { isLoading, error, data, fetchDataFromServer, resetAllHandler } = useFetch();
   const emailRef = useRef();
   const submitFormHandler = () => {
     const email = emailRef.current.value;
@@ -133,12 +132,7 @@ const Footer = ({ data_footer }) => {
           </div>
         </LayoutContainer>
       </footer>
-      <CSSTransition in={!isLoading && data?.code < 400} unmountOnExit mountOnEnter classNames="form-open" timeout={750}>
-            <>
-              
-              
-            </>
-      </CSSTransition>
+      <ModelSuccess condition={!isLoading && data?.code < 400} resetStateHandler={resetAllHandler}/>
     </>
   );
 };

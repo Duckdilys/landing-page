@@ -7,7 +7,7 @@ const Input = forwardRef(({ input, className, children, error }, ref) => {
         <div className={`${styles.input} ${className}`}>
             <input ref={ref} {...input} className={error ? styles['input-error'] : ''}/>
             <CSSTransition in={!!error} unmountOnExit mountOnEnter timeout={0}>
-                <p className={styles.error}>{error}</p>
+                <p style={{color: 'red'}} className={styles.error}>{error}</p>
              </CSSTransition>   
             {children}
         </div>

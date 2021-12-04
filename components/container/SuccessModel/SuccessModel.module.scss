@@ -39,3 +39,18 @@
         text-transform: uppercase;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .box{
+        h4{
+            font-size: var(--fs-normal) !important;
+            line-height: 20px;
+        }
+        p{
+            font-size: var(--fs-small);
+            max-width: 100%;
+            line-height: 20px;
+            padding-bottom: var(--mg-16);
+        }
+    }
+}
