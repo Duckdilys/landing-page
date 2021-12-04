@@ -8,7 +8,7 @@ const Share = () => {
       <div className={`d-flex align-items-center ${styles.line}`}>
         <span>
           <Image
-            src="/facebook-blue.svg"
+            src="/facebook-square-icon.svg"
             alt=""
             width="36px"
             height="36px"

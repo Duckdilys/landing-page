@@ -11,6 +11,9 @@
         margin: 0;
         letter-spacing: var(--letter-spacing);
     }
+    h6, p{
+        text-align: center;
+    }
     p{
         padding-bottom: var(--middle-space);
         font-size: var(--fs-small);

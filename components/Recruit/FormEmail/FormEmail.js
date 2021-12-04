@@ -41,11 +41,12 @@ const FormEmail = () => {
         error={!isValid && isTouched && "Email không hợp lệ"}
       />
       <Button
+        className="text-start"
         options={{
           disabled: !isValid,
         }}
       >
-        Tạo thông báo
+        Nhận Mail
       </Button>
     </form>
     <ModelSuccess condition={!isLoading && data?.code < 400} resetStateHandler={resetAllHandler}/>
