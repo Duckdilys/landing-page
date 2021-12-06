@@ -16,9 +16,7 @@ import axiosConfig from "../../service/base";
 import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
 import { apiGetProducts } from "../../config/ApiProducts";
 import useMedia from "../../hook/use-media";
-import { DataImageProduct } from "../../components/container/DataImageProduct/DataImageProduct";
-import { useRouter } from "next/router";
-const Products = ({ data_product, other_products, images }) => {
+const Products = ({ data_product, other_products }) => {
   const isMobile = useMedia("(max-width: 991px)");
   const isMiddleBox = useMedia("(max-width: 1250px)");
   const isTablet = useMedia('(max-width: 768px)');
@@ -156,7 +154,6 @@ const Products = ({ data_product, other_products, images }) => {
         product={other_products}
         title="sản phẩm khác của chúng tôi"
         classNameGrid={styles.grid}
-        images={images}
       />
     </>
   );
@@ -166,9 +163,6 @@ export const getServerSideProps = async ({ req, params }) => {
   const userIsBot = checkUserIsBot(req);
   const { id } = params;
 
-  const filterImage = DataImageProduct.filter((item) => {
-    return item.id.toString() !== id.toString();
-  });
   const data_product = await axiosConfig({
     url: getProductById(id),
   });
@@ -193,7 +187,6 @@ export const getServerSideProps = async ({ req, params }) => {
       other_products: all_products?.result?.items?.filter((item) => {
         return +item.id !== +id;
       }),
-      images: filterImage,
     },
   };
 };

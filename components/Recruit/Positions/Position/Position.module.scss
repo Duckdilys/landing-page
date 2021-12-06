@@ -116,7 +116,10 @@
   text-transform: capitalize;
 }
 .expired {
-  color: var(--orange-primary) !important;
+  color: var(--black-primary) !important;
+  font-size: 12px;
+  padding: 4px 8px !important;
+  background: var(--light-gray);
 }
 .new {
   color: var(--blue-primary) !important;

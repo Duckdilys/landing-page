@@ -35,7 +35,7 @@ Product = ({
       <LayoutProduct
         aos="fade-up"
         key={index}
-        src={images[index].href || "/banner_product_2.png"}
+        src={item?.cover_url || "/banner_product_2.png"}
         title={item.title}
         content={item?.contents[0]?.content}
         path={`/products/${item.id}`}

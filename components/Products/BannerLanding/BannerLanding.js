@@ -49,7 +49,6 @@ const BannerLanding = ({ website }) => {
       },
     });
   };
-  console.log(!isLoading && data);
   return (
     <>
       <ContainerSmall className={styles.container}>

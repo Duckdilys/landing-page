@@ -33,7 +33,7 @@ export default function Home({ news, products, banner, partners, highlightPosts 
         title={"MH Solution - Giải pháp 4.0"}
       />
       <ContainerBanner banner={banner} />
-      <Product product={products} images={DataImageProduct} />
+      <Product product={products}/>
       <News highlightPosts={highlightPosts} news={news} />
       <Partner partners={partners} />
     </>
