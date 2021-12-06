@@ -18,6 +18,8 @@
       justify-content: center;
       align-items: center;
       text-transform: uppercase;
+      line-height: var(--middle-space);
+      font-weight: var(--weight-700);
       span {
         display: block;
         padding: 0 var(--mg-16);
@@ -52,7 +54,7 @@
 @media screen and (max-width: 991px) {
   .bread-crumb {
     ul li {
-      font-size: var(--fs-nlarge);
+      font-size: var(--fs-normal);
     }
     .date{
       span{
@@ -62,6 +64,12 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .bread-crumb{
+    li{
+      font-size: var(--fs-small) !important;
+      color: var(--orange-primary) !important;
+    }
+  }
   .date {
     font-size: var(--fs-small);
     padding-top: var(--pd-12);

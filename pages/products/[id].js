@@ -125,7 +125,7 @@ const Products = ({ data_product, other_products, images }) => {
         >
           {isTablet && <Line style={{background: 'black', width: '96px', height: '1px', margin: '32px 0px'}}/>}
           <div data-aos="fade-right">
-            <h5 style={{ paddingBottom: "16px" }}>
+            <h5 style={{ paddingBottom: isMobile ? "12px" : "16px" }}>
               Tìm hiểu thêm thông tin về Giải pháp của chúng tôi
             </h5>
             <p className={styles.title}>

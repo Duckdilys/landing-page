@@ -221,6 +221,7 @@
           width: 100%;
           pointer-events: visible !important;
           visibility: visible;
+          overflow: scroll;
           padding: var(--mg-16) var(--middle-space);
           padding-bottom: 0;
           a{
@@ -232,6 +233,9 @@
           letter-spacing: var(--letter-spacing);
           li{
             padding-bottom: var(--mg-16);
+            &:last-child{
+              padding-bottom: 0;
+            }
           }
         }
       }
@@ -248,7 +252,7 @@
 @media screen and (max-width: 576px) {
   .nav {
     .open {
-      height: 85vh;
+      height: 80vh;
     }
   }
 }

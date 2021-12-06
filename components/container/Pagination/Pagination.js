@@ -4,6 +4,7 @@ import Image from "next/image";
 import usePagination from "../../../hook/use-pagination";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import useMedia from "../../../hook/use-media";
 const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
   // fake pagination, not call api, just data for totally
   const {
@@ -13,6 +14,7 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
     page,
     changePageHandler,
   } = usePagination(perPage, currentPage, totalDocuments);
+  const isMobile = useMedia('(max-width: 768px)')
   const Router = useRouter();
   return (
     <>
@@ -29,8 +31,8 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
           <Image
             src={"/Icon/arrow-left-orange-icon.svg"}
             alt=""
-            height="14"
-            width="7"
+            height={isMobile ? "8px" : "7px"}
+            width={isMobile ? "9px" : "14px"}
           />
         </li>
         {page !== 1 && (
@@ -74,8 +76,8 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
           <Image
             src={"/Icon/arrow-right-orange-icon.svg"}
             alt=""
-            height="14"
-            width="7"
+            height={isMobile ? "9px" : "14px"}
+            width={isMobile ? "8px" : "7px"}
           />
         </li>
       </ul>

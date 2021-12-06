@@ -58,6 +58,7 @@
     .information-box{
         padding: var(--pd-12) var(--pd-12) var(--pd-12) 28px;
         box-shadow: var(--shadow-button-primary);
+        border: 1px solid var(--black-primary);
     }
 }
 .introduction{
@@ -140,8 +141,9 @@
 @media screen and (max-width: 991px) {
     .background{
         h4{
-            padding-bottom: var(--middle-space) !important;
-            font-size: 24px;
+            padding-bottom: var(--size-space) !important;
+            font-size: 20px;
+            padding-right: 0;
         }
         margin: 0;
         padding-top: var(--size-space);
@@ -215,5 +217,6 @@
    }
    .title{
        line-height: 28px;
+       padding-bottom: var(--mg-16) !important;
    }
 }

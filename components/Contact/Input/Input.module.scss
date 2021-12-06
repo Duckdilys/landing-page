@@ -15,6 +15,9 @@
     .input{
         input{
             padding: var(--mg-16) var(--pd-12);
+            &::placeholder{
+                font-size: var(--fs-small);
+            }
         }
     }
 }

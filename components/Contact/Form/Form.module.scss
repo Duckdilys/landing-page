@@ -131,17 +131,20 @@
     .grid{
         @include grid-template-column(1, 8px);
     }
+    .remove{
+        margin-top: var(--size-space) !important;
+        margin-bottom: var(--pd-64) !important;
+    }
     .form{
         margin-top: var(--size-space);
         margin-bottom: var(--pd-18);
         h4{
             font-size: 24px;
-            line-height: 36px;
+            line-height: var(--size-space);
             padding-bottom: 16px !important;
         }
         .button{
-            padding-top: 8px;
-            padding-bottom: var(--pd-64);
+            margin-top: 8px;
         }
     }
     .input{
@@ -205,5 +208,8 @@
             max-width: 230px;
             margin: 0 auto;
         }
+    }
+    .container{
+        height: 328px !important;
     }
 }
