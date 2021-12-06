@@ -29,8 +29,8 @@
   cursor: pointer;
 }
 .disabled {
-  pointer-events: none;
-  background: rgba($color: #fff, $alpha: 0.5);
+  pointer-events: none !important;
+  background: rgba($color: #fff, $alpha: 0.5) !important;
 }
 .active {
   background: var(--orange-primary);

@@ -3,7 +3,7 @@ import { OverlayBG } from "..";
 import SuccessModel from "../SuccessModel/SuccessModel";
 import styles from "./ModelSuccess.module.scss";
 import { CSSTransition } from "react-transition-group";
-const ModelSuccess = ({condition, resetStateHandler}) => {
+const ModelSuccess = ({condition, resetStateHandler, error, contentMessage, title}) => {
   return (
     <>
       <CSSTransition
@@ -14,7 +14,7 @@ const ModelSuccess = ({condition, resetStateHandler}) => {
         in={condition || false}
       >
         <>
-          <SuccessModel className={styles.success} onRemoveModel={resetStateHandler}/>
+          <SuccessModel className={styles.success} onRemoveModel={resetStateHandler} error={error} contentMessage={contentMessage} title={title}/>
           <OverlayBG onClick={resetStateHandler} style={{zIndex: '202'}}/>
         </>
       </CSSTransition>

@@ -39,7 +39,14 @@
         text-transform: uppercase;
     }
 }
-
+.error{
+    .img{
+        background: var(--red-light-error);
+        .image{
+            background: var(--red-error);
+        }
+    }
+}
 @media screen and (max-width: 768px) {
     .box{
         h4{

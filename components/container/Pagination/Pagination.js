@@ -68,7 +68,7 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
         )}
 
         <li
-          className={`${page === totalDocuments ? styles.disabled : ""} ${
+          className={`${currentPage === getTotalPagination ? styles.disabled : ""} ${
             styles["btn--direction"]
           }`}
           onClick={goToNextPage}

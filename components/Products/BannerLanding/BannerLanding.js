@@ -36,7 +36,7 @@ const BannerLanding = ({ website }) => {
     const phoneValue = phoneRef.current.value;
     const emailValue = emailRef.current.value;
     const contentValue = contentRef.current.value;
-    if(!nameIsValid || !phoneIsValid || !addressIsValid || !emailIsValid) {
+    if (!nameIsValid || !phoneIsValid || !addressIsValid || !emailIsValid) {
       return;
     }
     fetchDataFromServer({
@@ -77,7 +77,7 @@ const BannerLanding = ({ website }) => {
                 type: "text",
                 placeholder: "Họ và tên *",
               }}
-              cb={value => ValidateLengthInput(value, 0)}
+              cb={(value) => ValidateLengthInput(value, 0)}
               errorMessage="Tên không được phép để trống"
               getStatus={setNameIsValid}
             />
@@ -87,7 +87,7 @@ const BannerLanding = ({ website }) => {
                 type: "text",
                 placeholder: "Địa chỉ *",
               }}
-              cb={value => ValidateLengthInput(value, 0)}
+              cb={(value) => ValidateLengthInput(value, 0)}
               errorMessage="Địa chỉ không được phép trống"
               getStatus={setAddressIsValid}
             />
@@ -99,7 +99,7 @@ const BannerLanding = ({ website }) => {
                 minLength: 1,
                 maxLength: 11,
               }}
-              cb={value => ValidateLengthInput(value, 9)}
+              cb={(value) => ValidateLengthInput(value, 9)}
               errorMessage="Số điện thoại không hợp lệ"
               getStatus={setPhoneIsValid}
             />
@@ -109,7 +109,9 @@ const BannerLanding = ({ website }) => {
                 type: "email",
                 placeholder: "Email *",
               }}
-              cb={value => ValidateLengthInput(value, 0) && value.trim().includes('@')}
+              cb={(value) =>
+                ValidateLengthInput(value, 0) && value.trim().includes("@")
+              }
               errorMessage="Email không hợp lệ"
               getStatus={setEmailIsValid}
             />
@@ -133,7 +135,14 @@ const BannerLanding = ({ website }) => {
         </form>
       </ContainerSmall>
       <ModelSuccess
-        condition={!isLoading && data?.code < 400}
+        condition={!isLoading && (data?.code || error)}
+        error={!isLoading && (data?.code >= 400 || error)}
+        contentMessage={
+          data?.code >= 400 || error
+            ? "Có vẻ như bạn đang gặp gián đoạn về đường truyền Internet. Vui lòng kiểm tra kết nối và thử lại!"
+            : null
+        }
+        title={data?.code >= 400 || error ? "Gửi thông tin thất bại" : null}
         resetStateHandler={resetAllHandler}
       />
     </>

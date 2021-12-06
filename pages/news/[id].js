@@ -41,7 +41,13 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
             href: `/news/${data?.id}`,
           },
         ]}
-      />
+      >
+        <meta property="og:image" content={data?.cover_url || ""} />
+        <meta
+          property="og:image:secure_url"
+          content={data?.cover_url || ""}
+        />
+      </BreadCrumbScript>
       <LayoutContainer className={styles["container-detail"]}>
         <div className={styles.grid}>
           <div className={styles.left}>
@@ -63,7 +69,7 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
             />
             <h4 className={`text-start ${styles.title}`}>{data?.title}</h4>
             <DetailBlog data={data?.content} />
-            <Share />
+            <Share data={data}/>
             <OtherNews data={related_news} />
           </div>
           <div className={styles.bg}>

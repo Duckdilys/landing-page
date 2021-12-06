@@ -30,7 +30,13 @@ const JobDetail = ({ data_job, related_jobs }) => {
       <BreadCrumbScript
         dataElement={[]}
         title={`Tuyển dụng - ${data_job.title.toUpperCase()} | MH - Solution`}
-      />
+      >
+        <meta property="og:image" content={data_job?.cover_url || ""} />
+        <meta
+          property="og:image:secure_url"
+          content={data_job?.cover_url || ""}
+        />
+      </BreadCrumbScript>
       <BannerPage
         style={{ background: `url("/job_description.png")` }}
         classNameBanner={styles.banner}
@@ -60,7 +66,7 @@ const JobDetail = ({ data_job, related_jobs }) => {
               title="Quyền lợi"
             />
 
-            {Date.now() < end_time &&
+            {Date.now() < end_time && (
               <Button
                 options={{
                   onClick: () => dispatch(modelActions.openModelHandler()),
@@ -69,8 +75,8 @@ const JobDetail = ({ data_job, related_jobs }) => {
               >
                 Ứng tuyển ngay
               </Button>
-            }
-            {timeIsExpire && <OutDateCV/>}
+            )}
+            {timeIsExpire && <OutDateCV />}
             {matchMobile && <Share />}
           </div>
           <div className={styles["container-right"]}>
@@ -80,7 +86,11 @@ const JobDetail = ({ data_job, related_jobs }) => {
         </div>
         <RelatedWork related_jobs={related_jobs} />
       </LayoutContainer>
-      <FormCV timeIsExpire={timeIsExpire} time_end={data_job.end_time} id={data_job.id} />
+      <FormCV
+        timeIsExpire={timeIsExpire}
+        time_end={data_job.end_time}
+        id={data_job.id}
+      />
     </>
   );
 };

@@ -51,6 +51,7 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
           perPage={8}
           currentPage={page}
           totalDocuments={totalDocuments}
+          className={styles.pagination}
         />
       )}
     </div>

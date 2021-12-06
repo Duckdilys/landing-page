@@ -6,7 +6,9 @@ const usePagination = (perPage, currentPage, totalDocuments) => {
   const router = useRouter();
   
   useEffect(() => {
-    router.push(`?page=${page}`);
+    router.push(`?page=${page}`, null, {
+      scroll: false
+    });
   }, [page]);
 
   const goToPrevPage = () => {

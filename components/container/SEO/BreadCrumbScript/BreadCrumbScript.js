@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
 import paths from "../../../Navigation/path";
-const BreadCrumbScript = ({ dataElement, title }) => {
+const BreadCrumbScript = ({ dataElement, title, children }) => {
   const structureList = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -28,6 +28,7 @@ const BreadCrumbScript = ({ dataElement, title }) => {
           {ReactHtmlParser(JSON.stringify(structureList))}
         </script>
       )}
+      {children}
     </Head>
   );
 };

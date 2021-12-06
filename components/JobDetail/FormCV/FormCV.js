@@ -52,7 +52,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
         src_file: url,
         created_at: Date.now(),
         create_by: id,
-        job_id: id
+        job_id: id,
       },
     });
   };
@@ -82,7 +82,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
         setIsLoadingSession(false);
       }, 1000);
     }
-    if ((!isLoading && error)) {
+    if (!isLoading && error) {
       setFile(null);
       setUrl(null);
     }
@@ -121,7 +121,11 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
         <>
           {(!dataForm || dataForm?.code >= 400) && (
             <>
-              <h4>{timeIsExpire ? "Gửi CV cho nhà tuyển dụng" : "ứng tuyển cho vị trí này"}</h4>
+              <h4>
+                {timeIsExpire
+                  ? "Gửi CV cho nhà tuyển dụng"
+                  : "ứng tuyển cho vị trí này"}
+              </h4>
               <Grid className={styles.grid}>
                 <Input
                   ref={nameRef}
@@ -232,7 +236,21 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
               </div>
             </>
           )}
-          {!isLoadingForm && dataForm?.code < 400 && <SuccessModel onRemoveModel={() => dispatch(modelActions.closeModelHandler())}/>}
+          {!isLoadingForm && (dataForm?.code || error) && (
+            <SuccessModel
+              title={
+                errorForm || dataForm?.code >= 400
+                  ? "Gửi thông tin thất bại"
+                  : "Cảm ơn bạn đã ứng tuyển vị trí này"
+              }
+              contentMessage={
+                errorForm || dataForm?.code >= 400
+                  ? "Có vẻ như bạn đang gặp gián đoạn về đường truyền Internet. Vui lòng kiểm tra kết nối và thử lại!"
+                  : "Chúng tôi sẽ liên hệ với bạn trong 2-3 ngày tới. Hãy kiểm tra email thường xuyên để cập nhật những thông tin mới nhất từ chúng tôi."
+              }
+              onRemoveModel={() => dispatch(modelActions.closeModelHandler())}
+            />
+          )}
         </>
       </form>
     </>

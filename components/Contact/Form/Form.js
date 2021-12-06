@@ -1,15 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Grid, Button, TextArea, Loading } from "../../container";
-import Image from "next/image";
 import styles from "./Form.module.scss";
 import Input from "../Input/Input";
 import { ValidateLengthInput } from "../../../util";
 import useMedia from "../../../hook/use-media";
 import useFetch from "../../../hook/use-fetch";
 import { ApiCooperation } from "../../../config/ApiCooperation";
-import { CSSTransition } from "react-transition-group";
-import OverlayBG from "../../container/OverlayBG/OverlayBG";
-import FixLayout from "../../container/FixLayout/FixLayout";
+import ModelSuccess from "../../container/ModelSuccess/ModelSuccess";
 const renderInput = [
   {
     validateInput: (value) => Boolean(ValidateLengthInput(value)),
@@ -57,13 +54,10 @@ const renderInput = [
 const Form = ({ contact }) => {
   const { fetchDataFromServer, data, error, isLoading, resetAllHandler } =
     useFetch();
-  
-  const matchMobile = useMedia("(max-width: 768px)");
-  const icon = [
-    "/home-dark-icon.svg",
-    "/email-icon.svg",
-    "/phone-side-icon.svg",
-  ];
+  const [nameIsValid, setNameIsValid] = useState(false);
+  const [addressIsValid, setAddressIsValid] = useState(false);
+  const [phoneIsValid, setPhoneIsValid] = useState(false);
+  const [emailIsValid, setEmailIsValid] = useState(false);
   const nameRef = useRef();
   const addressRef = useRef();
   const phoneRef = useRef();
@@ -79,6 +73,9 @@ const Form = ({ contact }) => {
     const email = emailRef.current?.value;
     const content = contentRef.current?.value;
 
+    if(!nameIsValid || !addressIsValid || !phoneIsValid || !emailIsValid) {
+      return;
+    }
     fetchDataFromServer({
       url: ApiCooperation,
       method: "POST",
@@ -91,6 +88,7 @@ const Form = ({ contact }) => {
       },
     });
   };
+  const functionCheckValid = [setNameIsValid, setAddressIsValid, setPhoneIsValid, setEmailIsValid];
   return (
     <>
       <form onSubmit={submitFormHandler} className={styles.form}>
@@ -102,6 +100,7 @@ const Form = ({ contact }) => {
                 ref={totalRef[index]}
                 className={styles.input}
                 key={index}
+                setStatus={functionCheckValid[index]}
                 {...input}
               />
             );
@@ -121,44 +120,22 @@ const Form = ({ contact }) => {
           )}
         </Grid>
         <div className={styles.button}>
-            <Button
-              options={{
-                type: "submit",
-              }}
-            >
-              Gửi nội dung
-            </Button>
-          </div>
+          <Button
+            options={{
+              type: "submit",
+            }}
+          >
+            Gửi nội dung
+          </Button>
+        </div>
       </form>
-      <CSSTransition
-        in={!isLoading && data}
-        unmountOnExit
-        mountOnEnter
-        timeout={500}
-        classNames="form-open"
-      >
-        <>
-          <FixLayout className="text-center">
-            {data && +data.code < 400 && (
-              <p>
-                Chúng tôi đã nhận được thông tin và sẽ liên hệ tới bạn trong
-                thời gian sớm nhất
-              </p>
-            )}
-            {data && +data.code >= 400 && <p>Có lỗi xảy ra, xin thử lại sau</p>}
-            <div className="text-end pt-5">
-              <Button
-                options={{
-                  onClick: resetAllHandler,
-                }}
-              >
-                Xác nhận
-              </Button>
-            </div>
-          </FixLayout>
-          <OverlayBG onClick={resetAllHandler} />
-        </>
-      </CSSTransition>
+      <ModelSuccess
+        condition={!isLoading && (data?.code || error)}
+        title={data?.code >= 400 || error ? "Gửi thông tin thất bại" : null}
+        contentMessage={data?.code >= 400 || error ? "Có vẻ như bạn đang gặp gián đoạn về đường truyền Internet. Vui lòng kiểm tra kết nối và thử lại!" : null}
+        error={data?.code >= 400 || error}
+        resetStateHandler={resetAllHandler}
+      />
     </>
   );
 };
