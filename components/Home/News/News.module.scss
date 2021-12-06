@@ -36,6 +36,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    transition: all .35s ease-in-out;
     svg{
         width: 9px;
         height: 18px;
@@ -44,8 +45,10 @@
     path{
         transition: all .35 ease;
         stroke: var(--white);
+        transition: all .35s ease-in-out;
     }
     &:hover{
+        background: var(--white);
         path{
             stroke: var(--orange-primary);
         }

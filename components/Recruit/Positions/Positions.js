@@ -25,7 +25,7 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
           </>
         ) : (
           <>
-            {positions.length === 0 && <p>Không có dữ liệu</p>}
+            {positions.length === 0 && <p className={`text-center ${styles.empty}`}>Không có dữ liệu</p>}
             {positions.length > 0 &&
               positions.map((item, index) => {
                 return (

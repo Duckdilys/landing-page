@@ -1,4 +1,7 @@
 @import '../../../theme/fixing';
+@mixin transition {
+    transition: all .35s ease-in-out
+}
 .container-middle{
     @include title();
     h4{
@@ -52,11 +55,17 @@
     align-items: center;
     border-radius: 50%;
     background: var(--white);
-    transition: all .35s ease-in-out;
-    
+    @include transition();
+    &:hover{
+        background: var(--orange-primary);
+        path {
+            stroke: var(--white) !important;
+        }
+    }
     path{
         stroke: var(--orange-primary);
         stroke-width: 4;
+        @include transition();
     }
     svg{
         width: 9px;

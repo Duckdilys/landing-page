@@ -10,6 +10,7 @@
         text-transform: uppercase;
         margin: 0;
         letter-spacing: var(--letter-spacing);
+        line-height: 20px;
     }
     h6, p{
         text-align: center;
@@ -38,6 +39,9 @@
         color: var(--white);
         text-transform: uppercase;
         margin-top: var(--sm-size);
+        font-size: var(--fs-small);
+        line-height: 20px;
+        letter-spacing: var(--letter-spacing);
     }
 }
 

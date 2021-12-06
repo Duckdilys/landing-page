@@ -92,7 +92,7 @@ const Footer = ({ data_footer }) => {
               </li>
             </ul>
             <ul className={`${styles.list} ${styles.email}`}>
-              <li>Đăng ký email</li>
+              <li>Đăng ký nhận thông tin</li>
               <li className={styles.middle}>
                 Đăng ký email để nhận tin tức và dịch vụ mới nhất từ chúng tôi
               </li>
