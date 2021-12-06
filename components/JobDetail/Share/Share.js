@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles.module.scss";
 import { Image } from "../../container";
+import { FacebookShareButton, LinkedinShareButton } from "react-share";
 const Share = () => {
+  const [url, setUrl] = useState(null);
+  useEffect(() => {
+    if (window) {
+      setUrl(window?.location?.href);
+    }
+  }, []);
   return (
     <div className={styles.share}>
       <h4>Chia sẻ công việc này</h4>
       <div className={`d-flex align-items-center ${styles.line}`}>
         <span>
-          <Image
-            src="/facebook-square-icon.svg"
-            alt=""
-            width="36px"
-            height="36px"
-          />
+          <FacebookShareButton url={url || ""}>
+            <Image
+              src="/facebook-square-icon.svg"
+              alt=""
+              width="36px"
+              height="36px"
+            />
+          </FacebookShareButton>
         </span>
+
         <span>
-          <Image src="/linkedln-icon-footer.svg" width="36px" height="36px" alt="" />
+          <LinkedinShareButton url={url || ""}>
+            <Image
+              src="/linkedln-icon-footer.svg"
+              width="36px"
+              height="36px"
+              alt=""
+            />
+          </LinkedinShareButton>
         </span>
       </div>
     </div>

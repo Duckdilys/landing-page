@@ -31,8 +31,8 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
           <Image
             src={"/Icon/arrow-left-orange-icon.svg"}
             alt=""
-            height={isMobile ? "8px" : "7px"}
-            width={isMobile ? "9px" : "14px"}
+            height={isMobile ? "8px" : "12px"}
+            width={isMobile ? "9px" : "15px"}
           />
         </li>
         {page !== 1 && (
@@ -76,8 +76,8 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
           <Image
             src={"/Icon/arrow-right-orange-icon.svg"}
             alt=""
-            height={isMobile ? "9px" : "14px"}
-            width={isMobile ? "8px" : "7px"}
+            height={isMobile ? "8px" : "12px"}
+            width={isMobile ? "9px" : "15px"}
           />
         </li>
       </ul>

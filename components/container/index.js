@@ -27,6 +27,7 @@ import TextArea from './TextArea/TextArea';
 import { BreadCrumbScript } from './SEO';
 import Loading from './Loading/Loading';
 import OverlayBG from './OverlayBG/OverlayBG';
+import InputRequiredValidate from './InputRequireValidate/InputRequiredValidate';
 export {
     Logo,
     Line,
@@ -56,5 +57,6 @@ export {
     TextArea,
     BreadCrumbScript,
     Loading,
-    OverlayBG
+    OverlayBG,
+    InputRequiredValidate
 }

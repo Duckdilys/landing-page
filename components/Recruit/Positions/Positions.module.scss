@@ -13,7 +13,7 @@
 }
 .empty{
     grid-column: span 2;
-    color: var(--neutral-2);
+    color: var(--neutral-2) !important;
 }
 
 @media screen and (max-width: 1100px) {

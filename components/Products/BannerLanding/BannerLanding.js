@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useRouter } from "next/router";
 import {
   ContainerSmall,
@@ -8,18 +8,21 @@ import {
   Grid,
   TextArea,
   Loading,
-  OverlayBG,
+  InputRequiredValidate,
 } from "../../container";
 import styles from "./BannerLanding.module.scss";
 import useFetch from "../../../hook/use-fetch";
 import { ApiCooperation } from "../../../config/ApiCooperation";
-import { CSSTransition } from "react-transition-group";
 import useInput from "../../../hook/use-input";
-import FixLayout from "../../container/FixLayout/FixLayout";
+import ModelSuccess from "../../container/ModelSuccess/ModelSuccess";
+import { ValidateLengthInput } from "../../../util";
 const BannerLanding = ({ website }) => {
-  const { fetchDataFromServer, data, error, isLoading, resetAllHandler } = useFetch();
-  const { isValid, isTouched, inputIsTouchHandler, inputChangeHandler, value } =
-    useInput((value) => value.trim().length > 0 && value.includes("@"));
+  const { fetchDataFromServer, data, error, isLoading, resetAllHandler } =
+    useFetch();
+  const [nameIsValid, setNameIsValid] = useState(false);
+  const [phoneIsValid, setPhoneIsValid] = useState(false);
+  const [addressIsValid, setAddressIsValid] = useState(false);
+  const [emailIsValid, setEmailIsValid] = useState(false);
   const router = useRouter();
   const nameRef = useRef();
   const addressRef = useRef();
@@ -28,14 +31,14 @@ const BannerLanding = ({ website }) => {
   const contentRef = useRef();
   const submitFormHandler = (event) => {
     event.preventDefault();
-    if (!isValid) {
-      return;
-    }
     const nameValue = nameRef.current.value;
     const addressValue = addressRef.current.value;
     const phoneValue = phoneRef.current.value;
     const emailValue = emailRef.current.value;
     const contentValue = contentRef.current.value;
+    if(!nameIsValid || !phoneIsValid || !addressIsValid || !emailIsValid) {
+      return;
+    }
     fetchDataFromServer({
       url: ApiCooperation,
       method: "POST",
@@ -45,7 +48,7 @@ const BannerLanding = ({ website }) => {
         email: emailValue,
         address: addressValue,
         about: contentValue,
-        product_idd: +router.query.id,
+        product_id: +router.query.id,
       },
     });
   };
@@ -68,37 +71,47 @@ const BannerLanding = ({ website }) => {
         <form onSubmit={submitFormHandler} className={styles.contact}>
           <h4>Liên hệ & Hợp tác</h4>
           <Grid className={styles.grid}>
-            <Input
+            <InputRequiredValidate
               ref={nameRef}
               input={{
                 type: "text",
                 placeholder: "Họ và tên *",
               }}
+              cb={value => ValidateLengthInput(value, 0)}
+              errorMessage="Tên không được phép để trống"
+              getStatus={setNameIsValid}
             />
-            <Input
+            <InputRequiredValidate
               ref={addressRef}
               input={{
                 type: "text",
                 placeholder: "Địa chỉ *",
               }}
+              cb={value => ValidateLengthInput(value, 0)}
+              errorMessage="Địa chỉ không được phép trống"
+              getStatus={setAddressIsValid}
             />
-            <Input
+            <InputRequiredValidate
               ref={phoneRef}
               input={{
                 type: "number",
                 placeholder: "Số điện thoại *",
+                minLength: 1,
+                maxLength: 11,
               }}
+              cb={value => ValidateLengthInput(value, 9)}
+              errorMessage="Số điện thoại không hợp lệ"
+              getStatus={setPhoneIsValid}
             />
-            <Input
+            <InputRequiredValidate
               ref={emailRef}
               input={{
                 type: "email",
                 placeholder: "Email *",
-                onChange: inputChangeHandler,
-                onBlur: inputIsTouchHandler,
-                value: value,
               }}
-              error={!isValid && isTouched && "Email không hợp lệ"}
+              cb={value => ValidateLengthInput(value, 0) && value.trim().includes('@')}
+              errorMessage="Email không hợp lệ"
+              getStatus={setEmailIsValid}
             />
             <TextArea
               ref={contentRef}
@@ -117,29 +130,12 @@ const BannerLanding = ({ website }) => {
               <Loading />
             </div>
           )}
-          {/* <div className="text-center">
-          <Loading />
-        </div> */}
         </form>
       </ContainerSmall>
-      <CSSTransition
-        in={!isLoading && data}
-        timeout={750}
-        unmountOnExit
-        mountOnEnter
-        classNames="form-open"
-      >
-        <FixLayout>
-          {data?.code >= 400 && <p>Có lỗi xảy ra, xin thử lại sau</p>}
-          {data?.code < 400 && (
-            <div>
-              <p>Chúng tôi đã nhận được thông tin của bạn</p>
-              <p>Chúng tôi sẽ liên hệ với bạn sau 2-3 ngày làm việc</p>
-            </div>
-          )}
-        </FixLayout>
-      </CSSTransition>
-      {!isLoading && data && <OverlayBG onClick={resetAllHandler}/>}
+      <ModelSuccess
+        condition={!isLoading && data?.code < 400}
+        resetStateHandler={resetAllHandler}
+      />
     </>
   );
 };

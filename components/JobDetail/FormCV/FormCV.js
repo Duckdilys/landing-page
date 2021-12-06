@@ -49,7 +49,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
         full_name: name,
         phone_number: phone,
         email: email,
-        srcFile: url,
+        src_file: url,
         created_at: Date.now(),
         create_by: id,
         job_id: id

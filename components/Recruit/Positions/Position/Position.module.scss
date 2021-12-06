@@ -30,6 +30,9 @@
       span {
         color: var(--white) !important;
       }
+      .expired{
+        color: var(--black-primary) !important;
+      }
     }
     box-shadow: var(--shadow-primary);
     path {
@@ -123,6 +126,7 @@
 }
 .new {
   color: var(--blue-primary) !important;
+  margin-right: 8px;
 }
 .disabled {
   position: relative;
