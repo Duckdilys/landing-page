@@ -97,8 +97,8 @@ const Products = ({ data_product, other_products }) => {
         src={data_product?.info_url || "/product_intro_1.png"}
         imageConfig={{
           "data-aos": "fade-right",
-          className: styles.image
         }}
+        imageClassName={styles.image}
         className={styles.introduction}
       >
         {data_product?.infos?.length > 0 ? (
