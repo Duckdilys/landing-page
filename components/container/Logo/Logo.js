@@ -8,8 +8,8 @@ const Logo = (props) => {
       className={props.className}
       src={match ? "/logo-svg-icon.svg" : "/Logo-icon-svg.svg"}
       alt="logo"
-      width={match ? "46.67" : "78"}
-      height={match ? "32" : "44"}
+      width={match ? "46.67" : "80"}
+      height={match ? "32" : "80"}
       {...props}
     />
   );

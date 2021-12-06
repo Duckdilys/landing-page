@@ -15,10 +15,12 @@
         font-weight: normal;
         padding-bottom: 4px;
         margin-bottom: 0;
+        line-height: var(--line-height-primary);
     }
     p{
         font-size: var(--fs-small);
         color: var(--light-black); 
+        line-height: 20px;
     }
     background: var(--orange-light-primary);
     cursor: pointer;
