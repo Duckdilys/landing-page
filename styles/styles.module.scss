@@ -9,9 +9,7 @@
 }
 .lines{
     & > div{
-        &:first-child{
-            margin-top: var(--pd-64);
-        }
+
     }
 }
 .introduction{
@@ -20,7 +18,9 @@
     text-align: justify;
     word-break: break-word;
 }
-
+.remove{
+    margin-top: var(--pd-64);
+}
 .reverse{
     left: auto;
     right: 0;

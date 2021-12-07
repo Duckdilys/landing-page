@@ -41,41 +41,39 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
               <StringToHTML string={dataIntroduction?.content}/>
             </div>
           )} */}
-          <div className={styles.lines}>
-            {dataIntroduction && (
-              <>
-                {getDataFromServer().map((item, index) => {
-                  if (index % 2 === 0) {
-                    return (
-                      <TextImage
-                        aos="fade-right"
-                        title={item?.content || "Không có tiêu đề"}
-                        mainTitle={item?.title || "Không có nội dung chi tiết"}
-                        src={item?.src || "/Image (2).png"}
-                        key={index}
-                        className="flex-row-reverse"
-                        aosImage="fade-left"
-                        iconImage={"/icon.png"}
-                        classImage={styles["background-image"]}
-                      />
-                    );
-                  }
+          {dataIntroduction && (
+            <>
+              {getDataFromServer().map((item, index) => {
+                if (index % 2 === 0) {
                   return (
                     <TextImage
-                      aos="fade-left"
+                      aos="fade-right"
                       title={item?.content || "Không có tiêu đề"}
                       mainTitle={item?.title || "Không có nội dung chi tiết"}
-                      src={item?.src || "/vision.png"}
+                      src={item?.src || "/Image (2).png"}
                       key={index}
-                      classText={styles.reverse}
+                      className={`flex-row-reverse ${index === 0 ? styles.remove : ''}`}
+                      aosImage="fade-left"
                       iconImage={"/icon.png"}
-                      classImage={`${styles["background-image"]} ${styles["background-right"]}`}
+                      classImage={styles["background-image"]}
                     />
                   );
-                })}
-              </>
-            )}
-          </div>
+                }
+                return (
+                  <TextImage
+                    aos="fade-left"
+                    title={item?.content || "Không có tiêu đề"}
+                    mainTitle={item?.title || "Không có nội dung chi tiết"}
+                    src={item?.src || "/vision.png"}
+                    key={index}
+                    classText={styles.reverse}
+                    iconImage={"/icon.png"}
+                    classImage={`${styles["background-image"]} ${styles["background-right"]}`}
+                  />
+                );
+              })}
+            </>
+          )}
         </section>
         <RootValue data={dataIntroduction?.core_values} />
         <Competitive data={dataIntroduction?.competitives} />

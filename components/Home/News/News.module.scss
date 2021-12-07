@@ -117,6 +117,12 @@
             }
         }
     }
+    .contain{
+        h4{
+            line-height: 32px !important;
+            padding-bottom: var(--middle-space);
+        }
+    }
     .container{
         margin-top: 66px !important;
         h4{

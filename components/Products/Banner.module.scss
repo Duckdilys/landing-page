@@ -44,7 +44,7 @@
     }
     h5{
         font-size: 24px !important;
-        line-height: 40px;
+        line-height: 36px !important;
         font-weight: var(--weight-700);
         text-transform: uppercase;
         letter-spacing: var(--letter-spacing-secondary) !important;
@@ -57,7 +57,7 @@
     }
     .information-box{
         padding: var(--pd-12) var(--pd-12) var(--pd-12) 28px;
-        box-shadow: var(--shadow-button-primary);
+        border: 1px solid var(--black-primary);
     }
 }
 .introduction{

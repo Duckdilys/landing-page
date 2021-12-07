@@ -4,6 +4,7 @@
         letter-spacing: var(--letter-spacing-secondary);
         text-align: center;
         padding-bottom: 48px;
+        line-height: 36px;
     }
 }
 
@@ -12,7 +13,7 @@
         h4{
             font-size: var(--fs-large) !important;
             padding-bottom: var(--mg-16) !important;
-            line-height: 32px;
+            line-height: 28px;
             letter-spacing: var(--letter-spacing-normal);
         }
     }
