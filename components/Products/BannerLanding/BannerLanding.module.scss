@@ -35,6 +35,7 @@
       // padding-bottom: 28px;
       letter-spacing: calc(1px + var(--letter-spacing));
       line-height: 44px;
+      padding: 0 var(--mg-16);
     }
     button {
       background: var(--orange-primary);
@@ -84,7 +85,18 @@
     }
   }
 }
-
+.grid-input{
+  input{
+    width: 100%;
+  }
+  & > div{
+    width: 100%;
+    margin-bottom: var(--middle-space);
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
 @media screen and (max-width: 991px) {
   .container{
     .text{
@@ -97,7 +109,7 @@
   .container{
     margin-top: var(--pd-36) !important;
     h5{
-      font-size: var(--fs-large) !important;
+      font-size: var(--fs-nlarge) !important;
       padding-bottom: var(--mg-16) !important;
       line-height: 32px !important;
       letter-spacing: var(--letter-spacing-normal) !important;
@@ -130,7 +142,11 @@
         }
       }
     }
-
+  }
+  .grid-input{
+    & > div{
+      margin-bottom: var(--pd-12);
+    }
   }
 }
 

@@ -42,3 +42,13 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .container-product{
+        & > h4 {
+            font-size: var(--fs-large) !important;
+            padding-bottom: 28px !important;
+            line-height: var(--size-space);
+        }
+    }
+}

@@ -32,7 +32,7 @@
     height: 48px;
     min-height: 48px;
     border-radius: 50%;
-    background: var(--light-orange);
+    background: var(--orange-primary);
   }
   transition: all .75s ease-in-out !important;
   .content{
@@ -136,7 +136,7 @@
   opacity: 0 !important;
 }
 .color{
-  background: var(--darker-orange) !important;
+  background: var(--white) !important;
 }
 
 @media screen and (max-width: 1300px) {
@@ -174,9 +174,9 @@
     }
     h4{
       padding-bottom: 0 !important;
-      font-size: var(--fs-nlarge) !important;
+      font-size: var(--fs-normal) !important;
       letter-spacing: var(--letter-spacing-normal);
-      line-height: 28px;
+      line-height: var(--middle-space);
     }
     .line{
       margin: var(--middle-space) 0;

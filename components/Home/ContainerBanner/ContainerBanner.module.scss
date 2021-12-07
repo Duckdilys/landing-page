@@ -50,9 +50,12 @@
         }
         h3{
             font-size: 32px !important;
+            line-height: 48px;
+
         }
         .line{
-            margin: var(--middle-space) 0;
+            margin-top: var(--middle-space);
+            margin-bottom: var(--middle-space);
         }
         .text{
             font-size: var(--fs-normal);
@@ -66,5 +69,8 @@
     .banner{
         height: calc(100vh - 56px) !important;
         background-position: 60% 50% !important;
+        .content{
+            bottom: var(--pd-64);
+        }
     }
 }

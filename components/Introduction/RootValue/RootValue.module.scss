@@ -92,7 +92,7 @@
   .container{
     padding: 0 !important;
     h4{
-      font-size: var(--fs-large);
+      font-size: var(--fs-nlarge);
       line-height: var(--line-height-primary);
     }
     
@@ -110,8 +110,8 @@
   }
   .image{
     img{
-      width: 327px;
-      height: 333px;
+      width: 100%;
+      height: auto;
     }
   }
 }

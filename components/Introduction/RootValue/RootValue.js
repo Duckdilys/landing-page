@@ -55,7 +55,7 @@ const RootValue = ({ data }) => {
         {/* // : <p className="text-center pt-5">Không có thông tin</p>} */}
         <div className={styles.image}>
           <Image
-            src={!isMobile ? "/desktop-cr.png" : "/mobile-sr.png"}
+            src={"/Group 156 (1).png"}
             alt=""
           />
         </div>

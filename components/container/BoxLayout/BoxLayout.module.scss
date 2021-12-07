@@ -4,7 +4,7 @@
   line-height: 56px;
   h4 {
     font-size: var(--size-space);
-    padding-bottom: var(--size-space);
+    padding-bottom: var(--middle-space);
     color: var(--orange-primary);
     line-height: 48px;
     letter-spacing: var(--letter-spacing-secondary);
@@ -21,8 +21,8 @@
     padding-top: var(--size-space);
     h4{
       font-size: 20px;
-      line-height: var(--line-height-primary);
-      padding-bottom: var(--mg-16);
+      line-height: var(--size-space);
+      padding-bottom: var(--mg-16) !important;
     }
   }
 }

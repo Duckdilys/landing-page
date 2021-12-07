@@ -11,10 +11,18 @@
   & > p{
     letter-spacing: var(--letter-spacing);
   }
+  p, strong, li, span {
+    font-size: 18px;
+    padding-bottom: 18px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .box-container{
     padding-bottom: var(--middle-space);
+    p, strong, li, span{
+      font-size: 14px;
+      padding-bottom: 14px;
+    }
   }
 }

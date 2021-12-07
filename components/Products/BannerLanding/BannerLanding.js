@@ -16,23 +16,20 @@ import { ApiCooperation } from "../../../config/ApiCooperation";
 import useInput from "../../../hook/use-input";
 import ModelSuccess from "../../container/ModelSuccess/ModelSuccess";
 import { ValidateLengthInput } from "../../../util";
-const BannerLanding = ({ website }) => {
+const BannerLanding = ({ website, isLanding }) => {
   const { fetchDataFromServer, data, error, isLoading, resetAllHandler } =
     useFetch();
   const [nameIsValid, setNameIsValid] = useState(false);
   const [phoneIsValid, setPhoneIsValid] = useState(false);
-  const [addressIsValid, setAddressIsValid] = useState(false);
   const [emailIsValid, setEmailIsValid] = useState(false);
   const router = useRouter();
   const nameRef = useRef();
-  const addressRef = useRef();
   const phoneRef = useRef();
   const emailRef = useRef();
   const contentRef = useRef();
   const submitFormHandler = (event) => {
     event.preventDefault();
     const nameValue = nameRef.current.value;
-    const addressValue = addressRef.current.value;
     const phoneValue = phoneRef.current.value;
     const emailValue = emailRef.current.value;
     const contentValue = contentRef.current.value;
@@ -46,7 +43,6 @@ const BannerLanding = ({ website }) => {
         full_name: nameValue,
         phone_name: phoneValue,
         email: emailValue,
-        address: addressValue,
         about: contentValue,
         product_id: +router.query.id,
       },
@@ -61,6 +57,7 @@ const BannerLanding = ({ website }) => {
             <h5 className={website ? styles.space : ""}>
               Tìm hiểu thêm thông tin về Giải pháp của chúng tôi
             </h5>
+
             {website && (
               <a href={website} target="_blank" rel="noreferrer">
                 <Button>Truy cập website</Button>
@@ -71,50 +68,42 @@ const BannerLanding = ({ website }) => {
         <form onSubmit={submitFormHandler} className={styles.contact}>
           <h4>Liên hệ & Hợp tác</h4>
           <Grid className={styles.grid}>
-            <InputRequiredValidate
-              ref={nameRef}
-              input={{
-                type: "text",
-                placeholder: "Họ và tên *",
-              }}
-              cb={(value) => ValidateLengthInput(value, 0)}
-              errorMessage="Tên không được phép để trống"
-              getStatus={setNameIsValid}
-            />
-            <InputRequiredValidate
-              ref={addressRef}
-              input={{
-                type: "text",
-                placeholder: "Địa chỉ *",
-              }}
-              cb={(value) => ValidateLengthInput(value, 0)}
-              errorMessage="Địa chỉ không được phép trống"
-              getStatus={setAddressIsValid}
-            />
-            <InputRequiredValidate
-              ref={phoneRef}
-              input={{
-                type: "number",
-                placeholder: "Số điện thoại *",
-                minLength: 1,
-                maxLength: 11,
-              }}
-              cb={(value) => ValidateLengthInput(value, 9)}
-              errorMessage="Số điện thoại không hợp lệ"
-              getStatus={setPhoneIsValid}
-            />
-            <InputRequiredValidate
-              ref={emailRef}
-              input={{
-                type: "email",
-                placeholder: "Email *",
-              }}
-              cb={(value) =>
-                ValidateLengthInput(value, 0) && value.trim().includes("@")
-              }
-              errorMessage="Email không hợp lệ"
-              getStatus={setEmailIsValid}
-            />
+            <div className={styles["grid-input"]}>
+              <InputRequiredValidate
+                ref={nameRef}
+                input={{
+                  type: "text",
+                  placeholder: "Họ và tên *",
+                }}
+                cb={(value) => ValidateLengthInput(value, 0)}
+                errorMessage="Tên không được phép để trống"
+                getStatus={setNameIsValid}
+              />
+              <InputRequiredValidate
+                ref={phoneRef}
+                input={{
+                  type: "number",
+                  placeholder: "Số điện thoại *",
+                  minLength: 1,
+                  maxLength: 11,
+                }}
+                cb={(value) => ValidateLengthInput(value, 9)}
+                errorMessage="Số điện thoại không hợp lệ"
+                getStatus={setPhoneIsValid}
+              />
+              <InputRequiredValidate
+                ref={emailRef}
+                input={{
+                  type: "email",
+                  placeholder: "Email *",
+                }}
+                cb={(value) =>
+                  ValidateLengthInput(value, 0) && value.trim().includes("@")
+                }
+                errorMessage="Email không hợp lệ"
+                getStatus={setEmailIsValid}
+              />
+            </div>
             <TextArea
               ref={contentRef}
               textarea={{

@@ -6,3 +6,11 @@
         border-color: var(--border-color) !important;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .text-area{
+        &::placeholder{
+            font-size: var(--fs-small);
+        }
+    }
+}

@@ -41,9 +41,6 @@
     li{
         padding-bottom: 16px;
         letter-spacing: var(--letter-spacing);
-        &:last-child{
-            padding-bottom: 0;
-        }
     }
     a{
         text-transform: uppercase;

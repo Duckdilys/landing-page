@@ -215,7 +215,6 @@
         }
         .list-dropdown {
           position: static;
-          height: auto !important;
           opacity: 1 !important;
           width: 100%;
           pointer-events: visible !important;
@@ -223,6 +222,8 @@
           overflow: scroll;
           padding: var(--mg-16) var(--middle-space);
           padding-bottom: 0;
+          padding-right: 0;
+          height: 200px !important;
           a{
             text-transform: capitalize !important;
             font-size: var(--fs-small) !important;
@@ -237,6 +238,7 @@
             &:last-child{
               padding-bottom: 0;
             }
+            font-size: 14px;
           }
         }
       }
@@ -253,7 +255,7 @@
 @media screen and (max-width: 576px) {
   .nav {
     .open {
-      height: 80vh;
+      height: 75vh;
     }
   }
 }

@@ -84,6 +84,10 @@
         line-height: 36px;
         @include show-n-line(3);
       }
+      span{
+        padding: 4px 8px;
+        font-weight: bold;
+      }
     }
     button{
       margin-top: var(--size-space);
@@ -94,12 +98,12 @@
 }
 @media screen and (max-width: 576px) {
   .slide{
-    // padding-top: calc(328px / 375px * 100%);
+    padding-top: calc(284px / 327px * 100%);
     height: 100%;
     h2{
       line-height: 32px !important;
       font-size: var(--fs-large) !important;
-      letter-spacing: var(--letter-spacing-primary) !important ;
+      letter-spacing: var(--letter-spacing-normal) !important ;
     }
     button{
       margin-bottom: 26px;

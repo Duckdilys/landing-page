@@ -3,7 +3,7 @@ import { Input } from "..";
 import useInput from "../../../hook/use-input";
 /* eslint-disable react/display-name */
 
-const InputRequiredValidate = forwardRef(({ cb, input, className, errorMessage, getStatus }, ref) => {
+const InputRequiredValidate = forwardRef(({ cb, input, className, errorMessage, getStatus, getValueInput }, ref) => {
   const { value, inputChangeHandler, isTouched, inputIsTouchHandler, isValid } =
     useInput((value) => cb(value));
   useEffect(() => {
@@ -11,6 +11,11 @@ const InputRequiredValidate = forwardRef(({ cb, input, className, errorMessage, 
       getStatus(isValid);
     }
   }, [isValid, getStatus]);
+  useEffect(() => {
+    if(typeof getValueInput === 'function') {
+      getValueInput(value);
+    }
+  }, [value, getValueInput]);
   return (
     <>
       <Input

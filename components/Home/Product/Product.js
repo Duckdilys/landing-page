@@ -39,8 +39,8 @@ const Product = ({
         content={item?.contents[0]?.content}
         path={`/products/${item.id}`}
         tabletView={tabletView}
-        iconSrc={listIcon[index]}
-        srcSet={hoverIcon[index]}
+        iconSrc={hoverIcon[index]}
+        srcSet={listIcon[index]}
       />
     );
   });
@@ -50,7 +50,7 @@ const Product = ({
         className={`${styles["container-product"]} ${classNameContainer}`}
       >
         <h4>{title ? title : "Sản Phẩm"}</h4>
-
+        
         <SwiperContainer
           pagination
           classNameNormalBullet={styles.normal}

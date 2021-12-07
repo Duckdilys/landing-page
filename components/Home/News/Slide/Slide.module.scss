@@ -72,15 +72,15 @@
 @media screen and (max-width: 768px) {
   .slide{
     .content{
-      padding: var(--middle-space) !important;
+      padding: 0 var(--middle-space) 34px var(--middle-space) !important;
       span{
         padding: 4px 8px;
         font-size: var(--fs-xs);
         margin-bottom: 4px;
       }
       a{
-        font-size: var(--fs-nlarge);
-        line-height: var(--line-height-primary);
+        font-size: var(--fs-normal) !important;
+        line-height: var(--middle-space);
       }
     }
   }

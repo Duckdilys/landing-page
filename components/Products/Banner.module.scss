@@ -18,6 +18,9 @@
         text-transform: uppercase;
         padding-bottom: var(--middle-space);
     }
+    p{
+        padding-bottom: var(--mg-16) !important;
+    }
 }
 .image{
     position: relative !important;
@@ -62,6 +65,7 @@
 }
 .introduction{
     gap: var(--size-space);
+    text-align: justify;
 }
 .container{
     padding-bottom: 0 !important;
@@ -173,6 +177,7 @@
         h5{
             font-size: 18px !important;
             line-height: 28px !important;
+            letter-spacing: var(--letter-spacing-normal) !important;
         }
     }
 }
@@ -195,6 +200,7 @@
    }
    .introduction{
        gap: 12px;
+       
    }
    .text-banner{
        padding: 0;

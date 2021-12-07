@@ -66,6 +66,7 @@
       display: -webkit-box;
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
+      line-height: var(--middle-space);
     }
     .date {
       span {
@@ -87,7 +88,7 @@
       font-size: var(--fs-small);
       font-weight: var(--weight-400);
       color: var(--black-primary);
-      padding-left: var(--sm-size);
+      padding-left: 14px;
       line-height: 20px;
     }
     > div {

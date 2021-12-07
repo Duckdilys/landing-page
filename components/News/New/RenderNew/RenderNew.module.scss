@@ -8,6 +8,7 @@
             &:hover{
                 transform: scale(1.1);
             }
+            border: 1px solid var(--border-mobile) !important;
         }
     }
     letter-spacing: var(--letter-spacing);
@@ -56,6 +57,6 @@
             letter-spacing: var(--letter-spacing);
         }
         border-bottom: 1px solid var(--border-mobile);
-        padding-bottom: var(--mg-16);
+        padding-bottom: var(--pd-12);
     }
 }

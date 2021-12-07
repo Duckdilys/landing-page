@@ -15,11 +15,7 @@ import { getProductById } from "../../config/ApiProducts";
 import axiosConfig from "../../service/base";
 import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
 import { apiGetProducts } from "../../config/ApiProducts";
-import useMedia from "../../hook/use-media";
 const Products = ({ data_product, other_products }) => {
-  const isMobile = useMedia("(max-width: 991px)");
-  const isMiddleBox = useMedia("(max-width: 1250px)");
-  const isTablet = useMedia('(max-width: 768px)');
   return (
     <>
       <BreadCrumbScript
@@ -114,7 +110,7 @@ const Products = ({ data_product, other_products }) => {
           <p className="text-center">Không có dữ liệu</p>
         )}
       </Introduction>
-      {data_product.landing_page && (
+      {/* {data_product.landing_page && (
         <Introduction
           imageConfig={{ "data-aos": "fade-left" }}
           className={styles.information}
@@ -146,8 +142,8 @@ const Products = ({ data_product, other_products }) => {
             </div>
           </div>
         </Introduction>
-      )}
-      {!data_product?.landing_page && <BannerLanding website={data_product?.website} />}
+      )} */}
+      <BannerLanding website={data_product?.website} isLanding={data_product?.landing_page}/>
       <Product
         className={`${styles.background}`}
         classNameContainer={`${styles["container-product"]} d-flex flex-column justify-content-center align-items-center`}

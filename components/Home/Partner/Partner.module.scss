@@ -128,9 +128,9 @@
     .container-middle{
         padding-bottom: 0 !important;
         h4{
-            font-size: 24px;
-            padding-bottom: var(--middle-space) !important;
-            line-height: 36px;
+            font-size: var(--fs-large);
+            padding-bottom: var(--pd-28) !important;
+            line-height: var(--size-space);
         }
     }
     .grid-partner{
