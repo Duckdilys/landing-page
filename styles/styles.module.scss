@@ -7,7 +7,13 @@
     margin-top: 0 !important;
     margin-bottom: 0;
 }
-
+.lines{
+    & > div{
+        &:first-child{
+            margin-top: var(--pd-64);
+        }
+    }
+}
 .introduction{
     padding: var(--middle-space);
     padding-bottom: var(--middle-space);

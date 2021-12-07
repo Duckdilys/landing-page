@@ -18,10 +18,10 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
 
   const getDataFromServer = () => {
     const visions = dataIntroduction?.visions || [];
-    const missions = dataIntroduction?.missions ||  [];
+    const missions = dataIntroduction?.missions || [];
 
     return [...visions, ...missions];
-  }
+  };
   return (
     <>
       <BreadCrumbScript
@@ -41,39 +41,41 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
               <StringToHTML string={dataIntroduction?.content}/>
             </div>
           )} */}
-          {dataIntroduction && (
-            <>
-              {getDataFromServer().map((item, index) => {
-                if (index % 2 === 0) {
+          <div className={styles.lines}>
+            {dataIntroduction && (
+              <>
+                {getDataFromServer().map((item, index) => {
+                  if (index % 2 === 0) {
+                    return (
+                      <TextImage
+                        aos="fade-right"
+                        title={item?.content || "Không có tiêu đề"}
+                        mainTitle={item?.title || "Không có nội dung chi tiết"}
+                        src={item?.src || "/Image (2).png"}
+                        key={index}
+                        className="flex-row-reverse"
+                        aosImage="fade-left"
+                        iconImage={"/icon.png"}
+                        classImage={styles["background-image"]}
+                      />
+                    );
+                  }
                   return (
                     <TextImage
-                      aos="fade-right"
+                      aos="fade-left"
                       title={item?.content || "Không có tiêu đề"}
                       mainTitle={item?.title || "Không có nội dung chi tiết"}
-                      src={item?.src || "/Image (2).png"}
+                      src={item?.src || "/vision.png"}
                       key={index}
-                      className="flex-row-reverse"
-                      aosImage="fade-left"
+                      classText={styles.reverse}
                       iconImage={"/icon.png"}
-                      classImage={styles['background-image']}
+                      classImage={`${styles["background-image"]} ${styles["background-right"]}`}
                     />
                   );
-                }
-                return (
-                  <TextImage
-                    aos="fade-left"
-                    title={item?.content || "Không có tiêu đề"}
-                    mainTitle={item?.title || "Không có nội dung chi tiết"}
-                    src={item?.src || "/vision.png"}
-                    key={index}
-                    classText={styles.reverse}
-                    iconImage={"/icon.png"}
-                    classImage={`${styles['background-image']} ${styles['background-right']}`}
-                  />
-                );
-              })}
-            </>
-          )}
+                })}
+              </>
+            )}
+          </div>
         </section>
         <RootValue data={dataIntroduction?.core_values} />
         <Competitive data={dataIntroduction?.competitives} />

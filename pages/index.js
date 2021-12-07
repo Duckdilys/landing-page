@@ -75,7 +75,7 @@ export const getServerSideProps = async ({ req }) => {
       notFound: true,
     };
   }
-
+  console.log(bannerData);
   return {
     props: {
       news: news.result.items.map((post) => {
