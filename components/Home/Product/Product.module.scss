@@ -20,7 +20,7 @@
     width: 10px !important;
     height: 10px !important;
     @include mg();
-
+    border-width: 1px !important;
 }
 .slide-swiper{
     width: 297px !important;
@@ -32,6 +32,7 @@
     }
     .container{
         padding-right: 0 !important;
+        padding-bottom: 24px;
     }
     .container-product{
         padding-right: 0 !important;

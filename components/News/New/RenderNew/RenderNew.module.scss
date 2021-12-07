@@ -21,7 +21,7 @@
         &:hover{
             color: var(--orange-primary) !important;
         }
-        letter-spacing: var(--letter-spacing);
+        letter-spacing: var(--letter-spacing-normal);
         line-height: var(--middle-space);
     }
     letter-spacing: var(--letter-spacing);
@@ -53,6 +53,7 @@
         a{
             font-size: var(--fs-small);
             line-height: 20px;
+            letter-spacing: var(--letter-spacing);
         }
         border-bottom: 1px solid var(--border-mobile);
         padding-bottom: var(--mg-16);

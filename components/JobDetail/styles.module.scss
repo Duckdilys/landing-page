@@ -5,12 +5,13 @@
 .box {
   h4{
     letter-spacing: var(--letter-spacing-secondary);
-    padding-bottom: var(--middle-space) !important;
+    padding-bottom: 8px !important;
     margin: 0;
   }
 }
 .container{
   margin-top: 48px !important;
+  margin-bottom: var(--mg-64) !important;
 }
 .types {
   div {

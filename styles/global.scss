@@ -200,14 +200,14 @@ input[type='number']{
 
 .form-open-enter-active{
   @include form-active();
-  transition: all .75s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 .form-open-exit{
   @include form-active();
 }
 .form-open-exit-active{
   @include form-open();
-  transition: all .75s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 @media screen and (max-width: 1260px) {

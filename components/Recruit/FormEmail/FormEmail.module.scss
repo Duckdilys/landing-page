@@ -10,16 +10,17 @@
         text-transform: uppercase;
         margin: 0;
         letter-spacing: var(--letter-spacing);
-        line-height: 20px;
+        line-height: 24px;
     }
     h6, p{
         text-align: center;
     }
     p{
-        padding-bottom: var(--middle-space);
+        padding-bottom: 16px;
         font-size: var(--fs-small);
         color: var(--light-black);
         line-height: 20px;
+        letter-spacing: var(--letter-spacing);
     }
     .input{
         input{
@@ -27,7 +28,7 @@
             width: 100%;
             font-size: var(--fs-small);
             &::placeholder{
-                font-size: var(--fs-normal);
+                font-size: var(--fs-small);
                 letter-spacing: var(--letter-spacing);
             }
         }
@@ -42,6 +43,7 @@
         font-size: var(--fs-small);
         line-height: 20px;
         letter-spacing: var(--letter-spacing);
+        padding: 12px 24px;
     }
 }
 

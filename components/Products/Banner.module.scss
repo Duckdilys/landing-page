@@ -58,7 +58,6 @@
     .information-box{
         padding: var(--pd-12) var(--pd-12) var(--pd-12) 28px;
         box-shadow: var(--shadow-button-primary);
-        border: 1px solid var(--black-primary);
     }
 }
 .introduction{
@@ -70,7 +69,7 @@
     p{
         padding-left: 0;
     }
-    margin-top: 48px !important;
+    margin-top: 40px !important;
     & > div{
         margin-top: 0;
     }
@@ -172,7 +171,8 @@
             width: 100% !important;
         }
         h5{
-            font-size: 20px !important;
+            font-size: 18px !important;
+            line-height: 28px !important;
         }
     }
 }

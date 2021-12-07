@@ -98,7 +98,12 @@
         margin-bottom: 0 !important;
     }
     .button{
-        margin-top: var(--pd-18);
+        margin-top: 22px;
+        img{
+            margin-left: 5px;
+            width: 10px;
+            height: 7px;
+        }
     }
     .grid{
         gap: 0;
@@ -106,7 +111,7 @@
             padding-bottom: 11px;
         }
         & > div {
-            padding-bottom: 17px;
+            padding-bottom: 21px;
             &:last-child{
                 padding-bottom: 0;
             }

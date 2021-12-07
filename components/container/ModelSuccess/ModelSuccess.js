@@ -10,7 +10,7 @@ const ModelSuccess = ({condition, resetStateHandler, error, contentMessage, titl
         unmountOnExit
         mountOnEnter
         classNames="form-open"
-        timeout={750}
+        timeout={500}
         in={condition || false}
       >
         <>

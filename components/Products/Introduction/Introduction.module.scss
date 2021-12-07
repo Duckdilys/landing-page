@@ -22,7 +22,7 @@
     padding-bottom: var(--xs-size);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing);
-    line-height: 36px;
+    line-height: 24px;
   }
   p {
     line-height: 28px;
@@ -30,7 +30,7 @@
     &:last-child {
       padding-bottom: 0;
     }
-    letter-spacing: 1px;
+    letter-spacing: var(--letter-spacing);
   }
 }
 
@@ -52,10 +52,11 @@
     }
     .content{
         p{
-            padding-bottom: var(--pd-12);
+            padding-bottom: var(--pd-12) !important;
+            letter-spacing: var(--letter-spacing);
         }
         h5{
-          line-height: 32px;
+          line-height: 20px;
         }
     }
     .container-grid{

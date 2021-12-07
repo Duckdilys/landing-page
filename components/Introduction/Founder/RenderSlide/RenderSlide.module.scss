@@ -53,8 +53,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: var(--middle-space);
-    &:last-child {
+    margin-right: 16px;
+    &:last-child {  
       margin-right: 0;
     }
     background: var(--white);
@@ -103,6 +103,9 @@
       font-size: var(--fs-small);
       p{
         font-size: 14px !important;
+        &:first-child{
+          font-size: 12px !important;
+        }
       }
       strong{
         font-size: 14px !important;
@@ -110,10 +113,15 @@
     }
     h5{
       padding-bottom: var(--middle-space);
-      font-size: var(--fs-nlarge);
+      font-size: var(--fs-normal);
     }
     .social{
       padding-top: var(--middle-space);
+    }
+  }
+  .content{
+    a{
+      margin-right: 12px;
     }
   }
 }

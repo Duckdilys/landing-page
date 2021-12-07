@@ -1,9 +1,6 @@
 .content{
     line-height: var(--line-height-primary);
     letter-spacing: var(--letter-spacing);
-    img{
-        margin: var(--middle-space) 0;
-    }
     p{
         padding-bottom: 16px;
         &:last-child{
@@ -25,6 +22,12 @@
         font-size: var(--fs-small);
         h1, h2, h3, h4, h5, h6 {
             font-size: var(--fs-nlarge);
+        }
+        p{
+            padding-bottom: 12px;
+        }
+        img{
+            margin: 12px 0;
         }
     }
 }
