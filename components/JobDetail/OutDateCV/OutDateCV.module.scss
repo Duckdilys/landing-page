@@ -5,7 +5,7 @@
     margin-bottom: var(--size-space);
     text-align: center;
     h4{
-        font-size: 20px;
+        font-size: 20px !important;
         line-height: 32px;
         letter-spacing: var(--letter-spacing-normal);
         font-weight: var(--weight-700);
@@ -26,5 +26,17 @@
         border: none;
         text-transform: uppercase;
         padding: var(--mg-16) 40px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .outdate{
+        h4{
+            font-size: var(--fs-normal) !important;
+        }
+        p{
+            font-size: var(--fs-small);
+        }
     }
 }

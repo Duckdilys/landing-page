@@ -2,6 +2,9 @@
     background: var(--black);
     height: 1px;
 }
+.justify{
+    text-align: justify;
+}
 .grid{
     grid-template-columns: repeat(3, 1fr);
 }
@@ -16,7 +19,6 @@
         grid-template-columns: repeat(1, 1fr);
     }
     .container{
-        margin-bottom: 80px !important;
         h4{
             padding-bottom: 16px !important;
         }

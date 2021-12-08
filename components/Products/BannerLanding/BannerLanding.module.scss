@@ -34,7 +34,7 @@
       @include font-fs();
       // padding-bottom: 28px;
       letter-spacing: calc(1px + var(--letter-spacing));
-      line-height: 44px;
+      line-height: 36px;
       padding: 0 var(--mg-16);
     }
     button {
@@ -47,11 +47,11 @@
       border: none;
     }
     .space{
-      padding-bottom: 28px;
+      padding-bottom: var(--size-space);
     }
   }
   .contact {
-    padding-top: var(--pd-64);
+    padding-top: 48px;
     h4 {
         @include font-fs();
         padding-bottom: var(--size-space) !important;
@@ -81,7 +81,7 @@
             letter-spacing: var(--letter-spacing);
             font-weight: var(--weight-700);
         }
-        padding-top: 48px;
+        padding-top: var(--size-space);
     }
   }
 }
@@ -111,11 +111,11 @@
     h5{
       font-size: var(--fs-nlarge) !important;
       padding-bottom: var(--mg-16) !important;
-      line-height: 32px !important;
+      line-height: 28px !important;
       letter-spacing: var(--letter-spacing-normal) !important;
     }
     .contact{
-      padding-top: var(--pd-36) !important;
+      padding-top: var(--middle-space) !important;
       h4{
         padding-bottom: var(--mg-16) !important;
       }

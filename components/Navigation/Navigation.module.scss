@@ -40,12 +40,6 @@
     path {
       transition: all 0.35s ease-in-out;
     }
-    &:hover {
-      color: var(--orange-primary) !important;
-      path {
-        fill: var(--orange-primary) !important;
-      }
-    }
     font-weight: 600;
   }
   margin: 0;
@@ -62,6 +56,14 @@
     font-weight: 600;
     &:last-child{
       margin-right: 0;
+    }
+  }
+  li, a {
+    &:hover {
+      color: var(--orange-primary) !important;
+      path {
+        fill: var(--orange-primary) !important;
+      }
     }
   }
 }
@@ -176,7 +178,7 @@
     .paths {
       border-top: 1px solid var(--border-mobile);
       z-index: 201 !important;
-      font-size: var(--fs-small);
+      font-size: var(--fs-small) !important;
       flex-direction: column;
       position: absolute;
       top: 100%;
@@ -194,6 +196,7 @@
         &:first-child{
           padding-top: 0;
         }
+        font-size: var(--fs-small) !important;
         margin: 0;
         height: auto;
         padding: var(--mg-16) 0;
@@ -238,7 +241,7 @@
             &:last-child{
               padding-bottom: 0;
             }
-            font-size: 14px;
+            font-size: 14px !important;
           }
         }
       }

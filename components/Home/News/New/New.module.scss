@@ -15,7 +15,7 @@
 }
 .content {
   a {
-    font-size: var(--fs-normal);
+    font-size: var(--fs-small);
     @include show-n-line(2);
     margin-bottom: var(--sm-size);
     line-height: 24px;

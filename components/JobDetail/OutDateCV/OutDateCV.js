@@ -7,10 +7,11 @@ const OutDateCV = () => {
   const dispatch = useDispatch();
   return (
     <div className={styles.outdate}>
-      <h4>Công việc đã hết hạn ứng tuyển</h4>
+      <h4>Vị trí này đã hết hạn ứng tuyển</h4>
       <p>
-        Bạn quan tâm công việc này? Hãy gửi lại CV của bạn tại đây và chúng tôi
-        sẽ liên hệ lại với bạn khi có công việc phù hợp.
+        Nếu bạn quan tâm đến vị trí này, vui lòng gửi lại CV của bạn tại đây.
+        Chúng tôi sẽ lưu lại hồ sơ của bạn và liên hệ ngay khi có vị trí phù
+        hợp.
       </p>
       <Button
         options={{

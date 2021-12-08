@@ -9,7 +9,7 @@ const Founder = ({ dataFounder }) => {
   return (
     <div className={styles.bg}>
       <ContainerSmall className={styles.container}>
-        <h4>Sáng Lập - Cố Vấn</h4>
+        <h4 className={styles.title}>Sáng Lập - Cố Vấn</h4>
         <SwiperContainer
           config={{
             left: styles.left,
@@ -22,9 +22,11 @@ const Founder = ({ dataFounder }) => {
           spaceBetween={isMatchMobile ? 16 : 24}
           navigation={(dataFounder.length > 1 && !isMatchMobile) ? true : false}
           pagination
+          loop
           classNameNormalBullet={styles.bullet}
           classNameActiveBullet={styles['active-bullet']}
           clickable={true}
+          delay={5000}
         >
           {dataFounder ? (
             dataFounder?.map((founder, index) => {

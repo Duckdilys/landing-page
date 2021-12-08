@@ -2,7 +2,7 @@
   .image {
     position: relative;
     width: 92px;
-    height: 92px;
+    height: 80px;
     img {
       object-fit: cover;
     }
@@ -24,29 +24,8 @@
     transition: all 0.35s ease;
   }
   &:hover {
-    background: var(--orange-primary);
-    .content {
-      h5,
-      span {
-        color: var(--white) !important;
-      }
-      .expired{
-        color: var(--black-primary) !important;
-      }
-    }
-    box-shadow: var(--shadow-primary);
-    path {
-      fill: var(--white);
-    }
-    border-color: var(--orange-primary);
-    &::before {
-      visibility: visible;
-      opacity: 1;
-    }
-    .work-type {
-      color: var(--white);
-      background: var(--orange-danger);
-    }
+    filter: drop-shadow(0px 16px 24px rgba(91, 91, 91, 0.15));
+    box-shadow: var(--shadow-darker);
   }
   letter-spacing: var(--letter-spacing);
   .content {
@@ -60,7 +39,6 @@
       font-size: var(--fs-normal);
       text-transform: uppercase;
       font-weight: var(--weight-700);
-      width: 170px;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -68,56 +46,52 @@
       -webkit-box-orient: vertical;
       line-height: var(--middle-space);
     }
-    .date {
-      span {
-        font-size: var(--fs-xs) !important;
-        &:first-child {
-          color: var(--blue-primary);
-          text-transform: uppercase;
-        }
-        &:last-child {
-          color: var(--light-black);
-          font-weight: var(--weight-400);
-        }
-      }
-    }
   }
-  .places {
-    padding: 13px 0 7px 0;
-    span {
-      font-size: var(--fs-small);
-      font-weight: var(--weight-400);
-      color: var(--black-primary);
-      padding-left: 14px;
-      line-height: 20px;
-    }
-    > div {
-      &:last-child {
-        padding-left: var(--md-size);
-      }
-    }
-  }
-  border: 1px solid var(--border-color);
+  outline: 1px solid var(--gray-lighter);
   padding: var(--middle-space);
+}
+.expired-time {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  font-weight: var(--weight-700);
+  color: var(--white);
+  background: linear-gradient(0deg, rgba(15, 14, 14, 0.75), rgba(15, 14, 14, 0.75));
 }
 .flex {
   & > div {
     margin-right: var(--xs-size);
     &:last-child {
       margin-right: 0;
-      background: #EDE9FF;
-      color: #2C00D4;
+      background: #ede9ff;
+      color: #2c00d4;
     }
-    &:nth-of-type(2){
-      background: #E7F1FF;
+    &:nth-of-type(2) {
+      background: #e7f1ff;
       color: var(--blue-primary);
     }
   }
   flex-wrap: wrap;
 }
-.place,
-.text {
-  text-transform: capitalize;
+.information{
+  span{
+    font-size: var(--fs-small);
+    line-height: 20px;
+    letter-spacing: var(--letter-spacing);
+    padding-left: 7px;
+  }
+  padding-top: 8px;
+  padding-bottom: var(--pd-12);
+  .date{
+    padding-right: 14px;
+  }
 }
 .expired {
   color: var(--black-primary) !important;
@@ -126,48 +100,54 @@
   background: var(--light-gray);
 }
 .new {
-  color: var(--blue-primary) !important;
-  margin-right: 8px;
+  font-size: var(--fs-small);
+  line-height: 20px;
+  color: var(--white);
+  letter-spacing: var(--letter-spacing);
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: var(--weight-700);
+  padding: 4px var(--pd-12);
+  background: var(--blue-primary);
 }
 .disabled {
   position: relative;
 }
+.salary{
+  color: var(--orange-primary);
+}
 @media screen and (max-width: 1200px) {
   .container {
-    .content {
-      h5 {
-        font-size: var(--fs-small);
-      }
-      span {
-        font-size: var(--fs-xs);
-      }
-    }
     svg {
-      width: 10px;
+      width: 14px;
       height: 16px;
     }
   }
 }
 @media screen and (max-width: 576px) {
   .container {
-    .image {
-      width: 72px;
-      height: 72px;
-      margin-right: var(--pd-12);
-    }
+    width: 100%;
     .wrap {
       justify-content: flex-start !important;
     }
-    .places {
-      padding-top: 11px;
-      padding-bottom: 9px;
+    padding: var(--mg-16);
+    .content {
+      width: 100%;
+      h5,
       span {
-        padding-left: 9px;
+        line-height: 20px;
       }
     }
-    padding: var(--mg-16);
   }
-  .flex {
-    margin-top: 12px;
+  .new{
+    font-size: 10px;
+  }
+  .old{
+    background: var(--gray-lighter);
+    color: var(--black-primary);
+
   }
 }
+

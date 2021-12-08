@@ -23,5 +23,9 @@
     .container{
         padding-top: 18px;
         padding-bottom: 30px;
+        p{
+            font-size: var(--fs-small);
+            padding-right: 13px;
+        }
     }
 }

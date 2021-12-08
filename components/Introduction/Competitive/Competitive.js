@@ -19,7 +19,7 @@ const Competitive = ({ data }) => {
             return (
               <CardContent
                 key={index}
-                className="text-center"
+                className={styles.justify}
                 iconSrc={item?.src || iconImage[index]}
                 lineClassName={styles.line}
                 title={item?.title || "không có tiêu đề"}

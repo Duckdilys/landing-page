@@ -28,10 +28,12 @@
 }
 @media screen and (max-width: 991px) {
     .container{
+        margin-bottom: 48px;
         h4{
             padding-top: var(--middle-space);
-            font-size: var(--fs-large) !important;
-            letter-spacing: var(--letter-spacing-primary);
+            font-size: var(--fs-nlarge) !important;
+            letter-spacing: var(--letter-spacing-normal);
+            line-height: 28px;
         }
     }
 }

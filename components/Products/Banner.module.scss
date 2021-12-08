@@ -88,11 +88,16 @@
 .background{
     background: var(--light-gray);
     padding: var(--pd-64) 0;
-    margin-top: var(--space);
+    margin-top: 0;
 }
 .container-product{
     margin-top: 0;
     margin-bottom: 0;
+    & > h4 {
+        line-height: 48px;
+        font-size: 32px !important;
+        padding-bottom: 40px !important;
+    }
 }
 .grid{
     @include grid-template-column(3, 24px);

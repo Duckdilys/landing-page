@@ -13,9 +13,12 @@ const images = [
 ];
 import useFetch from "../../hook/use-fetch";
 import ModelSuccess from "../container/ModelSuccess/ModelSuccess";
+import useMedia from "../../hook/use-media";
 const Footer = ({ data_footer }) => {
   const router = useRouter();
-  const { isLoading, error, data, fetchDataFromServer, resetAllHandler } = useFetch();
+  const isMatchMobile = useMedia("(max-width: 576px)");
+  const { isLoading, error, data, fetchDataFromServer, resetAllHandler } =
+    useFetch();
   const emailRef = useRef();
   const submitFormHandler = () => {
     const email = emailRef.current.value;
@@ -38,10 +41,14 @@ const Footer = ({ data_footer }) => {
           <div className={styles.grid}>
             <div className={styles["logo-box"]}>
               <Image src={"/logo-footer.png"} alt="" className={styles.logo} />
-              <div className={`d-flex align-items-center ${styles.copyright}`}>
-                <Image src="/copy-right.svg" alt="" />
-                <span>Copyright 2020</span>
-              </div>
+              {!isMatchMobile && (
+                <div
+                  className={`d-flex align-items-center ${styles.copyright}`}
+                >
+                  <Image src="/copy-right.svg" alt="" />
+                  <span>Copyright 2020</span>
+                </div>
+              )}
             </div>
             <ul className={`${styles.list} ${styles["paths-list"]}`}>
               <div className={styles.paths}>
@@ -79,43 +86,60 @@ const Footer = ({ data_footer }) => {
                 })}
               </div>
             </ul>
-            <ul className={styles["list-contact"]}>
-              <li>Thông tin liên hệ</li>
-              <li data-aos-delay={200}>
-                <span>Địa chỉ: Số 24, ngõ 224 Trung Kính, Hà Nội</span>
-              </li>
-              <li data-aos-delay={400}>
-                <span>Email: contact@mhsolution.vn</span>
-              </li>
-              <li data-aos-delay={600}>
-                <span>Điện thoại: 097 571 8168</span>
-              </li>
-            </ul>
+            {!isMatchMobile && (
+              <ul className={styles["list-contact"]}>
+                <li>Thông tin liên hệ</li>
+                <li data-aos-delay={200}>
+                  <span>Địa chỉ: Số 24, ngõ 224 Trung Kính, Hà Nội</span>
+                </li>
+                <li data-aos-delay={400}>
+                  <span>Email: contact@mhsolution.vn</span>
+                </li>
+                <li data-aos-delay={600}>
+                  <span>Điện thoại: 0973 090 393</span>
+                </li>
+              </ul>
+            )}
             <ul className={`${styles.list} ${styles.email}`}>
-              <li>Đăng ký nhận thông tin</li>
-              <li className={styles.middle}>
-                Đăng ký email để nhận tin tức và dịch vụ mới nhất từ chúng tôi
-              </li>
-              <div className={`d-flex justify-content-between ${styles.box}`}>
-                <Input
-                  ref={emailRef}
-                  input={{
-                    type: "email",
-                    placeholder: "Địa chỉ Email",
-                  }}
-                  className={styles.input}
-                />
-                <Button
-                  options={{
-                    onClick: submitFormHandler,
-                  }}
-                >
-                  Đăng ký
-                </Button>
-              </div>
+              {!isMatchMobile && (
+                <>
+                  <li>Đăng ký nhận thông tin</li>
+                  <li className={styles.middle}>
+                    Đăng ký email để nhận tin tức và dịch vụ mới nhất từ chúng
+                    tôi
+                  </li>
+                  <div
+                    className={`d-flex justify-content-between ${styles.box}`}
+                  >
+                    <Input
+                      ref={emailRef}
+                      input={{
+                        type: "email",
+                        placeholder: "Địa chỉ Email",
+                      }}
+                      className={styles.input}
+                    />
+                    <Button
+                      options={{
+                        onClick: submitFormHandler,
+                      }}
+                    >
+                      Đăng ký
+                    </Button>
+                  </div>
+                </>
+              )}
               <li
                 className={`d-flex align-items-center ${styles["list-media"]}`}
               >
+                {isMatchMobile && (
+                <div
+                  className={`d-flex align-items-center ${styles.copyright}`}
+                >
+                  <Image src="/copy-right.svg" alt="" />
+                  <span>Copyright 2020</span>
+                </div>
+              )}
                 {data_footer[0]?.socials?.map((item, index) => {
                   return (
                     <a key={index} href={item?.src}>
@@ -132,7 +156,10 @@ const Footer = ({ data_footer }) => {
           </div>
         </LayoutContainer>
       </footer>
-      <ModelSuccess condition={!isLoading && data?.code < 400} resetStateHandler={resetAllHandler}/>
+      <ModelSuccess
+        condition={!isLoading && data?.code < 400}
+        resetStateHandler={resetAllHandler}
+      />
     </>
   );
 };

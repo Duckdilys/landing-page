@@ -1,5 +1,5 @@
 .parser{
-    p, ul, h1, h2, h3, h4, h5, h6, strong, li{
+    p, ul, h1, h2, h3, h4, h5, h6, strong, li, em{
         padding-bottom: 16px;
         &:last-child{
             padding-bottom: 0;
@@ -18,7 +18,7 @@
     .parser{
         font-size: var(--fs-small);
         line-height: 20px;
-        p, ul, h1, h2, h3, h4, h5, h6, strong, li{
+        p, ul, h1, h2, h3, h4, h5, h6, strong, li, em{
             font-size: var(--fs-small);
             line-height: 20px;
         }

@@ -38,6 +38,7 @@
       letter-spacing: var(--letter-spacing);
       padding: var(--xs-size) var(--sm-size);
       background: rgba($color: #1d1d1d, $alpha: 0.75);
+      line-height: var(--middle-space);
     }
     h2 {
       font-size: 32px;
@@ -87,6 +88,7 @@
       span{
         padding: 4px 8px;
         font-weight: bold;
+        line-height: 20px;
       }
     }
     button{

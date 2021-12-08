@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Grid, InputRequiredValidate, Button, TextArea, Loading } from "..";
 import { ValidateLengthInput } from "../../../util";
 import styles from "../../Products/BannerLanding/BannerLanding.module.scss";
 
-const FormContact = ({ isLoading }) => {
+const FormContact = ({ isLoading, getNameHandler, getEmailHandler, getPhoneHandler, getContentHandler, className, classBtn, classGrid }) => {
   return (
     <>
-      <Grid className={styles.grid}>
-        <div className={styles["grid-input"]}>
+      <Grid className={`${styles.grid} ${className}`}>
+        <div className={`${styles["grid-input"]} ${classGrid}`}>
           <InputRequiredValidate
             input={{
               type: "text",
@@ -15,7 +15,7 @@ const FormContact = ({ isLoading }) => {
             }}
             cb={(value) => ValidateLengthInput(value, 0)}
             errorMessage="Tên không được phép để trống"
-            getStatus={setNameIsValid}
+            getValueInput={getNameHandler}
           />
           <InputRequiredValidate
             input={{
@@ -26,7 +26,7 @@ const FormContact = ({ isLoading }) => {
             }}
             cb={(value) => ValidateLengthInput(value, 9)}
             errorMessage="Số điện thoại không hợp lệ"
-            getStatus={setPhoneIsValid}
+            getValueInput={getPhoneHandler}
           />
           <InputRequiredValidate
             input={{
@@ -37,7 +37,7 @@ const FormContact = ({ isLoading }) => {
               ValidateLengthInput(value, 0) && value.trim().includes("@")
             }
             errorMessage="Email không hợp lệ"
-            getStatus={setEmailIsValid}
+            getValueInput={getEmailHandler}
           />
         </div>
         <TextArea
@@ -45,10 +45,11 @@ const FormContact = ({ isLoading }) => {
             placeholder: "Nội dung",
             cols: "10",
             rows: "5",
+            onChange: event => getContentHandler(event.target.value)
           }}
         ></TextArea>
       </Grid>
-      <div className={`${styles.submit} text-center`}>
+      <div className={`${styles.submit} text-center ${classBtn}`}>
         <Button>Gửi nội dung</Button>
       </div>
       {isLoading && (

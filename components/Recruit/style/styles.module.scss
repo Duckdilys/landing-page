@@ -36,6 +36,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .grid{
+        gap: 36px;
+    }
     .box{
         padding: var(--middle-space);
         h4{
@@ -46,5 +49,8 @@
             padding-top: var(--xs-size);
             padding-bottom: var(--middle-space);
         }
+    }
+    .container{
+        margin-bottom: var(--middle-space) !important;
     }
 }

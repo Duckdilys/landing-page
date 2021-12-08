@@ -56,6 +56,7 @@ body, html{
   --shadow-dark: 0px 2px 8px rgba(0, 0, 0, 0.16);
   --shadow-button-primary: 0px 8px 40px rgba(91, 91, 91, 0.2);
   --orange-light-primary: rgba(255, 78, 22, 0.05);
+  --shadow-darker: 0px 16px 24px rgba(91, 91, 91, 0.15);
   --border-color: #888888;
   --border-mobile: #C5C5C5;
   --light-orange: #ffede8;
@@ -169,9 +170,25 @@ input[type='number']{
 }
 @mixin fade-start {
   opacity: 0;
+  height: 0;
 }
 @mixin fade-finish {
   opacity: 1;
+  height: 100%;
+}
+.fade-enter{
+  @include fade-start();
+}
+.fade-enter-active{
+  @include fade-finish();
+  transition: all .5s ease-in-out;
+}
+.fade-exit{
+  @include fade-finish();
+}
+.fade-exit-active{
+  @include fade-start();
+  transition: all .5s ease-in-out
 }
 .scale-enter{
   @include scale-start();

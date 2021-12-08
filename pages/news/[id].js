@@ -102,13 +102,12 @@ export const getServerSideProps = async ({ req, query }) => {
   const postDetail = await axiosConfig({
     url: getNewById(+id),
   });
-
-  const postRelated = await getNews(0, 4, "", {
+  const postRelated = await getNews(0, 3, "", {
     filters: [
       {
         name: "category_new_id",
         operation: "eq",
-        value: id
+        value: postDetail?.result?.category_new_id
       },
     ],
   });

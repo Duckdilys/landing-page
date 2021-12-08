@@ -10,7 +10,7 @@ import Form from "../../components/Contact/Form/Form";
 import styles from "../../components/Contact/Form/Form.module.scss";
 import useMedia from "../../hook/use-media";
 const Contact = () => {
-  const isMobile = useMedia("(max-width: 991px)");
+  const isMobile = useMedia('(max-width: 991px)');
   return (
     <>
       <BreadCrumbScript dataElement={[]} title="Liên hệ | MH - Solution" />
@@ -27,44 +27,42 @@ const Contact = () => {
           loading="lazy"
         ></iframe>
       </ContainerBanner>
-      {
-        !isMobile && 
-        <div className={styles.background}>
-          <ContainerSmall className={`${styles.contact}`}>
-            <ul className="d-flex justify-content-between align-items-center">
-              <li>
-                <Image
-                  src="/Icon/house-icon.svg"
-                  alt=""
-                  width="23px"
-                  height="23px"
-                />
-                <span>Địa chỉ: Số 24, ngõ 224 Trung Kính, Hà Nội</span>
-              </li>
-              <li>
-                <Image
-                  src="/Icon/mail-icon.svg"
-                  alt=""
-                  width="23px"
-                  height="23px"
-                />
-                <span>Email: contact@mhsolution.vn</span>
-              </li>
-              <li>
-                <Image
-                  src="/Icon/phone-footer-icon.svg"
-                  alt=""
-                  width="23px"
-                  height="23px"
-                />
-                <span>Điện thoại: 0975718168</span>
-              </li>
-            </ul>
-          </ContainerSmall>
-        </div>
-      }
+      <div className={styles.background}>
+        <ContainerSmall className={`${styles.contact}`}>
+          <ul className="d-flex justify-content-between align-items-center">
+            {isMobile && <li className={styles['title-contact']}>thông tin liên hệ</li>}
+            <li>
+              <Image
+                src="/Icon/house-icon.svg"
+                alt=""
+                width={isMobile ? "15px" : "23px"}
+                height={isMobile ? "15px" : "23px"}
+              />
+              <span>Địa chỉ: Số 24, ngõ 224 Trung Kính, Hà Nội</span>
+            </li>
+            <li>
+              <Image
+                src="/Icon/mail-icon.svg"
+                alt=""
+                width={isMobile ? "15px" : "23px"}
+                height={isMobile ? "11px" : "16px"}
+              />
+              <span>Email: contact@mhsolution.vn</span>
+            </li>
+            <li>
+              <Image
+                src="/Icon/phone-footer-icon.svg"
+                alt=""
+                width={isMobile ? "15px" : "23px"}
+                height={isMobile ? "15px" : "23px"}
+              />
+              <span>Điện thoại: 0975718168</span>
+            </li>
+          </ul>
+        </ContainerSmall>
+      </div>
       <ContainerSmall className={styles.remove}>
-        <Form />
+        <Form/>
       </ContainerSmall>
     </>
   );

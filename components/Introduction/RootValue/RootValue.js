@@ -8,12 +8,11 @@ const RootValue = ({ data }) => {
   return (
     <div className={styles["container-bg"]}>
       <Container className={`text-center ${styles.container}`}>
-        <h4 data-aos="fade-up" data-aos-offset={300}>
+        <h4 data-aos="fade-up">
           Giá trị cốt lõi
         </h4>
         <p
           data-aos="fade-up"
-          data-aos-offset={300}
           data-aos-delay={0}
           className={styles.intro}
         >
@@ -21,7 +20,7 @@ const RootValue = ({ data }) => {
           Với 5 giá trị cốt lõi, nhân sự của chúng tôi luôn luôn phát triển và
           hoàn thiện với tinh thần{" "}
         </p>
-        <h5 data-aos="fade-up" data-aos-offset={300} data-aos-delay={800}>
+        <h5 data-aos="fade-up">
           “Sáng tạo, chủ động, phát huy tính đồng đội, trách nhiệm với bản thân,
           công ty và khách hàng.”
         </h5>
@@ -53,7 +52,7 @@ const RootValue = ({ data }) => {
           </div> */}
         {/* </div> */}
         {/* // : <p className="text-center pt-5">Không có thông tin</p>} */}
-        <div className={styles.image}>
+        <div data-aos="fade-up" className={styles.image}>
           <Image
             src={"/Group 156 (1).png"}
             alt=""

@@ -28,6 +28,7 @@ import { BreadCrumbScript } from './SEO';
 import Loading from './Loading/Loading';
 import OverlayBG from './OverlayBG/OverlayBG';
 import InputRequiredValidate from './InputRequireValidate/InputRequiredValidate';
+import FormContact from './FormContact/FormContact';
 export {
     Logo,
     Line,
@@ -35,6 +36,7 @@ export {
     Container,
     Grid,
     Button,
+    FormContact,
     SkeletonLoading,
     SwiperContainer,
     Image,

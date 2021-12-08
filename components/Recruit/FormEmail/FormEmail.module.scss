@@ -37,7 +37,7 @@
         color: var(--white);
         text-transform: uppercase;
         margin-top: var(--sm-size);
-        font-size: var(--fs-small);
+        font-size: var(--fs-xs);
         line-height: 20px;
         letter-spacing: var(--letter-spacing);
         padding: 12px 24px;
@@ -50,9 +50,25 @@
             padding-bottom: var(--mg-16);
         }
         button{
-            padding: var(--pd-12) var(--pd-20);
-            font-size: var(--fs-small);
             font-weight: var(--weight-700);
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        h6, p{
+            font-size: var(--fs-small);
+            line-height: 20px;
+            padding-bottom: 8px;
+        }
+        p{
+            padding-bottom: var(--pd-12);
+        }
+        .input{
+            input{
+                padding: var(--pd-12) var(--mg-16);
+            }
         }
     }
 }

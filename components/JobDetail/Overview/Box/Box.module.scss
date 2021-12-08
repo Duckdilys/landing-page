@@ -4,6 +4,7 @@
     p{
         font-weight: var(--weight-400);
         color: var(--light-black);
+        line-height: var(--line-height-primary);
     }
     padding-bottom: var(--middle-space);
     padding-top: var(--middle-space);
@@ -15,11 +16,16 @@
         margin: 0;
         font-size: var(--fs-normal);
         letter-spacing: var(--letter-spacing);
+        line-height: var(--middle-space);
     }
 }
 
 @media screen and (max-width: 768px) {
     .box{
         padding: var(--mg-16) 0;
+        p, h6{
+            font-size: var(--fs-small);
+            line-height: 20px;
+        }
     }
 }

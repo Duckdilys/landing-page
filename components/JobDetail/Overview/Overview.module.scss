@@ -11,17 +11,26 @@
     letter-spacing: var(--letter-spacing);
     .box{
         padding: 0 var(--size-space);
-        & > div{
-            &:last-child{
-                border-bottom: none;
-            }
-        }
     }
+}
+.hidden{
+    border-bottom: none;
+    padding-bottom: 0;
 }
 .salary{
     h6{
         color: var(--orange-primary);
     }
+}
+.button{
+    button{
+        border: none;
+        background: var(--orange-primary);
+        color: var(--white);
+        text-transform: uppercase;
+    }
+    padding-top: var(--middle-space);
+    padding-bottom: var(--size-space);
 }
 
 @media screen and (max-width: 768px) {
@@ -35,5 +44,12 @@
         h5{
             padding: var(--middle-space);
         }
+    }
+    .button{
+        button{
+            padding: var(--pd-12) 20px;
+        }
+        padding-top: var(--mg-16);
+        padding-bottom: var(--middle-space);
     }
 }

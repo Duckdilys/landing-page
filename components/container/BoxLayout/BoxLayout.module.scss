@@ -17,7 +17,7 @@
 
 @media screen and (max-width: 768px) {
   .container{
-    line-height: 36px;
+    line-height: var(--size-space);
     padding-top: var(--size-space);
     h4{
       font-size: 20px;

@@ -10,15 +10,16 @@
 }
 .slide {
   width: 404px;
-  height: 554px;
+  // height: 554px;
 }
 .container {
   padding-right: 0;
   margin-top: 0;
   margin-bottom: 0;
-  h4{
+  & > h4{
+      line-height: 36px;
+      letter-spacing: var(--letter-spacing-normal);
       padding-bottom: var(--size-space) !important;
-      line-height: 36px !important;
   }
 }
 .swiper{
@@ -30,9 +31,8 @@
   padding-bottom: var(--pd-64);
 }
 @media screen and (max-width: 768px) {
-  .slide {
-    width: 312px !important;
-    height: 428px !important;
+  .slide{
+    width: 312px;
   }
   .bg {
     padding-top: var(--size-space);
@@ -41,11 +41,16 @@
       margin-top: 0 !important;
       margin-bottom: 0 !important;
       h4{
-        padding-bottom: var(--mg-16) !important;
-        padding-right: 24px;
+        padding-bottom: 12px !important;
         font-size: 18px !important;
-        line-height: 28px !important;
+        font-size: var(--fs-normal) !important;
+        line-height: 24px !important;
         letter-spacing: var(--letter-spacing-normal);
+      }
+      .title{
+        font-size: var(--fs-nlarge) !important;
+        padding-bottom: var(--mg-16) !important;
+        line-height: 28px !important;
       }
     }
   }

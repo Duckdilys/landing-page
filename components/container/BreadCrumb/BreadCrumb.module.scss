@@ -55,6 +55,9 @@
   .bread-crumb {
     ul li {
       font-size: var(--fs-normal);
+      span{
+        padding: 0 var(--pd-12);
+      }
     }
     .date{
       span{

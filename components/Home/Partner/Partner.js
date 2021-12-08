@@ -31,6 +31,7 @@ const Partner = (props) => {
               classOverlay={styles.overlay}
               className={styles.swiper}
               navigation={matchMobile ? false : true}
+              delay={5000}
               config={{
                 left: styles.left,
                 right: styles.right,

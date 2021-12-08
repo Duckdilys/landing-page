@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 768px) {
   .container{
-    padding-top: 36px;
+    padding-top: var(--size-space);
     li{
       width: var(--middle-space);
       height: var(--middle-space);
