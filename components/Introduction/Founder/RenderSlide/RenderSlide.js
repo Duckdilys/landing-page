@@ -4,6 +4,7 @@ import styles from "./RenderSlide.module.scss";
 import { StringToHTML } from "../../../container";
 import useHover from "../../../../hook/use-hover";
 import { CSSTransition } from "react-transition-group";
+import { findImageByType } from "../../../../util";
 const RenderSlide = ({ name, introduction, url_cover, socials, job_title }) => {
   const { isHover, isHoverHandler, isNotHoverHandler } = useHover(false);
   return (
@@ -19,7 +20,7 @@ const RenderSlide = ({ name, introduction, url_cover, socials, job_title }) => {
         <div
           className={`d-flex justify-content-center align-items-center ${styles.images}`}
         >
-          <Image src="/facebook-white-icon.svg" alt="" />
+          {<Image src="/facebook-white-icon.svg" alt="" />}
           <Image src="/linkedln-white.svg" alt="" />
           <Image src="/noron-white-icon.svg" alt="" />
         </div>

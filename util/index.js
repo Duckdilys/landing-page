@@ -4,11 +4,13 @@ import checkUserIsBot from "./checkUserIsBot";
 import { convertString } from "./convertString/convertString";
 import { SerializeNormal } from "./SerializeString/SerializeString";
 import randomArray from "./randomArray/randomArray";
+import findImageByType from "./findImageByType/findImageByType";
 export {
     removeUnicode,
     ValidateLengthInput,
     checkUserIsBot,
     convertString,
     SerializeNormal,
-    randomArray
+    randomArray,
+    findImageByType
 }
