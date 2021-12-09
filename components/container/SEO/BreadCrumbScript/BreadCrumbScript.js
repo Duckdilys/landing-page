@@ -23,7 +23,7 @@ const BreadCrumbScript = ({ dataElement, title, children }) => {
       <title>{title}</title>
       {/* <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js"></script> */}
       <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32"/>
-      <meta property="og:image" content="/Logo-icon-svg.svg"/>
+      <meta property="og:image" name="og:image" content="/Logo-icon-svg.svg"/>
       {dataElement && (
         <script type="application/ld+json">
           {ReactHtmlParser(JSON.stringify(structureList))}

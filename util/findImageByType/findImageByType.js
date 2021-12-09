@@ -4,6 +4,9 @@ const findImageByType = (array, property, valueArray) => {
     }
 
     const value = array.find(item => item[property] === valueArray);
+    if(value === 'null' || !value) {
+        return null;
+    }
     return value;
 }
 
