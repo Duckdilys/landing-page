@@ -4,7 +4,6 @@ import Link from "next/link";
 import styles from "./LayoutProduct.module.scss";
 import Icon from "./Icon/Icon";
 import { Line, Button, StringToHTML } from "../../container";
-
 const LayoutProduct = ({
   children,
   title,

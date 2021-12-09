@@ -33,6 +33,11 @@
     min-height: 48px;
     border-radius: 50%;
     background: var(--orange-primary);
+    img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
   }
   transition: all .75s ease-in-out !important;
   .content{
