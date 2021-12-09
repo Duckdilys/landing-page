@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import SwiperBackground from "../../components/News/SwiperBackground/SwiperBackground";
 import ListNews from "../../components/News/ListNews/ListNews";
-import { checkUserIsBot } from "../../util";
+import { checkUserIsBot, removeUnicode } from "../../util";
 import { getNewsApi } from "../../config/ApiNews";
 import useFetch from "../../hook/use-fetch";
 import { useRouter } from "next/router";
@@ -64,7 +64,7 @@ const News = ({ categories, news, totalPage, heading }) => {
         dataElement={news.map((item) => {
           return {
             name: item.title,
-            href: `${router.pathname}/${item.id}`,
+            href: `${removeUnicode(item?.title)}/${router.pathname}/${item.id}`,
           };
         })}
       />

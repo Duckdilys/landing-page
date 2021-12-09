@@ -73,6 +73,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
     },
     [fetchDataFromServer]
   );
+  console.log(data);
   useEffect(() => {
     if (isLoading) {
       setIsLoadingSession(true);
