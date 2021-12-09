@@ -6,7 +6,7 @@ import {
   Grid,
   BreadCrumbScript,
 } from "../../components/container";
-import { checkUserIsBot } from "../../util";
+import { checkUserIsBot, randomArray } from "../../util";
 import styles from "../../components/DetailBlog/style/styles.module.scss";
 import DetailBlog from "../../components/DetailBlog/DetailBlog";
 import Share from "../../components/DetailBlog/Share/Share";
@@ -43,10 +43,7 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
         ]}
       >
         <meta property="og:image" content={data?.cover_url || ""} />
-        <meta
-          property="og:image:secure_url"
-          content={data?.cover_url || ""}
-        />
+        <meta property="og:image:secure_url" content={data?.cover_url || ""} />
       </BreadCrumbScript>
       <LayoutContainer className={styles["container-detail"]}>
         <div className={styles.grid}>
@@ -69,11 +66,11 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
             />
             <h4 className={`text-start ${styles.title}`}>{data?.title}</h4>
             <DetailBlog data={data?.content} />
-            <Share data={data}/>
+            <Share data={data} />
             <OtherNews data={related_news} />
           </div>
           <div className={styles.bg}>
-          <h4 className="text-start">Tin tức nổi bật</h4>
+            <h4 className="text-start">Tin tức nổi bật</h4>
             <Grid className={styles["grid-near"]}>
               {hot_news?.map((item) => {
                 return (
@@ -102,12 +99,18 @@ export const getServerSideProps = async ({ req, query }) => {
   const postDetail = await axiosConfig({
     url: getNewById(+id),
   });
+  const { title, category_new_id } = postDetail?.result;
   const postRelated = await getNews(0, 3, "", {
     filters: [
       {
         name: "category_new_id",
         operation: "eq",
-        value: postDetail?.result?.category_new_id
+        value: category_new_id
+      },
+      {
+        name: "is_highlights",
+        operation: "eq",
+        value: 0,
       },
     ],
   });
@@ -125,11 +128,11 @@ export const getServerSideProps = async ({ req, query }) => {
       ],
       filters: [
         {
-          name: 'is_highlights',
-          operation: 'eq',
-          value: 1
-        }
-      ]
+          name: "is_highlights",
+          operation: "eq",
+          value: 1,
+        },
+      ],
     },
   });
   if (

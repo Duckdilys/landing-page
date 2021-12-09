@@ -74,7 +74,8 @@
   // height: 0;
   overflow: hidden;
   list-style: none;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--white);
+  box-shadow: var(--shadow-dark);
   line-height: var(--line-height-primary);
   a {
     @include text-transform();
@@ -227,6 +228,7 @@
           padding-bottom: 0;
           padding-right: 0;
           height: 200px !important;
+          box-shadow: none;
           a{
             text-transform: capitalize !important;
             font-size: var(--fs-small) !important;

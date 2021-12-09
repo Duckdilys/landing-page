@@ -13,9 +13,12 @@
   }
   overflow: hidden;
 }
+.contain{
+  padding-right: 16px;
+}
 .content {
   a {
-    font-size: var(--fs-small);
+    font-size: var(--fs-normal);
     @include show-n-line(2);
     margin-bottom: var(--sm-size);
     line-height: 24px;
@@ -59,7 +62,16 @@
     }
   }
 }
-
+@media screen and (max-width: 768px) {
+  .content{
+    a{
+      font-size: var(--fs-small);
+      margin-bottom: 4px;
+      @include show-n-line(3);
+      line-height: 20px;
+    }
+  }
+}
 @media screen and (max-width: 576px) {
   .image{
     width: 137px;
@@ -69,14 +81,6 @@
     img{
       height: 78px;
       min-width: 137px;
-    }
-  }
-  .content{
-    a{
-      font-size: var(--fs-small);
-      margin-bottom: 4px;
-      @include show-n-line(3);
-      line-height: 20px;
     }
   }
   .date{

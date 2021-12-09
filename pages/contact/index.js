@@ -56,7 +56,7 @@ const Contact = () => {
                 width={isMobile ? "15px" : "23px"}
                 height={isMobile ? "15px" : "23px"}
               />
-              <span>Điện thoại: 0975718168</span>
+              <span>Điện thoại: 0973 090 393</span>
             </li>
           </ul>
         </ContainerSmall>

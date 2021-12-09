@@ -46,7 +46,7 @@ const JobDetail = ({ data_job, related_jobs }) => {
         <div
           className={`d-flex justify-content-center align-items-center ${styles.types}`}
         >
-          {[data_job?.work_type, data_job?.level, data_job?.career].map(
+          {[data_job?.career, data_job?.level, data_job?.work_type].map(
             (item, key) => {
               return <Type key={key}>{item}</Type>;
             }

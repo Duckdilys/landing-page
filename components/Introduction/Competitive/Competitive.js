@@ -24,6 +24,7 @@ const Competitive = ({ data }) => {
                 lineClassName={styles.line}
                 title={item?.title || "không có tiêu đề"}
                 content={item?.content || "Không có tiêu đề"}
+                colorLine="#888888"
               />
             );
           })

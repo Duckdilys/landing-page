@@ -110,39 +110,6 @@ const Products = ({ data_product, other_products }) => {
           <p className="text-center">Không có dữ liệu</p>
         )}
       </Introduction>
-      {/* {data_product.landing_page && (
-        <Introduction
-          imageConfig={{ "data-aos": "fade-left" }}
-          className={styles.information}
-          src={isMobile ? null : "/banner 2.png"}
-          childrenClassName={styles.text}
-        >
-          {isTablet && <Line style={{background: 'black', width: '96px', height: '1px', margin: '32px 0px'}}/>}
-          <div data-aos="fade-right">
-            <h5 style={{ paddingBottom: isMobile ? "12px" : "16px" }}>
-              Tìm hiểu thêm thông tin về Giải pháp của chúng tôi
-            </h5>
-            <p className={styles.title}>
-              Hãy để các chuyên gia tư vấn miễn phí và có thời gian trải nghiệm
-              trước khi quyết định sử dụng giải pháp của chúng tôi!
-            </p>
-            <div
-              className={`d-flex align-items-center justify-content-between ${styles["information-box"]}`}
-            >
-              <div className={`d-flex align-items-center ${styles.content}`}>
-                <Image
-                  src={"/Icon/phone-black-icon.svg"}
-                  alt=""
-                  width={isMiddleBox ? "15px" : "24px"}
-                  height={isMiddleBox ? "15px" : "24px"}
-                />
-                <span>{data_product?.phone_number}</span>
-              </div>
-              <a href={data_product?.landing_page || "/"} target="_blank" rel="noreferrer"><Button className={styles.btn}>truy cập đến trang web</Button></a>
-            </div>
-          </div>
-        </Introduction>
-      )} */}
       <BannerLanding website={data_product?.website} isLanding={data_product?.landing_page}/>
       <Product
         className={`${styles.background}`}

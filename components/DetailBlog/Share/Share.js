@@ -22,7 +22,7 @@ const Share = () => {
   return (
     <div className={`d-flex align-items-center ${styles.container}`}>
       <p>Chia sẻ:</p>
-      <FacebookShareButton className={styles.share} url={url || ""}>
+      <FacebookShareButton className={styles.share} url={`${url}?app_id=292204241285034` || ""}>
         <div className={styles.icon}>
           <Image
             src={"/fb-blue-icon.svg"}
@@ -42,14 +42,14 @@ const Share = () => {
           />
         </div>
       </TwitterShareButton>
-      <div className={styles.icon}>
+      {/* <div className={styles.icon}>
         <Image
           src={"/Noron.png"}
           width={!isMobile ? "48px" : "30px"}
           height={!isMobile ? "48px" : "30px"}
           alt=""
         />
-      </div>
+      </div> */}
     </div>
   );
 };

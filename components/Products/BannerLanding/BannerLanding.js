@@ -41,9 +41,9 @@ const BannerLanding = ({ website }) => {
         <div className={`position-relative w-100 ${styles.img}`}>
           <Image src={"/landing_page.png"} alt="" />
           <div className={`${styles.text} text-center`}>
-            <h5 className={website ? styles.space : ""}>
-              Tìm hiểu thêm thông tin về Giải pháp của chúng tôi
-            </h5>
+            {website && <h5 className={website ? styles.space : ""}>
+              Tìm hiểu thêm Giải pháp của chúng tôi
+            </h5>}
 
             {website && (
               <a href={website} target="_blank" rel="noreferrer">

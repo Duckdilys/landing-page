@@ -39,8 +39,8 @@ const Product = ({
         content={item?.contents[0]?.content}
         path={`/products/${item.id}`}
         tabletView={tabletView}
-        iconSrc={hoverIcon[index]}
-        srcSet={listIcon[index]}
+        iconSrc={item?.icon_hover_url || hoverIcon[index]}
+        srcSet={item?.icon_url || listIcon[index]}
       />
     );
   });

@@ -14,7 +14,7 @@ const New = ({ src, title, date, content, id }) => {
         sm={6}
         md={6}
         lg={6}
-        className={`${styles.image} position-relative`}
+        className={`${styles.image} ${styles.contain} position-relative`}
       >
         <Link href={`/news/${id}`} passHref={true}>
           <a>

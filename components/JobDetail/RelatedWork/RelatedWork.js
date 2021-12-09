@@ -18,7 +18,7 @@ const RelatedWork = ({ related_jobs }) => {
               date={new Date(work?.created_at).toLocaleDateString("vi-vn")}
               place={work?.work_address}
               salary={work?.salary}
-              types={[work?.work_type, work?.level, work?.career]}
+              types={[work?.career, work?.level, work?.work_type]}
               isMobile={isMobile}
               id={work.id}
               time_end={work?.end_time}

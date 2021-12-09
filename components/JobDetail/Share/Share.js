@@ -14,7 +14,7 @@ const Share = () => {
       <h4>Chia sẻ công việc này</h4>
       <div className={`d-flex align-items-center ${styles.line}`}>
         <span>
-          <FacebookShareButton url={url || ""}>
+          <FacebookShareButton url={`${url}?app_id=292204241285034` || ""}>
             <Image
               src="/facebook-square-icon.svg"
               alt=""
