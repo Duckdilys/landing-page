@@ -81,7 +81,8 @@
   div {
     width: 20px;
     height: 2px;
-    background: var(--white);
+    // background: var(--white);
+    background: var(--black-secondary);
     &:first-child {
       transform: rotate(45deg) translateY(1px);
     }
@@ -89,7 +90,7 @@
       transform: rotate(-45deg) translateY(-1px);
     }
   }
-  background: var(--orange-primary);
+  background: var(--gray-dark);
   cursor: pointer;
 }
 
@@ -133,9 +134,23 @@
   .container {
     max-width: 95%;
     padding: var(--size-space);
+    input{
+      &::placeholder{
+        font-size: var(--fs-small);
+      }
+    }
+  }
+  .inputs{
+    & > div{
+      margin-top: 8px;
+    }
   }
   .grid {
     grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
+  }
+  .drop{
+    margin-top: 8px;
   }
 }
 
@@ -144,6 +159,9 @@
     h4 {
       max-width: 300px;
       margin: 0 auto;
+      font-size: var(--fs-small);
+      line-height: 20px;
+      
     }
     input {
       font-size: var(--fs-small);
@@ -155,6 +173,7 @@
     & > div {
       width: 12px;
       height: 1px;
+      background: var(--white);
       &:first-child {
         transform: rotate(45deg) translateY(0px);
       }
@@ -162,6 +181,7 @@
         transform: rotate(-45deg) translateY(-1px);
       }
     }
+    background: var(--orange-primary);
   }
   .button {
     padding-top: 0;

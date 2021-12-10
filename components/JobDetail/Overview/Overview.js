@@ -3,8 +3,10 @@ import Box from "./Box/Box";
 import styles from "./Overview.module.scss";
 import { Button } from "../../container";
 import { useDispatch } from "react-redux";
-const Overview = ({ overview }) => {
-  const [date, setDate] = useState();
+import { modelActions } from "../../../store/slices/model-slice";
+const Overview = ({ overview, timeIsExpire }) => {
+  const dispatch = useDispatch();
+  const [date, setDate] = useState(null);
   useEffect(() => {
     if (overview.end_time) {
       setDate(new Date(overview.end_time).toLocaleDateString("vi-vn"));
@@ -29,9 +31,11 @@ const Overview = ({ overview }) => {
           title="Hạn nộp hồ sơ"
           content={date ? date : "Không giới hạn thời gian"}
         />
-        <div className={styles.button}>
-          <Button>Ứng tuyển ngay</Button>
-        </div>
+        {!timeIsExpire && <div className={styles.button}>
+          <Button options={{
+            onClick: () => dispatch(modelActions.openModelHandler())
+          }}>Ứng tuyển ngay</Button>
+        </div>}
       </div>
     </div>
   );

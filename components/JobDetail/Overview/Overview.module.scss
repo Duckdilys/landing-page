@@ -10,7 +10,7 @@
     }
     letter-spacing: var(--letter-spacing);
     .box{
-        padding: 0 var(--size-space);
+        padding: 0 var(--size-space) var(--size-space) var(--size-space);
     }
 }
 .hidden{
@@ -30,7 +30,6 @@
         text-transform: uppercase;
     }
     padding-top: var(--middle-space);
-    padding-bottom: var(--size-space);
 }
 
 @media screen and (max-width: 768px) {
@@ -39,7 +38,7 @@
             font-size: var(--fs-small);
         }
         .box{
-            padding: 0 var(--middle-space);
+            padding: 0 var(--middle-space) var(--middle-space) var(--middle-space);
         }
         h5{
             padding: var(--middle-space);
@@ -50,6 +49,5 @@
             padding: var(--pd-12) 20px;
         }
         padding-top: var(--mg-16);
-        padding-bottom: var(--middle-space);
     }
 }

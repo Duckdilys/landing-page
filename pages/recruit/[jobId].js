@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BannerPage,
   LayoutContainer,
@@ -25,10 +25,17 @@ const JobDetail = ({ data_job, related_jobs }) => {
   const dispatch = useDispatch();
   const { end_time } = data_job;
   const timeIsExpire = Date.now() > end_time;
+  
   return (
     <>
       <BreadCrumbScript
-        dataElement={[]}
+        imageContent={data_job?.cover_url}
+        dataElement={Array.isArray(related_jobs) ? related_jobs?.map(job => {
+          return {
+            name: job.title,
+            href: `/recruit/${job.id}`
+          }
+        }) : []}
         title={`Tuyển dụng - ${data_job.title.toUpperCase()} | MH - Solution`}
       >
         <meta property="og:image" content={data_job?.cover_url || ""} />
@@ -80,7 +87,7 @@ const JobDetail = ({ data_job, related_jobs }) => {
             {matchMobile && <Share />}
           </div>
           <div className={styles["container-right"]}>
-            <Overview overview={data_job} />
+            <Overview overview={data_job} timeIsExpire={timeIsExpire}/>
             {!matchMobile && <Share />}
           </div>
         </div>

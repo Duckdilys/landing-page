@@ -6,7 +6,7 @@ import {
   Grid,
   BreadCrumbScript,
 } from "../../components/container";
-import { checkUserIsBot, randomArray } from "../../util";
+import { checkUserIsBot } from "../../util";
 import styles from "../../components/DetailBlog/style/styles.module.scss";
 import DetailBlog from "../../components/DetailBlog/DetailBlog";
 import Share from "../../components/DetailBlog/Share/Share";
@@ -22,6 +22,7 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
   return (
     <>
       <BreadCrumbScript
+        imageContent={data?.cover_url}
         title={`${data?.title} | MH - Solution`}
         dataElement={[
           ...related_news?.map((item) => {
@@ -41,10 +42,7 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
             href: `/news/${data?.id}`,
           },
         ]}
-      >
-        <meta property="og:image" content={data?.cover_url || ""} />
-        <meta property="og:image:secure_url" content={data?.cover_url || ""} />
-      </BreadCrumbScript>
+      ></BreadCrumbScript>
       <LayoutContainer className={styles["container-detail"]}>
         <div className={styles.grid}>
           <div className={styles.left}>
@@ -99,13 +97,13 @@ export const getServerSideProps = async ({ req, query }) => {
   const postDetail = await axiosConfig({
     url: getNewById(+id),
   });
-  const { title, category_new_id } = postDetail?.result;
+  const { category_new_id } = postDetail?.result;
   const postRelated = await getNews(0, 3, "", {
     filters: [
       {
         name: "category_new_id",
         operation: "eq",
-        value: category_new_id
+        value: category_new_id,
       },
       {
         name: "is_highlights",

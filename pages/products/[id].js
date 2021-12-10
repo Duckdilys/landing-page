@@ -15,7 +15,9 @@ import { getProductById } from "../../config/ApiProducts";
 import axiosConfig from "../../service/base";
 import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
 import { apiGetProducts } from "../../config/ApiProducts";
+import useMedia from "../../hook/use-media";
 const Products = ({ data_product, other_products }) => {
+  const isMobile = useMedia("(max-width: 991px");
   return (
     <>
       <BreadCrumbScript
@@ -44,9 +46,15 @@ const Products = ({ data_product, other_products }) => {
       <TextImage
         mainTitle={"Thông tin chi tiết"}
         title={
-          data_product?.contents ? data_product?.contents[0]?.content : "Không có dữ liệu"
+          data_product?.contents
+            ? data_product?.contents[0]?.content
+            : "Không có dữ liệu"
         }
-        src={data_product?.contents ? data_product?.contents[0]?.src : '/Products.png'}
+        src={
+          data_product?.contents
+            ? data_product?.contents[0]?.src
+            : "/Products.png"
+        }
         aosImage="fade-right"
         iconImage={null}
         classImage={styles["text-image"]}
@@ -110,10 +118,17 @@ const Products = ({ data_product, other_products }) => {
           <p className="text-center">Không có dữ liệu</p>
         )}
       </Introduction>
-      <BannerLanding website={data_product?.website} isLanding={data_product?.landing_page}/>
+      <BannerLanding
+        website={data_product?.website}
+        isLanding={data_product?.landing_page}
+      />
       <Product
         className={`${styles.background}`}
-        classNameContainer={`${styles["container-product"]} d-flex flex-column justify-content-center align-items-center`}
+        classNameContainer={`${styles["container-product"]} ${
+          other_products?.length <= 3 &&
+          !isMobile &&
+          "d-flex justify-content-center align-items-center flex-column"
+        }`}
         product={other_products}
         title="sản phẩm khác của chúng tôi"
         classNameGrid={styles.grid}

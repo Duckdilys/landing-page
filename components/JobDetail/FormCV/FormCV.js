@@ -73,7 +73,6 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
     },
     [fetchDataFromServer]
   );
-  console.log(data);
   useEffect(() => {
     if (isLoading) {
       setIsLoadingSession(true);
@@ -104,6 +103,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
       }, 500);
     }
   }, [isOpened, resetAllHandler, removeFileHandler]);
+
   return (
     <>
       <form
@@ -112,13 +112,15 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
           isOpened && styles["container-back"]
         }`}
       >
-        <div
-          onClick={() => dispatch(modelActions.closeModelHandler())}
-          className={styles.close}
-        >
-          <div></div>
-          <div></div>
-        </div>
+        {((!isLoadingForm && !dataForm) || (!isLoadingForm && !error)) && (
+          <div
+            onClick={() => dispatch(modelActions.closeModelHandler())}
+            className={styles.close}
+          >
+            <div></div>
+            <div></div>
+          </div>
+        )}
         <>
           {(!dataForm || dataForm?.code >= 400) && (
             <>
@@ -176,6 +178,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
                   classNames="fade"
                 >
                   <DropzoneUpload
+                    className={styles.drop}
                     title="Click để tải lên CV của bạn"
                     fileAllowTitle="Chấp nhận file .pdf kích thước dưới 10MB"
                     configDropzone={{
@@ -226,7 +229,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
                       (isLoadingSession || isLoadingForm) && styles.disabled
                     }
                   >
-                    Ứng tuyển ngay
+                    {timeIsExpire ? "Gửi CV" : "Ứng tuyển ngay"}
                   </Button>
                 </div>
                 {isLoadingForm && (
@@ -237,7 +240,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
               </div>
             </>
           )}
-          {!isLoadingForm && (dataForm?.code || error) && (
+          {!isLoadingForm && data?.code && (
             <SuccessModel
               title={
                 errorForm || dataForm?.code >= 400

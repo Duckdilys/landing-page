@@ -34,8 +34,8 @@
     border-radius: 50%;
     background: var(--orange-primary);
     img{
-      width: 100% !important;
-      height: auto !important;
+      width: 24px;
+      height: 20px;
       object-fit: contain;
     }
   }
@@ -173,8 +173,8 @@
       height: var(--size-space);
       min-height: var(--size-space);
       img{
-        width: 16px;
-        height: 14px;
+        width: 16px !important;
+        height: 14px !important;
       }
     }
     h4{

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Select.module.scss";
 import Image from "next/image";
-
 const Select = ({
   children,
   className,

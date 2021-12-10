@@ -26,7 +26,6 @@ const FindPosition = ({
   const [workType, setWorkType] = useState(null);
   const [level, setLevel] = useState(null);
   const [method, setMethod] = useState(null);
-
   const submitFormHandler = async (event) => {
     event.preventDefault();
     const position = positionRef.current.value;

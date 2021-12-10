@@ -21,8 +21,6 @@ const Product = ({
   title,
   className,
   classNameContainer,
-  classNameGrid,
-  images,
 }) => {
   const tabletView = useMedia("(max-width: 991px)");
   const _renderProducts = product.map((item, index) => {
@@ -55,7 +53,7 @@ const Product = ({
           pagination
           classNameNormalBullet={styles.normal}
           classNameActiveBullet={styles.bullet}
-          className={styles.container}
+          className={`${styles.container}`}
           slidesPerView="auto"
           spaceBetween={tabletView ? 17 : 24}
         >

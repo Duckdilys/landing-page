@@ -6,7 +6,7 @@ const OtherNews = ({ data }) => {
   return (
     <div className={styles.news}>
       <h4>Tin tức khác</h4>
-      <Grid className={styles.grid}>
+      {data && data?.length > 0 && <Grid className={styles.grid}>
         {data.map((item, index) => {
           return (
             <RenderNew
@@ -24,7 +24,8 @@ const OtherNews = ({ data }) => {
             />
           );
         })}
-      </Grid>
+      </Grid>}
+      {!data || data?.length === 0 && <p>Không có dữ liệu</p>}
     </div>
   );
 };

@@ -2,7 +2,8 @@
 .container{
     background: var(--light-gray);
     padding: 64px 0;
-    margin: 120px 0;
+    margin-top: 86px;
+    margin-bottom: 120px;
     h5{
         letter-spacing: var(--letter-spacing-normal);
         line-height: var(--line-height-primary);
@@ -91,14 +92,14 @@
 }
 @media screen and (max-width: 768px) {
     .swiper{
-        margin-bottom: 16px;
+        margin-bottom: var(--mg-16);
     }
     .pagination{
         bottom: 8px !important;
         margin-bottom: 0 !important;
     }
     .button{
-        margin-top: 22px;
+        margin-top: var(--mg-16);
         img{
             margin-left: 5px;
             width: 10px;
@@ -111,7 +112,7 @@
             padding-bottom: 11px;
         }
         & > div {
-            padding-bottom: 21px;
+            padding-bottom: var(--mg-16);
             &:last-child{
                 padding-bottom: 0;
             }
@@ -124,14 +125,14 @@
         }
     }
     .container{
-        margin-top: 66px !important;
+        margin-top: var(--pd-64) !important;
         h4{
             padding-bottom: var(--pd-28) !important;
             font-size: var(--fs-nlarge) !important;
             
         }
         padding-top: var(--size-space);
-        padding-bottom: var(--size-space);
+        padding-bottom: var(--middle-space);
         margin-bottom: var(--pd-64) !important;
 
     }

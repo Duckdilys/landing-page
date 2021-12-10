@@ -15,6 +15,10 @@ const SuccessModel = ({
         error ? styles.error : ""
       } text-center ${className}`}
     >
+      <div onClick={onRemoveModel} className={styles.close}>
+        <span></span>
+        <span></span>
+      </div>
       <div className={styles.img}>
         <div
           className={`position-relative rounded-circle d-flex justify-content-center align-items-center text-center ${

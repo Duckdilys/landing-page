@@ -160,6 +160,13 @@
             margin-bottom: 0 !important;
         }
     }
+    .container-product{
+        & > h4{
+            font-size: var(--fs-large) !important;
+            line-height: var(--size-space);
+            padding-bottom: var(--size-space);
+        }
+    }
     .text-image{
         min-width: 500px;
         width: 500px;

@@ -5,8 +5,11 @@
 .box {
   h4{
     letter-spacing: var(--letter-spacing-secondary);
-    padding-bottom: 8px !important;
+    padding-bottom: 4px;
     margin: 0;
+    line-height: 56px;
+    font-size: 40px;
+    letter-spacing: var(--letter-spacing-secondary);
   }
 }
 .container{
@@ -16,8 +19,16 @@
 .types {
   div {
     margin-right: var(--pd-12);
+    line-height: 26px;
+    letter-spacing: var(--letter-spacing-normal);
+    &:nth-of-type(2){
+      background: var(--blue-light-primary);
+      color: var(--blue-primary);
+    }
     &:last-child {
       margin-right: 0;
+      background: var(--purple-light-primary);
+      color: var(--purple-primary);
     }
     font-size: var(--fs-normal);
   }
@@ -92,6 +103,22 @@
 }
 
 @media screen and (max-width: 991px) {
+  .box{
+    h4{
+      font-size: 20px;
+      line-height: var(--size-space);
+      letter-spacing: var(--letter-spacing-normal);
+      padding-bottom: 8px;
+    }
+  }
+  .types{
+    & > div {
+      font-size: var(--fs-small);
+      margin-right: 8px;
+      line-height: 20px;
+      letter-spacing: var(--letter-spacing);
+    }
+  }
   .grid{
     flex-direction: column-reverse;
     padding-bottom: var(--middle-space);
