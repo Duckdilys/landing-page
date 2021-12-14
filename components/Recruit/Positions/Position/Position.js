@@ -3,7 +3,6 @@ import styles from "./Position.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import Type from "./Type/Type";
-import useMedia from "../../../../hook/use-media";
 const Position = ({
   url,
   title,

@@ -1,5 +1,5 @@
 import React from "react";
-import { LayoutContainer, Grid, SwiperContainer } from "../../container";
+import { LayoutContainer, SwiperContainer } from "../../container";
 import LayoutProduct from "./LayoutProduct";
 import useMedia from "../../../hook/use-media";
 import { SwiperSlide } from "swiper/react";
@@ -47,7 +47,7 @@ const Product = ({
       <LayoutContainer
         className={`${styles["container-product"]} ${classNameContainer}`}
       >
-        <h4>{title ? title : "Sản Phẩm"}</h4>
+        <h4>{title ? title : "Giải pháp"}</h4>
         
         <SwiperContainer
           pagination

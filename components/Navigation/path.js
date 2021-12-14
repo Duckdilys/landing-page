@@ -8,7 +8,7 @@ const paths = [
         path: '/introduction'
     },
     {
-        name: 'Sản phẩm',
+        name: 'Giải pháp',
         path: '/products'
     },
     {

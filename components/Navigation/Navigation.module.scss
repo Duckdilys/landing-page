@@ -72,7 +72,17 @@
   width: 410px;
   top: 100%;
   // height: 0;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar{
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track{
+    background: var(--white);
+  }
+  &::-webkit-scrollbar-thumb{
+    background: var(--orange-primary);
+  }
   list-style: none;
   background: var(--white);
   box-shadow: var(--shadow-dark);

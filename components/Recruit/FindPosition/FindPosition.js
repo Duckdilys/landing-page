@@ -19,7 +19,7 @@ const FindPosition = ({
   const functionCheckValidate = useCallback((value) => {
     return value.trim().length > 0;
   }, []);
-  const { isValid, inputIsTouchHandler, inputChangeHandler, isTouched, value } =
+  const { isValid, inputIsTouchHandler, inputChangeHandler, value } =
     useInput((value) => functionCheckValidate(value));
 
   const positionRef = useRef();

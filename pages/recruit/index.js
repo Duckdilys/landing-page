@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   BannerPage,
   ContainerSmall,
   Grid,
-  Pagination,
   BreadCrumbScript,
 } from "../../components/container";
 import FindPosition from "../../components/Recruit/FindPosition/FindPosition";
@@ -26,12 +25,12 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
   const page = +query.page || 1;
   const { fetchDataFromServer, error, data: dataNews, isLoading } = useFetch();
 
-  const setQueryFilterHandler = (query) => {
+  const setQueryFilterHandler = useCallback((query) => {
     setQueryFilter(query);
     router.push(`?page=${1}`, null, {
       scroll: false
     });
-  };
+  }, []);
   useEffect(() => {
     fetchDataFromServer({
       url: ApiJob,
@@ -45,7 +44,7 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
         keyword: "",
         sorts: [
           {
-            property: "end_time",
+            property: "created_at",
             direction: "DESC",
           },
         ],
@@ -53,6 +52,7 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
       },
     });
   }, [fetchDataFromServer, page, queryFilter]);
+
   useEffect(() => {
     if (isLoading || error) {
       return;
@@ -112,7 +112,7 @@ export const getServerSideProps = async ({ req, query }) => {
     keyword: "",
     sorts: [
       {
-        property: "end_time",
+        property: "created_at",
         direction: "DESC",
       },
     ],

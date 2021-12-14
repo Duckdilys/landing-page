@@ -90,7 +90,7 @@ const Footer = ({ data_footer }) => {
               <ul className={styles["list-contact"]}>
                 <li>Thông tin liên hệ</li>
                 <li data-aos-delay={200}>
-                  <span>Địa chỉ: Số 24, ngõ 224 Trung Kính, Hà Nội</span>
+                  <span>Địa chỉ: 71-73, Trần Thái Tông, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</span>
                 </li>
                 <li data-aos-delay={400}>
                   <span>Email: contact@mhsolution.vn</span>
