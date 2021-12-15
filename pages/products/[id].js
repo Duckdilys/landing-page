@@ -16,6 +16,7 @@ import axiosConfig from "../../service/base";
 import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
 import { apiGetProducts } from "../../config/ApiProducts";
 import useMedia from "../../hook/use-media";
+import { SerializeNormal } from "../../util";
 const Products = ({ data_product, other_products }) => {
   const isMobile = useMedia("(max-width: 991px");
   return (
@@ -47,7 +48,7 @@ const Products = ({ data_product, other_products }) => {
         mainTitle={"Thông tin chi tiết"}
         title={
           data_product?.contents
-            ? data_product?.contents[0]?.content
+            ? SerializeNormal(data_product?.contents[0]?.content)
             : "Không có dữ liệu"
         }
         src={

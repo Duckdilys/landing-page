@@ -24,10 +24,6 @@ const Product = ({
 }) => {
   const tabletView = useMedia("(max-width: 991px)");
   const _renderProducts = product.map((item, index) => {
-    let src = "/demo-image.png";
-    if (item.infos && item.infos.length > 0) {
-      src = item.infos[0].src;
-    }
     return (
       <LayoutProduct
         aos="fade-up"
