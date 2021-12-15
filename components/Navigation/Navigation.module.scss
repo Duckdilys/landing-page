@@ -260,7 +260,7 @@
       padding: var(--middle-space);
     }
     .open {
-      height: 75vh;
+      height: 65vh;
       opacity: 1;
       pointer-events: visible;
     }
@@ -270,7 +270,7 @@
 @media screen and (max-width: 576px) {
   .nav {
     .open {
-      height: 75vh;
+      height: 65vh;
     }
   }
 }

@@ -5,6 +5,7 @@ import { convertString } from "./convertString/convertString";
 import { SerializeNormal } from "./SerializeString/SerializeString";
 import randomArray from "./randomArray/randomArray";
 import findImageByType from "./findImageByType/findImageByType";
+import SerializeImage from "./SerializeImage/SerializeImage";
 export {
     removeUnicode,
     ValidateLengthInput,
@@ -12,5 +13,6 @@ export {
     convertString,
     SerializeNormal,
     randomArray,
-    findImageByType
+    findImageByType,
+    SerializeImage
 }

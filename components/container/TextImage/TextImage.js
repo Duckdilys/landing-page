@@ -20,7 +20,7 @@ const TextImage = ({ title, className, src, mainTitle, classText, aosImage, icon
         >
           <h5>{mainTitle}</h5>
           {iconImage && !matchMobile && <Image src={iconImage} alt="" />}
-          <p className={styles['title-item']}>{SerializeNormal(title)}</p>
+          <p className={styles['title-item']}>{title.toUpperCase()}</p>
         </div>
       </div>
     </LayoutContainer>

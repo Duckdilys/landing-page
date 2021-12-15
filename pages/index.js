@@ -2,7 +2,7 @@ import ContainerBanner from "../components/Home/ContainerBanner/ContainerBanner"
 import Product from "../components/Home/Product/Product";
 import News from "../components/Home/News/News";
 import Partner from "../components/Home/Partner/Partner";
-import { getHomePageById } from "../config/ApiHomePage";
+import { getHomePage, getHomePageById } from "../config/ApiHomePage";
 import axiosConfig from "../service/base";
 import { getProductsByCondition } from "../service/getProducts";
 import getNewsByCondition from "../service/getNews";
@@ -43,8 +43,13 @@ export default function Home({ news, products, banner, partners, highlightPosts 
 export const getServerSideProps = async ({ req }) => {
   const userIsBot = checkUserIsBot(req);
 
-  const bannerData = await axiosConfig({
-    url: getHomePageById(1),
+  const bannerDataHandler = await axiosConfig({
+    url: getHomePage,
+    method: 'POST',
+    data: {
+      page: 1,
+      page_size: 3
+    }
   });
   const product = await getProductsByCondition(1, 4);
   const news = await getNewsByCondition(1, 3, "");
@@ -65,11 +70,11 @@ export const getServerSideProps = async ({ req }) => {
     ]
   });
   if (
-    bannerData.code >= 400 ||
     product.code >= 400 ||
     news.code >= 400 ||
     partners.code >= 400 ||
-    highlightPosts.code >= 400
+    highlightPosts.code >= 400 ||
+    bannerDataHandler.code >= 400
   ) {
     return {
       notFound: true,
@@ -84,7 +89,7 @@ export const getServerSideProps = async ({ req }) => {
         };
       }),
       products: product.result.items || [],
-      banner: bannerData || "",
+      banner: bannerDataHandler?.result?.items || "",
       partners: partners.result.items || [],
       isDisabledAnimation: userIsBot,
       image_products: DataImageProduct || [],

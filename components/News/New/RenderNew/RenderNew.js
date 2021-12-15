@@ -4,6 +4,7 @@ import Image from "next/dist/client/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { categoryActions } from "../../../../store/slices/category-slice";
+import { SerializeImage } from "../../../../util";
 const RenderNew = ({ name, date, type, url_cover, image, category_id, id, className, routeClassName }) => {
   const dispatch = useDispatch();
   return (
@@ -12,7 +13,7 @@ const RenderNew = ({ name, date, type, url_cover, image, category_id, id, classN
         <Link passHref={true} href={`/news/${id}`}>
           <a>
           <Image
-            src={url_cover}
+            src={SerializeImage(url_cover, 512)}
             layout="responsive"
             alt=""
             width="297px"

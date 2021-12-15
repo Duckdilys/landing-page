@@ -34,12 +34,17 @@
         letter-spacing: var(--letter-spacing-secondary);
     }
 }
-
+.pagination{
+    bottom: 32px !important;
+    height: 30px;
+}
+.active{
+    border-color: var(--white) !important;
+}
 .container{
     margin-bottom: 0 !important;
     margin-top: 0 !important;
 }
-
 @media screen and (max-width: 991px) {
     .banner{
         padding-top: 80%;

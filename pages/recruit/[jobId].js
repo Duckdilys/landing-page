@@ -25,7 +25,6 @@ const JobDetail = ({ data_job, related_jobs }) => {
   const dispatch = useDispatch();
   const { end_time } = data_job;
   const timeIsExpire = Date.now() > end_time;
-  
   return (
     <>
       <BreadCrumbScript

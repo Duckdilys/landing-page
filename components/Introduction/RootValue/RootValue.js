@@ -18,11 +18,11 @@ const RootValue = ({ data }) => {
         >
           Chúng tôi tập trung vào phát triển con người và văn hóa doanh nghiệp.
           Với 5 giá trị cốt lõi, nhân sự của chúng tôi luôn luôn phát triển và
-          hoàn thiện với tinh thần{" "}
+          hoàn thiện với tinh thần:{" "}
         </p>
         <h5 data-aos="fade-up">
           “Sáng tạo, chủ động, phát huy tính đồng đội, trách nhiệm với bản thân,
-          công ty và khách hàng.”
+          công ty và hướng khách hàng.”
         </h5>
         {/* {data.length > 0 ? 
         <div
