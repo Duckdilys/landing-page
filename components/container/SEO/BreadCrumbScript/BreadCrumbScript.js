@@ -35,11 +35,11 @@ const BreadCrumbScript = ({
           "https://cdn.noron.vn/2021/12/09/446298a7-7b0a-437f-b313-41e59acffd85-1639048445.png"
         }
       />
-      <meta name="og:description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
-      <meta name="og:url" content="https://mhsolution.vn/" />
-      <meta name="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta name="fb:app_id" content="292204241285034" />
+      <meta property="og:description" name="og:description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
+      <meta property="og:url" name="og:url" content="https://mhsolution.vn/" />
+      <meta property="og:type" name="og:type" content="website" />
+      <meta name="og:title" property="og:title" content={title} />
+      <meta property="fb:app_id" name="fb:app_id" content="292204241285034" />
       {dataElement && (
         <script type="application/ld+json">
           {ReactHtmlParser(JSON.stringify(structureList))}
