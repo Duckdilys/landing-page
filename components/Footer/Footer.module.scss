@@ -294,12 +294,12 @@
         width: 100%;
         padding-top: 14px !important;
         .brand {
-          width: 28px;
-          height: 28px;
+          width: var(--size-space);
+          height: var(--size-space);
         }
         img {
-          width: 28px;
-          height: 28px;
+          width: var(--size-space);
+          height: var(--size-space);
         }
         a {
           margin-left: 12px;

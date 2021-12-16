@@ -15,6 +15,9 @@ const ButtonUpTop = () => {
             }
         }
         window.addEventListener('scroll', scrollHandler);
+        return () => {
+          window.removeEventListener('scroll', scrollHandler);
+        }
     }, []);
   return (
     <div onClick={goToTopHandler} className={`${styles.button} d-flex justify-content-center align-items-center rounded-circle ${getButton && styles['button-back']}`}>
