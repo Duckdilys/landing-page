@@ -183,6 +183,9 @@ input[type='number']{
     -webkit-appearance: none;
   } 
 }
+.hidden{
+  display: none;
+}
 .swiper-pagination {
   bottom: 0 !important;
   display: flex;

@@ -27,16 +27,22 @@ const News = ({ categories, news, totalPage, heading }) => {
         page: query,
         keyword: "",
         page_size: 9,
+        sorts: [
+          {
+            property: "created_at",
+            direction: "DESC"
+          }
+        ],
         filters:
           selectedPostByType === 0
             ? null
             : [
-                {
-                  name: "category_new_id",
-                  operation: "eq",
-                  value: selectedPostByType,
-                },
-              ],
+              {
+                name: "category_new_id",
+                operation: "eq",
+                value: selectedPostByType,
+              },
+            ],
       },
     });
   }, [query, fetchDataFromServer, selectedPostByType]);
@@ -90,7 +96,14 @@ export const getServerSideProps = async ({ req, query }) => {
   const userIsBot = checkUserIsBot(req);
   const categories = await getCategoriesCondition(1, 10, "");
   const page = +query?.page || 1;
-  const getNewsByPage = await getNewsByCondition(page, 9, "");
+  const getNewsByPage = await getNewsByCondition(page, 9, "", {
+    sorts: [
+      {
+        property: "created_at",
+        direction: "DESC"
+      }
+    ]
+  });
   const getHeadingSwiper = await getNewsByCondition(0, 3, "", {
     sorts: [
       {

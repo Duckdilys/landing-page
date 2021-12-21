@@ -18,7 +18,7 @@ const New = ({ src, title, date, content, id }) => {
       >
         <Link href={`/news/${id}`} passHref={true}>
           <a>
-            <Image className={styles.image} src={src} alt="" />
+            <Image size={512} isApplied={true} className={styles.image} src={src} alt="" />
           </a>
         </Link>
       </Col>

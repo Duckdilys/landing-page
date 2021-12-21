@@ -1,11 +1,9 @@
 import React from "react";
 import styles from "./RenderNew.module.scss";
-import Image from "next/dist/client/image";
+import { Image } from "../../../container";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { categoryActions } from "../../../../store/slices/category-slice";
-import { SerializeImage } from "../../../../util";
-import ImageNext from "../../../container/ImageNext/ImageNext";
 const RenderNew = ({ name, date, type, url_cover, image, category_id, id, className, routeClassName }) => {
   const dispatch = useDispatch();
   return (
@@ -13,16 +11,11 @@ const RenderNew = ({ name, date, type, url_cover, image, category_id, id, classN
       <div className={`position-relative ${styles.image}`}>
         <Link passHref={true} href={`/news/${id}`}>
           <a>
-            <ImageNext
-              src={SerializeImage(url_cover, 512)}
-              props={{
-                layout: "responsive",
-                alt: "",
-                width: "297px",
-                height: "166px",
-                objectFit: "cover",
-                ...image
-              }}
+            <Image
+              size={512}
+              isApplied={true}
+              alt=""
+              src={url_cover}
             />
           </a>
         </Link>

@@ -34,7 +34,7 @@ const LayoutProduct = ({
         <h4>{title}</h4>
       </div>
       <div className={`position-relative ${styles.image}`}>
-        {src && <Image src={src || "/demo-image.png"} alt="" />}
+        {src && <Image size={1024} isApplied={true} src={src || "/demo-image.png"} alt="" />}
       </div>
 
       <div className={`${styles["show--container"]}`}>

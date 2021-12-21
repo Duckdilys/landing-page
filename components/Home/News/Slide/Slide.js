@@ -7,7 +7,7 @@ const Slide = ({ src, className, children, type, title, id, contentClassName }) 
     <div className={`${styles.slide} ${className}`}>
       <Link href={`/news/${id}`} passHref={true}>
         <a>
-          <Image src={src} alt={src || ""} />
+          <Image isApplied={true} src={src} alt={src || ""} />
         </a>
       </Link>
       <div className={`${styles.content} ${contentClassName}`}>

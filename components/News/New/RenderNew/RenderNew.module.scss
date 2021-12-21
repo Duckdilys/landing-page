@@ -5,6 +5,9 @@
         overflow: hidden;
         img{
             transition: all .35s ease;
+            min-height: 166px;
+            max-height: 166px;
+            object-fit: cover;
             &:hover{
                 transform: scale(1.1);
             }
@@ -58,5 +61,16 @@
         }
         border-bottom: 1px solid var(--border-mobile);
         padding-bottom: var(--mg-16);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .new{
+        .image{
+            img{
+                min-height: 184px;
+                max-height: 184px;
+            }
+        }
     }
 }

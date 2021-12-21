@@ -126,10 +126,7 @@ const Products = ({ data_product, other_products }) => {
       <Product
         className={`${styles.background}`}
         classNameContainer={`${styles["container-product"]} ${
-          other_products?.length <= 3 &&
-          !isMobile &&
-          "d-flex justify-content-center align-items-center flex-column"
-        }`}
+          other_products?.length <= 3 && !isMobile && styles.flex}`}
         product={other_products}
         title="sản phẩm khác của chúng tôi"
         classNameGrid={styles.grid}

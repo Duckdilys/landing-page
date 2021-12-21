@@ -25,21 +25,28 @@ const BreadCrumbScript = ({
   return (
     <Head>
       <title>{title}</title>
-      {/* <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js"></script> */}
+      {/* <script async defer crossOrigin="anonymous"="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js"></script> */}
       <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
       <meta
         property="og:image"
-        name="og:image"
         content={
           imageContent ||
           "https://cdn.noron.vn/2021/12/09/446298a7-7b0a-437f-b313-41e59acffd85-1639048445.png"
         }
       />
-      <meta property="og:description" name="og:description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
-      <meta property="og:url" name="og:url" content="https://mhsolution.vn/" />
-      <meta property="og:type" name="og:type" content="website" />
-      <meta name="og:title" property="og:title" content={title} />
-      <meta property="fb:app_id" name="fb:app_id" content="292204241285034" />
+      <meta property="og:description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
+      <meta property="og:url" content="https://mhsolution.vn/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
+      <meta property="fb:app_id" content="292204241285034" />
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-Regular.ttf" as='font' crossOrigin="anonymous"/>
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-Bold.ttf" as='font' crossOrigin="anonymous"/>
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-BoldItalic.ttf" as='font' crossOrigin="anonymous"/>
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-ExtraLight.ttf" as='font' crossOrigin="anonymous"/>
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-ExtraLightItalic.ttf" as='font' crossOrigin="anonymous"/>
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-Italic.ttf" as='font' crossOrigin="anonymous"/>
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-Light.ttf" as='font' crossOrigin="anonymous"/>
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-SemiBold.ttf" as="font" crossOrigin="anonymous" />
       {dataElement && (
         <script type="application/ld+json">
           {ReactHtmlParser(JSON.stringify(structureList))}

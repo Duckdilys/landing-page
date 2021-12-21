@@ -104,6 +104,12 @@
     max-width: 940px;
     margin: 0 auto;
 }
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 @media screen and (max-width: 1250px) {
     .information{
         .information-box{

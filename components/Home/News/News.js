@@ -13,6 +13,7 @@ import Slide from "./Slide/Slide";
 import New from "./New/New";
 import Link from "next/link";
 import useMedia from "../../../hook/use-media";
+import { SerializeImage } from "../../../util";
 const News = ({ news, highlightPosts }) => {
   const matchMedia = useMedia("(max-width: 768px)");
   return (

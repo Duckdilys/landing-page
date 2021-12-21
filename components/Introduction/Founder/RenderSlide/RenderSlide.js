@@ -7,7 +7,6 @@ import { CSSTransition } from "react-transition-group";
 import { findImageByType } from "../../../../util";
 const RenderSlide = ({ name, introduction, url_cover, socials, job_title }) => {
   const { isHover, isHoverHandler, isNotHoverHandler } = useHover(false);
-  console.log(findImageByType(socials, 'type', 'fb'));
   return (
     <div
       onMouseEnter={isHoverHandler}

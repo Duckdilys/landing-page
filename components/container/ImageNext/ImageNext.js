@@ -1,17 +1,40 @@
 import ImageComponent from "next/image";
+import { useEffect } from "react";
 import { useState } from "react";
-const ImageNext = ({src, props}) => {
-    const [loaded, setLoaded] = useState(false);
+import {SerializeImage} from '../../../util';
+import { Loading } from "..";
+const ImageNext = ({src, props, sizeDefault}) => {
+    const [isLoading, setIsLoading] = useState(true);
+    const [url, setUrl] = useState(SerializeImage(src, 15));
     const loadImageHandler = () => {
-        setLoaded(true);
+        setIsLoading(false);
     }
+    useEffect(() => {
+        if(window) {
+            const image = new Image();
+            image.onload = () => {
+                if(image.width <= 256) {
+                    setUrl(src);
+                    return setIsLoading(false);
+                }
+                setIsLoading(true);
+                
+            };
+            image.src = src;
+        }
+    }, [src]);
+    useEffect(() => {
+        if(!isLoading) {
+            setUrl(SerializeImage(src, sizeDefault));
+        }
+    }, [isLoading, src, sizeDefault]);                                                                                                                                                                                                                                                                                                                                                                                                                           
     return(
         <>
-            <ImageComponent {...{
+        {/* {isLoading && <div><Loading/></div>}  */}
+           <ImageComponent {...{
                 ...props,
-                // width: !loaded ? '10px' : props.width,
-                // height: !loaded ? '10px' : props.height
-            }} onLoad={loadImageHandler} src={src || ""} alt={src || ""}/>
+                loading: 'lazy'
+            }} onLoad={() => setIsLoading(false)} className={isLoading ? 'hidden' : ''} src={url || ""} alt={url || ""}/> 
         </>
     )
 }
