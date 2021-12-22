@@ -31,7 +31,7 @@ const BreadCrumbScript = ({
         property="og:image"
         content={
           imageContent ||
-          "https://cdn.noron.vn/2021/12/09/446298a7-7b0a-437f-b313-41e59acffd85-1639048445.png"
+          "https://cdn.noron.vn/2021/12/22/820b6ae8-6a93-4242-ae12-ac677ade4ae9-1640146456.jpg"
         }
       />
       <meta property="og:description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
