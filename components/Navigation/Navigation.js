@@ -124,7 +124,7 @@ const Navigation = ({ products }) => {
                     className={
                       router.asPath === path.path ||
                       router.pathname === path.path ||
-                      router.pathname === `${path.path}/[jobId]`
+                      router.pathname === `${path.path}/[id]/[jobId]`
                         ? styles.active
                         : ""
                     }
