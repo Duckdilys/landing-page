@@ -17,6 +17,7 @@ const OtherNews = ({ data }) => {
               type={item?.category?.title}
               url_cover={item.cover_url}
               id={item?.id}
+              seo_id={item?.seo_id}
               image={{
                 height: "166px",
                 width: "297px",

@@ -13,9 +13,10 @@ const Position = ({
   isMobile,
   time_start,
   time_end,
+  seo_id
 }) => {
   return (
-    <Link href={`/recruit/${id}`}>
+    <Link href={`/recruit/${id}/${seo_id}`}>
       <a>
         <div
           className={`${styles.container} ${

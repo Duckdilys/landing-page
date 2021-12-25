@@ -26,6 +26,7 @@ const New = ({ news, isLoading, turnLoadingToArray, matchMedia, children }) => {
                 url_cover={post.cover_url}
                 category_id={post.category_new_id}
                 id={post.id}
+                seo_id={post.seo_id}
               />
             );
           })}

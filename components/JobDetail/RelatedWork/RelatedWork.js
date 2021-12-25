@@ -23,6 +23,7 @@ const RelatedWork = ({ related_jobs }) => {
               id={work.id}
               time_end={work?.end_time}
               time_start={work?.created_at}
+              seo_id={work?.seo_id}
             />
           );
         })}

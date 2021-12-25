@@ -103,7 +103,6 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
       }, 500);
     }
   }, [isOpened, resetAllHandler, removeFileHandler]);
-
   return (
     <>
       <form
@@ -240,7 +239,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
               </div>
             </>
           )}
-          {!isLoadingForm && data?.code && (
+          {((!isLoadingForm && !!dataForm) || (!isLoadingForm && errorForm)) && (
             <SuccessModel
               title={
                 errorForm || dataForm?.code >= 400

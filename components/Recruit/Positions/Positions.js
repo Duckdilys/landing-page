@@ -40,6 +40,7 @@ const Positions = ({ positions, totalDocuments, page, isLoading }) => {
                     isMobile={matchMedia}
                     time_start={item?.created_at}
                     time_end={item?.end_time}
+                    seo_id={item?.seo_id}
                   />
                 );
               })}

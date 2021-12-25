@@ -6,17 +6,17 @@ import {
   Button,
   BreadCrumbScript,
   Line,
-} from "../../components/container";
-import styles from "../../components/Products/Banner.module.scss";
-import Introduction from "../../components/Products/Introduction/Introduction";
-import Product from "../../components/Home/Product/Product";
-import { checkUserIsBot } from "../../util";
-import { getProductById } from "../../config/ApiProducts";
-import axiosConfig from "../../service/base";
-import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
-import { apiGetProducts } from "../../config/ApiProducts";
-import useMedia from "../../hook/use-media";
-import { SerializeNormal } from "../../util";
+} from "../../../components/container";
+import styles from '../../../components/Products/Banner.module.scss';
+import Introduction from "../../../components/Products/Introduction/Introduction";
+import Product from "../../../components/Home/Product/Product";
+import { checkUserIsBot } from "../../../util";
+import { getProductById } from "../../../config/ApiProducts";
+import axiosConfig from "../../../service/base";
+import BannerLanding from "../../../components/Products/BannerLanding/BannerLanding";
+import { apiGetProducts } from "../../../config/ApiProducts";
+import useMedia from "../../../hook/use-media";
+import { SerializeNormal } from "../../../util";
 const Products = ({ data_product, other_products }) => {
   const isMobile = useMedia("(max-width: 991px");
   return (
@@ -64,38 +64,6 @@ const Products = ({ data_product, other_products }) => {
         className={`${styles["container-text"]} flex-row-reverse`}
         aos="fade-left"
       />
-      {/* {data_product?.infos?.map((item, index) => {
-        if (index % 2 === 0) {
-          return (
-            <TextImage
-              key={index}
-              mainTitle={item?.title}
-              title={item?.content || "Không có dữ liệu"}
-              src={item?.src || "/Products.png"}
-              aosImage="fade-left"
-              classImage={styles["text-image"]}
-              classText={styles["text-banner"]}
-              classNameContainer={styles.container}
-              className={`flex-row-reverse ${styles["container-text"]}`}
-              aos="fade-right"
-            />
-          );
-        }
-        return (
-          <TextImage
-            key={index}
-            title={item?.content}
-            mainTitle={item?.title}
-            src={item?.src || "/Products.png"}
-            aosImage="fade-right"
-            classImage={styles["text-image"]}
-            classNameContainer={styles.container}
-            aos="fade-left"
-            className={`d-flex ${styles['container-text']}`}
-            rightText
-          />
-        );
-      })} */}
       <Introduction
         aos="fade-left"
         title="Chúng tôi cung cấp giải pháp với các ưu điểm vượt trội"
@@ -137,11 +105,11 @@ const Products = ({ data_product, other_products }) => {
 
 export const getServerSideProps = async ({ req, params }) => {
   const userIsBot = checkUserIsBot(req);
-  const { id } = params;
+  const { productId } = params;
 
   const data_product = await axiosConfig({
-    url: getProductById(id),
-  });
+    url: getProductById(productId),
+  })
 
   const all_products = await axiosConfig({
     url: apiGetProducts,
@@ -161,8 +129,8 @@ export const getServerSideProps = async ({ req, params }) => {
       isDisabledAnimation: userIsBot,
       data_product: data_product?.result,
       other_products: all_products?.result?.items?.filter((item) => {
-        return +item.id !== +id;
-      }),
+        return +item.id !== +productId;
+      })
     },
   };
 };

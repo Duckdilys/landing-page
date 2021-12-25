@@ -5,17 +5,17 @@ import {
   LayoutContainer,
   Grid,
   BreadCrumbScript,
-} from "../../components/container";
-import { checkUserIsBot } from "../../util";
-import styles from "../../components/DetailBlog/style/styles.module.scss";
-import DetailBlog from "../../components/DetailBlog/DetailBlog";
-import Share from "../../components/DetailBlog/Share/Share";
-import OtherNews from "../../components/DetailBlog/OtherNews/OtherNews";
-import axiosConfig from "../../service/base";
-import { getNewById, getNewsApi } from "../../config/ApiNews";
-import { getNews } from "../../service";
-import Slide from "../../components/Home/News/Slide/Slide";
-import useMedia from "../../hook/use-media";
+} from "../../../components/container";
+import { checkUserIsBot } from "../../../util";
+import styles from "../../../components/DetailBlog/style/styles.module.scss";
+import DetailBlog from "../../../components/DetailBlog/DetailBlog";
+import Share from "../../../components/DetailBlog/Share/Share";
+import OtherNews from "../../../components/DetailBlog/OtherNews/OtherNews";
+import axiosConfig from "../../../service/base";
+import { getNewById, getNewsApi } from "../../../config/ApiNews";
+import { getNews } from "../../../service";
+import Slide from "../../../components/Home/News/Slide/Slide";
+import useMedia from "../../../hook/use-media";
 const BlogDetail = ({ data, related_news, hot_news }) => {
   const isMobile = useMedia("(max-width: 768px)");
   const router = useRouter();
@@ -35,12 +35,12 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
           ...hot_news.map((item) => {
             return {
               name: item?.title,
-              href: `/news/${item.id}`,
+              href: `/news/${item.id}/${item.seo_id}`,
             };
           }),
           {
             name: data?.title,
-            href: `/news/${data?.id}`,
+            href: `/news/${data?.id}/${data.seo_id}`,
           },
         ]}
       ></BreadCrumbScript>
@@ -81,6 +81,7 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
                     id={item?.id}
                     title={item?.title}
                     type={item?.category?.title}
+                    seo_id={item.seo_id}
                   />
                 );
               })}
@@ -94,9 +95,9 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
 
 export const getServerSideProps = async ({ req, query }) => {
   const userIsBot = checkUserIsBot(req);
-  const { id } = query;
+  const { newId } = query;
   const postDetail = await axiosConfig({
-    url: getNewById(+id),
+    url: getNewById(+newId),
   });
   const { category_new_id } = postDetail?.result;
   const postRelated = await getNews(0, 3, "", {

@@ -68,7 +68,7 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
         dataElement={jobs.map((item) => {
           return {
             name: item.title,
-            href: `${pathname}/${item.id}`,
+            href: `${pathname}/${item.id}/${item.seo_id}`,
           };
         })}
         title={"Tuyển dụng | MH - Solution"}

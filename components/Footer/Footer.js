@@ -61,7 +61,7 @@ const Footer = ({ data_footer }) => {
                           router.asPath === item.path ? styles.active : ""
                         }
                       >
-                        <Link href={index === 2 ? `${item.path}/5` : item.path}>
+                        <Link href={index === 2 ? `${item.path}/5/nen-tang-phan-tich-du-lieu-data-mining-platform-5` : item.path}>
                           {item.name}
                         </Link>
                       </li>

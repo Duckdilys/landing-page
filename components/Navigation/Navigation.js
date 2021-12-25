@@ -55,7 +55,7 @@ const Navigation = ({ products }) => {
                       onClick={changeToggleHandler}
                       className={`position-relative ${styles.dropdown} ${
                         router.asPath === path.path ||
-                        router.pathname === `${path.path}/[id]`
+                        router.pathname === `${path.path}/[productId]/[id]`
                           ? styles.active
                           : ""
                       }`}
@@ -85,13 +85,13 @@ const Navigation = ({ products }) => {
                               <li
                                 className={
                                   (router.asPath || router.pathname) ===
-                                  `/products/${item.id}`
+                                  `/products/${item.id}/${item.seo_id}`
                                     ? styles.active
                                     : ""
                                 }
                                 key={item.id}
                               >
-                                <Link href={`/products/${item.id}`}>
+                                <Link href={`/products/${item.id}/${item.seo_id}`}>
                                   {item.title.toLowerCase()}
                                 </Link>
                               </li>
@@ -108,7 +108,7 @@ const Navigation = ({ products }) => {
                       className={
                         router.asPath === path.path ||
                         router.pathname === path.path ||
-                        router.pathname === `${path.path}/[id]`
+                        router.pathname === `${path.path}/[newId]/[id]`
                           ? styles.active
                           : ""
                       }
