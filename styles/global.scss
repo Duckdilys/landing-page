@@ -53,6 +53,9 @@
 body, html{
   overflow-x: hidden;
 }
+body[data-body] {
+  overflow: hidden;
+}
 :root {
   --orange-primary: #ff4b14;
   --orange-primary-rgb: 255, 75, 20;

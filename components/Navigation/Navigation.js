@@ -24,6 +24,10 @@ const Navigation = ({ products }) => {
   const listRef = useRef();
   useEffect(() => {
     window.addEventListener("scroll", scrollWindowHandler);
+
+    return () => {
+      window.removeEventListener('scroll', scrollWindowHandler);
+    }
   }, [scrollWindowHandler]);
   return (
     <>
