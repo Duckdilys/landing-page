@@ -1,11 +1,19 @@
 .parser{
-    p, ul, h1, h2, h3, h4, h5, h6, strong, li, em{
+    font-family: var(--font-primary) !important;
+    p, ul, h1, h2, h3, h4, h5, h6, strong, li, em, span{
+        font-family: var(--font-primary) !important;
         padding-bottom: 16px;
         &:last-child{
             padding-bottom: 0;
         }
         line-height: 28px;
         letter-spacing: var(--letter-spacing);
+    }
+    p, span, li, em, strong {
+        font-size: var(--fs-normal) !important;
+    }
+    span{
+        padding-bottom: 0;
     }
     img{
         width: 100% !important;
@@ -19,7 +27,7 @@
         font-size: var(--fs-small);
         line-height: 20px;
         p, ul, h1, h2, h3, h4, h5, h6, strong, li, em, span{
-            font-size: var(--fs-small);
+            font-size: var(--fs-small) !important;
             line-height: 20px;
         }
     }

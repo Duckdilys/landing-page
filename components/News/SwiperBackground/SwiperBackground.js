@@ -44,7 +44,7 @@ const SwiperBackground = ({ posts }) => {
           //   }
           //   textItem.classList.add(styles["swiper-back-active"]);
           // },
-          speed: 1000,
+          speed: 600,
         }}
       >
         {posts.map((post, index) => {

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Position.module.scss";
-import Image from "next/image";
+import { Image } from '../../../container'
+// import Image from "next/image";
 import Link from "next/link";
 import Type from "./Type/Type";
 const Position = ({
@@ -19,22 +20,19 @@ const Position = ({
     <Link href={`/recruit/${id}/${seo_id}`}>
       <a>
         <div
-          className={`${styles.container} ${
-            Date.now() > time_end && styles.disabled
-          }`}
+          className={`${styles.container} ${Date.now() > time_end && styles.disabled
+            }`}
         >
           <div
-            className={`${!isMobile && "d-flex justify-content-between"} ${
-              styles.wrap
-            }`}
+            className={`${!isMobile && "d-flex justify-content-between"} ${styles.wrap
+              }`}
           >
             {!isMobile && (
               <div
-                className={`position-relative ${styles.image} ${
-                  Date.now() > time_end ? styles.finished : ""
-                }`}
+                className={`position-relative ${styles.image} ${Date.now() > time_end ? styles.finished : ""
+                  }`}
               >
-                {url && <Image src={url} alt="" width="92px" height="80px" />}
+                {url && <Image src={url} alt="" className={styles.image} />}
                 {Date.now() > time_end && (
                   <span className={styles["expired-time"]}>Đã hết hạn</span>
                 )}

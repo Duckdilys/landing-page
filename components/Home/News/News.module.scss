@@ -89,6 +89,11 @@
 }
 .swiper{
     padding-bottom: 0 !important;
+    :global {
+        .swiper-pagination {
+            height: 20px;
+        }
+    }
 }
 @media screen and (max-width: 768px) {
     .swiper{

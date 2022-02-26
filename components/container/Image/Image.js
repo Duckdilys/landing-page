@@ -7,7 +7,7 @@ const Image = ({ src, className, imageConfig, size, isApplied }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const loadImageHandler = () => {
-    setIsLoading(true);
+    setIsLoading(false);
     if(size) {
       return setSrcImage(SerializeImage(src, size));
     }
@@ -20,6 +20,7 @@ const Image = ({ src, className, imageConfig, size, isApplied }) => {
       image.onload = () => {
         if(image.width <= 256) {
             setIsLoading(false);
+            return;
         }
         setSrcImage(SerializeImage(src, 15));
         setIsLoading(true);

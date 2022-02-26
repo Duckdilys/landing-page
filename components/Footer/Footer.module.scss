@@ -237,6 +237,9 @@
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 48px !important;
     }
+    .button{
+      padding: 8px 10px !important;
+    }
 
     input {
       padding: var(--pd-12) var(--mg-16);
