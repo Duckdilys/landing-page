@@ -33,21 +33,21 @@ const SwiperContainer = ({
       onInit={
         navigation
           ? (swiper) => {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }
-          : () => {}
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }
+          : () => { }
       }
       pagination={
         pagination
           ? {
-              clickable: true,
-              bulletClass: `swiper-pagination-bullet ${classNameNormalBullet}`,
-              bulletActiveClass: `swiper-pagination-bullet-active ${classNameActiveBullet}`,
-              clickableClass: `.swiper-pagination-clickable ${containerPagination}`,
-            }
+            clickable: true,
+            bulletClass: `swiper-pagination-bullet ${classNameNormalBullet}`,
+            bulletActiveClass: `swiper-pagination-bullet-active ${classNameActiveBullet}`,
+            clickableClass: `.swiper-pagination-clickable ${containerPagination}`,
+          }
           : false
       }
       className={`${styles.swiper} ${className}`}
@@ -55,8 +55,8 @@ const SwiperContainer = ({
       autoplay={
         delay
           ? {
-              delay: delay,
-            }
+            delay: delay,
+          }
           : false
       }
       {...config}
@@ -66,9 +66,8 @@ const SwiperContainer = ({
         <>
           <div className={classOverlay}>
             <div
-              className={`${config && config.left ? config.left : ""} ${
-                styles.left
-              }`}
+              className={`${config && config.left ? config.left : ""} ${styles.left
+                }`}
               ref={prevRef}
             >
               <ArrowLeft />
@@ -76,9 +75,8 @@ const SwiperContainer = ({
           </div>
           <div className={classOverlay}>
             <div
-              className={`${config && config.right ? config.right : ""} ${
-                styles.right
-              }`}
+              className={`${config && config.right ? config.right : ""} ${styles.right
+                }`}
               ref={nextRef}
             >
               <ArrowLeft />

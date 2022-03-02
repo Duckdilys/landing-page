@@ -52,7 +52,15 @@ export const getServerSideProps = async ({ req }) => {
     }
   });
   const product = await getProductsByCondition(1, 4);
-  const news = await getNewsByCondition(1, 3, "");
+  const news = await getNewsByCondition(1, 3, "", {
+    sorts: [
+      {
+        property: "created_at",
+        direction: "DESC"
+      }
+    ]
+  });
+  console.log(news?.result?.items);
   const partners = await getPartnerCondition(1, 10);
   const highlightPosts = await getNewsByCondition(0, 3, "", {
     sorts: [

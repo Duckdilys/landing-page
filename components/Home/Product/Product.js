@@ -46,7 +46,7 @@ const Product = ({
         <h4>{title ? title : "Giải pháp"}</h4>
         
         <SwiperContainer
-          pagination
+          pagination={(_renderProducts?.length > 4 && tabletView) ? true : false}
           classNameNormalBullet={styles.normal}
           classNameActiveBullet={styles.bullet}
           className={`${styles.container}`}
