@@ -60,7 +60,6 @@ export const getServerSideProps = async ({ req }) => {
       }
     ]
   });
-  console.log(news?.result?.items);
   const partners = await getPartnerCondition(1, 10);
   const highlightPosts = await getNewsByCondition(0, 3, "", {
     sorts: [

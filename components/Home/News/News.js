@@ -65,6 +65,7 @@ const News = ({ news, highlightPosts }) => {
                       content={item.content}
                       date={item.created_at}
                       id={item.id}
+                      seo_id={item?.seo_id}
                     />
                   );
                 }
