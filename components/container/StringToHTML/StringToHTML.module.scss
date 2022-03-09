@@ -8,6 +8,7 @@
         }
         line-height: 28px;
         letter-spacing: var(--letter-spacing);
+        background: transparent !important;
     }
     p, span, li, em, strong {
         font-size: var(--fs-normal) !important;
