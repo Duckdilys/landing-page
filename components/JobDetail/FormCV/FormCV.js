@@ -30,7 +30,8 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
   } = useFetch();
   const submitFormHandler = (event) => {
     event.preventDefault();
-    if (Date.now() > time_end || !url) {
+    console.log(url);
+    if (Date.now() < time_end || !url) {
       return;
     }
     const name = nameRef.current?.value;
@@ -42,6 +43,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
     if (!emailIsValid || !nameIsValid || !phoneIsValid) {
       return;
     }
+    console.log('running');
     uploadFormHandler({
       url: ApiApplicantCV,
       method: "POST",
@@ -218,6 +220,7 @@ const FormCV = ({ time_end, id, timeIsExpire }) => {
                     </span>
                   </div>
                 </CSSTransition>
+                {data?.code >= 400 && file && <p className={`${styles.error} ${styles['error-message']}`}>{data?.message}</p>}
                 <div className={styles.button}>
                   <Button
                     options={{

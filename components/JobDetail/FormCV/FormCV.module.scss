@@ -5,6 +5,10 @@
     line-height: var(--line-height-primary);
     font-weight: var(--weight-400);
 }
+.error-message {
+  padding-top: 20px;
+  color: red !important;
+}
 .container {
   position: fixed;
   top: 50%;
