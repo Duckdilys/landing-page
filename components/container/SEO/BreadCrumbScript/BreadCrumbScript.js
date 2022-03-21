@@ -1,7 +1,9 @@
 import React from "react";
+import { useRouter } from 'next/router';
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
 import paths from "../../../Navigation/path";
+import { publicRuntimeConfig } from "../../../../util/config";
 const BreadCrumbScript = ({
   dataElement,
   title,
@@ -9,6 +11,7 @@ const BreadCrumbScript = ({
   description,
   imageContent,
 }) => {
+  const router = useRouter()
   const structureList = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -35,17 +38,17 @@ const BreadCrumbScript = ({
         }
       />
       <meta property="og:description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
-      <meta property="og:url" content="https://mhsolution.vn/" />
+      <meta property="og:url" content={`${publicRuntimeConfig['MH_SOLUTION_URL']}${router?.asPath}`} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="fb:app_id" content="292204241285034" />
-      <link rel="preload" href="/Nunito_Sans/NunitoSans-Regular.ttf" as='font' crossOrigin="anonymous"/>
-      <link rel="preload" href="/Nunito_Sans/NunitoSans-Bold.ttf" as='font' crossOrigin="anonymous"/>
-      <link rel="preload" href="/Nunito_Sans/NunitoSans-BoldItalic.ttf" as='font' crossOrigin="anonymous"/>
-      <link rel="preload" href="/Nunito_Sans/NunitoSans-ExtraLight.ttf" as='font' crossOrigin="anonymous"/>
-      <link rel="preload" href="/Nunito_Sans/NunitoSans-ExtraLightItalic.ttf" as='font' crossOrigin="anonymous"/>
-      <link rel="preload" href="/Nunito_Sans/NunitoSans-Italic.ttf" as='font' crossOrigin="anonymous"/>
-      <link rel="preload" href="/Nunito_Sans/NunitoSans-Light.ttf" as='font' crossOrigin="anonymous"/>
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-Regular.ttf" as='font' crossOrigin="anonymous" />
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-Bold.ttf" as='font' crossOrigin="anonymous" />
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-BoldItalic.ttf" as='font' crossOrigin="anonymous" />
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-ExtraLight.ttf" as='font' crossOrigin="anonymous" />
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-ExtraLightItalic.ttf" as='font' crossOrigin="anonymous" />
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-Italic.ttf" as='font' crossOrigin="anonymous" />
+      <link rel="preload" href="/Nunito_Sans/NunitoSans-Light.ttf" as='font' crossOrigin="anonymous" />
       <link rel="preload" href="/Nunito_Sans/NunitoSans-SemiBold.ttf" as="font" crossOrigin="anonymous" />
       {dataElement && (
         <script type="application/ld+json">
