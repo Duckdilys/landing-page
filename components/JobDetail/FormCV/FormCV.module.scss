@@ -121,6 +121,7 @@
 .percent{
     @include fs();
     margin-right: var(--mg-16);
+    margin-left: var(--mg-16);
 }
 .remove{
     width: var(--middle-space);
