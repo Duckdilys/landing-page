@@ -38,7 +38,7 @@ const BreadCrumbScript = ({
         }
       />
       <meta property="og:description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
-      <meta property="og:url" content={`${publicRuntimeConfig['MH_SOLUTION_URL']}${router?.asPath}`} />
+      <meta property="og:url" content={`https://mhsolution.vn${router?.asPath}`} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="fb:app_id" content="292204241285034" />
