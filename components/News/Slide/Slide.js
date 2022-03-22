@@ -4,7 +4,7 @@ import { Button, Container } from "../../container";
 import Link from "next/link";
 import useMedia from "../../../hook/use-media";
 import { useRouter } from "next/router";
-const Slide = ({ style, title, type, id }) => {
+const Slide = ({ style, title, type, id, seo_id }) => {
   const router = useRouter();
   const isMobile = useMedia('(max-width: 768px)')
   return (
@@ -13,7 +13,7 @@ const Slide = ({ style, title, type, id }) => {
         <div className={`${styles.container}`}>
           <span>{type}</span>
           <h2>{title}</h2>
-          {!isMobile && <Link href={`${router.pathname}/${id}`}>
+          {!isMobile && <Link href={`${router.pathname}/${id}/${seo_id}`}>
             <a>
               <Button className={styles.button}>Tìm hiểu thêm</Button>
             </a>

@@ -55,6 +55,7 @@ const SwiperBackground = ({ posts }) => {
                 title={post.title}
                 type={post.category?.title}
                 id={post.id}
+                seo_id={post?.seo_id}
               />
             </SwiperSlide>
           );

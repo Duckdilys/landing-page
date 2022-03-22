@@ -46,6 +46,7 @@ const News = ({ news, highlightPosts }) => {
                       type={item.type || "Dashboard"}
                       title={item.title}
                       id={item.id}
+                      seo_id={item?.seo_id}
                       contentClassName={styles['overlay']}
                     />
                   </SwiperSlide>
