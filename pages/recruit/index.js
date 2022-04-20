@@ -28,7 +28,8 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
   const setQueryFilterHandler = useCallback((query) => {
     setQueryFilter(query);
     router.push(`?page=${1}`, null, {
-      scroll: false
+      scroll: false,
+      shallow: true
     });
   }, []);
   useEffect(() => {

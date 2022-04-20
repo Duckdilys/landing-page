@@ -46,10 +46,10 @@ const Position = ({
                   <h5>{title}</h5>
                 </div>
 
-                {Date.now() < time_end &&
+                {/* {Date.now() < time_end &&
                   Date.now() < time_start + 14 * 24 * 60 * 60 * 1000 && (
                     <span className={styles.new}>Mới</span>
-                  )}
+                  )} */}
                 {Date.now() > time_end && isMobile && (
                   <span className={`${styles.new} ${styles.old}`}>
                     Đã hết hạn

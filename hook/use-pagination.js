@@ -7,7 +7,8 @@ const usePagination = (perPage, currentPage, totalDocuments) => {
   
   useEffect(() => {
     router.push(`?page=${page}`, null, {
-      scroll: false
+      scroll: false,
+      shallow: true
     });
   }, [page]);
 
