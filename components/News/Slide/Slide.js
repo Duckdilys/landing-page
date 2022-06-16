@@ -8,7 +8,7 @@ const Slide = ({ style, title, type, id, seo_id }) => {
   const router = useRouter();
   const isMobile = useMedia('(max-width: 768px)')
   return (
-    <Link href={`${router.pathname}/${id}`} passHref={true}><div style={{ ...style }} className={styles.slide}>
+    <Link href={`${router.pathname}/${id}/${seo_id}`} passHref={true}><div style={{ ...style }} className={styles.slide}>
       <Container className={`${styles.text} container-text container`}>
         <div className={`${styles.container}`}>
           <span>{type}</span>
