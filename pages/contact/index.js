@@ -13,7 +13,7 @@ const Contact = () => {
   const isMobile = useMedia('(max-width: 991px)');
   return (
     <>
-      <BreadCrumbScript dataElement={[]} title="Liên hệ | MH - Solution" />
+      <BreadCrumbScript dataElement={[]} title="Liên hệ | MH - Solution" keywords="contacts,MH Solution,mhsolution"/>
       <ContainerBanner
         className={styles.container}
         style={{ background: "transparent" }}

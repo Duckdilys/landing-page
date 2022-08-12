@@ -28,7 +28,9 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
             href: "/introduction",
           },
         ]}
-      />
+      >
+        <meta key="keywords" name="keywords" content="introduction,mhsolution,MH Solution"></meta>
+      </BreadCrumbScript>
       <div className={styles.box}>
         <section>
           <Banner data={dataIntroduction} />

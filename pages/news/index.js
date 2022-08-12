@@ -67,6 +67,7 @@ const News = ({ categories, news, totalPage, heading }) => {
     <>
       <BreadCrumbScript
         title={`Tin tức | MH - Solution | Trang ${query}`}
+        keywords="news,tin tuc,MH Solution,mhsolution"
         dataElement={news.map((item) => {
           return {
             name: item.title,

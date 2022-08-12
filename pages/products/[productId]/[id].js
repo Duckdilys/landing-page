@@ -33,6 +33,7 @@ const Products = ({ data_product, other_products }) => {
             href: data_product.website,
           },
         ]}
+        keywords={`product,mhsolution,MH Solution,${data_product?.title || ""}`}
       />
       <BannerPage
         title={data_product?.title || "Không có dữ liệu"}

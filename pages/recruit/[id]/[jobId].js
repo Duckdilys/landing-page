@@ -28,6 +28,7 @@ const JobDetail = ({ data_job, related_jobs }) => {
   return (
     <>
       <BreadCrumbScript
+      keywords={`mhsolutions,MH Solution,job,${data_job?.career},${data_job?.title}`}
         imageContent={data_job?.cover_url}
         dataElement={Array.isArray(related_jobs) ? related_jobs?.map(job => {
           return {
