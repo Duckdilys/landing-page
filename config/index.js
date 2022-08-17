@@ -1,2 +1,2 @@
-export const serverURL = 'https://api.mhsolution.vn/api';
+export const serverURL = 'https://api.mhdigital.vn/api';
 // process.env.SERVER_URL
