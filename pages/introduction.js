@@ -47,7 +47,7 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
                       key={index}
                       className={`flex-row-reverse ${index === 0 ? styles.remove : ''}`}
                       aosImage="fade-left"
-                      iconImage={"/icon.png"}
+                      iconImage={"/icon.svg"}
                       classImage={styles["background-image"]}
                     />
                   );
@@ -60,7 +60,7 @@ const Introduction = ({ dataIntroduction, founderData, partners }) => {
                     src={item?.src || "/vision.png"}
                     key={index}
                     classText={styles.reverse}
-                    iconImage={"/icon.png"}
+                    iconImage={"/icon.svg"}
                     classImage={`${styles["background-image"]} ${styles["background-right"]}`}
                   />
                 );

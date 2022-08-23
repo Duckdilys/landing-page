@@ -33,7 +33,7 @@
     height: 48px;
     min-height: 48px;
     border-radius: 50%;
-    background: var(--orange-primary);
+    background: var(--primary-color);
     img{
       width: 24px;
       height: 20px;
@@ -47,7 +47,7 @@
     letter-spacing: var(--letter-spacing);
   }
   &:hover{
-    border-color: var(--orange-primary);
+    border-color: var(--primary-color);
       .show--container{
         pointer-events: visible;
           height: 100%;
@@ -114,7 +114,7 @@
     color: var(--white);
   }
   .button {
-    background: var(--less-dark-orange);
+    background: var(--button-bg);
     border: none;
     margin-top: 40px;
     text-transform: uppercase;
