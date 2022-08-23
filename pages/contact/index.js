@@ -15,8 +15,8 @@ const Contact = () => {
         <>
             <BreadCrumbScript
                 dataElement={[]}
-                title='Liên hệ | MH - Solution'
-                keywords='contacts,MH Solution,mhsolution'
+                title='Liên hệ | MH - Digital'
+                keywords='contacts,MH Digital,mhdigital'
             />
             <ContainerBanner
                 className={styles.container}

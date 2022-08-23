@@ -72,8 +72,8 @@ const Recruit = ({ jobs, totalJobs, allCareer, allMethods, allRanked }) => {
             href: `${pathname}/${item.id}/${item.seo_id}`,
           };
         })}
-        keywords={`recruits,recruitment,mhsolution,MH Solution`}
-        title={"Tuyển dụng | MH - Solution"}
+        keywords={`recruits,recruitment,mhdigital,MH Digital`}
+        title={"Tuyển dụng | MH - Digital"}
       />
       <BannerPage
         classNameBox={`text-center ${styles.box}`}

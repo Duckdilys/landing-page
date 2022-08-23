@@ -25,7 +25,7 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
         imageContent={data?.cover_url}
         description={data?.title}
         keywords={`news,${data?.title || ""}`}
-        title={`${data?.title} | MH - Solution`}
+        title={`${data?.title} | MH - Digital`}
         dataElement={[
           ...related_news?.map((item) => {
             return {
