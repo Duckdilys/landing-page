@@ -51,7 +51,7 @@
     &:hover{
         background: var(--white);
         path{
-            stroke: var(--orange-primary);
+            stroke: var(--primary-color);
         }
     }
 }
@@ -62,7 +62,7 @@
         font-size: 20px;
         font-weight: var(--weight-700);
         text-transform: uppercase;
-        color: var(--orange-primary);
+        color: var(--primary-color);
         line-height: var(--size-space);
     }
 }

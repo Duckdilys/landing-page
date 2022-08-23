@@ -11,7 +11,7 @@
 .btn {
   margin-top: var(--size-space);
   button {
-    background: var(--orange-primary);
+    background: var(--primary-color);
     border: none;
     color: var(--white);
     text-transform: uppercase;
@@ -33,7 +33,7 @@
     line-height: 56px;
     font-size: 40px;
     letter-spacing: var(--letter-spacing-secondary);
-    color: var(--orange-primary);
+    color: var(--primary-color);
   }
 }
 .background {

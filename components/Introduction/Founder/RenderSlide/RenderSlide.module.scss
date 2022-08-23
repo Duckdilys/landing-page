@@ -25,7 +25,7 @@
 @mixin images {
   width: var(--size-space);
   height: var(--size-space);
-  background: var(--orange-primary);
+  background: var(--primary-color);
   img {
     width: 17px;
     height: 17px;
@@ -81,7 +81,7 @@
     color: var(--white);
   }
   line-height: var(--size-space);
-  background: rgba(var(--orange-primary-rgb), 0.9);
+  background: rgba(var(--primary-color-rgb), 0.9);
   h5 {
     font-size: var(--fs-large);
     padding-bottom: 34px;

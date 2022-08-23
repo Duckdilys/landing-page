@@ -57,13 +57,13 @@
     background: var(--white);
     @include transition();
     &:hover{
-        background: var(--orange-primary);
+        background: var(--primary-color);
         path {
             stroke: var(--white) !important;
         }
     }
     path{
-        stroke: var(--orange-primary);
+        stroke: var(--primary-color);
         stroke-width: 4;
         @include transition();
     }
@@ -73,7 +73,7 @@
     }
     &:hover{
         path{
-            stroke: var(--orange-primary);
+            stroke: var(--primary-color);
         }
     }
 }

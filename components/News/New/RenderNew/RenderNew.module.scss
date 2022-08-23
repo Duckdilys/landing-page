@@ -23,7 +23,7 @@
         font-weight: bold;
         transition: all .35s ease;
         &:hover{
-            color: var(--orange-primary) !important;
+            color: var(--primary-color) !important;
         }
         letter-spacing: var(--letter-spacing-normal);
         line-height: var(--middle-space);
@@ -32,7 +32,7 @@
     .time{
         padding: var(--sm-size) 0 4px 0;
         h6{
-            color: var(--orange-primary);
+            color: var(--primary-color);
             text-transform: uppercase;
             margin: 0;
             font-size: var(--sm-size);
