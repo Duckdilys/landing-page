@@ -17,7 +17,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     &:hover {
-      background: var(--orange-primary);
+      background: var(--primary-color);
       box-shadow: var(--shadow-primary);
       color: var(--white);
     }
@@ -33,7 +33,7 @@
   background: rgba($color: #fff, $alpha: 0.5) !important;
 }
 .active {
-  background: var(--orange-primary);
+  background: var(--primary-color);
   color: var(--white);
 }
 

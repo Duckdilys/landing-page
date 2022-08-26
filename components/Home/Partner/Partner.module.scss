@@ -5,6 +5,7 @@
 .container-middle{
     @include title();
     h4{
+        color: var(--primary-color);
         letter-spacing: var(--letter-spacing-secondary);
         line-height: 56px;
         padding-bottom: var(--pd-64) !important;
@@ -57,13 +58,13 @@
     background: var(--white);
     @include transition();
     &:hover{
-        background: var(--orange-primary);
+        background: var(--primary-color);
         path {
             stroke: var(--white) !important;
         }
     }
     path{
-        stroke: var(--orange-primary);
+        stroke: var(--primary-color);
         stroke-width: 4;
         @include transition();
     }
@@ -73,7 +74,7 @@
     }
     &:hover{
         path{
-            stroke: var(--orange-primary);
+            stroke: var(--primary-color);
         }
     }
 }

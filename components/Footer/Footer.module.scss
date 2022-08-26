@@ -10,7 +10,7 @@
 }
 .active {
   a {
-    color: var(--orange-primary) !important;
+    color: var(--primary-color) !important;
   }
 }
 .logo {
@@ -50,9 +50,9 @@
   a {
     transition: all 0.35s ease-in-out;
     &:hover {
-      color: var(--orange-primary) !important;
+      color: var(--primary-color) !important;
       path {
-        fill: var(--orange-primary) !important;
+        fill: var(--primary-color) !important;
       }
     }
   }
@@ -113,7 +113,7 @@
   button {
     width: 40%;
     font-size: var(--fs-small);
-    background: var(--orange-primary);
+    background: var(--primary-color);
     text-transform: uppercase;
     border: none;
     color: var(--white);
