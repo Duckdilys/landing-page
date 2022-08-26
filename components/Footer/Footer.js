@@ -40,7 +40,7 @@ const Footer = ({ data_footer }) => {
         <LayoutContainer className={styles["container-footer"]}>
           <div className={styles.grid}>
             <div className={styles["logo-box"]}>
-              <Image src={"/logo-footer.png"} alt="" className={styles.logo} />
+              <Image src={"/logo-icon.svg"} alt="" className={styles.logo} />
               {!isMatchMobile && (
                 <div
                   className={`d-flex align-items-center ${styles.copyright}`}
@@ -93,10 +93,10 @@ const Footer = ({ data_footer }) => {
                   <span>Địa chỉ: 71-73, Trần Thái Tông, Dịch Vọng, Cầu Giấy, Hà Nội</span>
                 </li>
                 <li data-aos-delay={400}>
-                  <span>Email: contact@mhsolution.vn</span>
+                  <span>Email: contact@mhdigital.vn</span>
                 </li>
                 <li data-aos-delay={600}>
-                  <span>Điện thoại: 0973 090 393</span>
+                  <span>Điện thoại: 0986 464 862</span>
                 </li>
               </ul>
             )}
@@ -143,7 +143,7 @@ const Footer = ({ data_footer }) => {
               )}
                 {data_footer[0]?.socials?.map((item, index) => {
                   return (
-                    <a key={index} href={item?.src}>
+                    <a key={index} href={'https://www.facebook.com/mhdigitaljsc'} target='_blank' rel="noreferrer">
                       <Image
                         className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
                         alt=""

@@ -62,7 +62,7 @@
   text-align: end;
   button {
     border: none;
-    background: var(--orange-primary);
+    background: var(--primary-color);
     color: var(--white);
     text-transform: uppercase;
   }
@@ -186,7 +186,7 @@
         transform: rotate(-45deg) translateY(-1px);
       }
     }
-    background: var(--orange-primary);
+    background: var(--primary-color);
   }
   .button {
     padding-top: 0;

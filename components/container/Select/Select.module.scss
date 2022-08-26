@@ -47,7 +47,7 @@
             top: 0;
             width: 50%;
             height: 4px;
-            background: var(--orange-primary);
+            background: var(--primary-color);
             left: 0;
         }
     }
@@ -58,7 +58,7 @@
 }
 .bold{
     font-weight: bold;
-    color: var(--orange-primary);
+    color: var(--primary-color);
 }
 @media screen and (max-width: 1250px) {
     .select{

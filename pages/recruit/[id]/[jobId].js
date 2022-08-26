@@ -28,7 +28,7 @@ const JobDetail = ({ data_job, related_jobs }) => {
   return (
     <>
       <BreadCrumbScript
-      keywords={`mhsolutions,MH Solution,job,${data_job?.career},${data_job?.title}`}
+      keywords={`mhdigital,MH Digital,job,${data_job?.career},${data_job?.title}`}
         imageContent={data_job?.cover_url}
         dataElement={Array.isArray(related_jobs) ? related_jobs?.map(job => {
           return {
@@ -36,7 +36,7 @@ const JobDetail = ({ data_job, related_jobs }) => {
             href: `/recruit/${job.id}`
           }
         }) : []}
-        title={`Tuyển dụng - ${data_job.title.toUpperCase()} | MH - Solution`}
+        title={`Tuyển dụng - ${data_job.title.toUpperCase()} | MH - Digital`}
       >
         <meta property="og:image" content={data_job?.cover_url || ""} />
         <meta

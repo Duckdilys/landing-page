@@ -60,9 +60,9 @@
   }
   li, a {
     &:hover {
-      color: var(--orange-primary) !important;
+      color: var(--primary-color) !important;
       path {
-        fill: var(--orange-primary) !important;
+        fill: var(--primary-color) !important;
       }
     }
   }
@@ -81,7 +81,7 @@
     background: var(--white);
   }
   &::-webkit-scrollbar-thumb{
-    background: var(--orange-primary);
+    background: var(--primary-color);
   }
   list-style: none;
   background: var(--white);
@@ -131,16 +131,16 @@
     width: 0%;
     height: 4px;
     transition: all 0.35s ease;
-    background: var(--orange-primary);
+    background: var(--primary-color);
   }
 }
 .active {
   & > a {
-    color: var(--orange-primary) !important;
+    color: var(--primary-color) !important;
   }
-  color: var(--orange-primary) !important;
+  color: var(--primary-color) !important;
   path {
-    fill: var(--orange-primary) !important;
+    fill: var(--primary-color) !important;
   }
 }
 .hamburger {

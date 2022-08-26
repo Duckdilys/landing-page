@@ -29,7 +29,7 @@ const BreadCrumbScript = ({
   return (
     <Head>
       <title>{title}</title>
-      <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+      <link rel="icon" type="image/png" href="/logo-icon.svg" sizes="32x32" />
       <meta
         key="og:image"
         property="og:image"
@@ -43,11 +43,11 @@ const BreadCrumbScript = ({
         name="author"
         content="MH Media INTERNATIONAL TECHNOLOGY JSC"
       />
-      <meta key="keywords" name="keywords" content={keywords || "mhsolution, MH Solution"}></meta>
-      <meta key="og:site_name" property="og:site_name" content="MH Solution"></meta>
-      <meta key="description" property="description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."}></meta>
-      <meta key="og:description" property="og:description" content={description || "MH Solution là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
-      <meta key="og:url" property="og:url" content={`https://mhsolution.vn${router?.asPath}`} />
+      <meta key="keywords" name="keywords" content={keywords || "mhdigital, MH Digital"}></meta>
+      <meta key="og:site_name" property="og:site_name" content="MH Digital"></meta>
+      <meta key="description" property="description" content={description || "MH Digital là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."}></meta>
+      <meta key="og:description" property="og:description" content={description || "MH Digital là công ty giải pháp tích hợp với sứ mệnh là người đồng hành tin cậy cho các doanh nghiệp tổ chức trong quá trình chuyển đổi số."} />
+      <meta key="og:url" property="og:url" content={`https://mhdigital.vn${router?.asPath}`} />
       <meta key="og:type" property="og:type" content="website" />
       <meta key="og:title" property="og:title" content={title} />
       <meta key="fb:app_id" property="fb:app_id" content="292204241285034" />

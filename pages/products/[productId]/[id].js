@@ -22,7 +22,7 @@ const Products = ({ data_product, other_products }) => {
   return (
     <>
       <BreadCrumbScript
-        title={`${data_product.title} || MH-Solution`}
+        title={`${data_product.title} || MH-Digital`}
         dataElement={[
           {
             name: data_product.title,
@@ -33,7 +33,7 @@ const Products = ({ data_product, other_products }) => {
             href: data_product.website,
           },
         ]}
-        keywords={`product,mhsolution,MH Solution,${data_product?.title || ""}`}
+        keywords={`product,mhdigital,MH Digital,${data_product?.title || ""}`}
       />
       <BannerPage
         title={data_product?.title || "Không có dữ liệu"}
