@@ -1,0 +1,3 @@
+const checkSizeOfImage = (width, height) => {
+    
+}

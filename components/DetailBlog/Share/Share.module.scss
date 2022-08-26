@@ -1,0 +1,31 @@
+.container{
+    .icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    p{
+        font-size: var(--fs-normal);
+        font-weight: var(--weight-400);
+        letter-spacing: var(--letter-spacing);
+        padding-right: 16px;
+        line-height: var(--line-height-primary);
+    }
+    padding: var(--size-space) 0px 40px 0px;
+    border-bottom: 1px solid var(--border-color);
+    .share{
+        margin-right: var(--mg-16) !important;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .container{
+        padding-top: 18px;
+        padding-bottom: 30px;
+        p{
+            font-size: var(--fs-small);
+            padding-right: 13px;
+        }
+    }
+}

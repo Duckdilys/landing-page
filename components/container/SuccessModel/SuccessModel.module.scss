@@ -1,0 +1,96 @@
+.box{
+    .img{
+        width: 64px;
+        height: 64px;
+        background: var(--green-light-success);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        .image{
+            width: 41px;
+            height: 41px;
+            background: var(--green-success);
+        }
+    }
+    z-index: 1000;
+    h4{
+        font-size: 20px;
+        line-height: var(--size-space);
+        padding-bottom: var(--pd-12);
+        padding-top: var(--middle-space);
+        margin: auto;
+        text-transform: capitalize;
+        letter-spacing: var(--letter-spacing-primary);
+    }    
+    p{
+        line-height: var(--line-height-primary);
+        letter-spacing: var(--letter-spacing);
+        font-weight: var(--weight-400);
+        padding-bottom: var(--size-space);
+        max-width: 600px;
+        margin: auto;
+    }
+    button{
+        background: var(--orange-primary);
+        border: none;
+        color: var(--white);
+        text-transform: uppercase;
+    }
+}
+.error{
+    .img{
+        background: var(--red-light-error);
+        .image{
+            background: var(--red-error);
+        }
+    }
+}
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    span{
+        width: 20px;
+        height: 2px;
+        background: #45403E;
+        display: block;
+        &:first-child{
+            transform: rotate(45deg) translateY(1px);
+        }
+        &:last-child{
+            transform: rotate(-45deg) translateY(-1px);
+        }
+    }
+    background: #F3F3F3;
+    cursor: pointer;
+    width: var(--pd-64);
+    height: var(--pd-64);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 768px) {
+    .box{
+        h4{
+            font-size: var(--fs-normal) !important;
+            line-height: 20px;
+        }
+        p{
+            font-size: var(--fs-small);
+            max-width: 100%;
+            line-height: 20px;
+            padding-bottom: var(--mg-16);
+        }
+    }
+    .close{
+        width: 24px;
+        height: 20px;
+        background: var(--orange-primary);
+        span {
+            background: var(--white);
+        }
+    }
+}

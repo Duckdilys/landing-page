@@ -1,0 +1,28 @@
+.container {
+  padding-top: 64px;
+  z-index: 5;
+  line-height: 56px;
+  h4 {
+    font-size: var(--size-space);
+    padding-bottom: var(--middle-space);
+    color: var(--orange-primary);
+    line-height: 48px;
+    letter-spacing: var(--letter-spacing-secondary);
+    margin-bottom: 0;
+  }
+  position: relative;
+  z-index: 100;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container{
+    line-height: var(--size-space);
+    padding-top: var(--size-space);
+    h4{
+      font-size: 20px;
+      line-height: var(--size-space);
+      padding-bottom: var(--mg-16) !important;
+    }
+  }
+}

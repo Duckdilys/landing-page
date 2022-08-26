@@ -1,0 +1,30 @@
+.line{
+    background: var(--black);
+    height: 1px;
+}
+.justify{
+    text-align: justify;
+    transition: all .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+.grid{
+    grid-template-columns: repeat(3, 1fr);
+}
+.container{
+    margin-top: 0;
+    h4{
+        padding-bottom: var(--size-space) !important;
+    }
+}
+@media screen and (max-width: 991px) {
+    .grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .container{
+        h4{
+            padding-bottom: 16px !important;
+        }
+    }
+}

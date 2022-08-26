@@ -1,0 +1,22 @@
+.success{
+    z-index: 300;
+    background: var(--white);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 727px;
+    padding: 64px;
+}
+
+@media screen and (max-width: 991px) {
+    .success{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .success{
+        padding: var(--middle-space);
+    }
+}

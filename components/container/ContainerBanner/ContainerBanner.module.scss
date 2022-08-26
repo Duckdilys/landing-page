@@ -1,0 +1,32 @@
+.container {
+  padding-top: calc(424px / 1441px * 100%);
+  background: url("../../../public/banner.png");
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: 50% 50% !important;
+  position: relative;
+  margin-top: 80px;
+  z-index: 10;
+  &::before{
+    content: '';
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--overlay-banner);
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .container{
+    margin-top: 56px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container{
+    padding-top: calc(183.73px / 375px * 100%);
+  }
+}
