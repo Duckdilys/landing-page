@@ -224,6 +224,17 @@ input[type='number'] {
     background: transparent !important;
     border: 2px solid var(--primary-color);
 }
+
+//
+.formContact {
+    border-radius: 0;
+}
+.formContact:focus {
+    outline: none;
+    border-color: var(--border-color);
+    -webkit-box-shadow:var(--border-black)
+}
+
 .error__text {
     color: red;
     font-size: 14px;
