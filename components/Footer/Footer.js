@@ -93,10 +93,10 @@ const Footer = ({ data_footer }) => {
                   <span>Địa chỉ: 71-73, Trần Thái Tông, Dịch Vọng, Cầu Giấy, Hà Nội</span>
                 </li>
                 <li data-aos-delay={400}>
-                  <span>Email: contact@mhdigital.vn</span>
+                  <span>Email: {data_footer[0].email}</span>
                 </li>
                 <li data-aos-delay={600}>
-                  <span>Điện thoại: 0986 464 862</span>
+                  <span>Điện thoại: {data_footer[0].phone_number}</span>
                 </li>
               </ul>
             )}
@@ -143,7 +143,7 @@ const Footer = ({ data_footer }) => {
               )}
                 {data_footer[0]?.socials?.map((item, index) => {
                   return (
-                    <a key={index} href={'https://www.facebook.com/mhdigitaljsc'} target='_blank' rel="noreferrer">
+                    <a key={index} href={item.src} target='_blank' rel="noreferrer">
                       <Image
                         className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
                         alt=""

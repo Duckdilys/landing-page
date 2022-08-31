@@ -1,6 +1,9 @@
 @import "../../../styles/grid";
 .grid {
-  @include grid-template-column(2, var(--middle-space));
+  @include grid-template-column(1, var(--middle-space));
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
   input,
   textarea {
     padding: var(--pd-20) var(--middle-space);
@@ -156,6 +159,7 @@
   }
   .grid {
     @include grid-template-column(1, 8px);
+    width: 100%;
   }
   .remove {
     margin-top: var(--size-space) !important;
