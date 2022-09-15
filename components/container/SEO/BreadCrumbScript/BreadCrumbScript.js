@@ -29,7 +29,7 @@ const BreadCrumbScript = ({
   return (
     <Head>
       <title>{title}</title>
-      <link rel="icon" href="/logo-icon.svg" sizes="32x32" />
+      <link rel="icon" href="/logo-icon-new.svg" sizes="32x32" />
       <link rel="apple-touch-icon" sizes="32x32" href="https://cdn.noron.vn/2022/09/14/6975329112715940-1663142662_256.png" />
       <link rel="apple-touch-icon" sizes="96x96" href="https://cdn.noron.vn/2022/09/14/6975329112715940-1663142662_256.png" />
       <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.noron.vn/2022/09/14/6975329112715940-1663142662_256.png" />
