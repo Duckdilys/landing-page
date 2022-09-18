@@ -93,10 +93,10 @@ const Footer = ({ data_footer }) => {
                   <span>Địa chỉ: 71-73, Trần Thái Tông, Dịch Vọng, Cầu Giấy, Hà Nội</span>
                 </li>
                 <li data-aos-delay={400}>
-                  <span>Email: {data_footer[0].email}</span>
+                  <span>Email: {data_footer?.[0]?.email}</span>
                 </li>
                 <li data-aos-delay={600}>
-                  <span>Điện thoại: {data_footer[0].phone_number}</span>
+                  <span>Điện thoại: {data_footer?.[0]?.phone_number}</span>
                 </li>
               </ul>
             )}
@@ -141,7 +141,7 @@ const Footer = ({ data_footer }) => {
                   <span>Copyright 2020</span>
                 </div>
               )}
-                {data_footer[0]?.socials?.map((item, index) => {
+                {(data_footer?.[0]?.socials || []).map((item, index) => {
                   return (
                     <a key={index} href={item.src} target='_blank' rel="noreferrer">
                       <Image
