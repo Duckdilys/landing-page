@@ -56,9 +56,10 @@ const FormContact = ({
                         <option >
                             Bạn quan tâm đến vấn đề gì?
                         </option>
-                        <option>Công nghệ</option>
-                        <option>Marketing</option>
-                        <option>Social</option>
+                        <option>Nền tảng phân tích dữ liệu</option>
+                        <option>Giám sát truyền thông mạng xã hội</option>
+                        <option>Tư vấn và triển khai giaỉ pháp BI</option>
+                        <option>Chuyên gia phân tích dữ liệu</option>
                     </Form.Select>
                 </div>
 
