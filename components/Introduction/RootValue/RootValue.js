@@ -54,7 +54,7 @@ const RootValue = ({ data }) => {
         {/* // : <p className="text-center pt-5">Không có thông tin</p>} */}
         <div data-aos="fade-up" className={styles.image}>
           <Image
-            src={"/value.png"}
+            src={"/value-new.png"}
             alt=""
           />
         </div>
