@@ -4,7 +4,8 @@ module.exports = {
     domains: ['cdn.noron.vn', 'versatica.ai'],
   },
   publicRuntimeConfig: {
-    MH_SOLUTION_URL: process.env['MH_SOLUTION_URL']
+    MH_SOLUTION_URL: process.env.MH_SOLUTION_URL,
+    MH_SOLUTION_API_URL: process.env.REACT_APP_SERVER_URL
   },
   webpack(config) {
     config.module.rules.push({
