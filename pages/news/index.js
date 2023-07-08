@@ -75,7 +75,7 @@ const News = ({ categories, news, totalPage, heading }) => {
           };
         })}
       />
-      <SwiperBackground posts={heading} />
+      <SwiperBackground posts={heading} prefixURL={'new'} />
       <ListNews
         categories={categories}
         news={posts}

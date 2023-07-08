@@ -9,7 +9,7 @@ const RenderNew = ({ name, date, type, url_cover, image, category_id, id, classN
   return (
     <div className={`${styles.new} ${className}`}>
       <div className={`position-relative ${styles.image}`}>
-        <Link passHref={true} href={`/news/${id}/${seo_id}`}>
+        <Link passHref={true} href={`/new/${seo_id}`}>
           <a>
             <Image
               size={512}
@@ -26,7 +26,7 @@ const RenderNew = ({ name, date, type, url_cover, image, category_id, id, classN
         <h6 onClick={() => dispatch(categoryActions.changeCategoryHandler(category_id))}>{type}</h6>
         <p>{date}</p>
       </div>
-      <Link className={styles.link} href={`/news/${id}/${seo_id}`}>
+      <Link className={styles.link} href={`/new/${seo_id}`}>
         {name}
       </Link>
     </div>

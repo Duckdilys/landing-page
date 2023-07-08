@@ -10,4 +10,11 @@ const convertString = (string) => {
   return mapString.join(" ");
 };
 
-export { convertString };
+const getIdBySeoId = (seoId) => {
+  const arr = (seoId || '').split('-');
+  return arr[arr.length - 1];
+}
+
+const getSeoId = (item) => item?.seo_id || item?.id
+
+export { convertString, getIdBySeoId, getSeoId };

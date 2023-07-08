@@ -5,7 +5,7 @@ import styles from "./SwiperBackground.module.scss";
 import Slide from "../Slide/Slide";
 import useMedia from "../../../hook/use-media";
 
-const SwiperBackground = ({ posts }) => {
+const SwiperBackground = ({ posts, prefixURL }) => {
   const matchMobile = useMedia("(max-width: 991px)");
   return (
     <ContainerSmall className={styles.contain}>
@@ -56,6 +56,7 @@ const SwiperBackground = ({ posts }) => {
                 type={post.category?.title}
                 id={post.id}
                 seo_id={post?.seo_id}
+                prefixURL={prefixURL}
               />
             </SwiperSlide>
           );

@@ -89,13 +89,13 @@ const Navigation = ({ products }) => {
                               <li
                                 className={
                                   (router.asPath || router.pathname) ===
-                                  `/products/${item.id}/${item.seo_id}`
+                                  `/product/${item.seo_id}`
                                     ? styles.active
                                     : ""
                                 }
                                 key={item.id}
                               >
-                                <Link href={`/products/${item.id}/${item.seo_id}`}>
+                                <Link href={`/product/${item.seo_id}`}>
                                   {item.title.toLowerCase()}
                                 </Link>
                               </li>

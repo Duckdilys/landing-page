@@ -6,17 +6,18 @@ import {
   Button,
   BreadCrumbScript,
   Line,
-} from "../../../components/container";
-import styles from '../../../components/Products/Banner.module.scss';
-import Introduction from "../../../components/Products/Introduction/Introduction";
-import Product from "../../../components/Home/Product/Product";
-import { checkUserIsBot } from "../../../util";
-import { getProductById } from "../../../config/ApiProducts";
-import axiosConfig from "../../../service/base";
-import BannerLanding from "../../../components/Products/BannerLanding/BannerLanding";
-import { apiGetProducts } from "../../../config/ApiProducts";
-import useMedia from "../../../hook/use-media";
-import { SerializeNormal } from "../../../util";
+} from "../../components/container";
+import styles from '../../components/Products/Banner.module.scss';
+import Introduction from "../../components/Products/Introduction/Introduction";
+import Product from "../../components/Home/Product/Product";
+import { checkUserIsBot } from "../../util";
+import { getProductById } from "../../config/ApiProducts";
+import axiosConfig from "../../service/base";
+import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
+import { apiGetProducts } from "../../config/ApiProducts";
+import useMedia from "../../hook/use-media";
+import { SerializeNormal } from "../../util";
+import { getIdBySeoId } from '../../util/convertString/convertString';
 const Products = ({ data_product, other_products }) => {
   const isMobile = useMedia("(max-width: 991px");
   return (
@@ -26,7 +27,7 @@ const Products = ({ data_product, other_products }) => {
         dataElement={[
           {
             name: data_product.title,
-            href: `/products/${data_product.id}`,
+            href: `/product/${data_product.seo_id}`,
           },
           {
             name: "Website",
@@ -106,7 +107,8 @@ const Products = ({ data_product, other_products }) => {
 
 export const getServerSideProps = async ({ req, params }) => {
   const userIsBot = checkUserIsBot(req);
-  const { productId } = params;
+  const { productId: seoId } = params;
+  const productId = getIdBySeoId(seoId)
 
   const data_product = await axiosConfig({
     url: getProductById(productId),

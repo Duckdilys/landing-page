@@ -4,22 +4,23 @@ import {
   LayoutContainer,
   Button,
   BreadCrumbScript,
-} from "../../../components/container";
+} from "../../components/container";
 import { useDispatch } from "react-redux";
-import { modelActions } from "../../../store/slices/model-slice";
-import Type from "../../../components/Recruit/Positions/Position/Type/Type";
-import styles from "../../../components/JobDetail/styles.module.scss";
-import Description from "../../../components/JobDetail/Description/Description";
-import Requiredment from "../../../components/JobDetail/Requiredment/Requiredment";
-import Overview from "../../../components/JobDetail/Overview/Overview";
-import RelatedWork from "../../../components/JobDetail/RelatedWork/RelatedWork";
-import FormCV from "../../../components/JobDetail/FormCV/FormCV";
-import { checkUserIsBot } from "../../../util";
-import axiosConfig from "../../../service/base";
-import { ApiJob } from "../../../config/ApiJob";
-import useMedia from "../../../hook/use-media";
-import Share from "../../../components/JobDetail/Share/Share";
-import OutDateCV from "../../../components/JobDetail/OutDateCV/OutDateCV";
+import { modelActions } from "../../store/slices/model-slice";
+import Type from "../../components/Recruit/Positions/Position/Type/Type";
+import styles from "../../components/JobDetail/styles.module.scss";
+import Description from "../../components/JobDetail/Description/Description";
+import Requiredment from "../../components/JobDetail/Requiredment/Requiredment";
+import Overview from "../../components/JobDetail/Overview/Overview";
+import RelatedWork from "../../components/JobDetail/RelatedWork/RelatedWork";
+import FormCV from "../../components/JobDetail/FormCV/FormCV";
+import { checkUserIsBot } from "../../util";
+import axiosConfig from "../../service/base";
+import { ApiJob } from "../../config/ApiJob";
+import useMedia from "../../hook/use-media";
+import Share from "../../components/JobDetail/Share/Share";
+import OutDateCV from "../../components/JobDetail/OutDateCV/OutDateCV";
+import { getIdBySeoId, getSeoId } from '../../util/convertString/convertString';
 const JobDetail = ({ data_job, related_jobs }) => {
   const matchMobile = useMedia("(max-width: 991px)");
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const JobDetail = ({ data_job, related_jobs }) => {
         dataElement={Array.isArray(related_jobs) ? related_jobs?.map(job => {
           return {
             name: job.title,
-            href: `/recruit/${job.id}`
+            href: `/recruit/${getSeoId(job)}`
           }
         }) : []}
         title={`Tuyển dụng - ${data_job.title.toUpperCase()} | MH - Digital`}
@@ -102,7 +103,8 @@ const JobDetail = ({ data_job, related_jobs }) => {
   );
 };
 export const getServerSideProps = async ({ params, req }) => {
-  const { id } = params;
+  const { jobId: seoId } = params;
+  const id = getIdBySeoId(seoId);
   const userIsBot = checkUserIsBot(req);
   const getJobById = await axiosConfig({
     url: ApiJob,

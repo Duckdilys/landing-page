@@ -17,7 +17,7 @@ const Position = ({
   seo_id
 }) => {
   return (
-    <Link href={`/recruit/${id}/${seo_id}`}>
+    <Link href={`/recruit/${seo_id}`}>
       <a>
         <div
           className={`${styles.container} ${Date.now() > time_end && styles.disabled

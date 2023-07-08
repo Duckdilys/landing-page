@@ -5,17 +5,18 @@ import {
   LayoutContainer,
   Grid,
   BreadCrumbScript,
-} from "../../../components/container";
-import { checkUserIsBot } from "../../../util";
-import styles from "../../../components/DetailBlog/style/styles.module.scss";
-import DetailBlog from "../../../components/DetailBlog/DetailBlog";
-import Share from "../../../components/DetailBlog/Share/Share";
-import OtherNews from "../../../components/DetailBlog/OtherNews/OtherNews";
-import axiosConfig from "../../../service/base";
-import { getNewById, getNewsApi } from "../../../config/ApiNews";
-import { getNews } from "../../../service";
-import Slide from "../../../components/Home/News/Slide/Slide";
-import useMedia from "../../../hook/use-media";
+} from "../../components/container";
+import { checkUserIsBot } from "../../util";
+import styles from "../../components/DetailBlog/style/styles.module.scss";
+import DetailBlog from "../../components/DetailBlog/DetailBlog";
+import Share from "../../components/DetailBlog/Share/Share";
+import OtherNews from "../../components/DetailBlog/OtherNews/OtherNews";
+import axiosConfig from "../../service/base";
+import { getNewById, getNewsApi } from "../../config/ApiNews";
+import { getNews } from "../../service";
+import Slide from "../../components/Home/News/Slide/Slide";
+import useMedia from "../../hook/use-media";
+import { getIdBySeoId, getSeoId } from '../../util/convertString/convertString';
 const BlogDetail = ({ data, related_news, hot_news }) => {
   const isMobile = useMedia("(max-width: 768px)");
   const router = useRouter();
@@ -30,18 +31,18 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
           ...related_news?.map((item) => {
             return {
               name: item?.title,
-              href: `/news/${item.id}`,
+              href: `/new/${getSeoId(item)}`,
             };
           }),
           ...hot_news.map((item) => {
             return {
               name: item?.title,
-              href: `/news/${item.id}/${item.seo_id}`,
+              href: `/new/${getSeoId(item)}`,
             };
           }),
           {
             name: data?.title,
-            href: `/news/${data?.id}/${data.seo_id}`,
+            href: `/new/${getSeoId(data)}`,
           },
         ]}
       ></BreadCrumbScript>
@@ -96,7 +97,8 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
 
 export const getServerSideProps = async ({ req, query }) => {
   const userIsBot = checkUserIsBot(req);
-  const { newId } = query;
+  const { newId: seoId } = query;
+  const newId = getIdBySeoId(seoId);
   const postDetail = await axiosConfig({
     url: getNewById(+newId),
   });

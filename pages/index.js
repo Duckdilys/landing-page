@@ -12,6 +12,7 @@ import { BreadCrumbScript, ContainerSmall } from '../components/container';
 import { DataImageProduct } from '../components/container/DataImageProduct/DataImageProduct';
 import Form from '../components/Contact/Form/Form';
 import styles from "../components/Contact/Form/Form.module.scss";
+import { getSeoId } from '../util/convertString/convertString';
 
 export default function Home({
     news,
@@ -35,7 +36,7 @@ export default function Home({
                     ...news.map((item) => {
                         return {
                             name: item.title,
-                            href: `/news/${item.id}`,
+                            href: `/new/${getSeoId(item)}`,
                         };
                     }),
                 ]}
