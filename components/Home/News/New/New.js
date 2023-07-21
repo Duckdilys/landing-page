@@ -18,13 +18,34 @@ const New = ({ src, title, date, content, id, seo_id }) => {
       >
         <Link href={`/new/${seo_id}`} passHref={true}>
           <a>
-            <Image size={512} isApplied={true} className={styles.image} src={src} alt="" />
+            <Image
+              size={512}
+              isApplied={true}
+              className={styles.image}
+              src={src}
+              alt=""
+            />
           </a>
         </Link>
       </Col>
       <Col xs={6} sm={6} md={6} lg={6} className={styles.content}>
         <Link href={`/new/${seo_id}`}>{title}</Link>
-        {!matchMedia && <div className={styles["text-content"]}>{<StringToHTML string={content}/>}</div>}
+        {!matchMedia && (
+          <div className={styles["text-content"]}>
+            {
+              <StringToHTML
+                string={content}
+                options={{
+                  replace: domNode => {
+                    if (domNode.name === 'img') {
+                      return <></>
+                    }
+                  },
+                }}
+              />
+            }
+          </div>
+        )}
         <p className={styles.date}>{date}</p>
       </Col>
     </Row>

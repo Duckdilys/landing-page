@@ -43,10 +43,10 @@ const Product = ({
       <LayoutContainer
         className={`${styles["container-product"]} ${classNameContainer}`}
       >
-        <h4>{title ? title : "Giải pháp"}</h4>
-        
+        <h4>{title ? title : "Dịch vụ & Giải pháp"}</h4>
+
         <SwiperContainer
-          pagination={(_renderProducts?.length > 4 && tabletView) ? true : false}
+          pagination={_renderProducts?.length > 4 && tabletView ? true : false}
           classNameNormalBullet={styles.normal}
           classNameActiveBullet={styles.bullet}
           className={`${styles.container}`}

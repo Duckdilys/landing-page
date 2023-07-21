@@ -2,10 +2,11 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Category.module.scss";
 import { categoryActions } from "../../../store/slices/category-slice";
-const Category = ({ categories, type, matchMedia }) => {
+import { useRouter } from "next/router";
+const Category = ({ categories, type, matchMedia, onResetPage }) => {
   const dispatch = useDispatch();
   const [position, setPosition] = useState(null);
-
+  const router = useRouter();
   useEffect(() => {
     dispatch(categoryActions.changeCategoryHandler(0));
     // reset
@@ -15,10 +16,13 @@ const Category = ({ categories, type, matchMedia }) => {
     dispatch(categoryActions.changeCategoryHandler(id));
     const position = event.target.getBoundingClientRect();
     setPosition(position);
+    if (onResetPage) {
+      onResetPage()
+    }
   };
   return (
     <div className={styles.category}>
-      {!matchMedia &&  <h6>Danh mục tin tức</h6>}
+      {!matchMedia && <h6>Danh mục tin tức</h6>}
       <div className={styles.flow}>
         <ul>
           <li

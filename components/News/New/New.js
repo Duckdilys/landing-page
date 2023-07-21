@@ -3,10 +3,8 @@ import { Grid } from "../../container";
 import styles from "./New.module.scss";
 import RenderNew from "./RenderNew/RenderNew";
 const New = ({ news, isLoading, turnLoadingToArray, matchMedia, children }) => {
-  const filterPostByCategory = useCallback(() => {}, []);
-  useEffect(() => {
-    filterPostByCategory();
-  }, [filterPostByCategory]);
+  
+  
   return (
     <div className={styles.container}>
       {news.length === 0 && !isLoading && (

@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Pagination.module.scss";
 import Image from "next/image";
 import usePagination from "../../../hook/use-pagination";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useMedia from "../../../hook/use-media";
-const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
+const Pagination = ({
+  className,
+  perPage,
+  totalDocuments,
+  currentPage,
+  isResetPage,
+  onResetPage,
+}) => {
   // fake pagination, not call api, just data for totally
   const {
     goToNextPage,
@@ -14,8 +21,18 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
     page,
     changePageHandler,
   } = usePagination(perPage, currentPage, totalDocuments);
-  const isMobile = useMedia('(max-width: 768px)')
+  const isMobile = useMedia("(max-width: 768px)");
   const Router = useRouter();
+
+  useEffect(() => {
+    if (isResetPage) {
+      changePageHandler(1);
+      if (onResetPage) {
+        onResetPage()
+      }
+    }
+  }, [isResetPage]);
+
   return (
     <>
       {totalDocuments === 0 && null}
@@ -68,9 +85,9 @@ const Pagination = ({ className, perPage, totalDocuments, currentPage }) => {
         )}
 
         <li
-          className={`${currentPage === getTotalPagination ? styles.disabled : ""} ${
-            styles["btn--direction"]
-          }`}
+          className={`${
+            currentPage === getTotalPagination ? styles.disabled : ""
+          } ${styles["btn--direction"]}`}
           onClick={goToNextPage}
         >
           <Image

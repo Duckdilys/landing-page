@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { ContainerSmall, Grid, SkeletonLoading } from "../../container";
 import Category from "../Category/Category";
@@ -8,6 +8,7 @@ import useMedia from "../../../hook/use-media";
 const ListNews = ({ news, categories, isLoading, perPage, children }) => {
   const matchMedia = useMedia("(max-width: 991px)");
   const type = useSelector((state) => state.category.category);
+  const [isResetPage, setIsResetPage] = useState(false);
   const renderTypes = useMemo(() => {
     return categories.map((category) => {
       return {
@@ -16,6 +17,11 @@ const ListNews = ({ news, categories, isLoading, perPage, children }) => {
       };
     });
   }, [categories]);
+  
+  const onResetPage = () => { 
+    setIsResetPage(prev => !prev)
+  }
+  
   const turnLoadingToArray = Array.from(Array(perPage).keys()).map((item) => {
     return (
       <SkeletonLoading key={item} times={2} src imageClassName={styles.image} />
@@ -34,6 +40,7 @@ const ListNews = ({ news, categories, isLoading, perPage, children }) => {
         <Grid className={styles.grid}>
           {!matchMedia && (
             <Category
+              onResetPage={onResetPage}
               type={type}
               categories={renderTypes}
               matchMedia={matchMedia}
@@ -46,7 +53,10 @@ const ListNews = ({ news, categories, isLoading, perPage, children }) => {
             news={news}
             turnLoadingToArray={turnLoadingToArray}
           >
-            {children}
+            {React.cloneElement(children, {
+              isResetPage,
+              onResetPage,
+            })}
           </New>
         </Grid>
       </ContainerSmall>
