@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import Head from "next/head";
 import ReactHtmlParser from "react-html-parser";
 import paths from "../../../Navigation/path";
@@ -10,9 +10,9 @@ const BreadCrumbScript = ({
   children,
   description,
   imageContent,
-  keywords
+  keywords,
 }) => {
-  const router = useRouter()
+  const router = useRouter();
   const structureList = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -50,7 +50,7 @@ const BreadCrumbScript = ({
         property="og:image"
         content={
           imageContent ||
-          "https://cdn.noron.vn/2023/07/21/430215347252920-1689927603.png"
+          "https://cdn.noron.vn/2023/07/24/4227280081871822-1690165193.png"
         }
       />
       <meta
