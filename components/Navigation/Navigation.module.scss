@@ -5,6 +5,18 @@
 .container {
   height: 80px;
 }
+
+.logoLink{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    object-fit: contain;
+  }
+}
+
+
 .nav {
   height: 100%;
 }

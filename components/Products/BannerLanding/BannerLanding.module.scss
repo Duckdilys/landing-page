@@ -57,7 +57,8 @@
         padding-bottom: var(--size-space) !important;
     }
     .grid{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
         input, textarea{
             width: 100%;
             @include space-input();

@@ -16,7 +16,7 @@ import useMedia from "../../../hook/use-media";
 import { SerializeImage } from "../../../util";
 const News = ({ news, highlightPosts }) => {
   const matchMedia = useMedia("(max-width: 768px)");
-  return (
+    return (
     <div className={styles.container}>
       <LayoutContainer className={styles.contain}>
         <h4>Tin Tức</h4>

@@ -24,8 +24,8 @@ const BlogDetail = ({ data, related_news, hot_news }) => {
     <>
       <BreadCrumbScript
         imageContent={data?.cover_url}
-        description={data?.title}
-        keywords={`news,${data?.title || ""}`}
+        description={data?.seo?.description || data?.title}
+        keywords={`news,${data?.seo?.keywords ||  data?.title || ""}`}
         title={`${data?.title} | MH - Digital`}
         dataElement={[
           ...related_news?.map((item) => {

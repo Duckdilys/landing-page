@@ -41,7 +41,7 @@ const Navigation = ({ products }) => {
             className={`d-flex justify-content-between align-items-center ${styles.nav}`}
           >
             <Link href="/" passHref={true}>
-              <a>
+              <a className={styles.logoLink}>
                 <Logo />
               </a>
             </Link>

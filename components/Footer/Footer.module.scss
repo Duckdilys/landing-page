@@ -14,8 +14,11 @@
   }
 }
 .logo {
-  width: 136px;
-  height: 93px;
+  img{
+    width: 136px;
+    height: 93px;
+    object-fit: contain;
+  }
 }
 .grid {
   display: flex !important;

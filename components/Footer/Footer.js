@@ -40,7 +40,11 @@ const Footer = ({ data_footer }) => {
         <LayoutContainer className={styles["container-footer"]}>
           <div className={styles.grid}>
             <div className={styles["logo-box"]}>
-              <Image src={"/logo-icon.svg"} alt="" className={styles.logo} />
+              <Image
+                src={"/logo-icon-new-mobile.png"}
+                alt=""
+                className={styles.logo}
+              />
               {!isMatchMobile && (
                 <div
                   className={`d-flex align-items-center ${styles.copyright}`}
@@ -61,7 +65,13 @@ const Footer = ({ data_footer }) => {
                           router.asPath === item.path ? styles.active : ""
                         }
                       >
-                        <Link href={index === 2 ? `${item.path}/5/nen-tang-phan-tich-du-lieu-data-mining-platform-5` : item.path}>
+                        <Link
+                          href={
+                            index === 2
+                              ? `${item.path}/5/nen-tang-phan-tich-du-lieu-data-mining-platform-5`
+                              : item.path
+                          }
+                        >
                           {item.name}
                         </Link>
                       </li>
@@ -90,7 +100,9 @@ const Footer = ({ data_footer }) => {
               <ul className={styles["list-contact"]}>
                 <li>Thông tin liên hệ</li>
                 <li data-aos-delay={200}>
-                  <span>Địa chỉ: 71-73, Trần Thái Tông, Dịch Vọng, Cầu Giấy, Hà Nội</span>
+                  <span>
+                    Địa chỉ: 71-73, Trần Thái Tông, Dịch Vọng, Cầu Giấy, Hà Nội
+                  </span>
                 </li>
                 <li data-aos-delay={400}>
                   <span>Email: {data_footer?.[0]?.email}</span>
@@ -134,16 +146,21 @@ const Footer = ({ data_footer }) => {
                 className={`d-flex align-items-center ${styles["list-media"]}`}
               >
                 {isMatchMobile && (
-                <div
-                  className={`d-flex align-items-center ${styles.copyright}`}
-                >
-                  <Image src="/copy-right.svg" alt="" />
-                  <span>Copyright 2020</span>
-                </div>
-              )}
+                  <div
+                    className={`d-flex align-items-center ${styles.copyright}`}
+                  >
+                    <Image src="/copy-right.svg" alt="" />
+                    <span>Copyright 2020</span>
+                  </div>
+                )}
                 {(data_footer?.[0]?.socials || []).map((item, index) => {
                   return (
-                    <a key={index} href={item.src} target='_blank' rel="noreferrer">
+                    <a
+                      key={index}
+                      href={item.src}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <Image
                         className={`d-flex justify-content-center align-items-center rounded-circle ${styles.brand}`}
                         alt=""

@@ -7,9 +7,9 @@ const Logo = (props) => {
         <Image
             className={props.className}
             decoding="async"
-            src={'/logo-icon-new.svg'}
+            src={match ? '/logo-icon-new-mobile.png':'/logo-icon-new.png'}
             alt='logo'
-            width={match ? '46.67' : '80'}
+            width={match ? '46' : '80'}
             height={match ? '32' : '80'}
             priority
             {...props}
