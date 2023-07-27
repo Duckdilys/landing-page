@@ -5,7 +5,8 @@ module.exports = {
   },
   publicRuntimeConfig: {
     MH_SOLUTION_URL: process.env.MH_SOLUTION_URL,
-    MH_SOLUTION_API_URL: process.env.REACT_APP_SERVER_URL
+    MH_SOLUTION_API_URL: process.env.REACT_APP_SERVER_URL,
+    MH_SOLUTION_API_IP: process.env.REACT_APP_SERVER_IP
   },
   webpack(config) {
     config.module.rules.push({
