@@ -2,7 +2,6 @@ import React from "react";
 import styles from '../../Introduction/Line/Line.module.scss';
 import { LayoutContainer, Image } from '..';
 import useMedia from "../../../hook/use-media";
-import { SerializeNormal } from "../../../util";
 const TextImage = ({ title, className, src, mainTitle, classText, aosImage, iconImage, aos, classImage, classNameContainer, rightText }) => {
   const matchMobile = useMedia('(max-width: 768px)');
   return (
