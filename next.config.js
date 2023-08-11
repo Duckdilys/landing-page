@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: false,
   images: {
-    domains: ["cdn.noron.vn", "versatica.ai", "cdn.mhdigital.vn"],
+    domains: ["cdn.noron.vn", "versatica.ai", "cdn.mhdigital.vn", "versatica.io"],
   },
   publicRuntimeConfig: {
     MH_SOLUTION_URL: process.env.MH_SOLUTION_URL,
