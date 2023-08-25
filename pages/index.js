@@ -73,6 +73,7 @@ export const getServerSideProps = async ({ req }) => {
             },
         ],
     });
+
     const partners = await getPartnerCondition(1, 10);
     const highlightPosts = await getNewsByCondition(0, 3, '', {
         sorts: [
@@ -102,17 +103,17 @@ export const getServerSideProps = async ({ req }) => {
     }
     return {
         props: {
-            news: news.result.items.map((post) => {
+            news: news?.result?.items?.map((post) => {
                 return {
                     ...post,
                     created_at: new Date(post.created_at).toLocaleDateString(
                         'vi-VN'
                     ),
                 };
-            }),
-            products: product.result.items || [],
+            })|| [],
+            products: product?.result?.items || [],
             banner: bannerDataHandler?.result?.items || '',
-            partners: partners.result.items || [],
+            partners: partners?.result?.items || [],
             isDisabledAnimation: userIsBot,
             image_products: DataImageProduct || [],
             highlightPosts: highlightPosts,
