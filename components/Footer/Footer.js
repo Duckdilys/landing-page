@@ -68,7 +68,7 @@ const Footer = ({ data_footer }) => {
                         <Link
                           href={
                             index === 2
-                              ? `${item.path}/5/nen-tang-phan-tich-du-lieu-data-mining-platform-5`
+                              ? `${item.path}/nen-tang-phan-tich-du-lieu-data-mining-platform-5`
                               : item.path
                           }
                         >
