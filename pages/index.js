@@ -40,7 +40,7 @@ export default function Home({
                         };
                     }),
                 ]}
-                title={'MH Digital - Giải pháp 4.0'}
+                title={'MH Digital - Công nghệ & Giải pháp dữ liệu'}
             />
             <ContainerBanner banner={banner} />
             <Product product={products} />
