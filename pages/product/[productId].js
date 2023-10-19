@@ -110,7 +110,6 @@ export const getServerSideProps = async ({ req, params }) => {
       isDisabledAnimation: userIsBot,
       data_product: data_product?.result,
       other_products: all_products?.result?.items?.filter((item) => {
-        console.log({ item, productId });
         return +item.id !== +productId;
       }),
       services: all_products?.result?.items,
