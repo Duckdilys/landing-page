@@ -59,7 +59,7 @@ const Navigation = ({ products }) => {
                       onClick={changeToggleHandler}
                       className={`position-relative ${styles.dropdown} ${
                         router.asPath === path.path ||
-                        router.pathname === `${path.path}/[productId]/[id]`
+                        router.pathname === `${path.path}/[productId]`
                           ? styles.active
                           : ""
                       }`}
@@ -81,7 +81,7 @@ const Navigation = ({ products }) => {
                       <ul
                         ref={listRef}
                         className={`${styles["list-dropdown"]}`}
-                        style={{height: isHover ? `${products.length * 70}px` : '0px'}}
+                        style={{height: isHover ? `auto` : '0px'}}
                       >
                         {products &&
                           products?.map((item) => {

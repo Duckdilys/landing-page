@@ -117,7 +117,7 @@ export const getServerSideProps = async ({ req, params }) => {
     url: apiGetProducts,
     method: "POST",
     data: {
-      page_size: 4,
+      page_size: -1,
     },
   });
 
