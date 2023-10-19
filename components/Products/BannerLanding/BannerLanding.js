@@ -7,7 +7,7 @@ import { ApiCooperation } from "../../../config/ApiCooperation";
 import ModelSuccess from "../../container/ModelSuccess/ModelSuccess";
 import { ValidateLengthInput } from "../../../util";
 import FormContact from "../../container/FormContact/FormContact";
-const BannerLanding = ({ website }) => {
+const BannerLanding = ({ website , services}) => {
   const { fetchDataFromServer, data, error, isLoading, resetAllHandler } =
     useFetch();
   const router = useRouter();
@@ -60,6 +60,7 @@ const BannerLanding = ({ website }) => {
             getContentHandler={setContent}
             getEmailHandler={setEmail}
             getPhoneHandler={setPhone}
+            services={services}
           />
         </form>
       </ContainerSmall>
