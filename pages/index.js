@@ -59,7 +59,7 @@ export const getServerSideProps = async ({ req }) => {
       page_size: 3,
     },
   });
-  const product = await getProductsByCondition(1, -1);
+  const product = await getProductsByCondition();
   const news = await getNewsByCondition(1, 3, '', {
     sorts: [
       {
