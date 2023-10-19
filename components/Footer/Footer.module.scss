@@ -1,4 +1,4 @@
-@import "../../theme/fixing";
+@import '../../theme/fixing';
 .footer {
   background: var(--darker-gray);
   padding-top: var(--xxl-size);
@@ -14,7 +14,7 @@
   }
 }
 .logo {
-  img{
+  img {
     width: 136px;
     height: 93px;
     object-fit: contain;
@@ -240,7 +240,7 @@
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 48px !important;
     }
-    .button{
+    .button {
       padding: 8px 10px !important;
     }
 
@@ -261,12 +261,13 @@
 
 @media screen and (max-width: 576px) {
   .logo {
-    width: 58px;
-    height: 40px;
+    img {
+      width: 58px;
+      height: 40px;
+    }
   }
   .footer {
-    padding: var(--size-space) var(--middle-space) var(--pd-12)
-      var(--middle-space) !important;
+    padding: var(--size-space) var(--middle-space) var(--pd-12) var(--middle-space) !important;
     .container-footer {
       padding: 0;
       margin: 0;
