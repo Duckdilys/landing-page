@@ -5,7 +5,7 @@ import { ValidateLengthInput } from '../../../util';
 import useFetch from '../../../hook/use-fetch';
 import { ApiCooperation } from '../../../config/ApiCooperation';
 import ModelSuccess from '../../container/ModelSuccess/ModelSuccess';
-const Form = ({ contact }) => {
+const Form = ({ contact, services }) => {
     const { fetchDataFromServer, data, error, isLoading, resetAllHandler } =
         useFetch();
     const [name, setName] = useState('');
@@ -22,6 +22,7 @@ const Form = ({ contact }) => {
         if (!nameIsValid || !phoneIsValid) {
             return;
         }
+        
         fetchDataFromServer({
             url: ApiCooperation,
             method: 'POST',
@@ -46,6 +47,7 @@ const Form = ({ contact }) => {
                     classGrid={styles['form-grid']}
                     classBtn={styles.btn}
                     className={styles.grid}
+                    services={services}
                 />
             </form>
             <ModelSuccess
