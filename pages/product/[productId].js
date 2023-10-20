@@ -1,24 +1,19 @@
-import React, { Fragment } from "react";
-import Image from "next/image";
-import {
-  BannerPage,
-  TextImage,
-  Button,
-  BreadCrumbScript,
-  Line,
-} from "../../components/container";
+import React, { Fragment } from 'react';
+import Image from 'next/image';
+import { BannerPage, TextImage, Button, BreadCrumbScript, Line } from '../../components/container';
 import styles from '../../components/Products/Banner.module.scss';
-import Introduction from "../../components/Products/Introduction/Introduction";
-import Product from "../../components/Home/Product/Product";
-import { checkUserIsBot } from "../../util";
-import { getProductById } from "../../config/ApiProducts";
-import axiosConfig from "../../service/base";
-import BannerLanding from "../../components/Products/BannerLanding/BannerLanding";
-import { apiGetProducts } from "../../config/ApiProducts";
-import useMedia from "../../hook/use-media";
+import Introduction from '../../components/Products/Introduction/Introduction';
+import Product from '../../components/Home/Product/Product';
+import { checkUserIsBot } from '../../util';
+import { getProductById } from '../../config/ApiProducts';
+import axiosConfig from '../../service/base';
+import BannerLanding from '../../components/Products/BannerLanding/BannerLanding';
+import { apiGetProducts } from '../../config/ApiProducts';
+import useMedia from '../../hook/use-media';
 import { getIdBySeoId } from '../../util/convertString/convertString';
-const Products = ({ data_product, other_products }) => {
-  const isMobile = useMedia("(max-width: 991px");
+const Products = ({ data_product, other_products, services }) => {
+  console.log({ services, other_products });
+  const isMobile = useMedia('(max-width: 991px');
   return (
     <>
       <BreadCrumbScript
@@ -29,48 +24,38 @@ const Products = ({ data_product, other_products }) => {
             href: `/product/${data_product.seo_id}`,
           },
           {
-            name: "Website",
+            name: 'Website',
             href: data_product.website,
           },
         ]}
-        keywords={`product,mhdigital,MH Digital,${data_product?.title || ""}`}
+        keywords={`product,mhdigital,MH Digital,${data_product?.title || ''}`}
       />
       <BannerPage
-        title={data_product?.title || "Không có dữ liệu"}
+        title={data_product?.title || 'Không có dữ liệu'}
         classNameBanner={styles.banner}
         classNameBox={styles.box}
         style={{
-          background: `url('${
-            data_product?.cover_url || "/banner_product_2.png"
-          }')`,
+          background: `url('${data_product?.cover_url || '/banner_product_2.png'}')`,
         }}
       />
       <TextImage
-        mainTitle={"Thông tin chi tiết"}
-        title={
-          data_product?.contents
-            ? data_product?.contents[0]?.content
-            : "Không có dữ liệu"
-        }
-        src={
-          data_product?.contents
-            ? data_product?.contents[0]?.src
-            : "/Products.png"
-        }
-        aosImage="fade-right"
+        mainTitle={'Thông tin chi tiết'}
+        title={data_product?.contents ? data_product?.contents[0]?.content : 'Không có dữ liệu'}
+        src={data_product?.contents ? data_product?.contents[0]?.src : '/Products.png'}
+        aosImage='fade-right'
         iconImage={null}
-        classImage={styles["text-image"]}
-        classText={styles["text-banner"]}
+        classImage={styles['text-image']}
+        classText={styles['text-banner']}
         classNameContainer={styles.container}
-        className={`${styles["container-text"]} flex-row-reverse`}
-        aos="fade-left"
+        className={`${styles['container-text']} flex-row-reverse`}
+        aos='fade-left'
       />
       <Introduction
-        aos="fade-left"
-        title="Chúng tôi cung cấp giải pháp với các ưu điểm vượt trội"
-        src={data_product?.info_url || "/product_intro_1.png"}
+        aos='fade-left'
+        title='Chúng tôi cung cấp giải pháp với các ưu điểm vượt trội'
+        src={data_product?.info_url || '/product_intro_1.png'}
         imageConfig={{
-          "data-aos": "fade-right",
+          'data-aos': 'fade-right',
         }}
         imageClassName={styles.image}
         className={styles.introduction}
@@ -85,19 +70,15 @@ const Products = ({ data_product, other_products }) => {
             );
           })
         ) : (
-          <p className="text-center">Không có dữ liệu</p>
+          <p className='text-center'>Không có dữ liệu</p>
         )}
       </Introduction>
-      <BannerLanding
-        website={data_product?.website}
-        isLanding={data_product?.landing_page}
-      />
+      <BannerLanding website={data_product?.website} isLanding={data_product?.landing_page} services={services} />
       <Product
         className={`${styles.background}`}
-        classNameContainer={`${styles["container-product"]} ${
-          other_products?.length <= 3 && !isMobile && styles.flex}`}
+        classNameContainer={`${styles['container-product']} ${other_products?.length <= 3 && !isMobile && styles.flex}`}
         product={other_products}
-        title="sản phẩm khác của chúng tôi"
+        title='sản phẩm khác của chúng tôi'
         classNameGrid={styles.grid}
       />
     </>
@@ -107,18 +88,16 @@ const Products = ({ data_product, other_products }) => {
 export const getServerSideProps = async ({ req, params }) => {
   const userIsBot = checkUserIsBot(req);
   const { productId: seoId } = params;
-  const productId = getIdBySeoId(seoId)
+  const productId = getIdBySeoId(seoId);
 
   const data_product = await axiosConfig({
     url: getProductById(productId),
-  })
+  });
 
   const all_products = await axiosConfig({
     url: apiGetProducts,
-    method: "POST",
-    data: {
-      page_size: -1,
-    },
+    method: 'POST',
+    data: {},
   });
 
   if (data_product.code >= 400 || all_products.code >= 400) {
@@ -132,7 +111,8 @@ export const getServerSideProps = async ({ req, params }) => {
       data_product: data_product?.result,
       other_products: all_products?.result?.items?.filter((item) => {
         return +item.id !== +productId;
-      })
+      }),
+      services: all_products?.result?.items,
     },
   };
 };

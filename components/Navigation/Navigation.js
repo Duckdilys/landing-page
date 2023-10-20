@@ -81,7 +81,7 @@ const Navigation = ({ products }) => {
                       <ul
                         ref={listRef}
                         className={`${styles["list-dropdown"]}`}
-                        style={{height: isHover ? `auto` : '0px'}}
+                        style={{maxHeight: isHover ? `${products.length * 70}px` : '0px'}}
                       >
                         {products &&
                           products?.map((item) => {

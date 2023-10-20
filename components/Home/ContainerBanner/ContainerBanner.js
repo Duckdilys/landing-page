@@ -8,7 +8,7 @@ import { SwiperSlide } from "swiper/react";
 import styles from "./ContainerBanner.module.scss";
 const ContainerBanner = ({ banner }) => {
   return (
-    <SwiperContainer pagination containerPagination={styles.pagination} classNameNormalBullet={styles.bullet} classNameActiveBullet={styles.active} delay={5000} config={{
+    <SwiperContainer pagination containerPagination={styles.pagination}  classNameActiveBullet={styles.active} delay={5000} config={{
       speed: 1000
     }} loop>
       {
