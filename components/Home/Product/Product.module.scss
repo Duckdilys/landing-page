@@ -1,9 +1,67 @@
 @mixin mg {
     margin: 0 2px !important;
 }
+
+@mixin transition {
+    transition: all .35s ease-in-out
+}
+
 .container {
     overflow: hidden;
     padding-bottom: 34px;
+    :global {
+        .swiper-pagination {
+            height: 20px;
+        }
+    }
+}
+
+.left{
+    left: 10px;
+}
+.right{
+    right: 10px;
+}
+.left, .right{
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        box-shadow: 0px 8px 40px rgba(91, 91, 91, 0.2);
+        border-radius: 50%;
+        overflow: visible;
+    }
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: var(--white);
+    @include transition();
+    &:hover{
+        background: var(--primary-color);
+        path {
+            stroke: var(--white) !important;
+        }
+    }
+    path{
+        stroke: var(--primary-color);
+        stroke-width: 4;
+        @include transition();
+    }
+    svg{
+        width: 9px;
+        height: 18px;
+    }
+    &:hover{
+        path{
+            stroke: var(--primary-color);
+        }
+    }
 }
 
 .container-product {
@@ -14,17 +72,7 @@
     }
     margin-bottom: 84px;
 }
-.normal {
-    width: 6px;
-    height: 6px;
-    @include mg();
-}
-.bullet {
-    width: 10px !important;
-    height: 10px !important;
-    @include mg();
-    border-width: 1px !important;
-}
+
 .slide-swiper {
     width: 297px !important;
 }
@@ -54,5 +102,14 @@
             padding-bottom: 28px !important;
             line-height: var(--size-space);
         }
+    }
+    .normal {
+        width: 6px;
+        height: 6px;
+    }
+    .bullet {
+        width: 10px !important;
+        height: 10px !important;
+        border-width: 1px !important;
     }
 }
