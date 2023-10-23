@@ -173,6 +173,8 @@ body[data-body] {
     --gray-secondary: #888888;
     --overlay-model: rgba(72, 72, 72, 0.5);
     --orange-danger: #ff7145;
+    --background-img:rgba(240, 240, 238, 1);
+
 }
 body[data-model='flow'] {
     overflow: hidden;
@@ -317,5 +319,54 @@ input[type='number'] {
 @media screen and (max-width: 768px) {
     :root {
         --share-pd: 18px 0 30px 0;
+    }
+}
+
+
+.mh-btn-prev{
+    left: 10px;
+}
+.mh-btn-next{
+    right: 10px;
+}
+.mh-btn-prev, .mh-btn-next{
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        box-shadow: 0px 8px 40px rgba(91, 91, 91, 0.2);
+        border-radius: 50%;
+        overflow: visible;
+    }
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: var(--white);
+    @include transition-ease-in-out();
+    &:hover{
+        background: var(--primary-color);
+        path {
+            stroke: var(--white) !important;
+        }
+    }
+    path{
+        stroke: var(--primary-color);
+        stroke-width: 4;
+        @include transition-ease-in-out();
+    }
+    svg{
+        width: 9px;
+        height: 18px;
+    }
+    &:hover{
+        path{
+            stroke: var(--primary-color);
+        }
     }
 }

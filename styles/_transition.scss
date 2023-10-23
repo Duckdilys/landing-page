@@ -22,3 +22,6 @@
     transition: all .5s ease-in-out;
 }
 
+@mixin transition-ease-in-out {
+    transition: all .35s ease-in-out
+}
