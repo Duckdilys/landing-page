@@ -4,7 +4,7 @@
     height: 21px;
   }
   @media screen and (max-width: 768px) {
-    img{
+    img {
       width: 7px;
       height: 15px;
     }
@@ -16,7 +16,7 @@
     height: 16px;
   }
   @media screen and (max-width: 768px) {
-    img{
+    img {
       width: 13px;
       height: 13px;
     }
@@ -47,8 +47,7 @@
 .container {
   position: relative;
   overflow: hidden;
-  padding: var(--middle-space) var(--size-space) var(--size-space)
-    var(--size-space);
+  padding: var(--middle-space) var(--size-space) var(--size-space) var(--size-space);
   background: var(--white);
   img {
     transition: all 0.5s ease-in-out;
@@ -103,14 +102,14 @@
     }
     background: var(--white);
     border-radius: 50%;
-    img{
+    img {
       width: 17px;
       height: 17px;
     }
-    .logo-fb{
+    .logo-fb {
       @include first-logo();
     }
-    .logo-noron{
+    .logo-noron {
       @include last-logo();
     }
   }
@@ -123,12 +122,18 @@
   width: 100%;
   height: 100%;
   .avatar {
-    height: 452px;
-  }
-  img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    background-color: var(--background-img);
+    height: 260px;
+    width: 260px;
+    border-radius: 100%;
+    object-fit: contain;
   }
 }
 
@@ -152,7 +157,7 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .infos{
+  .infos {
     padding-top: var(--pd-12);
   }
   .container {
@@ -160,8 +165,11 @@
     .text {
       padding: var(--middle-space);
     }
-    .avatar{
-      height: 351px;
+    .avatar {
+      img {
+        height: 180px;
+        width: 180px;
+      }
     }
     p {
       &:first-child {
@@ -179,7 +187,7 @@
         font-size: 14px !important;
       }
     }
-    .images { 
+    .images {
       & > div {
         width: var(--middle-space);
         height: var(--middle-space);

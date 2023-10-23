@@ -22,13 +22,13 @@ const BreadCrumbScript = ({ dataElement, title, children, description, imageCont
   return (
     <Head>
       <title>{title}</title>
-      <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
-      <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
+      <link rel='icon' type='image/png' sizes='32x32' href='/logo-32-32.svg' />
+      <link rel='icon' type='image/png' sizes='16x16' href='/logo-16-16.svg' />
       
       <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
       <link rel='manifest' href='/site.webmanifest' />
-      <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5' />
-      <meta name='msapplication-TileColor' content='#da532c' />
+      <link rel='mask-icon' href='/logo-32-32.svg'/>
+      <meta name='msapplication-TileColor' content='#14418a' />
       <meta name='theme-color' content='#ffffff' />
       <meta
         key='og:image'

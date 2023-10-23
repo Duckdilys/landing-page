@@ -27,6 +27,11 @@
 }
 .swiper{
   padding-bottom: 52px;
+  :global {
+    .swiper-pagination {
+        height: 20px;
+    }
+}
 }
 .bg {
   background: var(--light-gray);
@@ -59,6 +64,7 @@
   }
   .swiper{
     padding-bottom: 26px;
+    
   }
   .bullet{
     width: 6px;
@@ -70,3 +76,4 @@
     border-width: 1px !important;
   }
 }
+

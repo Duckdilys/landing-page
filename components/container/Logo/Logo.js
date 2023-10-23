@@ -3,11 +3,12 @@ import useMedia from '../../../hook/use-media';
 import Image from 'next/image';
 const Logo = (props) => {
     const match = useMedia('(max-width: 991px)');
+
     return (
         <Image
             className={props.className}
             decoding="async"
-            src={match ? '/logo-icon-new-mobile.png':'/logo-icon-new.png'}
+            src={'/logo-icon-new.png'}
             alt='logo'
             width={match ? '46' : '80'}
             height={match ? '32' : '80'}

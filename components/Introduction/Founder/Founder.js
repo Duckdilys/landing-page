@@ -12,8 +12,8 @@ const Founder = ({ dataFounder }) => {
         <h4 className={styles.title}>Sáng Lập - Cố Vấn</h4>
         <SwiperContainer
           config={{
-            left: styles.left,
-            right: styles.right,
+            left: 'mh-btn-prev',
+            right: 'mh-btn-next',
             "data-aos-delay": 200,
             "data-aos-offset": 150,
           }}
