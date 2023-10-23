@@ -41,7 +41,7 @@ const Footer = ({ data_footer }) => {
           <div className={styles.grid}>
             <div className={styles["logo-box"]}>
               <Image
-                src={"/logo-icon-new-mobile.png"}
+                src={"/favicon/logo-footer.svg"}
                 alt=""
                 className={styles.logo}
               />

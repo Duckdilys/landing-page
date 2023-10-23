@@ -8,7 +8,7 @@ const Logo = (props) => {
         <Image
             className={props.className}
             decoding="async"
-            src={'/logo-icon-new.png'}
+            src={'/favicon/logo-header.svg'}
             alt='logo'
             width={match ? '46' : '80'}
             height={match ? '32' : '80'}
