@@ -27,7 +27,7 @@ const BreadCrumbScript = ({ dataElement, title, children, description, imageCont
       
       <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
       <link rel='manifest' href='/site.webmanifest' />
-      <link rel='mask-icon' href='/logo-32-32.svg'/>
+      <link rel='mask-icon' href='/logo-32-32.svg' color='#14418a'/>
       <meta name='msapplication-TileColor' content='#14418a' />
       <meta name='theme-color' content='#ffffff' />
       <meta
