@@ -12,7 +12,7 @@
   margin-bottom: var(--pd-64);
   .img {
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       bottom: 0;
@@ -46,118 +46,142 @@
       letter-spacing: var(--letter-spacing);
       border: none;
     }
-    .space{
+    .space {
       padding-bottom: var(--size-space);
     }
   }
   .contact {
     padding-top: 48px;
     h4 {
-        @include font-fs();
-        padding-bottom: var(--size-space) !important;
+      @include font-fs();
+      padding-bottom: var(--size-space) !important;
     }
-    .grid{
+    .grid {
       width: 50%;
       margin-left: auto;
       margin-right: auto;
-        grid-template-columns: repeat(1, 1fr);
-        justify-items: center;
-        input, textarea{
-            width: 100%;
-            @include space-input();
-            border: 1px solid var(--border-color);
-            resize: none;
-            outline: none;
-            font-size: var(--fs-normal);
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
+      input,
+      textarea {
+        width: 100%;
+        @include space-input();
+        border: 1px solid var(--border-color);
+        resize: none;
+        outline: none;
+        font-size: var(--fs-normal);
+      }
+      textarea {
+        &::placeholder {
+          color: var(--gray-secondary);
         }
-        textarea{
-            &::placeholder{
-                color: var(--gray-secondary);
-            }
-        }
+      }
     }
-    .submit{
-        button{
-            border: none;
-            background: var(--primary-color);
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: var(--letter-spacing);
-            font-weight: var(--weight-700);
-        }
-        padding-top: var(--size-space);
+    .submit {
+      button {
+        border: none;
+        background: var(--primary-color);
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing);
+        font-weight: var(--weight-700);
+      }
+      padding-top: var(--size-space);
     }
   }
 }
-.grid-input{
-  input{
+.grid-input {
+  input {
     width: 100%;
   }
-  & > div{
+  & > div {
     width: 100%;
     margin-bottom: var(--middle-space);
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
   }
+  .select {
+    padding: 20px;
+  }
 }
+
+
+
 @media screen and (max-width: 991px) {
-  .container{
-    .text{
+  .container {
+    .text {
       max-width: 100%;
       width: 100%;
+    }
+    .contact {
+      .grid {
+        width: auto;
+        padding: 0;
+      }
+      .grid-input {
+        width: 100%;
+      }
     }
   }
 }
 @media screen and (max-width: 768px) {
-  .container{
+  .container {
     margin-top: var(--pd-36) !important;
-    h5{
+    h5 {
       font-size: var(--fs-nlarge) !important;
       padding-bottom: var(--mg-16) !important;
       line-height: 28px !important;
       letter-spacing: var(--letter-spacing-normal) !important;
     }
-    .contact{
+    .contact {
       padding-top: var(--middle-space) !important;
-      h4{
+      h4 {
         padding-bottom: var(--mg-16) !important;
       }
     }
-    .contact{
-      .grid{
+    .contact {
+      .grid {
         grid-template-columns: repeat(1, 1fr);
         gap: var(--pd-12);
-        input{
-            padding: var(--pd-12) var(--mg-16);
+        input {
+          padding: var(--pd-12) var(--mg-16);
+          font-size: var(--fs-small);
+          &::placeholder {
             font-size: var(--fs-small);
-            &::placeholder{
-              font-size: var(--fs-small);
-            }
+          }
         }
-      } 
-      textarea{
+      }
+      
+      textarea {
         padding: var(--pd-12) var(--mg-16) !important;
       }
-      .submit{
+      .submit {
         padding-top: var(--pd-12);
-        button{
+        button {
           width: 100%;
         }
       }
     }
   }
-  .grid-input{
-    & > div{
+  .grid-input {
+    & > div {
       margin-bottom: var(--pd-12);
+    }
+    .select {
+      padding: var(--pd-12) var(--mg-16);
+      font-size: var(--fs-small);
+      &::placeholder {
+        font-size: var(--fs-small);
+      }
     }
   }
 }
 
 @media screen and (max-width: 576px) {
-  .img{
+  .img {
     height: 168px;
-    img{
+    img {
       height: 168px;
     }
   }

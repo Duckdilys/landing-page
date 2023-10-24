@@ -33,6 +33,7 @@
         line-height: 36px;
         letter-spacing: var(--letter-spacing-secondary);
     }
+    
 }
 .pagination{
     bottom: 32px !important;
@@ -47,6 +48,7 @@
 }
 .bullet{
     background: var(--white);
+    opacity: 1;
 }
 @media screen and (max-width: 991px) {
     .banner{

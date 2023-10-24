@@ -5,6 +5,14 @@ import { StringToHTML } from "../../../container";
 import useHover from "../../../../hook/use-hover";
 import { CSSTransition } from "react-transition-group";
 import { findImageByType } from "../../../../util";
+
+const renderImage = (type, imgStyle='') => {
+  if(type === 'fb') return <Image className={imgStyle} src="/facebook-white-icon.svg" alt="fb-icon" />
+  if(type === 'Noron') return <Image className={imgStyle} src="/noron-white-icon.svg" alt="noron-icon" />
+  if(type === 'ln') return <Image className={imgStyle} src={'/linkedln-white.svg'} alt='ln'/>
+  return null
+}
+
 const RenderSlide = ({ name, introduction, url_cover, socials, job_title }) => {
   const { isHover, isHoverHandler, isNotHoverHandler } = useHover(false);
   return (
@@ -20,9 +28,12 @@ const RenderSlide = ({ name, introduction, url_cover, socials, job_title }) => {
         <div
           className={`d-flex justify-content-center align-items-center ${styles.images}`}
         >
-          <Image src="/facebook-white-icon.svg" alt="" />
-          <Image src="/linkedln-white.svg" alt="" />
-          <Image src="/noron-white-icon.svg" alt="" />
+          {(socials || [])?.map((item, index) => (
+            <React.Fragment key={index}>
+              {renderImage(item?.type)}
+            </React.Fragment>
+          ))}
+          {!socials || socials.length === 0 && <div className="bg-transparent"/>}
         </div>
       </div>
 
@@ -63,7 +74,7 @@ const RenderSlide = ({ name, introduction, url_cover, socials, job_title }) => {
                                 ? "/fb-orange-icon.svg"
                                 : item.type === "Noron"
                                 ? "/noron-orange-icon.svg"
-                                : ""
+                                : "/linkedln-icon.svg"
                             }
                             alt=""
                           />
