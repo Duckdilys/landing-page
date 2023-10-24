@@ -74,7 +74,7 @@ const Navigation = ({ products }) => {
                                 }
                                 onClick={() => {
                                   changeToggleHandler();
-                                  setIsHover(false);
+                                  matchHamburger && setIsHover(false);
                                 }}
                                 key={item.id}
                               >
