@@ -12,8 +12,8 @@ const Founder = ({ dataFounder }) => {
         <h4 className={styles.title}>Sáng Lập - Cố Vấn</h4>
         <SwiperContainer
           config={{
-            left: 'mh-btn-prev',
-            right: 'mh-btn-next',
+            left: styles.left,
+            right: styles.right,
             "data-aos-delay": 200,
             "data-aos-offset": 150,
           }}
@@ -26,7 +26,7 @@ const Founder = ({ dataFounder }) => {
           classNameNormalBullet={styles.bullet}
           classNameActiveBullet={styles['active-bullet']}
           clickable={true}
-          delay={5000}
+          // delay={5000}
         >
           {dataFounder ? (
             dataFounder?.map((founder, index) => {
