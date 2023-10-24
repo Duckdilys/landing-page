@@ -57,11 +57,11 @@ const Navigation = ({ products }) => {
                       onMouseEnter={() => setIsHover(true)}
                       onMouseLeave={() => setIsHover(false)}
                       onClick={changeToggleHandler}
-                      className={`position-relative ${styles.dropdown} ${
+                      className={`position-relative ${matchHamburger ? styles.noBorder : ''} ${styles.dropdown} ${
                         router.asPath === path.path ||
                         router.pathname === `${path.path}/[productId]`
                           ? styles.active
-                          : ""
+                          : styles.noActive
                       }`}
                       key={path.name}
                     >

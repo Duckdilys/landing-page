@@ -51,12 +51,11 @@ const FormContact = ({
             getValueInput={getEmailHandler}
           />
           <Form.Select
-            className='formContact'
-            style={{ padding: '20px' }}
+            className={`formContact ${styles.select}`}
             onChange={(e) => {
               if (e.target.value === 'Khác') {
                 setIsTextArea(true);
-                getContentHandler('');
+                getContentHandler('Khác');
                 return
               }
               getContentHandler(e.target.value);
