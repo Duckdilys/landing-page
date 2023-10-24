@@ -12,7 +12,6 @@ import { apiGetProducts } from '../../config/ApiProducts';
 import useMedia from '../../hook/use-media';
 import { getIdBySeoId } from '../../util/convertString/convertString';
 const Products = ({ data_product, other_products, services }) => {
-  console.log({ services, other_products });
   const isMobile = useMedia('(max-width: 991px');
   return (
     <>
