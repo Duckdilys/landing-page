@@ -33,7 +33,7 @@ const BreadCrumbScript = ({ dataElement, title, children, description, imageCont
       <meta
         key='og:image'
         property='og:image'
-        content={imageContent || '/favicon/logo.svg'}
+        content={imageContent || '/favicon/logo_bg.png'}
       />
       <meta key='author' name='author' content='MH Media INTERNATIONAL TECHNOLOGY JSC' />
       <meta key='keywords' name='keywords' content={keywords || 'mhdigital, MH Digital'} />
