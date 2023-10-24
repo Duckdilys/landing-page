@@ -260,7 +260,7 @@
         }
         &:hover {
           .list-dropdown {
-            padding: var(--mg-16) var(--middle-space);
+            padding: var(--mg-16) var(--middle-space) 0 var(--middle-space);
             margin-top: 16px;
             border-top: 1px solid var(--border-mobile);
           }
