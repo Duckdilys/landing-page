@@ -25,7 +25,7 @@ const Contact = ({ services }) => {
         <ContainerSmall className={`${styles.contact}`}>
           <ul className='d-flex justify-content-between align-items-center'>
             {isMobile && <li className={styles['title-contact']}>thông tin liên hệ</li>}
-            <li>
+            <li className={isMobile && 'align-self-start'}>
               <Image
                 src='/Icon/house-icon.svg'
                 alt=''
@@ -34,7 +34,7 @@ const Contact = ({ services }) => {
               />
               <span>Địa chỉ: 71-73, Trần Thái Tông, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</span>
             </li>
-            <li>
+            <li className={isMobile && 'align-self-start'}>
               <Image
                 src='/Icon/mail-icon.svg'
                 alt=''
@@ -43,7 +43,7 @@ const Contact = ({ services }) => {
               />
               <span>Email: contact@mhdigital.vn</span>
             </li>
-            <li>
+            <li className={isMobile && 'align-self-start'}>
               <Image
                 src='/Icon/phone-footer-icon.svg'
                 alt=''
