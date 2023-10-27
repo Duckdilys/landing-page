@@ -138,6 +138,7 @@
       flex-direction: column;
       line-height: 20px;
       li{
+        display: block;
         padding-bottom: var(--pd-12);
         span{
           font-size: 12px;

@@ -1,14 +1,14 @@
-import React, { useEffect, useMemo, useState } from "react";
-import SwiperBackground from "../../components/News/SwiperBackground/SwiperBackground";
-import ListNews from "../../components/News/ListNews/ListNews";
-import { checkUserIsBot, removeUnicode } from "../../util";
-import { getNewsApi } from "../../config/ApiNews";
-import useFetch from "../../hook/use-fetch";
-import { useRouter } from "next/router";
-import getCategoriesCondition from "../../service/getCategories";
-import getNewsByCondition from "../../service/getNews";
-import { Pagination, BreadCrumbScript } from "../../components/container";
-import { useSelector } from "react-redux";
+import React, { useEffect, useMemo, useState } from 'react';
+import SwiperBackground from '../../components/News/SwiperBackground/SwiperBackground';
+import ListNews from '../../components/News/ListNews/ListNews';
+import { checkUserIsBot, removeUnicode } from '../../util';
+import { getNewsApi } from '../../config/ApiNews';
+import useFetch from '../../hook/use-fetch';
+import { useRouter } from 'next/router';
+import getCategoriesCondition from '../../service/getCategories';
+import getNewsByCondition from '../../service/getNews';
+import { Pagination, BreadCrumbScript } from '../../components/container';
+import { useSelector } from 'react-redux';
 const News = ({ categories, news, totalPage, heading }) => {
   const { isLoading, error, fetchDataFromServer, data: dataNews } = useFetch();
   const selectedPostByType = useSelector((state) => state.category.category);
@@ -22,27 +22,27 @@ const News = ({ categories, news, totalPage, heading }) => {
   useEffect(() => {
     fetchDataFromServer({
       url: getNewsApi,
-      method: "POST",
+      method: 'POST',
       data: {
         page: query,
-        keyword: "",
+        keyword: '',
         page_size: 9,
         sorts: [
           {
-            property: "created_at",
-            direction: "DESC"
-          }
+            property: 'created_at',
+            direction: 'DESC',
+          },
         ],
         filters:
           selectedPostByType === 0
             ? null
             : [
-              {
-                name: "category_new_id",
-                operation: "eq",
-                value: selectedPostByType,
-              },
-            ],
+                {
+                  name: 'category_new_id',
+                  operation: 'eq',
+                  value: selectedPostByType,
+                },
+              ],
       },
     });
   }, [query, fetchDataFromServer, selectedPostByType]);
@@ -55,7 +55,7 @@ const News = ({ categories, news, totalPage, heading }) => {
       const transformPost = posts.map((item) => {
         return {
           ...item,
-          created_at: new Date(item.created_at).toLocaleDateString("vi-VN"),
+          created_at: new Date(item.created_at).toLocaleDateString('vi-VN'),
         };
       });
       setPosts(transformPost);
@@ -67,7 +67,7 @@ const News = ({ categories, news, totalPage, heading }) => {
     <>
       <BreadCrumbScript
         title={`Tin tức | MH - Digital | Trang ${query}`}
-        keywords="news,tin tuc,MH Digital,mhdigital"
+        keywords='news,tin tuc,MH Digital,mhdigital'
         dataElement={news.map((item) => {
           return {
             name: item.title,
@@ -82,49 +82,51 @@ const News = ({ categories, news, totalPage, heading }) => {
         isLoading={isLoading}
         error={error}
         perPage={8}
-      >
-        {totalDocuments > 0 && totalDocuments && <Pagination
-          totalDocuments={totalDocuments}
-          perPage={9}
-          currentPage={query}
-        />}
-      </ListNews>
+        renderPagination={({ isResetPage, onResetPage }) =>
+          totalDocuments > 0 &&
+          totalDocuments && (
+            <Pagination
+              totalDocuments={totalDocuments}
+              perPage={9}
+              currentPage={query}
+              isResetPage={isResetPage}
+              onResetPage={onResetPage}
+            />
+          )
+        }
+      ></ListNews>
     </>
   );
 };
 
 export const getServerSideProps = async ({ req, query }) => {
   const userIsBot = checkUserIsBot(req);
-  const categories = await getCategoriesCondition(1, 10, "");
+  const categories = await getCategoriesCondition(1, 10, '');
   const page = +query?.page || 1;
-  const getNewsByPage = await getNewsByCondition(page, 9, "", {
+  const getNewsByPage = await getNewsByCondition(page, 9, '', {
     sorts: [
       {
-        property: "created_at",
-        direction: "DESC"
-      }
-    ]
+        property: 'created_at',
+        direction: 'DESC',
+      },
+    ],
   });
-  const getHeadingSwiper = await getNewsByCondition(0, 3, "", {
+  const getHeadingSwiper = await getNewsByCondition(0, 3, '', {
     sorts: [
       {
-        property: "created_at",
-        direction: "DESC",
+        property: 'created_at',
+        direction: 'DESC',
       },
     ],
     filters: [
       {
-        name: "is_highlights",
-        operation: "eq",
+        name: 'is_highlights',
+        operation: 'eq',
         value: 1,
       },
     ],
   });
-  if (
-    categories.code >= 400 ||
-    getNewsByPage.code >= 400 ||
-    getHeadingSwiper.code >= 400
-  ) {
+  if (categories.code >= 400 || getNewsByPage.code >= 400 || getHeadingSwiper.code >= 400) {
     return {
       notFound: true,
     };
@@ -136,7 +138,7 @@ export const getServerSideProps = async ({ req, query }) => {
       news: getNewsByPage?.result?.items?.map((item) => {
         return {
           ...item,
-          created_at: new Date(item.created_at).toLocaleDateString("vi-VN"),
+          created_at: new Date(item.created_at).toLocaleDateString('vi-VN'),
         };
       }),
       totalPage: getNewsByPage.result?.total,

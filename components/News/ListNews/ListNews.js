@@ -5,7 +5,7 @@ import Category from "../Category/Category";
 import New from "../New/New";
 import styles from "./ListNews.module.scss";
 import useMedia from "../../../hook/use-media";
-const ListNews = ({ news, categories, isLoading, perPage, children }) => {
+const ListNews = ({ news, categories, isLoading, perPage, renderPagination}) => {
   const matchMedia = useMedia("(max-width: 991px)");
   const type = useSelector((state) => state.category.category);
   const [isResetPage, setIsResetPage] = useState(false);
@@ -53,10 +53,10 @@ const ListNews = ({ news, categories, isLoading, perPage, children }) => {
             news={news}
             turnLoadingToArray={turnLoadingToArray}
           >
-            {React.cloneElement(children, {
-              isResetPage,
-              onResetPage,
-            })}
+            {
+              renderPagination({isResetPage, onResetPage})
+            }
+           
           </New>
         </Grid>
       </ContainerSmall>
