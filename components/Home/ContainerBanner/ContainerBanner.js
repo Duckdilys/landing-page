@@ -15,7 +15,7 @@ const ContainerBanner = ({ banner }) => {
       className={styles.swiper}
       loop
     >
-      {banner.map((item) => {
+      {(banner ||[]).map((item) => {
         return (
           <SwiperSlide key={item.id}>
             <Container
