@@ -112,7 +112,7 @@ export const getServerSideProps = async ({ req }) => {
           };
         }) || [],
       products: product?.result?.items || [],
-      banner: bannerDataHandler?.result?.items || '',
+      banner: bannerDataHandler?.result?.items || [],
       partners: partners?.result?.items || [],
       isDisabledAnimation: userIsBot,
       image_products: DataImageProduct || [],

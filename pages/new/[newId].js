@@ -102,7 +102,7 @@ export const getServerSideProps = async ({ req, query }) => {
   const postDetail = await axiosConfig({
     url: getNewById(+newId),
   });
-  const { category_new_id } = postDetail?.result;
+  const { category_new_id } = postDetail?.result || '';
   const postRelated = await getNews(0, 3, "", {
     filters: [
       {

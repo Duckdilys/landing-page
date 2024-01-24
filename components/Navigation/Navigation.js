@@ -7,6 +7,7 @@ import paths from './path';
 import styles from './Navigation.module.scss';
 import useMedia from '../../hook/use-media';
 import useToggle from '../../hook/use-toggle';
+import { VERSATICA_APP } from '../../config';
 const Navigation = ({ products }) => {
   const router = useRouter();
   const [isHover, setIsHover] = useState(false);
@@ -63,7 +64,7 @@ const Navigation = ({ products }) => {
                       <ul
                         ref={listRef}
                         className={`${styles['list-dropdown']}`}
-                        style={{ maxHeight: isHover ? `${products.length * 70}px` : '0px' }}
+                        style={{ maxHeight: isHover ? `${products?.length * 70}px` : '0px' }}
                       >
                         {products &&
                           products?.map((item) => {
@@ -78,7 +79,13 @@ const Navigation = ({ products }) => {
                                 }}
                                 key={item.id}
                               >
-                                <Link href={`/product/${item.seo_id}`}>{item.title.toLowerCase()}</Link>
+                                {item?.seo_id === VERSATICA_APP.seo_id ? (
+                                  <a href={VERSATICA_APP.link} target='_blank' rel='noreferrer'>
+                                    {item?.title?.toLowerCase()}
+                                  </a>
+                                ) : (
+                                  <Link href={`/product/${item.seo_id}`}>{item.title.toLowerCase()}</Link>
+                                )}
                               </li>
                             );
                           })}

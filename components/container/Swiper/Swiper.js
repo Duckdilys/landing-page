@@ -28,7 +28,7 @@ const SwiperContainer = ({
   return (
     <Swiper
       data-aos={aos}
-      slidesPerView={slidesPerView || "auto"}
+      slidesPerView={slidesPerView || 1}
       spaceBetween={spaceBetween || 0}
       onInit={
         navigation

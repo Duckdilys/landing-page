@@ -1,34 +1,86 @@
-.parser{
+.parser {
     font-family: var(--font-primary) !important;
     text-align: justify;
-    p, ul, h1, h2, h3, h4, h5, h6, strong, li, em, span{
+
+    p,
+    ul,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    li,
+    em,
+    span {
         font-family: var(--font-primary) !important;
         padding-bottom: 16px;
-        &:last-child{
+
+        &:last-child {
             padding-bottom: 0;
         }
+
         line-height: 28px;
         letter-spacing: var(--letter-spacing);
         background: transparent !important;
     }
-    p, span, li, em, strong {
+
+    p,
+    span,
+    li,
+    em,
+    strong {
         font-size: var(--fs-normal) !important;
     }
-    span{
+
+    span {
         padding-bottom: 0;
     }
-    img{
+
+    img {
         width: 100% !important;
         height: auto !important;
         margin: 16px 0;
     }
+
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+
+        tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+        }
+
+        td {
+            padding: 0.4rem;
+        }
+    }
+    tbody, td, tfoot, th, thead, tr {
+        border-width: 1px;
+    }
 }
 
 @media screen and (max-width: 768px) {
-    .parser{
+    .parser {
         font-size: var(--fs-small);
         line-height: 20px;
-        p, ul, h1, h2, h3, h4, h5, h6, strong, li, em, span{
+
+        p,
+        ul,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        strong,
+        li,
+        em,
+        span {
             font-size: var(--fs-small) !important;
             line-height: 20px;
         }
