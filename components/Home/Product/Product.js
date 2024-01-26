@@ -44,7 +44,7 @@ const Product = ({ product, title, className, classNameContainer }) => {
           classNameNormalBullet={styles.normal}
           classNameActiveBullet={styles.bullet}
           className={`${styles.container}`}
-          slidesPerView={1}
+          slidesPerView={'auto'}
           spaceBetween={tabletView ? 17 : 24}
           navigation={matchMedia ? false : true}
           loop
