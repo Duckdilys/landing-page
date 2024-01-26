@@ -7,7 +7,6 @@ import paths from './path';
 import styles from './Navigation.module.scss';
 import useMedia from '../../hook/use-media';
 import useToggle from '../../hook/use-toggle';
-import { VERSATICA_APP } from '../../config';
 const Navigation = ({ products }) => {
   const router = useRouter();
   const [isHover, setIsHover] = useState(false);
@@ -79,13 +78,7 @@ const Navigation = ({ products }) => {
                                 }}
                                 key={item.id}
                               >
-                                {item?.seo_id === VERSATICA_APP.seo_id ? (
-                                  <a href={VERSATICA_APP.link} target='_blank' rel='noreferrer'>
-                                    {item?.title?.toLowerCase()}
-                                  </a>
-                                ) : (
-                                  <Link href={`/product/${item.seo_id}`}>{item.title.toLowerCase()}</Link>
-                                )}
+                                <Link href={`/product/${item.seo_id}`}>{item.title.toLowerCase()}</Link>
                               </li>
                             );
                           })}

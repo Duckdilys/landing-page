@@ -16,6 +16,21 @@ const Founder = ({ dataFounder }) => {
             right: styles.right,
             "data-aos-delay": 200,
             "data-aos-offset": 150,
+            breakpoints: {
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+             
+              567: {
+                slidesPerView: 2,
+                spaceBetween: 32,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 42,
+              },
+            },
           }}
           aos="fade-up"
           className={styles.swiper}
@@ -26,7 +41,7 @@ const Founder = ({ dataFounder }) => {
           classNameNormalBullet={styles.bullet}
           classNameActiveBullet={styles['active-bullet']}
           clickable={true}
-          // delay={5000}
+          delay={5000}
         >
           {dataFounder ? (
             dataFounder?.map((founder, index) => {
