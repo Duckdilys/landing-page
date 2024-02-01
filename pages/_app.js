@@ -1,3 +1,4 @@
+import Script from 'next/experimental-script';
 import Navigation from "../components/Navigation/Navigation";
 import App from "next/app";
 import Footer from "../components/Footer/Footer";
@@ -36,6 +37,24 @@ function MyApp({ Component, pageProps, isDisabledAnimation, products, data_foote
   return (
     <>
       <Provider store={store}>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1TTSZ7TFXK"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytic"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+    
+                    gtag('config', 'G-1TTSZ7TFXK');
+                    `,
+          }}
+        />
         <Navigation products={products} />
         <ButtonUpTop />
         <Overlay />
