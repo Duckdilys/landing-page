@@ -41,13 +41,15 @@
     src: url('/Nunito_Sans/NunitoSans-ExtraLight.ttf');
     font-weight: 200;
 }
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import './transition.scss';
 @import './grid.scss';
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 400;
     font-size: 16px;
 }
 body,
@@ -68,7 +70,7 @@ body[data-body] {
         #1351a8 15.38%,
         #2b247b 84.62%
     );
-    --font-primary: 'Nunito Sans';
+    --font-primary: 'Be Vietnam Pro';
     --black: #000000;
     --orange-secondary: #ff4e16;
     --black-primary: #1d1d1d;
@@ -114,6 +116,7 @@ body[data-body] {
     --orange-light-danger: #fff0ec;
     --less-dark-orange: #fd7d55;
     --lighest-orange: #fff4f0;
+    --lighest-gray: #f7f7f7;
     --darker-orange: #ff6432;
     --light-gray: #f7f7f7;
     --blue-primary: #1673ff;

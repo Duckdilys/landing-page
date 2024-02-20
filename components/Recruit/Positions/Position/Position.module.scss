@@ -72,12 +72,12 @@
     margin-right: var(--xs-size);
     &:last-child {
       margin-right: 0;
-      background: #ede9ff;
-      color: #2c00d4;
+      background: var(--light-gray);
+      color: var(--light-black);
     }
     &:nth-of-type(2) {
-      background: #e7f1ff;
-      color: var(--blue-primary);
+      background: var(--light-gray);
+      color: var(--light-black);
     }
   }
   flex-wrap: wrap;
