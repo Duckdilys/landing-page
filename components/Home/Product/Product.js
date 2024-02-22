@@ -47,6 +47,7 @@ const Product = ({ product, title, className, classNameContainer }) => {
           slidesPerView={'auto'}
           spaceBetween={tabletView ? 17 : 24}
           navigation={matchMedia ? false : true}
+          delay={5000}
           loop
         >
           {_renderProducts.map((item, index) => {
