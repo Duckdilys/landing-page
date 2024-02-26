@@ -21,7 +21,7 @@ const SwiperBackground = ({ posts, prefixURL }) => {
         classNameNormalBullet={styles["normal-pagination"]}
         classNameActiveBullet={styles["active-pagination"]}
         config={{
-          // onTransitionEnd: function () {
+                    // onTransitionEnd: function () {
           //   const indexActive = this.realIndex;
           //   this.slides.forEach((slide) => {
           //     const textSlider = slide.querySelector(".container-text");
@@ -44,7 +44,7 @@ const SwiperBackground = ({ posts, prefixURL }) => {
           //   }
           //   textItem.classList.add(styles["swiper-back-active"]);
           // },
-          speed: 600,
+                    speed: 600,
         }}
       >
         {posts.map((post, index) => {
@@ -61,7 +61,7 @@ const SwiperBackground = ({ posts, prefixURL }) => {
             </SwiperSlide>
           );
         })}
-      </SwiperContainer>
+              </SwiperContainer>
     </ContainerSmall>
   );
 };
