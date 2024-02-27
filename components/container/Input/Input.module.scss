@@ -1,6 +1,7 @@
 .input{
     input{
-        padding: var(--input-space);
+        // padding: var(--input-space);
+        padding-left: 46px;
         border: 1px solid var(--gray-lighter) !important;
         outline: none !important;
         &::placeholder{
