@@ -77,12 +77,18 @@
         h4,
         h5,
         h6,
-        strong,
         li,
         em,
         span {
             font-size: var(--fs-small) !important;
             line-height: 20px;
+        }
+        h2 {
+            font-weight: var(--weight-800) !important;
+        }
+        strong {
+            font-size: var(--fs-small) !important;
+            font-weight: var(--weight-700);
         }
     }
 }
